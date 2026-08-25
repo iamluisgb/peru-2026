@@ -54,8 +54,7 @@ test('los ids de ficha son únicos en todos los bloques', () => {
 
 test('cada ficha tiene los campos obligatorios de CONTENIDO.md', () => {
   for (const f of fichas) {
-    assert.ok(f.id && f.nombre && f.lugar, `ficha incompleta: ${f.id}`);
-    assert.equal(typeof f.altitud_m, 'number', `${f.id}: altitud_m debe ser número`);
+    assert.ok(f.id && f.nombre, `ficha incompleta: ${f.id}`);
     assert.equal(typeof f.verificado, 'boolean', `${f.id}: falta verificado`);
     assert.ok(f.de_pie?.gancho, `${f.id}: falta gancho`);
     const mira = f.de_pie?.mira || [];
@@ -63,9 +62,28 @@ test('cada ficha tiene los campos obligatorios de CONTENIDO.md', () => {
   }
 });
 
-test('el día de cada ficha existe en el itinerario', () => {
+// `lugar` y `altitud_m` son de un SITIO. Una transversal no está en ningún sitio y no tiene
+// altitud: pedírselos era exigir que mintiera para pasar el test.
+test('cada ficha de sitio tiene lugar y altitud', () => {
+  for (const f of fichas.filter(f => !esTransversal(f))) {
+    assert.ok(f.lugar, `${f.id}: falta lugar`);
+    assert.equal(typeof f.altitud_m, 'number', `${f.id}: altitud_m debe ser número`);
+  }
+});
+
+// Una transversal —cómo leer un muro inca, qué es un apu— no pertenece a un día: se lee
+// una vez y sirve los doce. Por eso no lleva `dia` y estos tests la tratan aparte.
+const esTransversal = f => f.tipo === 'transversal';
+
+test('el día de cada ficha de sitio existe en el itinerario', () => {
   const dias = new Set(itinerario.dias.map(d => d.n));
-  for (const f of fichas) assert.ok(dias.has(f.dia), `${f.id}: el día ${f.dia} no existe`);
+  for (const f of fichas.filter(f => !esTransversal(f)))
+    assert.ok(dias.has(f.dia), `${f.id}: el día ${f.dia} no existe`);
+});
+
+test('una transversal no lleva día', () => {
+  for (const f of fichas.filter(esTransversal))
+    assert.equal(f.dia, undefined, `${f.id}: una transversal no pertenece a un día`);
 });
 
 test('las conexiones culturales apuntan a un recurso real', () => {
@@ -96,10 +114,27 @@ test('cada actividad del itinerario resuelve a una ficha (o está declarada pend
   assert.deepEqual(rotas, [], `actividades que no resuelven a ninguna ficha: ${rotas.join(', ')}`);
 });
 
-test('ninguna ficha queda huérfana', () => {
-  const usadas = new Set(itinerario.dias.flatMap(d => d.actividades || []));
-  const huerfanas = fichas.map(f => f.id).filter(id => !usadas.has(id));
-  assert.deepEqual(huerfanas, [], `fichas que ningún día referencia: ${huerfanas.join(', ')}`);
+// El invariante NO es "toda ficha está en un día" —eso era falso para las transversales—
+// sino "toda ficha es ALCANZABLE". Un sitio lo es desde su día; una transversal, desde el
+// `relacionadas` de al menos una ficha. Así el guardarraíl sigue vivo: una transversal que
+// nadie enlaza sigue siendo un bug, y se caza igual.
+test('toda ficha es alcanzable', () => {
+  const desdeDias = new Set(itinerario.dias.flatMap(d => d.actividades || []));
+  const desdeFichas = new Set(fichas.flatMap(f => f.relacionadas || []));
+  const inalcanzables = fichas
+    .filter(f => !(esTransversal(f) ? desdeFichas.has(f.id) : desdeDias.has(f.id)))
+    .map(f => `${f.id} (${f.tipo || 'sitio'})`);
+  assert.deepEqual(inalcanzables, [],
+    `fichas a las que no se puede llegar: ${inalcanzables.join(', ')}`);
+});
+
+test('`relacionadas` sólo apunta a transversales que existen', () => {
+  const trans = new Set(fichas.filter(esTransversal).map(f => f.id));
+  const rotas = [];
+  for (const f of fichas)
+    for (const r of f.relacionadas || [])
+      if (!trans.has(r)) rotas.push(`${f.id} → ${r}`);
+  assert.deepEqual(rotas, [], `relacionadas que no resuelven a una transversal: ${rotas.join(', ')}`);
 });
 
 test('todo bloque de data/guia está registrado en BLOQUES_GUIA', () => {

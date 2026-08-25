@@ -1,0 +1,29 @@
+{
+  "bloque": "transversales",
+  "nombre": "Para entender lo que ves",
+  "fichas": [
+    {
+      "id": "muro-inca",
+      "tipo": "transversal",
+      "nombre": "Cómo leer un muro inca",
+      "verificado": false,
+      "de_pie": {
+        "gancho": "PENDIENTE",
+        "mira": [
+          "PENDIENTE — detalles localizables"
+        ],
+        "practico": {
+          "duracion": "2 min de lectura",
+          "notas": []
+        }
+      },
+      "de_sofa": {
+        "contexto": "",
+        "dato": "",
+        "conexion": []
+      },
+      "preguntas": [],
+      "fuentes": []
+    }
+  ]
+}

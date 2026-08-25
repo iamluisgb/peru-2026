@@ -79,7 +79,22 @@ ve por la ventana. Público cautivo y sin cobertura: es exactamente el hueco de 
 
 **Cómo leer lo que se ve** (`data/guia/transversales.json`). Fichas que se enlazan desde muchos
 sitios: distinguir un muro inca imperial de uno provincial, por qué los topónimos acaban en
-*-tambo* o *-marca*, quién fue Pachacútec, qué es un *apu*. Se leen una vez y sirven diez días.
+*-tambo* o *-marca*, quién fue Pachacútec, qué es un *apu*. Se leen una vez y sirven doce días.
+
+Una transversal **no pertenece a un día**, así que lleva `"tipo": "transversal"` y **no lleva
+`dia` ni `altitud_m`**. Las fichas de sitio la enlazan con `relacionadas: ["muro-inca"]`, y ahí
+aparece al pie, bajo *"Para entender esto"* — que es donde se lee de verdad, delante de la piedra.
+En el índice tiene su propio grupo al final.
+
+El test de alcanzabilidad las cubre igual: **una transversal que ninguna ficha enlaza es un bug**
+y falla la build. El invariante no es "toda ficha está en un día" —eso era falso— sino "toda ficha
+es alcanzable"; un sitio lo es desde su día, una transversal desde su `relacionadas`.
+
+Su `practico` sólo lleva `duracion` ("2 min de lectura"): `incluido` y `fotos` son de un sitio
+que se visita y en una transversal no significan nada.
+
+El criterio para que algo merezca ser transversal: **que lo pidan tres sitios o más**. Si sólo lo
+pide uno, es un párrafo de esa ficha, no una transversal.
 
 **Qué preguntarle al guía.** El campo `preguntas`. El guía de Lima Tours sabe más de lo que va a
 contar por defecto; la app no compite con él, le abre la puerta.

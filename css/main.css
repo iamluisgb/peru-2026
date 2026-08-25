@@ -127,6 +127,9 @@ a { color: inherit; }
 }
 .chip svg { opacity: 0.7; }
 .chip--acento { background: var(--accent-soft); color: var(--accent); }
+/* Un chip que además es enlace (las transversales al pie de una ficha). */
+a.chip { text-decoration: none; min-height: 32px; transition: background var(--dur-fast) var(--ease); }
+a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .chip--libre { background: transparent; color: var(--text-soft); border-color: var(--border); }
 .chip--alt { font-variant-numeric: tabular-nums; font-weight: 600; }
 .chip--alt[data-nivel="baja"]  { background: var(--altitud-baja-soft);  color: var(--altitud-baja); }

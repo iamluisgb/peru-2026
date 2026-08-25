@@ -10,7 +10,9 @@
       "dia": 8,
       "altitud_m": 3400,
       "verificado": false,
-      "avisos": ["koricancha-domingo"],
+      "avisos": [
+        "koricancha-domingo"
+      ],
       "de_pie": {
         "gancho": "Estas paredes estuvieron forradas de planchas de oro, y de aquí salió buena parte del rescate de Atahualpa: se arrancaron, se fundieron y desaparecieron.",
         "mira": [
@@ -22,15 +24,23 @@
           "duracion": "~1 h",
           "incluido": true,
           "fotos": "sí, trípode no",
-          "notas": ["Cierra domingos por la mañana — y vuestra visita es domingo por la mañana."]
+          "notas": [
+            "Cierra domingos por la mañana — y vuestra visita es domingo por la mañana."
+          ]
         }
       },
       "de_sofa": {
         "contexto": "Era el templo principal del imperio y el punto del que partían los ceques, las líneas rituales que enlazaban las huacas repartidas por el valle; lo que sabemos de ellas viene de la relación que dejó el jesuita Bernabé Cobo en 1653. Los españoles construyeron encima el convento de Santo Domingo, y lo hicieron ahí precisamente por eso: levantar la iglesia sobre el templo era el argumento. El terremoto del 21 de mayo de 1950 dejó a Santo Domingo como el templo más dañado de la ciudad — se vinieron abajo los arcos de la torre y buena parte del crucero, y cayó el balcón que dominaba el Cusco. Los muros incas de debajo aguantaron. La reconstrucción arrancó en 1956 con la UNESCO detrás, y se optó por dejar a la vista la fábrica inca. Así que hoy se ve lo que se ve: el terremoto deshizo el gesto.",
         "dato": "El jardín de oro con mazorcas y animales a tamaño real que se cuenta de este recinto no lo ha visto nunca un arqueólogo. Viene entero de lo que escribieron los cronistas —Garcilaso sobre todo, décadas después y desde España—, no queda una sola pieza y no hay manera de comprobarlo. Es de las cosas que un guía cuenta como si fuera un inventario y es un relato.",
         "conexion": [
-          { "recurso": "Los últimos días de los Incas", "donde": "capítulos del saqueo del Cusco" },
-          { "recurso": "Comentarios reales de los Incas", "donde": "descripción del Cusco" }
+          {
+            "recurso": "Los últimos días de los Incas",
+            "donde": "capítulos del saqueo del Cusco"
+          },
+          {
+            "recurso": "Comentarios reales de los Incas",
+            "donde": "descripción del Cusco"
+          }
         ]
       },
       "preguntas": [
@@ -46,6 +56,9 @@
         "Pedro Cieza de León, «Crónica del Perú» (ca. 1553) — el oro del Coricancha recogido en 1533 para el rescate de Atahualpa. Vía https://es.wikipedia.org/wiki/Coricancha",
         "Inca Garcilaso de la Vega, «Comentarios reales de los Incas» (1609) — descripción del jardín de oro; es la fuente del relato, no una comprobación de él.",
         "NOTA — cifras no publicadas: el número de planchas de oro arrancadas del templo varía según el cronista (Pedro Sancho habla de más de 500; a Cieza se le atribuyen 700), así que la ficha no da ninguna. Tampoco da el número de ceques y huacas, que oscila según el autor."
+      ],
+      "relacionadas": [
+        "muro-inca"
       ]
     },
     {
@@ -81,7 +94,10 @@
             "recurso": "Comentarios reales de los Incas",
             "donde": "la descripción de Huacaypata y Cusipata"
           },
-          { "recurso": "Los últimos días de los Incas", "donde": "el cerco de Manco Inca al Cusco" }
+          {
+            "recurso": "Los últimos días de los Incas",
+            "donde": "el cerco de Manco Inca al Cusco"
+          }
         ]
       },
       "preguntas": [
@@ -130,7 +146,10 @@
             "recurso": "Los últimos días de los Incas",
             "donde": "el cerco de 1536, del que viene el nombre del Triunfo"
           },
-          { "recurso": "Crónica del Perú", "donde": "el Cusco de los primeros años tras la conquista" }
+          {
+            "recurso": "Crónica del Perú",
+            "donde": "el Cusco de los primeros años tras la conquista"
+          }
         ]
       },
       "preguntas": [

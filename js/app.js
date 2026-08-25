@@ -86,7 +86,7 @@ function htmlDia(d, { esHoy = false } = {}) {
 function htmlEnlaceFicha(f) {
   return `<a href="#/guia/${esc(f.id)}">
     <span class="nom">${esc(f.nombre)}</span>
-    <span class="meta">${f.altitud_m} m</span>
+    <span class="meta">${f.tipo === 'transversal' ? 'los 12 días' : mil(f.altitud_m) + ' m'}</span>
   </a>`;
 }
 
@@ -153,7 +153,9 @@ function verGuia(id) {
   pintar(`
     <a class="volver" href="#/guia">${icono('atras', 16)} Guía</a>
     <header class="cabecera">
-      <p class="eyebrow">${esc(f.lugar)} · Día ${f.dia}</p>
+      <p class="eyebrow">${f.tipo === 'transversal'
+        ? 'Para entender lo que ves'
+        : `${esc(f.lugar)} · Día ${f.dia}`}</p>
       <h1>${esc(f.nombre)}</h1>
     </header>
     <article class="tarjeta ficha">
@@ -163,7 +165,7 @@ function verGuia(id) {
       <ol class="mira">${f.de_pie.mira.map(m => `<li>${esc(m)}</li>`).join('')}</ol>
       <div class="chips">
         ${p.duracion ? `<span class="chip">${icono('reloj', 13)}${esc(p.duracion)}</span>` : ''}
-        ${chipAltitud(f.altitud_m)}
+        ${typeof f.altitud_m === 'number' ? chipAltitud(f.altitud_m) : ''}
         ${p.incluido ? '<span class="chip chip--acento">incluido</span>' : ''}
         ${p.fotos ? `<span class="chip">fotos: ${esc(p.fotos)}</span>` : ''}
       </div>
@@ -179,6 +181,10 @@ function verGuia(id) {
         </div>
       </details>` : ''}
 
+      ${(f.relacionadas || []).length ? `<h3>Para entender esto</h3>
+        <div class="chips">${f.relacionadas.map(r => datos.fichas[r]).filter(Boolean).map(t =>
+          `<a class="chip chip--acento" href="#/guia/${esc(t.id)}">${icono('guia', 13)}${esc(t.nombre)}</a>`).join('')}</div>` : ''}
+
       ${(f.preguntas || []).length ? `<h3>Para preguntarle al guía</h3>
         <ul class="preguntas">${f.preguntas.map(q => `<li>${esc(q)}</li>`).join('')}</ul>` : ''}
 
@@ -192,8 +198,11 @@ function verGuia(id) {
 // El índice se agrupa por día y no alfabéticamente: la pregunta real no es "¿dónde está
 // Raqchi?" sino "¿qué toca mañana?".
 function verIndiceGuia() {
+  const todas = Object.values(datos.fichas);
+  const transversales = todas.filter(f => f.tipo === 'transversal');
   const porDia = new Map();
-  for (const f of Object.values(datos.fichas)) {
+  for (const f of todas) {
+    if (f.tipo === 'transversal') continue;
     if (!porDia.has(f.dia)) porDia.set(f.dia, []);
     porDia.get(f.dia).push(f);
   }
@@ -203,7 +212,7 @@ function verIndiceGuia() {
     <header class="cabecera">
       <p class="eyebrow">${icono('guia', 14)} Guía</p>
       <h1>Qué estás viendo</h1>
-      <p class="sub">${Object.keys(datos.fichas).length} sitios, agrupados por el día que tocan.</p>
+      <p class="sub">${todas.length - transversales.length} sitios, agrupados por el día que tocan.</p>
     </header>
     <div class="indice">
       ${dias.map(n => {
@@ -211,6 +220,8 @@ function verIndiceGuia() {
         return `<div class="indice-grupo">Día ${n} · ${d ? esc(d.titulo) : ''}</div>` +
           porDia.get(n).map(htmlEnlaceFicha).join('');
       }).join('')}
+      ${transversales.length ? `<div class="indice-grupo">Para entender lo que ves</div>` +
+        transversales.map(htmlEnlaceFicha).join('') : ''}
     </div>`);
 }
 
