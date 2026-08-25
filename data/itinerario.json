@@ -10,25 +10,25 @@
   },
 
   "paradas": [
-    { "id": "lima",            "nombre": "Lima",             "altitud_m": 154,  "verificado": false },
-    { "id": "arequipa",        "nombre": "Arequipa",         "altitud_m": 2335, "verificado": false },
-    { "id": "colca",           "nombre": "Cañón del Colca",  "altitud_m": 3635, "verificado": false },
-    { "id": "patapampa",       "nombre": "Mirador de Patapampa", "altitud_m": 4910, "verificado": false, "solo_paso": true },
-    { "id": "puno",            "nombre": "Puno",             "altitud_m": 3830, "verificado": false },
-    { "id": "cusco",           "nombre": "Cusco",            "altitud_m": 3400, "verificado": false },
-    { "id": "ollantaytambo",   "nombre": "Ollantaytambo",    "altitud_m": 2790, "verificado": false },
-    { "id": "aguas-calientes", "nombre": "Aguas Calientes",  "altitud_m": 2040, "verificado": false },
-    { "id": "machu-picchu",    "nombre": "Machu Picchu",     "altitud_m": 2430, "verificado": false }
+    { "id": "lima",            "nombre": "Lima",             "altitud_m": 154,  "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Lima — altitud del centro histórico ≈154 m"] },
+    { "id": "arequipa",        "nombre": "Arequipa",         "altitud_m": 2335, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Arequipa (2335 m)"] },
+    { "id": "colca",           "nombre": "Cañón del Colca",  "altitud_m": 3635, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Chivay (3.635 m)"] },
+    { "id": "patapampa",       "nombre": "Mirador de Patapampa", "altitud_m": 4910, "verificado": true, "solo_paso": true, "fuentes": ["Guías del mirador de Patapampa (4.910 m)"] },
+    { "id": "puno",            "nombre": "Puno",             "altitud_m": 3830, "verificado": true,  "fuentes": ["en.wikipedia.org/wiki/Puno (3830 m)"] },
+    { "id": "cusco",           "nombre": "Cusco",            "altitud_m": 3400, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Cusco (3400 m)"] },
+    { "id": "ollantaytambo",   "nombre": "Ollantaytambo",    "altitud_m": 2790, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Ollantaytambo (≈2790 m)"] },
+    { "id": "aguas-calientes", "nombre": "Aguas Calientes",  "altitud_m": 2040, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Aguas_Calientes (2040 m)"] },
+    { "id": "machu-picchu",    "nombre": "Machu Picchu",     "altitud_m": 2430, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Machu_Picchu (2.430 m)"] }
   ],
 
   "hoteles": [
-    { "parada": "lima",            "nombre": "Britania Miraflores Hotel",       "noches": 2, "desde": "2026-08-30", "direccion": null, "telefono": null },
-    { "parada": "arequipa",        "nombre": "Hotel Corregidor",               "noches": 1, "desde": "2026-09-01", "direccion": null, "telefono": null },
-    { "parada": "colca",           "nombre": "Hotel Pozo del Cielo",           "noches": 1, "desde": "2026-09-02", "direccion": null, "telefono": null },
-    { "parada": "puno",            "nombre": "Casa Andina Standard Puno",      "noches": 2, "desde": "2026-09-03", "direccion": null, "telefono": null },
-    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 2, "desde": "2026-09-05", "direccion": null, "telefono": null },
-    { "parada": "aguas-calientes", "nombre": "Casa Andina Standard Machu Picchu", "noches": 1, "desde": "2026-09-07", "direccion": null, "telefono": null },
-    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 1, "desde": "2026-09-08", "direccion": null, "telefono": null }
+    { "parada": "lima",            "nombre": "Britania Miraflores Hotel",       "noches": 2, "desde": "2026-08-30", "direccion": "Calle Independencia 211, Miraflores, Lima 15074, Perú", "telefono": "+51 961 359 381", "fuentes": ["Listados de reserva (Google/Booking) — C. Independencia 211, Miraflores"] },
+    { "parada": "arequipa",        "nombre": "Hotel Corregidor",               "noches": 1, "desde": "2026-09-01", "direccion": "Calle San Pedro 139, Arequipa 04001, Perú", "telefono": "+51 54 288081", "fuentes": ["Sitio oficial — cassana.pe/es/hotel-corregidor"] },
+    { "parada": "colca",           "nombre": "Hotel Pozo del Cielo",           "noches": 1, "desde": "2026-09-02", "direccion": "Calle Huáscar Mz. E Lote 3-6, Chivay, Arequipa, Perú", "telefono": null, "fuentes": ["Listados de reserva (Booking/OTA) — Calle Huáscar Mz. E Lote 3-6, Chivay"] },
+    { "parada": "puno",            "nombre": "Casa Andina Standard Puno",      "noches": 2, "desde": "2026-09-03", "direccion": "Jirón Independencia 143, Puno 21001, Perú", "telefono": "+51 51 367803", "fuentes": ["Listados de reserva (Google/Hoteles/OTA) — Jr. Independencia 143, Puno"] },
+    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 2, "desde": "2026-09-05", "direccion": "Av. Hipólito Unánue 155, Wanchaq, Cusco 08002, Perú", "telefono": "+51 84 222712", "fuentes": ["Listados de reserva (OTA) — Av. Hipólito Unánue 155, Cusco"] },
+    { "parada": "aguas-calientes", "nombre": "Casa Andina Standard Machu Picchu", "noches": 1, "desde": "2026-09-07", "direccion": "Prolongación Imperio de los Incas, Aguas Calientes, Machu Picchu 08681, Perú", "telefono": "+51 84 211017", "fuentes": ["Listados de reserva (OTA) — Prolongación Imperio de los Incas, Aguas Calientes"] },
+    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 1, "desde": "2026-09-08", "direccion": "Av. Hipólito Unánue 155, Wanchaq, Cusco 08002, Perú", "telefono": "+51 84 222712", "fuentes": ["Listados de reserva (OTA) — Av. Hipólito Unánue 155, Cusco"] }
   ],
 
   "vuelos": [
