@@ -1,0 +1,102 @@
+{
+  "bloque": "titicaca",
+  "nombre": "Lago Titicaca",
+  "_nota": "Día 6: día completo en lancha compartida desde Puno — Uros por la mañana, Taquile después. Todas las cifras con verificado:false — ver CONTENIDO.md y CLAUDE.md.",
+  "fichas": [
+    {
+      "id": "uros",
+      "nombre": "Islas flotantes de los Uros",
+      "lugar": "Lago Titicaca, frente a Puno",
+      "dia": 6,
+      "altitud_m": 3812,
+      "verificado": false,
+      "avisos": ["sol-lago"],
+      "de_pie": {
+        "gancho": "El suelo que vais a pisar cede bajo el pie porque no es suelo: es totora apilada sobre bloques de raíz que flotan, y hay que reponerla cada pocas semanas.",
+        "mira": [
+          "Nada más bajar de la lancha, pisad fuerte una vez y notad cómo cede. Debajo de los juncos hay uno o dos metros de khili, los bloques de raíz flotante de unos 4 × 10 m sobre los que se arma la isla entera.",
+          "Los postes de eucalipto clavados en el borde de la isla, con su cuerda: son el ancla. Sin ellos la isla se va con el viento, que es justamente para lo que se inventaron.",
+          "La torreta de vigía de totora que muchas islas tienen en un extremo. Desde arriba se ve el archipiélago entero y se entiende que esto es un barrio, no una isla suelta.",
+          "Amarrados juntos, el caballito de totora y la lancha de motor. La misma isla y dos economías: una lleva a la gente a Puno, la otra os lleva a vosotros cincuenta metros."
+        ],
+        "practico": {
+          "duracion": "~1 h 30 dentro de la excursión de día completo",
+          "incluido": true,
+          "fotos": "sí en el exterior; dentro de una casa, preguntad antes",
+          "notas": [
+            "Hoy sólo entra el desayuno: lo que se coma en el lago va aparte.",
+            "Soles en billete pequeño. Se compra artesanía, el paseo en balsa suele cobrarse aparte y aquí no hay cajeros.",
+            "El suelo cede y está húmedo: cuidado al bajar de la lancha y calzado que no importe mojar.",
+            "A 3.812 m y sobre el agua el sol pega el doble. Gorro y crema desde primera hora."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Los uros son un pueblo preinca del altiplano que acabó viviendo sobre el agua, y las islas de totora empezaron siendo defensa: una isla se puede mover y una casa no. Bajo los incas tributaban en pescado. Hoy la situación del pueblo uro es incómoda de contar y conviene contarla entera: su lengua propia lleva casi un siglo extinta y en las islas se habla aimara, quechua y castellano; en el censo de 2017, 681 personas se autoidentificaron como uro en todo el Perú, y la mayor parte de ellas no vive en el lago sino en tierra firme, en la comunidad campesina de Uros Chulluni. Las islas que se visitan desde Puno viven del turismo y lo hacen a la vista: la demostración de cómo se corta y se apila la totora, la casa abierta, la mesa de artesanía. Merece verse por lo que es —un trabajo, y bastante duro— y no como una postal ni como un montaje. La técnica de construir las islas es Patrimonio Cultural de la Nación desde 2013.",
+        "dato": "La isla no se conserva: se repone. La capa de juncos de abajo se pudre y hay que echar totora nueva por encima cada dos semanas o cada tres meses según el tiempo, y aun así la isla entera dura unos veinticinco años. Entonces se deja hundir y se hace otra.",
+        "conexion": [
+          { "recurso": "Wiñaypacha", "donde": "el aimara del altiplano, una de las lenguas que hoy se hablan en las islas" },
+          { "recurso": "Crónica del Perú", "donde": "la descripción del Collao y de la laguna del Titicaca" }
+        ]
+      },
+      "preguntas": [
+        "¿Cuánta gente duerme de verdad en esta isla y cuánta viene sólo a trabajar?",
+        "¿Cómo se reparte entre las islas lo que deja el turismo, y quién decide el turno de visita?",
+        "¿Se está enseñando la lengua uro en la escuela o el aimara ya ganó del todo?"
+      ],
+      "fuentes": [
+        "Ministerio de Cultura del Perú, Base de Datos de Pueblos Indígenas u Originarios, pueblo Uro — censo 2017 (681 autoidentificados), lengua uro extinta desde hace casi un siglo, comunidad campesina Uros Chulluni en tierra firme, islas de totora declaradas Patrimonio Cultural de la Nación en 2013. https://bdpi.cultura.gob.pe/pueblos/uro",
+        "https://en.wikipedia.org/wiki/Uros — bloques de raíz khili de 1-2 m de grosor y unos 4 × 10 m, anclaje con postes de eucalipto, reposición de la totora cada dos semanas a tres meses según el tiempo, vida útil de la isla en torno a 25 años, torres de vigía, alrededor de 120 islas.",
+        "https://es.wikipedia.org/wiki/Lago_Titicaca — altitud del lago 3.812 m s. n. m.; la totora (Scirpus californicus) como material de islas, casas y embarcaciones."
+      ]
+    },
+    {
+      "id": "taquile",
+      "nombre": "Isla de Taquile",
+      "lugar": "Lago Titicaca, 45 km de Puno",
+      "dia": 6,
+      "altitud_m": 3950,
+      "verificado": false,
+      "avisos": ["sol-lago"],
+      "de_pie": {
+        "gancho": "En Taquile el punto lo hacen los hombres, empezando de niños, y por el gorro que uno lleva puesto se sabe si está casado.",
+        "mira": [
+          "Si la lancha atraca en el puerto Chilcano, la subida al pueblo son 540 gradas en zigzag —así las cuenta la ficha oficial del Mincetur—, y se hacen a 3.950 m. Ése es el esfuerzo del día.",
+          "Los hombres haciendo punto de pie y andando, con la madeja colgando del brazo. No es para la foto: es su trabajo y lo hacen mientras caminan.",
+          "La faja ancha de las mujeres, el cinturón-calendario: los dibujos son el año entero, con sus fiestas y sus faenas agrícolas.",
+          "Desde el alto del pueblo, las terrazas de cultivo bajando por toda la ladera hasta el agua. Se cultiva la isla entera y no hay un solo vehículo para subir ni bajar nada."
+        ],
+        "practico": {
+          "duracion": "~2-3 h en la isla, con la subida",
+          "incluido": true,
+          "fotos": "sí; a las personas, preguntando antes",
+          "notas": [
+            "El almuerzo de hoy no está incluido: sólo entra el desayuno. Llevad efectivo.",
+            "3.950 m en el pueblo: es la cota más alta que se pisa en el lago, y se llega subiendo.",
+            "En la isla no hay vehículos ni hoteles. Lo que suba, sube a hombros.",
+            "Soles en efectivo y no contéis con pagar con tarjeta."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Taquile fue de todo menos suya durante siglos: tras la conquista pasó a manos españolas —el nombre de la isla viene de Pedro Gonzales de Taquila— y entre 1917 y 1931 funcionó como cárcel política, que para eso una isla es perfecta. Los taquileños la fueron comprando a plazos a sus dueños hasta recuperarla entera; la ficha oficial del Mincetur la da como propiedad de los isleños desde 1942. Hoy se gobiernan por trabajo colectivo, con la isla dividida en seis suyus que rotan los cultivos y con el viejo código ama sua, ama llulla, ama qella: no robar, no mentir, no ser perezoso. El tejido no es una artesanía de recuerdo: la Unesco proclamó «El arte textil de Taquile» Obra Maestra del Patrimonio Oral e Inmaterial en 2005 y lo inscribió en la Lista Representativa en 2008. Y el reparto del trabajo es estricto: los hombres hacen punto, las mujeres hilan, tiñen y tejen a telar las fajas.",
+        "dato": "La isla recibe del orden de 40.000 visitantes al año, y los taquileños montaron su propia agencia de viajes, Munay Taquile, precisamente para no depender de las de Puno. Es de los pocos sitios del lago donde la comunidad decide cómo se la visita.",
+        "conexion": [
+          { "recurso": "Wiñaypacha", "donde": "la vejez en el altiplano, a esta misma altura y con este mismo frío" },
+          { "recurso": "Uchpa", "donde": "el quechua vivo — el que se habla en la isla es quechua de Puno" }
+        ]
+      },
+      "preguntas": [
+        "¿Qué lengua se habla en la isla y cuál en la orilla de enfrente?",
+        "¿Dónde se compra un tejido de forma que el dinero llegue a quien lo hizo?",
+        "¿Cómo se reparte hoy el turismo entre las familias y quién fija los turnos?"
+      ],
+      "fuentes": [
+        "Mincetur, Inventario Nacional de Recursos Turísticos, ficha 959 «Isla Taquile» — 3.950 m s. n. m., 5,5 × 1,5 km, acceso por el puerto Chilcano con 540 gradas en zigzag, seis suyus, cárcel política entre 1917 y 1931, propiedad de los taquileños desde 1942. http://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=959",
+        "https://es.wikipedia.org/wiki/Isla_de_Taquile — superficie 5,72 km², punto más alto 4.050 m, unos 2.200 habitantes, 45 km de Puno, ausencia de vehículos y hoteles, código ama sua / ama llulla / ama quella, origen del topónimo en Pedro Gonzales de Taquila, el chullo como marca de estado civil.",
+        "https://en.wikipedia.org/wiki/Taquile_Island — el punto lo hacen exclusivamente los hombres desde niños; las mujeres hilan, tiñen y tejen las chumpis; unos 40.000 visitantes al año; agencia propia Munay Taquile; los taquileños hablan quechua de Puno.",
+        "Unesco, expediente 00166 «El arte textil de Taquile» — proclamado Obra Maestra del Patrimonio Oral e Inmaterial en 2005 e inscrito en la Lista Representativa en 2008; el chullo con orejeras y el cinturón-calendario que representa los ciclos anuales. https://ich.unesco.org/es/RL/el-arte-textil-de-taquile-00166"
+      ]
+    }
+  ]
+}

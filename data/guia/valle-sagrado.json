@@ -1,0 +1,193 @@
+{
+  "bloque": "valle-sagrado",
+  "nombre": "Valle Sagrado",
+  "_nota": "Día 9: Chinchero (el punto alto), Yucay, Ollantaytambo y el tren hasta Aguas Calientes. El día entero baja: 3.762 → 2.857 → 2.792 → 2.040 m. Cifras con verificado:false — ver CONTENIDO.md y CLAUDE.md.",
+  "fichas": [
+    {
+      "id": "chinchero",
+      "nombre": "Chinchero",
+      "lugar": "Chinchero, provincia de Urubamba",
+      "dia": 9,
+      "altitud_m": 3762,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "La iglesia de la plaza no está junto al palacio de Túpac Yupanqui: está encima, y los muros de abajo siguen siendo los suyos.",
+        "mira": [
+          "El muro inca que cierra un lado de la plaza, con su hilera de hornacinas trapezoidales del tamaño de una persona de pie: es lo que queda del palacio de Túpac Yupanqui, y la iglesia se apoya en él.",
+          "Dentro del templo, los muros y el techo pintados enteros, sin un palmo liso. No es una iglesia con cuadros colgados: es una iglesia pintada.",
+          "El lienzo de la Virgen de Monserrat: los ángeles no la acompañan, están serrando la montaña. Lo firmó en 1693 Francisco Chihuantito, pintor quechua de la escuela cusqueña.",
+          "En la demostración de tejido, el momento de la cochinilla: sale del cactus hecha un bicho gris, la aplastan en la palma y queda carmín; con unas gotas de limón vira a naranja."
+        ],
+        "practico": {
+          "duracion": "~1 h",
+          "incluido": true,
+          "fotos": "sí en la plaza y los andenes; dentro de la iglesia suele estar prohibido",
+          "notas": [
+            "3.762 m: Chinchero está más alto que Cusco. Es el punto alto del día y de aquí en adelante todo baja.",
+            "Yucay a 2.857 m, Ollantaytambo a 2.792 y Aguas Calientes a 2.040: hoy se respira cada vez mejor conforme avanza la jornada.",
+            "Si vais a comprar tejido en el viaje, aquí y en Yucay es donde se ve quién lo ha hecho."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Chinchero fue finca real: Túpac Yupanqui mandó levantar aquí palacios, andenes y santuarios para la élite, en un alto ventoso por encima del valle. El pueblo colonial se plantó literalmente encima. La iglesia la impulsó el virrey Toledo hacia 1572 y se terminó en 1607, con la advocación de Nuestra Señora de Monserrat —hoy se la nombra también como de la Natividad—, sobre los muros del palacio inca. Es la fórmula de siempre, sólo que aquí se ve mejor que en ningún otro sitio del valle, porque el muro inca sigue a la vista en la plaza y no hay que imaginárselo. Dentro, la pintura mural lo cubre todo, y entre los lienzos hay obra de Diego Quispe Tito y de Francisco Chihuantito, los dos pintores indígenas de la escuela cusqueña. El tejido tampoco es un añadido para turistas: las asociaciones de tejedoras del pueblo llevan organizadas desde 1996, y aquí han trabajado varias generaciones de antropólogos estudiando la técnica.",
+        "dato": "En el lienzo de 1693, la Virgen de Monserrat y la montaña acaban siendo la misma cosa: los ángeles serrando el monte son literalmente lo que dice el nombre catalán —mont serrat, monte aserrado—, y en los Andes eso encajaba con una idea que ya estaba ahí, la del cerro que es un ser y no un paisaje. Nadie tuvo que traducir nada.",
+        "conexion": [
+          { "recurso": "Comentarios reales de los Incas", "donde": "las casas y heredades reales de los incas alrededor del Cusco" },
+          { "recurso": "Lituma en los Andes", "donde": "el cerro que tiene dueño, la idea que hay detrás de esa Virgen" }
+        ]
+      },
+      "preguntas": [
+        "¿Cuánto queda del palacio de Túpac Yupanqui debajo de la iglesia?",
+        "¿Cuántas hornacinas tiene el muro de la plaza y qué había en ellas?",
+        "¿En qué queda el aeropuerto de Chinchero y qué opina el pueblo?"
+      ],
+      "fuentes": [
+        "https://en.wikipedia.org/wiki/Chinchero_District — altitud de la capital del distrito, 3.762 m; producción textil y los estudios de Ed y Chris Franquemont en los años setenta. OJO: la es.wikipedia da 3.754 m; las dos cifras no coinciden y aquí se usa la primera.",
+        "https://es.wikipedia.org/wiki/Chinchero — Túpac Yupanqui planificó palacios para la élite; la iglesia colonial se alza sobre los restos del palacio; asociaciones y centros textiles desde 1996.",
+        "Fuentes locales sobre el templo (perumillas.com, cusco.pro, peruchoquequiraotrek.com, cocatambo.com) — fundación impulsada por el virrey Toledo en 1572 y obra terminada en 1607, advocación de Nuestra Señora de Monserrat; lienzo de la Virgen de Monserrat de 1693 firmado por Francisco Chihuantito; lienzos de Diego Quispe Tito.",
+        "NO se publica aquí el número de hornacinas del muro de la plaza: las fuentes consultadas dan 10 y 12 y no se ha podido contrastar."
+      ]
+    },
+    {
+      "id": "yucay",
+      "nombre": "Museo Vivo de Yucay",
+      "lugar": "Yucay, provincia de Urubamba",
+      "dia": 9,
+      "altitud_m": 2857,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Esto no es un museo de vitrinas: es un patio donde alguien hace delante de vosotros lo que en otros sitios está detrás de un cristal.",
+        "mira": [
+          "El corral de los cuyes, normalmente pegado a la cocina. No son mascotas: son la despensa, y en la sierra siguen criándose así, sueltos en casa.",
+          "Las llamas y las alpacas del recinto, juntas: la llama es más alta y de cara más larga, la alpaca más baja y con la fibra mucho más densa. Tocad las dos, la diferencia está en la mano.",
+          "La olla de tintes: la misma cochinilla da carmín, y vira a naranja o a morado según le echen limón o ceniza. El color no viene de un bote.",
+          "El telar de cintura: un extremo atado a un poste y el otro a la cintura de la tejedora. El tensor de la tela es su propio cuerpo, y por eso la tensión cambia si se mueve."
+        ],
+        "practico": {
+          "duracion": "~1 h",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": [
+            "Es una de las dos paradas del viaje donde el tejido se compra a quien lo hizo. Preguntad qué parte del precio se queda el tejedor.",
+            "2.857 m: casi 900 por debajo de Cusco. Se nota al respirar y al andar.",
+            "Hoy sólo entra el desayuno."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Yucay era finca real, y la razón es el clima: el valle está protegido y templado para la altura que tiene —la media anual ronda los 14 °C—, así que los incas lo eligieron para cultivar y para descansar. La historia que mejor lo explica es la de Sayri Túpac. En 1557 los españoles negociaron con él su salida de Vilcabamba, donde la corte inca seguía resistiendo. Entró en Lima el 5 de enero de 1558, renunció a la soberanía, y a cambio recibió una renta anual, el perdón, la dispensa papal para casarse con su hermana Cusi Huarcay y el señorío del valle de Yucay. Vivió primero en Cusco y después aquí. Murió de repente en 1561, en pleno valle. Dicho de otra manera: el precio que se pagó por la rendición del último Inca reconocido fue exactamente esta tierra.",
+        "dato": "Sayri Túpac duró tres años en el trato. Murió aquí en 1561, y la resistencia de Vilcabamba se rehízo sin él bajo su hermano Titu Cusi: el valle se pagó y la guerra siguió igual.",
+        "conexion": [
+          { "recurso": "Los últimos días de los Incas", "donde": "la negociación con Sayri Túpac y los últimos incas de Vilcabamba" },
+          { "recurso": "Comentarios reales de los Incas", "donde": "el valle de Yucay y las heredades reales" }
+        ]
+      },
+      "preguntas": [
+        "¿Cuánto del precio de un tejido se queda la persona que lo teje?",
+        "¿Queda algo en pie del palacio de Sayri Túpac en el pueblo?",
+        "¿Qué se cultiva hoy en estos andenes y qué se cultivaba en tiempos incas?"
+      ],
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/Yucay — 2.857 m s. n. m., a unos 68 km de Cusco; palacio de Sayri Túpac, andenes y templo de Santiago Apóstol; media anual de 14,2 °C (el artículo la atribuye a climate-data.org y Accuweather).",
+        "https://es.wikipedia.org/wiki/Sayri_Túpac — salida de Vilcabamba, entrada en Lima el 5 de enero de 1558, renta anual, dispensa papal para casarse con Cusi Huarcay, señorío del valle de Yucay, y muerte repentina en Yucay en 1561.",
+        "Yucay Museo de Cultura Viva — páginas del propio museo y reseñas de visitantes: crianza de cuyes y alpacas, tintes naturales, demostraciones de tejido y cerámica. NO se publica aquí ninguna cifra del museo (superficie, año de apertura, visitantes): no hay fuente primaria que las respalde."
+      ]
+    },
+    {
+      "id": "ollantaytambo",
+      "nombre": "Ollantaytambo",
+      "lugar": "Ollantaytambo, provincia de Urubamba",
+      "dia": 9,
+      "altitud_m": 2792,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Aquí un ejército inca ganó una batalla campal a los españoles, y la ganó inundando el llano por el que vais a llegar.",
+        "mira": [
+          "Al otro lado del río Urubamba, en la ladera de enfrente y unos 5 km valle arriba, las manchas claras de la cantera de Kachiqhata. De ahí salió la riolita rosada del Templo del Sol, y para traerla había que cruzar el río.",
+          "En la rampa que sube al Muro de los Seis Monolitos, las piedras cansadas: bloques abandonados a medio camino el día que se paró la obra. Bajo alguno se han encontrado rodillos de madera.",
+          "Arriba del todo, el Muro de los Seis Monolitos: seis bloques puestos de pie, con tiras finas de piedra encajadas entre ellos a modo de junta.",
+          "Enfrente, en la ladera de Pinkuylluna sobre el pueblo, los qollqas colgados en la pendiente. Están tan arriba a propósito: allí corre más viento y hace más frío, y el grano aguanta sin pudrirse."
+        ],
+        "practico": {
+          "duracion": "~1 h 30",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": [
+            "La subida a las terrazas es larga y de escalón alto. A 2.792 m se respira mejor que en Cusco, pero es el esfuerzo físico serio del día.",
+            "El pueblo de abajo se recorre en quince minutos y da más que la mitad de las ruinas de la ruta. Si sobra rato, gastadlo ahí.",
+            "De aquí sale el tren. La estación está a las afueras y el equipaje ya tiene que ir hecho con el límite de mano."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Ollantaytambo no es una fortaleza, aunque una vez se usara como tal. Según el cronista Sarmiento de Gamboa, Pachacútec conquistó y destruyó el sitio antes de incorporarlo al imperio; después se regó el valle, se levantaron los andenes y se construyó aquí una finca real y un control de paso hacia el Antisuyo. Lo de arriba —el Templo del Sol y sus monolitos— se quedó sin terminar. En 1537, Manco Inca hizo aquí lo único que ningún otro ejército inca consiguió: derrotar a una expedición española. Los frenó desde las terrazas altas y anegó el llano de Mascabamba, donde la caballería dejó de servir para nada. Aun así no le bastó y acabó retirándose a Vilcabamba. Y luego está el pueblo, que es la otra mitad de la visita: el trazado inca sigue en pie, cuatro calles longitudinales cruzadas por siete transversales, con las canchas —recintos amurallados con patio— todavía habitadas.",
+        "dato": "Las manzanas del pueblo de abajo son canchas incas y la gente sigue viviendo dentro, con el mismo trazado y en muchos casos los mismos muros. Los canalillos que corren por el medio de las calles siguen llevando agua. No es un yacimiento: es un pueblo inca en funcionamiento.",
+        "conexion": [
+          { "recurso": "Los últimos días de los Incas", "donde": "la batalla de Ollantaytambo y la retirada de Manco Inca a Vilcabamba" },
+          { "recurso": "Lost Kingdoms of South America", "donde": "la cantería y la ingeniería inca" }
+        ]
+      },
+      "preguntas": [
+        "¿Cómo cruzaban el río los bloques de Kachiqhata?",
+        "¿Por qué se quedó sin terminar el Templo del Sol?",
+        "¿Qué parte del pueblo de abajo es inca de verdad y qué parte es reconstrucción?"
+      ],
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/Ollantaytambo — 2.792 m s. n. m.; Sarmiento de Gamboa sobre la conquista y destrucción del sitio por Pachacútec; derrota de la expedición española por Manco Inca en el llano de Mascabamba, frenándola desde los andenes e inundando el llano; quince manzanas y calles del pueblo (Patakalli, Chaupikalli, Hornokalli, Lariskalli).",
+        "https://en.wikipedia.org/wiki/Ollantaytambo — riolita rosada de la cantera de Kachiqhata, al otro lado del Urubamba y a unos 5 km del pueblo; rampas y «piedras cansadas», con rodillos de madera hallados bajo un bloque; qollqas de Pinkuylluna y por qué se sitúan en alto (más viento y menos temperatura); trazado ortogonal de cuatro calles longitudinales por siete transversales, canchas y plaza Manyaraki. El artículo cita a Protzen (1993) y León (1998).",
+        "La altitud del itinerario para esta parada es 2.790 m; la es.wikipedia da 2.792 y es la que se usa aquí."
+      ]
+    },
+    {
+      "id": "tren-valle",
+      "nombre": "El tren del valle a Aguas Calientes",
+      "lugar": "Ollantaytambo → Aguas Calientes",
+      "dia": 9,
+      "altitud_m": 2040,
+      "verificado": false,
+      "avisos": ["equipaje-5kg", "custodia-cusco", "sin-cobertura", "noche-aguas-calientes"],
+      "de_pie": {
+        "gancho": "Hora y media de tren que baja unos 750 m, y en ese desnivel el valle deja de ser sierra y se convierte en selva de montaña.",
+        "mira": [
+          "El río Urubamba siempre al lado: la vía no elige trazado, va por el único hueco que queda entre la pared y el agua. Si podéis, sentaos del lado del río.",
+          "Los carteles del kilómetro 82 y del 88 de la vía: son los dos arranques del Camino Inca clásico. Ahí se baja la gente con mochila grande y bastones y se les ve echar a andar.",
+          "La vegetación por la ventana: se sale entre eucaliptos y maizales y media hora después hay helechos, bromelias y musgo colgando de la roca. Ése es el momento exacto en que se entra en la ceja de selva.",
+          "Antes de salir, desde el andén de Ollantaytambo, la mole nevada del Verónica (5.792 m) cerrando el valle."
+        ],
+        "practico": {
+          "duracion": "~1 h 30",
+          "incluido": true,
+          "fotos": "sí, con el cristal de por medio",
+          "notas": [
+            "5 kg de equipaje de mano: es lo que dice TUI y es el número con el que hay que hacer la mochila. Las compañías publican hoy más —Inca Rail, 8 kg; PeruRail, 8 kg de mochila o 12 de bolso—, pero el resto del equipaje se queda en custodia en Cusco de todas formas.",
+            "En la estación de Ollantaytambo hay depósito de equipaje gratuito de PeruRail, de 04:15 a 21:00.",
+            "Buena parte del trayecto va sin cobertura. Es el rato para leer la ficha larga de mañana.",
+            "Se llega a Aguas Calientes, a 2.040 m: casi 1.400 por debajo de Cusco. Es la mejor noche de sueño del viaje."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "A Aguas Calientes no llega ninguna carretera. Se entra en tren o andando por la propia vía desde la central de Hidroeléctrica, y no hay tercera opción: por eso este trayecto no es un traslado, es la única puerta. La línea sigue el Urubamba porque el río abrió el único paso posible, y eso mismo la hace frágil — en 2005, un alud desprendido del Verónica bajó al valle y afectó a la vía y a los campos junto al río. Lo que se ve por la ventana en hora y media es un cambio de mundo: se sale del valle sagrado, seco y cultivado en andenes, y se acaba en ceja de selva húmeda, que es el borde amazónico de los Andes. Los incas conocían ese gradiente mejor que nadie y lo explotaban plantando en cada altura lo que en cada altura se da. Machu Picchu está justo en el filo, y por eso está donde está.",
+        "dato": "Todo lo que hay en Aguas Calientes —cada ladrillo, cada botella— entró por esta vía o a pie por ella. No existe carretera por la que hubiera podido llegar.",
+        "conexion": [
+          { "recurso": "Turn Right at Machu Picchu", "donde": "el trayecto por el cañón del Urubamba y el arranque del Camino Inca" }
+        ]
+      },
+      "preguntas": [
+        "¿Por qué nunca se ha construido una carretera hasta Aguas Calientes?",
+        "¿Cuántas veces se ha cortado esta vía y cuánto se tarda en repararla?",
+        "¿Qué se ve exactamente en el km 82 y en el km 88?"
+      ],
+      "fuentes": [
+        "PeruRail, políticas de equipaje — 1 mochila de hasta 8 kg (100 cm de alto + largo + ancho) o 1 equipaje de mano de hasta 12 kg (115 cm); depósito gratuito en la estación de Ollantaytambo de 04:15 a 21:00. https://www.perurail.com/es/equipaje/",
+        "Inca Rail, políticas de equipaje — 1 equipaje de mano de hasta 8 kg / 17 lb y 118 cm lineales. https://www.incarail.com/es/politicas-de-equipaje",
+        "TUI, documentación del circuito — límite de 5 kg de equipaje de mano en el tren. Es el número que da el operador y NO coincide con lo que publican hoy las dos compañías; se deja el del operador porque es el que se aplicará en la estación.",
+        "https://en.wikipedia.org/wiki/Inca_Trail_to_Machu_Picchu — los dos arranques del Camino Inca clásico, km 82 (Piscacucho) y km 88 (Qoriwayrachina), que confluyen sobre las ruinas de Patallaqta.",
+        "https://es.wikipedia.org/wiki/Nevado_Verónica — 5.792 m s. n. m.; el alud de 2005 que afectó a la vía férrea y a los campos junto al Urubamba.",
+        "Altitudes de Ollantaytambo (2.792 m) y Aguas Calientes (2.040 m) en es.wikipedia; el desnivel de unos 750 m es la resta de las dos.",
+        "Duración de ~1 h 30 del trayecto Ollantaytambo–Aguas Calientes según los horarios publicados de PeruRail e Inca Rail."
+      ]
+    }
+  ]
+}

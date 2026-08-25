@@ -6,7 +6,7 @@
 // Al tocar cualquier fichero de ASSETS hay que SUBIR CACHE_NAME, o los móviles ya instalados
 // se quedan con la versión vieja. tests/sw-precache.test.mjs vigila que la lista no se quede
 // corta: en bookreader ya se desincronizó una vez.
-const CACHE_NAME = 'peru-v4';
+const CACHE_NAME = 'peru-v5';
 
 const ASSETS = [
   './',
@@ -30,6 +30,8 @@ const ASSETS = [
   './data/guia/arequipa.json',
   './data/guia/colca.json',
   './data/guia/trayectos.json',
+  './data/guia/titicaca.json',
+  './data/guia/valle-sagrado.json',
   './fonts/inter-400.woff2',
   './fonts/inter-500.woff2',
   './fonts/inter-600.woff2',

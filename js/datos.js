@@ -2,7 +2,7 @@
 
 // Un bloque escrito que no esté aquí NO se carga: el fichero se sirve, se precachea y no lo
 // pide nadie. Ya pasó con cinco bloques enteros. tests/datos.test.mjs lo vigila.
-const BLOQUES_GUIA = ['lima', 'arequipa', 'colca', 'trayectos', 'cusco', 'machu-picchu'];
+const BLOQUES_GUIA = ['lima', 'arequipa', 'colca', 'titicaca', 'trayectos', 'cusco', 'valle-sagrado', 'machu-picchu'];
 
 let cache = null;
 

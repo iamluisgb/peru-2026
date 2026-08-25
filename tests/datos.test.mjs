@@ -85,10 +85,7 @@ test('las conexiones culturales apuntan a un recurso real', () => {
 // Bloques del itinerario que todavía no tienen ficha escrita. Cuando se escriba una,
 // se borra de aquí. Es una lista explícita a propósito: obliga a decidir si el id que
 // no resuelve es "aún no escrito" o "id mal tecleado", que es lo que de verdad rompe.
-const SIN_FICHA_TODAVIA = new Set([
-  'uros', 'taquile',                                        // Titicaca
-  'chinchero', 'yucay', 'ollantaytambo', 'tren-valle',      // Valle Sagrado
-]);
+const SIN_FICHA_TODAVIA = new Set([]);
 
 test('cada actividad del itinerario resuelve a una ficha (o está declarada pendiente)', () => {
   const ids = new Set(fichas.map(f => f.id));
