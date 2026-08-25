@@ -16,7 +16,8 @@
       "verificado": true,
       "fuentes": [
         "es.wikipedia.org/wiki/Lima — altitud del centro histórico ≈154 m"
-      ]
+      ],
+      "corto": "Lima"
     },
     {
       "id": "arequipa",
@@ -25,7 +26,8 @@
       "verificado": true,
       "fuentes": [
         "es.wikipedia.org/wiki/Arequipa (2335 m)"
-      ]
+      ],
+      "corto": "Arequipa"
     },
     {
       "id": "colca",
@@ -34,7 +36,8 @@
       "verificado": true,
       "fuentes": [
         "es.wikipedia.org/wiki/Chivay (3.635 m)"
-      ]
+      ],
+      "corto": "Colca"
     },
     {
       "id": "patapampa",
@@ -44,7 +47,8 @@
       "solo_paso": true,
       "fuentes": [
         "Guías del mirador de Patapampa (4.910 m)"
-      ]
+      ],
+      "corto": "Patapampa"
     },
     {
       "id": "puno",
@@ -53,7 +57,8 @@
       "verificado": true,
       "fuentes": [
         "en.wikipedia.org/wiki/Puno (3830 m)"
-      ]
+      ],
+      "corto": "Puno"
     },
     {
       "id": "cusco",
@@ -62,7 +67,8 @@
       "verificado": true,
       "fuentes": [
         "es.wikipedia.org/wiki/Cusco (3400 m)"
-      ]
+      ],
+      "corto": "Cusco"
     },
     {
       "id": "ollantaytambo",
@@ -71,7 +77,8 @@
       "verificado": true,
       "fuentes": [
         "es.wikipedia.org/wiki/Ollantaytambo (≈2790 m)"
-      ]
+      ],
+      "corto": "Ollanta"
     },
     {
       "id": "aguas-calientes",
@@ -80,7 +87,8 @@
       "verificado": true,
       "fuentes": [
         "es.wikipedia.org/wiki/Aguas_Calientes (2040 m)"
-      ]
+      ],
+      "corto": "Aguas C."
     },
     {
       "id": "machu-picchu",
@@ -89,7 +97,8 @@
       "verificado": true,
       "fuentes": [
         "es.wikipedia.org/wiki/Machu_Picchu (2.430 m)"
-      ]
+      ],
+      "corto": "M. Picchu"
     }
   ],
   "hoteles": [

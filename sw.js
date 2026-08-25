@@ -6,18 +6,20 @@
 // Al tocar cualquier fichero de ASSETS hay que SUBIR CACHE_NAME, o los móviles ya instalados
 // se quedan con la versión vieja. tests/sw-precache.test.mjs vigila que la lista no se quede
 // corta: en bookreader ya se desincronizó una vez.
-const CACHE_NAME = 'peru-v3';
+const CACHE_NAME = 'peru-v4';
 
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
+  './css/fonts.css',
   './css/themes.css',
   './css/main.css',
   './js/app.js',
   './js/datos.js',
   './js/almacen.js',
   './js/ui/escape.js',
+  './js/ui/icons.js',
   './js/ui/fecha.js',
   './data/itinerario.json',
   './data/avisos.json',
@@ -28,7 +30,16 @@ const ASSETS = [
   './data/guia/arequipa.json',
   './data/guia/colca.json',
   './data/guia/trayectos.json',
+  './fonts/inter-400.woff2',
+  './fonts/inter-500.woff2',
+  './fonts/inter-600.woff2',
+  './fonts/source-serif-4-400.woff2',
+  './fonts/source-serif-4-600.woff2',
   './icons/icon.svg',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/maskable-512.png',
+  './icons/apple-touch-icon.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/maskable-512.png',

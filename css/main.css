@@ -1,6 +1,10 @@
-/* Layout y componentes — Perú 2026. Mobile-first: el desktop es la excepción, no al revés. */
+/* Layout y componentes — Perú 2026.
+   Mobile-first: el desktop es la excepción, no al revés. Se lee de pie, con una mano,
+   con sol y a veces con frío (DESIGN.md). */
 
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -10,140 +14,321 @@ body {
   color: var(--text);
   background: var(--surface-0);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   overscroll-behavior-y: none;
-  padding-bottom: calc(var(--alto-navbar) + env(safe-area-inset-bottom));
+  padding-bottom: calc(var(--alto-navbar) + env(safe-area-inset-bottom) + var(--s-4));
 }
 
-.envoltorio { max-width: var(--ancho-lectura); margin: 0 auto; padding: var(--s-4); }
+a { color: inherit; }
 
-/* ---- Cabecera ---- */
-.cabecera { padding: var(--s-6) var(--s-4) var(--s-2); max-width: var(--ancho-lectura); margin: 0 auto; }
-.cabecera .eyebrow { font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); margin: 0; }
-.cabecera h1 { font-size: var(--fs-3xl); margin: var(--s-1) 0 0; line-height: 1.15; }
+/* Foco visible y consistente. Sin esto la app es inusable con teclado y falla WCAG. */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--r-sm); }
 
-/* ---- Tarjetas ---- */
+.envoltorio { max-width: var(--ancho-lectura); margin: 0 auto; padding: 0 var(--s-4) var(--s-6); }
+
+/* ==========================================================================
+   Cabecera de pantalla
+   ========================================================================== */
+
+.cabecera { padding: var(--s-7) 0 var(--s-5); }
+.cabecera .eyebrow {
+  display: flex; align-items: center; gap: var(--s-2);
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 var(--s-2);
+}
+.cabecera h1 {
+  font-size: var(--fs-3xl); font-weight: 600; margin: 0;
+  line-height: 1.1; letter-spacing: -0.02em;
+}
+.cabecera .sub { margin: var(--s-2) 0 0; color: var(--text-soft); font-size: var(--fs-md); }
+
+/* ==========================================================================
+   Portada de HOY — es la pantalla que más se mira, y la única con peso gráfico
+   ========================================================================== */
+
+.hero {
+  position: relative; overflow: hidden;
+  border-radius: var(--r-xl);
+  padding: var(--s-6) var(--s-5) var(--s-8);
+  margin-bottom: var(--s-4);
+  background: linear-gradient(155deg, var(--hero-a), var(--hero-b));
+  color: var(--hero-texto);
+  box-shadow: var(--shadow-2);
+}
+/* Silueta de cordillera: la identidad del proyecto, en CSS y no en una imagen —
+   pesa cero y se adapta al tema (ADR-005: sin imágenes de terceros). */
+.hero::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 84px;
+  background: var(--hero-sierra);
+  -webkit-mask: var(--sierra) bottom/cover no-repeat; mask: var(--sierra) bottom/cover no-repeat;
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero .kicker {
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; opacity: 0.75; margin: 0 0 var(--s-2);
+}
+.hero h1 { font-size: var(--fs-4xl); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin: 0; }
+.hero .fecha { margin: var(--s-3) 0 0; font-size: var(--fs-md); opacity: 0.85; }
+/* Número y unidad son UNA línea: separados, el "5" quedaba flotando lejos de "días". */
+.hero .cuenta { display: flex; align-items: baseline; gap: var(--s-3); font-size: var(--fs-3xl); }
+.hero .cuenta span { font-size: 68px; line-height: 1; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+
+/* ==========================================================================
+   Tarjetas
+   ========================================================================== */
+
 .tarjeta {
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  padding: var(--s-4);
+  padding: var(--s-5);
   margin-bottom: var(--s-3);
-  box-shadow: var(--shadow-1);
 }
-.tarjeta h2 { font-size: var(--fs-xl); margin: 0 0 var(--s-2); }
-.tarjeta h3 { font-size: var(--fs-lg); margin: 0 0 var(--s-1); }
+.tarjeta > :first-child { margin-top: 0; }
+.tarjeta > :last-child { margin-bottom: 0; }
+.tarjeta h2 { font-size: var(--fs-xl); font-weight: 600; letter-spacing: -0.01em; margin: 0 0 var(--s-2); }
+.tarjeta h3 { font-size: var(--fs-lg); font-weight: 600; margin: var(--s-5) 0 var(--s-2); }
+.tarjeta p { margin: 0 0 var(--s-3); color: var(--text-soft); }
 
-/* ---- Chips ---- */
+.seccion-titulo {
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-faint); margin: var(--s-7) 0 var(--s-3);
+}
+
+/* ==========================================================================
+   Días — rejilla con el número como ancla visual. Sin barras laterales de acento.
+   ========================================================================== */
+
+.dia { display: grid; grid-template-columns: 44px 1fr; gap: var(--s-4); align-items: start; }
+.dia-num {
+  display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: var(--fs-lg); font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.dia--hoy .dia-num { background: var(--accent); color: var(--on-accent); }
+/* `capitalize` ponía "Sábado 29 De Agosto": en español sólo va la primera letra. */
+.dia-fecha { font-size: var(--fs-sm); color: var(--text-faint); margin: 0 0 2px; }
+.dia-fecha::first-letter { text-transform: uppercase; }
+.dia h2 { margin-bottom: var(--s-2); }
+
+/* ==========================================================================
+   Chips — datos sueltos, no decoración
+   ========================================================================== */
+
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-3) 0 0; }
 .chip {
-  display: inline-flex; align-items: center; gap: var(--s-1);
-  padding: var(--s-1) var(--s-3);
-  border-radius: var(--r-pill);
-  font-size: var(--fs-xs);
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px var(--s-3); border-radius: var(--r-pill);
+  font-size: var(--fs-xs); font-weight: 500;
   background: var(--surface-3); color: var(--text-soft);
+  border: 1px solid transparent;
 }
+.chip svg { opacity: 0.7; }
 .chip--acento { background: var(--accent-soft); color: var(--accent); }
-.chip--libre { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.chip--libre { background: transparent; color: var(--text-soft); border-color: var(--border); }
+.chip--alt { font-variant-numeric: tabular-nums; font-weight: 600; }
+.chip--alt[data-nivel="baja"]  { background: var(--altitud-baja-soft);  color: var(--altitud-baja); }
+.chip--alt[data-nivel="media"] { background: var(--altitud-media-soft); color: var(--altitud-media); }
+.chip--alt[data-nivel="alta"]  { background: var(--altitud-alta-soft);  color: var(--altitud-alta); }
 
-/* ---- Avisos. Fondo + color + peso; NUNCA una barra lateral de acento (DESIGN.md). ---- */
-.aviso { border-radius: var(--r-md); padding: var(--s-3) var(--s-4); margin-bottom: var(--s-2); }
-.aviso h4 { margin: 0 0 var(--s-1); font-size: var(--fs-sm); font-weight: 600; }
+/* ==========================================================================
+   Avisos — fondo + color + peso. NUNCA una barra lateral de acento (DESIGN.md).
+   ========================================================================== */
+
+.aviso {
+  display: grid; grid-template-columns: 22px 1fr; gap: var(--s-3);
+  border-radius: var(--r-md); padding: var(--s-3) var(--s-4);
+  margin: 0 0 var(--s-2);
+}
+.aviso:last-child { margin-bottom: 0; }
+.aviso .marca { font-weight: 700; font-size: var(--fs-md); line-height: 1.4; text-align: center; }
+.aviso h4 { margin: 0 0 2px; font-size: var(--fs-sm); font-weight: 600; }
 .aviso p { margin: 0; font-size: var(--fs-sm); color: var(--text-soft); }
 .aviso--info  { background: var(--aviso-info-soft); }
-.aviso--info h4  { color: var(--aviso-info); }
+.aviso--info h4, .aviso--info .marca { color: var(--aviso-info); }
 .aviso--ojo   { background: var(--aviso-ojo-soft); }
-.aviso--ojo h4   { color: var(--aviso-ojo); }
+.aviso--ojo h4, .aviso--ojo .marca { color: var(--aviso-ojo); }
 .aviso--serio { background: var(--aviso-serio-soft); }
-.aviso--serio h4 { color: var(--aviso-serio); }
+.aviso--serio h4, .aviso--serio .marca { color: var(--aviso-serio); }
+.aviso-enlace { margin: var(--s-2) 0 0 !important; }
+.aviso-enlace a { font-size: var(--fs-sm); font-weight: 600; text-decoration: none; }
+.aviso--info .aviso-enlace a { color: var(--aviso-info); }
+.aviso--ojo .aviso-enlace a { color: var(--aviso-ojo); }
+.aviso--serio .aviso-enlace a { color: var(--aviso-serio); }
 
-/* ---- Ficha de guía: la capa `de_sofa` va plegada (CONTENIDO.md) ---- */
-.ficha .gancho { font-size: var(--fs-lg); font-weight: 500; margin: 0 0 var(--s-3); }
-.ficha .mira { margin: 0 0 var(--s-3); padding-left: var(--s-5); }
-.ficha .mira li { margin-bottom: var(--s-2); }
-.ficha .practico { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-bottom: var(--s-3); }
-.ficha details summary {
-  cursor: pointer; font-size: var(--fs-sm); color: var(--accent);
-  font-weight: 600; padding: var(--s-2) 0; list-style: none;
+/* ==========================================================================
+   Ficha de guía — la capa `de_sofa` va plegada (CONTENIDO.md)
+   ========================================================================== */
+
+.ficha .gancho {
+  font-family: var(--font-lectura);
+  font-size: var(--fs-xl); font-weight: 400; line-height: 1.4;
+  color: var(--text); margin: 0 0 var(--s-5);
 }
-.ficha details summary::-webkit-details-marker { display: none; }
-.ficha details summary::before { content: '▸ '; }
-.ficha details[open] summary::before { content: '▾ '; }
-.ficha .de-sofa { font-family: var(--font-lectura); font-size: var(--fs-md); color: var(--text-soft); }
+.mira { list-style: none; counter-reset: m; margin: 0 0 var(--s-5); padding: 0; }
+.mira li {
+  counter-increment: m; position: relative;
+  padding-left: 34px; margin-bottom: var(--s-3);
+  color: var(--text);
+}
+.mira li::before {
+  content: counter(m);
+  position: absolute; left: 0; top: 1px;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: var(--fs-xs); font-weight: 600;
+}
+.ficha details { border-top: 1px solid var(--border-soft); margin-top: var(--s-4); }
+.ficha summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; gap: var(--s-2);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--accent);
+  padding: var(--s-4) 0 var(--s-2); min-height: 44px;
+}
+.ficha summary::-webkit-details-marker { display: none; }
+.ficha summary::before { content: '+'; font-size: var(--fs-lg); line-height: 1; }
+.ficha details[open] summary::before { content: '–'; }
+.de-sofa { font-family: var(--font-lectura); font-size: var(--fs-lg); line-height: 1.65; }
+.de-sofa p { color: var(--text-soft); margin: 0 0 var(--s-4); }
+.de-sofa .dato {
+  background: var(--surface-3); border-radius: var(--r-md);
+  padding: var(--s-4); color: var(--text);
+}
+.preguntas { padding-left: var(--s-5); }
+.preguntas li { margin-bottom: var(--s-2); color: var(--text-soft); }
 
-/* ---- Navegación inferior. Targets ≥44px: se usa de pie y con una mano. ---- */
+.fuentes { font-size: var(--fs-xs); color: var(--text-faint); }
+.fuentes li { margin-bottom: var(--s-2); word-break: break-word; }
+
+/* Índice de guía — lista, no tarjetones: son 27 y hay que barrerlos con el pulgar */
+.indice { display: grid; gap: 1px; background: var(--border-soft); border-radius: var(--r-lg); overflow: hidden; }
+.indice a {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-4); background: var(--surface-2);
+  text-decoration: none; min-height: 56px;
+  transition: background var(--dur-fast) var(--ease);
+}
+.indice a:hover { background: var(--surface-3); }
+.indice .nom { font-weight: 500; flex: 1; }
+.indice .meta { font-size: var(--fs-xs); color: var(--text-faint); }
+.indice-grupo {
+  padding: var(--s-3) var(--s-4); background: var(--surface-3);
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-soft);
+}
+
+/* ==========================================================================
+   Perfil de altitud — un perfil de verdad, no barras
+   ========================================================================== */
+
+.perfil { width: 100%; height: auto; display: block; overflow: visible; }
+.perfil .area { fill: var(--accent-soft); }
+.perfil .linea { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.perfil .punto { fill: var(--surface-2); stroke: var(--accent); stroke-width: 2; }
+.perfil .eje { stroke: var(--border); stroke-width: 1; }
+.perfil text { font-size: 9px; fill: var(--text-faint); font-family: var(--font-ui); }
+.perfil .valor { font-weight: 600; fill: var(--text-soft); }
+
+/* ==========================================================================
+   Teléfonos de emergencia — targets grandes, sin pensar
+   ========================================================================== */
+
+.tel {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  padding: var(--s-4) var(--s-5); min-height: 64px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--r-lg); margin-bottom: var(--s-3);
+  text-decoration: none;
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.tel:hover { border-color: var(--accent); background: var(--surface-3); }
+.tel .quien { font-weight: 600; }
+.tel .num { font-size: var(--fs-sm); color: var(--text-soft); font-variant-numeric: tabular-nums; }
+.tel .accion {
+  display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px;
+  border-radius: 50%; background: var(--accent); color: var(--on-accent);
+}
+
+/* ==========================================================================
+   Mochila de Machu Picchu — el checklist de los 5 kg
+   ========================================================================== */
+
+.mochila-peso { display: flex; align-items: center; gap: var(--s-4); margin-bottom: var(--s-4); }
+.mochila-peso-numero {
+  flex: 0 0 auto; font-size: 52px; font-weight: 600; line-height: 1;
+  letter-spacing: -0.04em; color: var(--accent); font-variant-numeric: tabular-nums;
+}
+.mochila-peso-texto { font-size: var(--fs-sm); color: var(--text-soft); }
+.mochila-peso-texto strong { color: var(--text); }
+
+.mochila-estado-texto { margin: 0 0 var(--s-3); font-size: var(--fs-sm); color: var(--text-soft); }
+.mochila-estado-texto strong { color: var(--text); font-variant-numeric: tabular-nums; }
+.progreso { height: 6px; border-radius: var(--r-pill); background: var(--surface-3); overflow: hidden; }
+.progreso-relleno {
+  display: block; height: 100%; border-radius: var(--r-pill); background: var(--accent);
+  transition: width var(--dur-normal) var(--ease-out-soft);
+}
+
+.mochila-list { list-style: none; margin: var(--s-5) 0 0; padding: 0; }
+.mochila-item { border-top: 1px solid var(--border-soft); }
+.mochila-item:first-child { border-top: none; }
+.mochila-item label {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-3) 0; min-height: 48px; cursor: pointer;
+}
+.mochila-item input { width: 22px; height: 22px; accent-color: var(--accent); flex: 0 0 22px; }
+/* Tachado y atenuado, no un color de "éxito": lo hecho tiene que salir del camino visual. */
+.mochila-item--hecho span { text-decoration: line-through; color: var(--text-faint); }
+
+/* ==========================================================================
+   Navegación inferior — targets ≥44px, se usa de pie y con una mano
+   ========================================================================== */
+
 .navbar {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 10;
-  display: flex; justify-content: space-around;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 20;
+  display: flex;
   height: calc(var(--alto-navbar) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
-  background: var(--surface-1);
+  background: var(--surface-nav);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
   border-top: 1px solid var(--border);
 }
 .navbar a {
   flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 2px; min-height: 44px;
-  font-size: var(--fs-xs); color: var(--text-faint); text-decoration: none;
+  gap: 3px; min-height: 44px;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.01em;
+  color: var(--text-faint); text-decoration: none;
   transition: color var(--dur-fast) var(--ease);
 }
-.navbar a[aria-current="page"] { color: var(--accent); font-weight: 600; background: var(--accent-soft); }
-.navbar .icono { font-size: 20px; line-height: 1; }
+.navbar a[aria-current="page"] { color: var(--accent); }
+.navbar svg { transition: transform var(--dur-fast) var(--ease-out-soft); }
+.navbar a[aria-current="page"] svg { transform: translateY(-1px); }
 
-/* ---- Perfil de altitud ---- */
-.altitud-badge { font-variant-numeric: tabular-nums; font-weight: 600; }
-.altitud-badge[data-nivel="baja"]  { color: var(--altitud-baja); }
-.altitud-badge[data-nivel="media"] { color: var(--altitud-media); }
-.altitud-badge[data-nivel="alta"]  { color: var(--altitud-alta); }
+.volver {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: var(--fs-sm); color: var(--text-soft); text-decoration: none;
+  padding: var(--s-4) 0 0; min-height: 44px;
+}
+.volver:hover { color: var(--accent); }
 
-/* Gráfica del ascenso: SVG a mano. Las zonas usan los tokens de altitud con poca opacidad. */
-.grafico svg { display: block; width: 100%; height: auto; }
-.grafico-zona--baja  { fill: var(--altitud-baja);  opacity: 0.08; }
-.grafico-zona--media { fill: var(--altitud-media); opacity: 0.10; }
-.grafico-zona--alta  { fill: var(--altitud-alta);  opacity: 0.12; }
-.grafico-grid { stroke: var(--border); stroke-width: 1; stroke-dasharray: 2 4; }
-.grafico-eje  { stroke: var(--border); stroke-width: 1; }
-.grafico-valor, .grafico-zona-label, .grafico-dia { fill: var(--text-faint); font-size: 9px; }
-.grafico-zona-label { text-transform: uppercase; letter-spacing: 0.05em; }
-.grafico-linea { stroke-width: 2.5; stroke-linecap: round; }
-.grafico-linea--baja  { stroke: var(--altitud-baja); }
-.grafico-linea--media { stroke: var(--altitud-media); }
-.grafico-linea--alta  { stroke: var(--altitud-alta); }
-.grafico-punto { stroke: var(--surface-2); stroke-width: 1.5; }
-.grafico-punto[data-nivel="baja"]  { fill: var(--altitud-baja); }
-.grafico-punto[data-nivel="media"] { fill: var(--altitud-media); }
-.grafico-punto[data-nivel="alta"]  { fill: var(--altitud-alta); }
-.grafico-pico { fill: var(--surface-2); stroke: var(--accent); stroke-width: 2; }
-.grafico-pico-vara { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 2 3; opacity: 0.85; }
+.vacio { text-align: center; color: var(--text-faint); padding: var(--s-8) var(--s-4); }
 
-.picos { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-4); margin: var(--s-3) 0 var(--s-4); }
-.pico { display: inline-flex; align-items: center; gap: var(--s-2); margin: 0; font-size: var(--fs-sm); }
+/* ==========================================================================
+   Desktop — la nav sube arriba y el contenido respira
+   ========================================================================== */
 
-/* Noches del circuito: cada tarjeta, con su aviso de esa noche. */
-.seccion-titulo { font-size: var(--fs-xl); margin: var(--s-6) 0 var(--s-3); }
-.tarjeta > .aviso:last-child { margin-bottom: 0; }
-.noche-cab { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); }
-.noche-cab h3 { margin: 0; font-size: var(--fs-lg); }
-.noche-meta { margin: var(--s-1) 0 var(--s-3); font-size: var(--fs-sm); color: var(--text-soft); }
-
-/* ---- Mochila de Machu Picchu ---- */
-.mochila-peso { display: flex; align-items: center; gap: var(--s-4); margin-bottom: var(--s-3); }
-.mochila-peso-numero { font-size: var(--fs-3xl); font-weight: 700; line-height: 1; color: var(--aviso-ojo); font-variant-numeric: tabular-nums; }
-.mochila-peso-texto { font-size: var(--fs-sm); color: var(--text-soft); }
-.mochila-peso-texto strong { color: var(--text); }
-.mochila-estado { margin-bottom: var(--s-3); }
-.mochila-estado-texto { margin: 0 0 var(--s-2); font-size: var(--fs-sm); color: var(--text-soft); }
-.mochila-estado-texto strong { color: var(--text); font-size: var(--fs-lg); }
-.progreso { height: 8px; border-radius: var(--r-pill); background: var(--surface-3); overflow: hidden; }
-.progreso-relleno { display: block; height: 100%; border-radius: var(--r-pill); background: var(--altitud-baja); transition: width var(--dur-normal) var(--ease); }
-.mochila-list { list-style: none; margin: 0; padding: 0; }
-.mochila-item { border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-3); margin-bottom: var(--s-2); }
-.mochila-item label { display: flex; align-items: flex-start; gap: var(--s-3); padding: var(--s-3); cursor: pointer; min-height: 44px; }
-.mochila-item input { flex: 0 0 auto; width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--altitud-baja); }
-.mochila-item span { font-size: var(--fs-md); }
-.mochila-item--hecho { background: color-mix(in srgb, var(--altitud-baja) 10%, transparent); border-color: color-mix(in srgb, var(--altitud-baja) 35%, var(--border)); }
-.mochila-item--hecho span { color: var(--text-faint); text-decoration: line-through; }
-.aviso-enlace { margin-top: var(--s-1); }
-.aviso-enlace a { color: var(--accent); font-weight: 600; }
-
-@media (min-width: 1024px) {
-  body { padding-bottom: 0; padding-top: var(--alto-navbar); }
-  .navbar { top: 0; bottom: auto; border-top: none; border-bottom: 1px solid var(--border); padding-bottom: 0; height: var(--alto-navbar); }
+@media (min-width: 900px) {
+  body { padding-bottom: var(--s-8); padding-top: var(--alto-navbar); }
+  .navbar {
+    top: 0; bottom: auto; height: var(--alto-navbar); padding-bottom: 0;
+    border-top: none; border-bottom: 1px solid var(--border);
+    justify-content: center; gap: var(--s-2);
+  }
+  .navbar a { flex: 0 0 auto; flex-direction: row; gap: var(--s-2); padding: 0 var(--s-5); font-size: var(--fs-sm); border-radius: var(--r-pill); }
+  .navbar a[aria-current="page"] { background: var(--accent-soft); }
+  .envoltorio { padding-top: var(--s-4); }
 }

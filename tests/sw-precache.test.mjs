@@ -21,6 +21,11 @@ test('todo el js, css y data está en ASSETS', () => {
     ...ficherosDe('js/', '.js'),
     ...ficherosDe('css/', '.css'),
     ...ficherosDe('data/', '.json'),
+    // Fuentes e iconos también: una fuente que no está precacheada convierte la app en
+    // Times New Roman en el Colca, y un icono ausente rompe la pantalla de instalación.
+    ...ficherosDe('fonts/', '.woff2'),
+    ...ficherosDe('icons/', '.png'),
+    ...ficherosDe('icons/', '.svg'),
   ];
   const faltan = esperados.filter(f => !sw.includes(`'./${f}'`));
   assert.deepEqual(faltan, [], `sin precachear: ${faltan.join(', ')}`);

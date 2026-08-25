@@ -2,11 +2,25 @@
 import { cargar, diaDe, paradaDe, nivelAltitud, avisosDe, culturaDe } from './datos.js';
 import { esc } from './ui/escape.js';
 import { hoyISO, bonita, diasHasta } from './ui/fecha.js';
+import { icono } from './ui/icons.js';
 
 const app = document.getElementById('app');
 let datos = null;
 
 const RUTAS = { hoy: verHoy, dias: verDias, guia: verGuia, altura: verAltura, emergencias: verEmergencias, mochila: verMochila };
+
+const MOCHILA_CLAVE = 'peru_mochila_mp';
+
+// La mochila no está en la nav: se llega desde el aviso del día 8, que es cuando importa.
+const NAV = [
+  ['hoy', 'Hoy'], ['dias', 'Días'], ['guia', 'Guía'], ['altura', 'Altura'], ['emergencias', 'SOS'],
+];
+
+function pintarNav() {
+  document.querySelector('.navbar').innerHTML = NAV.map(([r, etiqueta]) =>
+    `<a href="#/${r}" data-ruta="${r}">${icono(r === 'emergencias' ? 'sos' : r)}<span>${etiqueta}</span></a>`
+  ).join('');
+}
 
 function ruta() {
   const [, nombre = 'hoy', arg] = location.hash.split('/');
@@ -27,30 +41,53 @@ function marcarNav(nombre) {
 // Separador de miles para etiquetas de la gráfica: 2500 → "2.500".
 function mil(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
 
+// Una marca por nivel, no un icono decorativo: de un vistazo se distingue "dato útil" de
+// "esto te puede costar el vuelo" sin leer (DESIGN.md — tres niveles y sólo tres).
+const MARCA = { info: 'i', ojo: '!', serio: '!!' };
+
 function htmlAvisos(lista, sinRuta) {
-  return (lista || []).map(a => (a ? `
+  const items = (lista || []).filter(Boolean);
+  if (!items.length) return '';
+  return `<div class="avisos">${items.map(a => `
     <div class="aviso aviso--${esc(a.nivel)}">
-      <h4>${esc(a.titulo)}</h4>
-      <p>${esc(a.texto)}</p>
-      ${a.ruta && !sinRuta ? `<p class="aviso-enlace"><a href="${esc(a.ruta)}">${esc(a.ruta_etiqueta || 'Abrir checklist')} →</a></p>` : ''}
-    </div>` : '')).join('');
+      <span class="marca" aria-hidden="true">${MARCA[a.nivel] || 'i'}</span>
+      <div>
+        <h4>${esc(a.titulo)}</h4>
+        <p>${esc(a.texto)}</p>
+        ${a.ruta && !sinRuta ? `<p class="aviso-enlace"><a href="${esc(a.ruta)}">${esc(a.ruta_etiqueta || 'Abrir checklist')} →</a></p>` : ''}
+      </div>
+    </div>`).join('')}</div>`;
 }
 
-function htmlDia(d) {
+function chipAltitud(m) {
+  return `<span class="chip chip--alt" data-nivel="${nivelAltitud(m)}">${icono('pico', 13)}${mil(m)} m</span>`;
+}
+
+function htmlDia(d, { esHoy = false } = {}) {
   const parada = paradaDe(datos.itinerario, d.parada);
-  const alt = parada
-    ? `<span class="chip"><span class="altitud-badge" data-nivel="${nivelAltitud(parada.altitud_m)}">${parada.altitud_m} m</span></span>`
-    : '';
-  const comidas = (d.comidas || []).map(c => `<span class="chip">${esc(c)}</span>`).join('');
-  const libre = (d.libre || []).map(l => `<span class="chip chip--libre">${esc(l)}</span>`).join('');
+  const alt = parada ? chipAltitud(parada.altitud_m) : '';
+  const comidas = (d.comidas || []).map(c => `<span class="chip">${icono('plato', 13)}${esc(c)}</span>`).join('');
+  const libre = (d.libre || []).map(l => `<span class="chip chip--libre">${icono('libre', 13)}${esc(l)}</span>`).join('');
+  const fichas = (d.actividades || []).filter(a => datos.fichas[a]);
   return `
-    <article class="tarjeta">
-      <p class="chip">Día ${d.n} · ${esc(bonita(d.fecha))}</p>
-      <h2>${esc(d.titulo)}</h2>
-      <p>${esc(d.resumen)}</p>
-      <div class="practico">${alt}${comidas}${libre}</div>
-      ${htmlAvisos(avisosDe(datos, d))}
+    <article class="tarjeta dia${esHoy ? ' dia--hoy' : ''}">
+      <div class="dia-num" aria-hidden="true">${d.n}</div>
+      <div>
+        <p class="dia-fecha">${esc(bonita(d.fecha))}</p>
+        <h2>${esc(d.titulo)}</h2>
+        <p>${esc(d.resumen)}</p>
+        <div class="chips">${alt}${comidas}${libre}</div>
+        ${htmlAvisos(avisosDe(datos, d))}
+        ${fichas.length ? `<h3>Qué vais a ver</h3><div class="indice">${fichas.map(id => htmlEnlaceFicha(datos.fichas[id])).join('')}</div>` : ''}
+      </div>
     </article>`;
+}
+
+function htmlEnlaceFicha(f) {
+  return `<a href="#/guia/${esc(f.id)}">
+    <span class="nom">${esc(f.nombre)}</span>
+    <span class="meta">${f.altitud_m} m</span>
+  </a>`;
 }
 
 // ---- Pantallas ----
@@ -58,198 +95,205 @@ function htmlDia(d) {
 function verHoy() {
   const iso = hoyISO();
   const d = diaDe(datos.itinerario, iso);
-  if (d) return pintar(`<header class="cabecera"><p class="eyebrow">Hoy</p><h1>${esc(d.titulo)}</h1></header>${htmlDia(d)}`);
+  const parada = d && paradaDe(datos.itinerario, d.parada);
+
+  if (d) {
+    return pintar(`
+      <section class="hero">
+        <p class="kicker">Día ${d.n} de ${datos.itinerario.dias.length - 1}</p>
+        <h1>${esc(d.titulo)}</h1>
+        <p class="fecha">${esc(bonita(d.fecha))}${parada ? ` · ${parada.altitud_m} m` : ''}</p>
+      </section>
+      ${htmlDia(d, { esHoy: true })}`);
+  }
 
   const faltan = diasHasta(datos.itinerario.viaje.inicio, iso);
   if (faltan > 0) {
     return pintar(`
-      <header class="cabecera"><p class="eyebrow">Perú Mágico</p><h1>Faltan ${faltan} días</h1></header>
-      <div class="tarjeta">
-        <p>Salís el ${esc(bonita(datos.itinerario.viaje.inicio))}.</p>
-        <p><a href="#/dias">Ver los 12 días →</a></p>
-      </div>`);
+      <section class="hero">
+        <p class="kicker">Perú Mágico</p>
+        <h1 class="cuenta"><span>${faltan}</span> ${faltan === 1 ? 'día' : 'días'}</h1>
+        <p class="fecha">Salís el ${esc(bonita(datos.itinerario.viaje.inicio))}</p>
+      </section>
+      ${htmlDia(datos.itinerario.dias[0])}
+      <p class="seccion-titulo">Lo que viene</p>
+      ${datos.itinerario.dias.slice(1, 3).map(x => htmlDia(x)).join('')}`);
   }
-  pintar(`<header class="cabecera"><h1>Viaje terminado</h1></header>
-    <div class="tarjeta"><p>Ya está. <a href="#/dias">Repasar los días →</a></p></div>`);
+
+  pintar(`
+    <section class="hero">
+      <p class="kicker">Perú Mágico</p>
+      <h1>Viaje terminado</h1>
+      <p class="fecha">Del 30 de agosto al 10 de septiembre de 2026</p>
+    </section>
+    <div class="tarjeta"><p>Los 12 días siguen aquí. <a href="#/dias">Repasarlos →</a></p></div>`);
 }
 
 function verDias() {
-  pintar(`<header class="cabecera"><p class="eyebrow">Itinerario</p><h1>Los 12 días</h1></header>
-    ${datos.itinerario.dias.map(htmlDia).join('')}`);
+  const iso = hoyISO();
+  pintar(`
+    <header class="cabecera">
+      <p class="eyebrow">${icono('dias', 14)} Itinerario</p>
+      <h1>Los 12 días</h1>
+      <p class="sub">Del 30 de agosto al 10 de septiembre de 2026</p>
+    </header>
+    ${datos.itinerario.dias.map(d => htmlDia(d, { esHoy: d.fecha === iso })).join('')}`);
 }
 
 function verGuia(id) {
-  const fichas = Object.values(datos.fichas);
-  if (!id) {
-    return pintar(`<header class="cabecera"><p class="eyebrow">Guía</p><h1>Qué estás viendo</h1></header>
-      ${fichas.map(f => `<article class="tarjeta">
-        <a href="#/guia/${esc(f.id)}"><h3>${esc(f.nombre)}</h3></a>
-        <p class="chip">${esc(f.lugar)} · día ${f.dia}</p>
-      </article>`).join('')}`);
-  }
+  if (!id) return verIndiceGuia();
 
   const f = datos.fichas[id];
-  if (!f) return pintar(`<div class="tarjeta"><p>Esa ficha aún no está escrita.</p></div>`);
+  if (!f) return pintar('<p class="vacio">Esa ficha aún no está escrita.</p>');
 
   const p = f.de_pie.practico || {};
   const sofa = f.de_sofa || {};
-  const haySofa = sofa.contexto || sofa.dato;
+  const haySofa = sofa.contexto || sofa.dato || (sofa.conexion || []).length;
+
   pintar(`
-    <header class="cabecera"><p class="eyebrow">${esc(f.lugar)} · día ${f.dia}</p><h1>${esc(f.nombre)}</h1></header>
+    <a class="volver" href="#/guia">${icono('atras', 16)} Guía</a>
+    <header class="cabecera">
+      <p class="eyebrow">${esc(f.lugar)} · Día ${f.dia}</p>
+      <h1>${esc(f.nombre)}</h1>
+    </header>
     <article class="tarjeta ficha">
       ${htmlAvisos((f.avisos || []).map(a => datos.avisos[a]).filter(Boolean))}
       <p class="gancho">${esc(f.de_pie.gancho)}</p>
       <h3>Mira esto</h3>
-      <ul class="mira">${f.de_pie.mira.map(m => `<li>${esc(m)}</li>`).join('')}</ul>
-      <div class="practico">
-        ${p.duracion ? `<span class="chip">${esc(p.duracion)}</span>` : ''}
-        <span class="chip"><span class="altitud-badge" data-nivel="${nivelAltitud(f.altitud_m)}">${f.altitud_m} m</span></span>
+      <ol class="mira">${f.de_pie.mira.map(m => `<li>${esc(m)}</li>`).join('')}</ol>
+      <div class="chips">
+        ${p.duracion ? `<span class="chip">${icono('reloj', 13)}${esc(p.duracion)}</span>` : ''}
+        ${chipAltitud(f.altitud_m)}
         ${p.incluido ? '<span class="chip chip--acento">incluido</span>' : ''}
         ${p.fotos ? `<span class="chip">fotos: ${esc(p.fotos)}</span>` : ''}
       </div>
-      ${haySofa ? `<details><summary>Leer con calma</summary>
+      ${(p.notas || []).length ? `<ul class="preguntas">${p.notas.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
+
+      ${haySofa ? `<details>
+        <summary>Leer con calma</summary>
         <div class="de-sofa">
           ${sofa.contexto ? `<p>${esc(sofa.contexto)}</p>` : ''}
-          ${sofa.dato ? `<p><strong>El dato:</strong> ${esc(sofa.dato)}</p>` : ''}
-          ${(sofa.conexion || []).map(c => `<p class="chip">${esc(c.recurso)} — ${esc(c.donde)}</p>`).join('')}
-        </div></details>` : ''}
+          ${sofa.dato ? `<p class="dato"><strong>El dato:</strong> ${esc(sofa.dato)}</p>` : ''}
+          ${(sofa.conexion || []).length ? `<div class="chips">${sofa.conexion.map(c =>
+            `<span class="chip">${icono('guia', 13)}${esc(c.recurso)} — ${esc(c.donde)}</span>`).join('')}</div>` : ''}
+        </div>
+      </details>` : ''}
+
       ${(f.preguntas || []).length ? `<h3>Para preguntarle al guía</h3>
-        <ul>${f.preguntas.map(q => `<li>${esc(q)}</li>`).join('')}</ul>` : ''}
+        <ul class="preguntas">${f.preguntas.map(q => `<li>${esc(q)}</li>`).join('')}</ul>` : ''}
+
+      ${(f.fuentes || []).length ? `<details>
+        <summary>Fuentes</summary>
+        <ul class="fuentes">${f.fuentes.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      </details>` : ''}
     </article>`);
 }
 
-function verAltura() {
-  const paradas = datos.itinerario.paradas;
-  const porId = new Map(paradas.map(p => [p.id, p]));
-  // Perfil día a día: la altitud de la parada de cada día de viaje (1..11).
-  const perfil = datos.itinerario.dias
-    .filter(d => d.n >= 1 && d.n <= 11 && porId.has(d.parada))
-    .map(d => ({ ...d, parada: porId.get(d.parada) }));
-
-  // Gráfica SVG a mano, sin librerías. Eje de 0 (mar) a 5.200 m: todo el viaje cabe.
-  const MAX = 5200;
-  const W = 372, H = 232, L = 40, T = 14, B = 28, R = 40;
-  const plotW = W - L - R;
-  const plotH = H - T - B;
-  const x = i => L + (i / (perfil.length - 1)) * plotW;
-  const y = a => T + (1 - a / MAX) * plotH;
-
-  // Las tres zonas de nivel, con los tokens de altitud del tema.
-  const NIVELES = [['baja', 0, 2500], ['media', 2500, 3500], ['alta', 3500, 5200]];
-  const zonas = NIVELES.map(([n, de, a]) =>
-    `<rect class="grafico-zona grafico-zona--${n}" x="${L}" y="${y(a)}" width="${plotW}" height="${y(de) - y(a)}"></rect>`).join('');
-  const grids = [2500, 3500].map(m => `
-    <line class="grafico-grid" x1="${L}" y1="${y(m)}" x2="${L + plotW}" y2="${y(m)}"></line>
-    <text class="grafico-valor" x="${L + plotW + 4}" y="${y(m) + 3}">${mil(m)} m</text>`).join('');
-  const zonasTexto = NIVELES.map(([n, de, a]) =>
-    `<text class="grafico-zona-label" x="${L - 6}" y="${(y(de) + y(a)) / 2 + 3}" text-anchor="end">${n}</text>`).join('');
-
-  // La línea del viaje: cada tramo se tiñe del nivel al que llega.
-  const segmentos = [];
-  for (let i = 1; i < perfil.length; i++) {
-    const de = perfil[i - 1].parada.altitud_m;
-    const a = perfil[i].parada.altitud_m;
-    segmentos.push(`<line class="grafico-linea grafico-linea--${nivelAltitud(a)}" x1="${x(i - 1)}" y1="${y(de)}" x2="${x(i)}" y2="${y(a)}"></line>`);
+// El índice se agrupa por día y no alfabéticamente: la pregunta real no es "¿dónde está
+// Raqchi?" sino "¿qué toca mañana?".
+function verIndiceGuia() {
+  const porDia = new Map();
+  for (const f of Object.values(datos.fichas)) {
+    if (!porDia.has(f.dia)) porDia.set(f.dia, []);
+    porDia.get(f.dia).push(f);
   }
-  const eje = `<line class="grafico-eje" x1="${L}" y1="${y(0)}" x2="${L + plotW}" y2="${y(0)}"></line>`;
-  const puntos = perfil.map((d, i) =>
-    `<circle class="grafico-punto" data-nivel="${nivelAltitud(d.parada.altitud_m)}" cx="${x(i)}" cy="${y(d.parada.altitud_m)}" r="3.5"></circle>`).join('');
-  const dias = perfil.map((d, i) =>
-    `<text class="grafico-dia" x="${x(i)}" y="${H - 8}" text-anchor="middle">${d.n}</text>`).join('');
-
-  // Picos: Patapampa (solo se cruza, día del aviso patapampa-4900), Puno y Cusco (noches).
-  const PICOS = ['patapampa', 'puno', 'cusco'];
-  const picoDia = p => p.solo_paso
-    ? perfil.find(d => (d.avisos || []).includes('patapampa-4900'))
-    : perfil.find(d => d.parada.id === p.id);
-  const picos = paradas.filter(p => PICOS.includes(p.id))
-    .map(p => ({ p, dia: picoDia(p) }))
-    .filter(x => x.dia);
-  const picosMarca = picos.map(({ p, dia }) => {
-    const i = perfil.indexOf(dia);
-    return p.solo_paso
-      ? `
-      <line class="grafico-pico-vara" x1="${x(i)}" y1="${y(dia.parada.altitud_m)}" x2="${x(i)}" y2="${y(p.altitud_m)}"></line>
-      <circle class="grafico-pico" cx="${x(i)}" cy="${y(p.altitud_m)}" r="5"></circle>`
-      : `<circle class="grafico-pico" cx="${x(i)}" cy="${y(p.altitud_m)}" r="5"></circle>`;
-  }).join('');
-  const picoTexto = picos.map(({ p }) => `
-    <span class="pico">
-      <span class="altitud-badge" data-nivel="${nivelAltitud(p.altitud_m)}">▲ ${p.altitud_m} m</span>
-      <strong>${esc(p.nombre)}</strong>
-      <span class="chip">${p.solo_paso ? 'solo se cruza' : 'se duerme'}</span>
-    </span>`).join('');
-
-  // Noches y qué hacer: cada hotel del circuito, con los avisos marcados con `noche` en data.
-  const avisosDeNoche = n => Object.values(datos.avisos).filter(a =>
-    a.noche === n.parada.id && (a.noche_dia === undefined || n.dias.includes(a.noche_dia)));
-  const diasPorFecha = Object.fromEntries(datos.itinerario.dias.map(d => [d.fecha, d.n]));
-  const noches = datos.itinerario.hoteles.map(h => {
-    const [yy, mm, dd] = h.desde.split('-').map(Number);
-    const base = new Date(yy, mm - 1, dd);
-    const nums = [];
-    for (let i = 0; i < h.noches; i++) {
-      const f = new Date(base);
-      f.setDate(base.getDate() + i);
-      const iso = `${f.getFullYear()}-${String(f.getMonth() + 1).padStart(2, '0')}-${String(f.getDate()).padStart(2, '0')}`;
-      if (diasPorFecha[iso] !== undefined) nums.push(diasPorFecha[iso]);
-    }
-    return { parada: porId.get(h.parada), hotel: h.nombre, noches: h.noches, dias: nums };
-  }).map(n => ({ ...n, avisos: avisosDeNoche(n) }));
-  const nochesHtml = noches.map(n => `
-    <article class="tarjeta noche">
-      <div class="noche-cab">
-        <h3>${esc(n.parada.nombre)}</h3>
-        <span class="chip"><span class="altitud-badge" data-nivel="${nivelAltitud(n.parada.altitud_m)}">${n.parada.altitud_m} m</span></span>
-      </div>
-      <p class="noche-meta">${esc(n.hotel)} · ${n.noches > 1 ? 'Noches' : 'Noche'} de los días ${n.dias.join(' y ')}</p>
-      ${htmlAvisos(n.avisos)}
-    </article>`).join('');
+  const dias = [...porDia.keys()].sort((a, b) => a - b);
 
   pintar(`
-    <header class="cabecera"><p class="eyebrow">El ascenso</p><h1>Altura</h1></header>
-    <div class="tarjeta">
-      <div class="grafico">
-        <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Perfil del ascenso día a día: la altitud de cada día del viaje">
-          ${zonas}${grids}${zonasTexto}${eje}${segmentos.join('')}${puntos}${picosMarca}${dias}
-        </svg>
-      </div>
-      <div class="picos">${picoTexto}</div>
-      <p class="chip">Altitudes pendientes de verificar — ver BACKLOG</p>
-    </div>
-    <div class="tarjeta">
-      ${htmlAvisos([datos.avisos.soroche].filter(Boolean))}
-    </div>
-    <h2 class="seccion-titulo">Las noches y qué hacer</h2>
-    ${nochesHtml}`);
-}
-
-function verEmergencias() {
-  pintar(`
-    <header class="cabecera"><p class="eyebrow">Si algo pasa</p><h1>Emergencias</h1></header>
-    <div class="tarjeta">
-      <h3>Asistencia en viaje (seguro)</h3>
-      <p><a href="tel:+34915724343">+34 915 72 43 43</a> · Iris Global, 24 h</p>
-    </div>
-    <div class="tarjeta">
-      <h3>TUI incidencias 24 h</h3>
-      <p><a href="tel:+34919930612">+34 919 930 612</a> · también WhatsApp</p>
-    </div>
-    <div class="tarjeta">
-      <h3>Lima Tours (en destino)</h3>
-      <p><a href="tel:+51997516250">+51 997 516 250</a> · admite WhatsApp</p>
-    </div>
-    <div class="tarjeta">
-      <h3>Mis datos</h3>
-      <p>Localizador, tickets y póliza se introducen en el móvil y no salen de él.
-         Pendiente: el formulario (ver BACKLOG).</p>
+    <header class="cabecera">
+      <p class="eyebrow">${icono('guia', 14)} Guía</p>
+      <h1>Qué estás viendo</h1>
+      <p class="sub">${Object.keys(datos.fichas).length} sitios, agrupados por el día que tocan.</p>
+    </header>
+    <div class="indice">
+      ${dias.map(n => {
+        const d = datos.itinerario.dias.find(x => x.n === n);
+        return `<div class="indice-grupo">Día ${n} · ${d ? esc(d.titulo) : ''}</div>` +
+          porDia.get(n).map(htmlEnlaceFicha).join('');
+      }).join('')}
     </div>`);
 }
 
-// ---- Mochila de Machu Picchu ----
+// El perfil se dibuja como un perfil —una línea de ascenso— y no como barras: lo que hay
+// que entender de un vistazo es la PENDIENTE, que es lo que castiga al cuerpo, no el valor
+// absoluto de cada parada. Las barras ordenaban por altura y escondían justo eso.
+function verAltura() {
+  const paradas = datos.itinerario.paradas;
+  const W = 340, H = 150, PAD_X = 10, PAD_Y = 26, SUELO = H - 34;
+  const max = Math.max(...paradas.map(p => p.altitud_m));
+  const x = i => PAD_X + (i * (W - PAD_X * 2)) / (paradas.length - 1);
+  const y = m => PAD_Y + (1 - m / max) * (SUELO - PAD_Y);
 
-// Checklist persistido: los ítems marcados viven en localStorage bajo el prefijo peru_.
-const MOCHILA_CLAVE = 'peru_mochila_mp';
+  const puntos = paradas.map((p, i) => [x(i), y(p.altitud_m)]);
+  const linea = puntos.map(([px, py], i) => `${i ? 'L' : 'M'}${px.toFixed(1)} ${py.toFixed(1)}`).join(' ');
+  const area = `${linea} L${x(paradas.length - 1).toFixed(1)} ${SUELO} L${PAD_X} ${SUELO} Z`;
+
+  pintar(`
+    <header class="cabecera">
+      <p class="eyebrow">${icono('altura', 14)} El ascenso</p>
+      <h1>Altura</h1>
+      <p class="sub">Del nivel del mar a ${mil(max)} m en cinco días.</p>
+    </header>
+
+    <div class="tarjeta">
+      <svg class="perfil" viewBox="0 0 ${W} ${H}" role="img"
+           aria-label="Perfil de altitud del viaje, de Lima a Machu Picchu">
+        <path class="area" d="${area}"/>
+        <path class="linea" d="${linea}"/>
+        <line class="eje" x1="${PAD_X}" y1="${SUELO}" x2="${W - PAD_X}" y2="${SUELO}"/>
+        ${paradas.map((p, i) => {
+          const [px, py] = puntos[i];
+          const impar = i % 2 === 1;
+          return `<circle class="punto" cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="3.5"/>
+            <text class="valor" x="${px.toFixed(1)}" y="${(py - 8).toFixed(1)}" text-anchor="middle">${(p.altitud_m / 1000).toFixed(1)}k</text>
+            <text x="${px.toFixed(1)}" y="${SUELO + (impar ? 24 : 13)}" text-anchor="middle">${esc(p.corto || p.nombre)}</text>`;
+        }).join('')}
+      </svg>
+    </div>
+
+    <p class="seccion-titulo">Parada a parada</p>
+    <div class="indice">
+      ${paradas.map(p => `<a href="#/dias">
+        <span class="nom">${esc(p.nombre)}</span>
+        <span class="chip chip--alt" data-nivel="${nivelAltitud(p.altitud_m)}">${p.altitud_m} m</span>
+      </a>`).join('')}
+    </div>
+
+    <p class="seccion-titulo">Lo que hay que saber</p>
+    <div class="tarjeta">
+      ${htmlAvisos([datos.avisos.soroche, datos.avisos['patapampa-4900'], datos.avisos['altura-empieza']].filter(Boolean))}
+    </div>`);
+}
+
+function verEmergencias() {
+  const tel = (quien, detalle, numero) => `
+    <a class="tel" href="tel:${numero.replace(/\s/g, '')}">
+      <span>
+        <span class="quien">${esc(quien)}</span><br>
+        <span class="num">${esc(numero)} · ${esc(detalle)}</span>
+      </span>
+      <span class="accion" aria-hidden="true">${icono('sos', 18)}</span>
+    </a>`;
+
+  pintar(`
+    <header class="cabecera">
+      <p class="eyebrow">${icono('sos', 14)} Si algo pasa</p>
+      <h1>Emergencias</h1>
+      <p class="sub">Funciona sin cobertura. Los números están guardados en la app.</p>
+    </header>
+
+    ${tel('Asistencia en viaje', 'Iris Global · seguro, 24 h', '+34 915 72 43 43')}
+    ${tel('TUI incidencias', 'también WhatsApp, 24 h', '+34 919 930 612')}
+    ${tel('Lima Tours', 'en destino · admite WhatsApp', '+51 997 516 250')}
+    ${tel('Emergencias Perú', 'policía y sanitarias', '105')}
+
+    <p class="seccion-titulo">Mis datos</p>
+    <div class="tarjeta">
+      <p>El localizador, los tickets y la póliza se introducen en el móvil y no salen de él:
+         este repositorio es público y no los contiene.</p>
+      <p><em>Pendiente: el formulario (ver BACKLOG).</em></p>
+    </div>`);
+}
 
 function mochilaHechos() {
   try { return new Set(JSON.parse(localStorage.getItem(MOCHILA_CLAVE) || '[]')); } catch { return new Set(); }
@@ -324,6 +368,7 @@ async function ir() {
 }
 
 async function init() {
+  pintarNav();
   try {
     datos = await cargar();
   } catch (e) {
