@@ -4,7 +4,7 @@
   "_nota": "Forma copiada de koricancha (cusco.json), la ficha de referencia. Ver CONTENIDO.md.",
   "fichas": [
     {
-      "id": "plaza-de-armas-lima",
+      "id": "plaza-armas-lima",
       "nombre": "Plaza de Armas",
       "lugar": "Lima",
       "dia": 2,
@@ -112,7 +112,7 @@
       "fuentes": []
     },
     {
-      "id": "miraflores-parque-del-amor",
+      "id": "parque-del-amor",
       "nombre": "Parque del Amor",
       "lugar": "Lima",
       "dia": 2,

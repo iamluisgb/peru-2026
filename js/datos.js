@@ -1,6 +1,8 @@
 // Carga y consulta de data/. Lógica PURA: sin DOM, para que los tests la puedan probar en node.
 
-const BLOQUES_GUIA = ['cusco'];  // se amplía según CONTENIDO.md
+// Un bloque escrito que no esté aquí NO se carga: el fichero se sirve, se precachea y no lo
+// pide nadie. Ya pasó con cinco bloques enteros. tests/datos.test.mjs lo vigila.
+const BLOQUES_GUIA = ['lima', 'arequipa', 'colca', 'trayectos', 'cusco', 'machu-picchu'];
 
 let cache = null;
 

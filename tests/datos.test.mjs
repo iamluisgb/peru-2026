@@ -74,3 +74,46 @@ test('las conexiones culturales apuntan a un recurso real', () => {
     for (const c of f.de_sofa?.conexion || [])
       assert.ok(titulos.has(c.recurso), `${f.id}: recurso desconocido "${c.recurso}"`);
 });
+
+// ---------------------------------------------------------------------------
+// Los dos invariantes que faltaban, y que costaron 23 fichas invisibles en
+// producción: el contenido escrito tiene que estar REGISTRADO y ALCANZABLE.
+// Los tests de arriba comprobaban que la ficha apunta a un día que existe,
+// pero nadie comprobaba el camino contrario.
+// ---------------------------------------------------------------------------
+
+// Bloques del itinerario que todavía no tienen ficha escrita. Cuando se escriba una,
+// se borra de aquí. Es una lista explícita a propósito: obliga a decidir si el id que
+// no resuelve es "aún no escrito" o "id mal tecleado", que es lo que de verdad rompe.
+const SIN_FICHA_TODAVIA = new Set([
+  'uros', 'taquile',                                        // Titicaca
+  'chinchero', 'yucay', 'ollantaytambo', 'tren-valle',      // Valle Sagrado
+]);
+
+test('cada actividad del itinerario resuelve a una ficha (o está declarada pendiente)', () => {
+  const ids = new Set(fichas.map(f => f.id));
+  const rotas = [];
+  for (const d of itinerario.dias)
+    for (const a of d.actividades || [])
+      if (!ids.has(a) && !SIN_FICHA_TODAVIA.has(a)) rotas.push(`día ${d.n}: ${a}`);
+  assert.deepEqual(rotas, [], `actividades que no resuelven a ninguna ficha: ${rotas.join(', ')}`);
+});
+
+test('ninguna ficha queda huérfana', () => {
+  const usadas = new Set(itinerario.dias.flatMap(d => d.actividades || []));
+  const huerfanas = fichas.map(f => f.id).filter(id => !usadas.has(id));
+  assert.deepEqual(huerfanas, [], `fichas que ningún día referencia: ${huerfanas.join(', ')}`);
+});
+
+test('todo bloque de data/guia está registrado en BLOQUES_GUIA', () => {
+  const datos = readFileSync(new URL('../js/datos.js', import.meta.url), 'utf8');
+  const registrados = new Set(
+    (datos.match(/const BLOQUES_GUIA = \[([^\]]*)\]/)?.[1] || '')
+      .split(',').map(s => s.trim().replace(/^'|'$/g, '')).filter(Boolean)
+  );
+  const enDisco = readdirSync(new URL('../data/guia/', import.meta.url))
+    .filter(f => f.endsWith('.json')).map(f => f.replace('.json', ''));
+  const sinCargar = enDisco.filter(b => !registrados.has(b));
+  assert.deepEqual(sinCargar, [],
+    `bloques escritos que la app NO carga: ${sinCargar.join(', ')}`);
+});

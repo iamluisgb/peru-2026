@@ -8,122 +8,457 @@
     "viajeros": 2,
     "nota": "Los localizadores, tickets y póliza NO viven aquí. Ver ADR-002."
   },
-
   "paradas": [
-    { "id": "lima",            "nombre": "Lima",             "altitud_m": 154,  "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Lima — altitud del centro histórico ≈154 m"] },
-    { "id": "arequipa",        "nombre": "Arequipa",         "altitud_m": 2335, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Arequipa (2335 m)"] },
-    { "id": "colca",           "nombre": "Cañón del Colca",  "altitud_m": 3635, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Chivay (3.635 m)"] },
-    { "id": "patapampa",       "nombre": "Mirador de Patapampa", "altitud_m": 4910, "verificado": true, "solo_paso": true, "fuentes": ["Guías del mirador de Patapampa (4.910 m)"] },
-    { "id": "puno",            "nombre": "Puno",             "altitud_m": 3830, "verificado": true,  "fuentes": ["en.wikipedia.org/wiki/Puno (3830 m)"] },
-    { "id": "cusco",           "nombre": "Cusco",            "altitud_m": 3400, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Cusco (3400 m)"] },
-    { "id": "ollantaytambo",   "nombre": "Ollantaytambo",    "altitud_m": 2790, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Ollantaytambo (≈2790 m)"] },
-    { "id": "aguas-calientes", "nombre": "Aguas Calientes",  "altitud_m": 2040, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Aguas_Calientes (2040 m)"] },
-    { "id": "machu-picchu",    "nombre": "Machu Picchu",     "altitud_m": 2430, "verificado": true,  "fuentes": ["es.wikipedia.org/wiki/Machu_Picchu (2.430 m)"] }
+    {
+      "id": "lima",
+      "nombre": "Lima",
+      "altitud_m": 154,
+      "verificado": true,
+      "fuentes": [
+        "es.wikipedia.org/wiki/Lima — altitud del centro histórico ≈154 m"
+      ]
+    },
+    {
+      "id": "arequipa",
+      "nombre": "Arequipa",
+      "altitud_m": 2335,
+      "verificado": true,
+      "fuentes": [
+        "es.wikipedia.org/wiki/Arequipa (2335 m)"
+      ]
+    },
+    {
+      "id": "colca",
+      "nombre": "Cañón del Colca",
+      "altitud_m": 3635,
+      "verificado": true,
+      "fuentes": [
+        "es.wikipedia.org/wiki/Chivay (3.635 m)"
+      ]
+    },
+    {
+      "id": "patapampa",
+      "nombre": "Mirador de Patapampa",
+      "altitud_m": 4910,
+      "verificado": true,
+      "solo_paso": true,
+      "fuentes": [
+        "Guías del mirador de Patapampa (4.910 m)"
+      ]
+    },
+    {
+      "id": "puno",
+      "nombre": "Puno",
+      "altitud_m": 3830,
+      "verificado": true,
+      "fuentes": [
+        "en.wikipedia.org/wiki/Puno (3830 m)"
+      ]
+    },
+    {
+      "id": "cusco",
+      "nombre": "Cusco",
+      "altitud_m": 3400,
+      "verificado": true,
+      "fuentes": [
+        "es.wikipedia.org/wiki/Cusco (3400 m)"
+      ]
+    },
+    {
+      "id": "ollantaytambo",
+      "nombre": "Ollantaytambo",
+      "altitud_m": 2790,
+      "verificado": true,
+      "fuentes": [
+        "es.wikipedia.org/wiki/Ollantaytambo (≈2790 m)"
+      ]
+    },
+    {
+      "id": "aguas-calientes",
+      "nombre": "Aguas Calientes",
+      "altitud_m": 2040,
+      "verificado": true,
+      "fuentes": [
+        "es.wikipedia.org/wiki/Aguas_Calientes (2040 m)"
+      ]
+    },
+    {
+      "id": "machu-picchu",
+      "nombre": "Machu Picchu",
+      "altitud_m": 2430,
+      "verificado": true,
+      "fuentes": [
+        "es.wikipedia.org/wiki/Machu_Picchu (2.430 m)"
+      ]
+    }
   ],
-
   "hoteles": [
-    { "parada": "lima",            "nombre": "Britania Miraflores Hotel",       "noches": 2, "desde": "2026-08-30", "direccion": "Calle Independencia 211, Miraflores, Lima 15074, Perú", "telefono": "+51 961 359 381", "fuentes": ["Listados de reserva (Google/Booking) — C. Independencia 211, Miraflores"] },
-    { "parada": "arequipa",        "nombre": "Hotel Corregidor",               "noches": 1, "desde": "2026-09-01", "direccion": "Calle San Pedro 139, Arequipa 04001, Perú", "telefono": "+51 54 288081", "fuentes": ["Sitio oficial — cassana.pe/es/hotel-corregidor"] },
-    { "parada": "colca",           "nombre": "Hotel Pozo del Cielo",           "noches": 1, "desde": "2026-09-02", "direccion": "Calle Huáscar Mz. E Lote 3-6, Chivay, Arequipa, Perú", "telefono": null, "fuentes": ["Listados de reserva (Booking/OTA) — Calle Huáscar Mz. E Lote 3-6, Chivay"] },
-    { "parada": "puno",            "nombre": "Casa Andina Standard Puno",      "noches": 2, "desde": "2026-09-03", "direccion": "Jirón Independencia 143, Puno 21001, Perú", "telefono": "+51 51 367803", "fuentes": ["Listados de reserva (Google/Hoteles/OTA) — Jr. Independencia 143, Puno"] },
-    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 2, "desde": "2026-09-05", "direccion": "Av. Hipólito Unánue 155, Wanchaq, Cusco 08002, Perú", "telefono": "+51 84 222712", "fuentes": ["Listados de reserva (OTA) — Av. Hipólito Unánue 155, Cusco"] },
-    { "parada": "aguas-calientes", "nombre": "Casa Andina Standard Machu Picchu", "noches": 1, "desde": "2026-09-07", "direccion": "Prolongación Imperio de los Incas, Aguas Calientes, Machu Picchu 08681, Perú", "telefono": "+51 84 211017", "fuentes": ["Listados de reserva (OTA) — Prolongación Imperio de los Incas, Aguas Calientes"] },
-    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 1, "desde": "2026-09-08", "direccion": "Av. Hipólito Unánue 155, Wanchaq, Cusco 08002, Perú", "telefono": "+51 84 222712", "fuentes": ["Listados de reserva (OTA) — Av. Hipólito Unánue 155, Cusco"] }
+    {
+      "parada": "lima",
+      "nombre": "Britania Miraflores Hotel",
+      "noches": 2,
+      "desde": "2026-08-30",
+      "direccion": "Calle Independencia 211, Miraflores, Lima 15074, Perú",
+      "telefono": "+51 961 359 381",
+      "fuentes": [
+        "Listados de reserva (Google/Booking) — C. Independencia 211, Miraflores"
+      ]
+    },
+    {
+      "parada": "arequipa",
+      "nombre": "Hotel Corregidor",
+      "noches": 1,
+      "desde": "2026-09-01",
+      "direccion": "Calle San Pedro 139, Arequipa 04001, Perú",
+      "telefono": "+51 54 288081",
+      "fuentes": [
+        "Sitio oficial — cassana.pe/es/hotel-corregidor"
+      ]
+    },
+    {
+      "parada": "colca",
+      "nombre": "Hotel Pozo del Cielo",
+      "noches": 1,
+      "desde": "2026-09-02",
+      "direccion": "Calle Huáscar Mz. E Lote 3-6, Chivay, Arequipa, Perú",
+      "telefono": null,
+      "fuentes": [
+        "Listados de reserva (Booking/OTA) — Calle Huáscar Mz. E Lote 3-6, Chivay"
+      ]
+    },
+    {
+      "parada": "puno",
+      "nombre": "Casa Andina Standard Puno",
+      "noches": 2,
+      "desde": "2026-09-03",
+      "direccion": "Jirón Independencia 143, Puno 21001, Perú",
+      "telefono": "+51 51 367803",
+      "fuentes": [
+        "Listados de reserva (Google/Hoteles/OTA) — Jr. Independencia 143, Puno"
+      ]
+    },
+    {
+      "parada": "cusco",
+      "nombre": "Agustos Cusco Hotel",
+      "noches": 2,
+      "desde": "2026-09-05",
+      "direccion": "Av. Hipólito Unánue 155, Wanchaq, Cusco 08002, Perú",
+      "telefono": "+51 84 222712",
+      "fuentes": [
+        "Listados de reserva (OTA) — Av. Hipólito Unánue 155, Cusco"
+      ]
+    },
+    {
+      "parada": "aguas-calientes",
+      "nombre": "Casa Andina Standard Machu Picchu",
+      "noches": 1,
+      "desde": "2026-09-07",
+      "direccion": "Prolongación Imperio de los Incas, Aguas Calientes, Machu Picchu 08681, Perú",
+      "telefono": "+51 84 211017",
+      "fuentes": [
+        "Listados de reserva (OTA) — Prolongación Imperio de los Incas, Aguas Calientes"
+      ]
+    },
+    {
+      "parada": "cusco",
+      "nombre": "Agustos Cusco Hotel",
+      "noches": 1,
+      "desde": "2026-09-08",
+      "direccion": "Av. Hipólito Unánue 155, Wanchaq, Cusco 08002, Perú",
+      "telefono": "+51 84 222712",
+      "fuentes": [
+        "Listados de reserva (OTA) — Av. Hipólito Unánue 155, Cusco"
+      ]
+    }
   ],
-
   "vuelos": [
-    { "n": "PU301",   "cia": "Plus Ultra", "de": "MAD", "a": "LIM", "sale": "2026-08-30T11:00", "llega": "2026-08-30T16:10", "equipaje": "1 pieza" },
-    { "n": "H2 5103", "cia": "Sky Airline", "de": "LIM", "a": "AQP", "sale": "2026-09-01T10:15", "llega": "2026-09-01T11:50", "equipaje": "1 pieza" },
-    { "n": "H2 5008", "cia": "Sky Airline", "de": "CUZ", "a": "LIM", "sale": "2026-09-09T12:10", "llega": "2026-09-09T13:55", "equipaje": "1 pieza" },
-    { "n": "PU302",   "cia": "Plus Ultra", "de": "LIM", "a": "MAD", "sale": "2026-09-09T18:10", "llega": "2026-09-10T13:05", "equipaje": "1 pieza" }
+    {
+      "n": "PU301",
+      "cia": "Plus Ultra",
+      "de": "MAD",
+      "a": "LIM",
+      "sale": "2026-08-30T11:00",
+      "llega": "2026-08-30T16:10",
+      "equipaje": "1 pieza"
+    },
+    {
+      "n": "H2 5103",
+      "cia": "Sky Airline",
+      "de": "LIM",
+      "a": "AQP",
+      "sale": "2026-09-01T10:15",
+      "llega": "2026-09-01T11:50",
+      "equipaje": "1 pieza"
+    },
+    {
+      "n": "H2 5008",
+      "cia": "Sky Airline",
+      "de": "CUZ",
+      "a": "LIM",
+      "sale": "2026-09-09T12:10",
+      "llega": "2026-09-09T13:55",
+      "equipaje": "1 pieza"
+    },
+    {
+      "n": "PU302",
+      "cia": "Plus Ultra",
+      "de": "LIM",
+      "a": "MAD",
+      "sale": "2026-09-09T18:10",
+      "llega": "2026-09-10T13:05",
+      "equipaje": "1 pieza"
+    }
   ],
-
   "dias": [
     {
-      "n": 0, "fecha": "2026-08-29", "titulo": "Noche en Barajas", "parada": "madrid",
+      "n": 0,
+      "fecha": "2026-08-29",
+      "titulo": "Noche en Barajas",
+      "parada": "madrid",
       "resumen": "Noche previa junto al aeropuerto para no madrugar a las 5 desde casa.",
-      "actividades": [], "comidas": [], "libre": [],
-      "avisos": ["hotel-barajas"]
+      "actividades": [],
+      "comidas": [],
+      "libre": [],
+      "avisos": [
+        "hotel-barajas"
+      ]
     },
     {
-      "n": 1, "fecha": "2026-08-30", "titulo": "España · Lima", "parada": "lima",
+      "n": 1,
+      "fecha": "2026-08-30",
+      "titulo": "España · Lima",
+      "parada": "lima",
       "resumen": "Vuelo a Lima. Llegada, asistencia y traslado al hotel.",
-      "actividades": [], "comidas": [], "libre": ["Noche en Miraflores"],
-      "avisos": ["aeropuerto-3h", "primer-dia-altura-no"]
+      "actividades": [],
+      "comidas": [],
+      "libre": [
+        "Noche en Miraflores"
+      ],
+      "avisos": [
+        "aeropuerto-3h",
+        "primer-dia-altura-no"
+      ]
     },
     {
-      "n": 2, "fecha": "2026-08-31", "titulo": "Lima", "parada": "lima",
+      "n": 2,
+      "fecha": "2026-08-31",
+      "titulo": "Lima",
+      "parada": "lima",
       "resumen": "Visita panorámica: plaza de Armas con el Palacio Presidencial y la catedral. De vuelta en Miraflores, la Huaca Pucllana y el parque del Amor.",
-      "actividades": ["plaza-armas-lima", "catedral-lima", "huaca-pucllana", "parque-del-amor"],
-      "comidas": ["desayuno"], "libre": ["Tarde libre en Miraflores o Barranco"],
+      "actividades": [
+        "plaza-armas-lima",
+        "catedral-lima",
+        "huaca-pucllana",
+        "parque-del-amor"
+      ],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [
+        "Tarde libre en Miraflores o Barranco"
+      ],
       "avisos": []
     },
     {
-      "n": 3, "fecha": "2026-09-01", "titulo": "Arequipa", "parada": "arequipa",
+      "n": 3,
+      "fecha": "2026-09-01",
+      "titulo": "Arequipa",
+      "parada": "arequipa",
       "resumen": "Vuelo a Arequipa. Miradores de Carmen Alto y Yanahuara, plaza de Armas y monasterio de Santa Catalina.",
-      "actividades": ["carmen-alto", "yanahuara", "plaza-armas-arequipa", "santa-catalina"],
-      "comidas": ["desayuno"], "libre": [],
-      "avisos": ["altura-empieza"]
+      "actividades": [
+        "carmen-alto",
+        "yanahuara",
+        "plaza-armas-arequipa",
+        "santa-catalina"
+      ],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [],
+      "avisos": [
+        "altura-empieza"
+      ]
     },
     {
-      "n": 4, "fecha": "2026-09-02", "titulo": "Cañón del Colca", "parada": "colca",
+      "n": 4,
+      "fecha": "2026-09-02",
+      "titulo": "Cañón del Colca",
+      "parada": "colca",
       "resumen": "Salida hacia el Colca por la reserva de Pampas Cañahuas. Tarde libre.",
-      "actividades": ["pampas-canahuas", "patapampa"],
-      "comidas": ["desayuno"], "libre": ["Tarde libre en Chivay — termas de La Calera"],
-      "avisos": ["patapampa-4900", "soroche"]
+      "actividades": [
+        "pampas-canahuas",
+        "patapampa"
+      ],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [
+        "Tarde libre en Chivay — termas de La Calera"
+      ],
+      "avisos": [
+        "patapampa-4900",
+        "soroche"
+      ]
     },
     {
-      "n": 5, "fecha": "2026-09-03", "titulo": "Colca · Puno", "parada": "puno",
+      "n": 5,
+      "fecha": "2026-09-03",
+      "titulo": "Colca · Puno",
+      "parada": "puno",
       "resumen": "Salida a primera hora a la Cruz del Cóndor. Pueblos de Maca y Yanque. Almuerzo y salida hacia Puno.",
-      "actividades": ["cruz-del-condor", "maca", "yanque"],
-      "comidas": ["desayuno", "almuerzo"], "libre": [],
-      "avisos": ["condor-madrugon", "dia-de-bus"]
+      "actividades": [
+        "cruz-del-condor",
+        "maca",
+        "yanque"
+      ],
+      "comidas": [
+        "desayuno",
+        "almuerzo"
+      ],
+      "libre": [],
+      "avisos": [
+        "condor-madrugon",
+        "dia-de-bus"
+      ]
     },
     {
-      "n": 6, "fecha": "2026-09-04", "titulo": "Lago Titicaca", "parada": "puno",
+      "n": 6,
+      "fecha": "2026-09-04",
+      "titulo": "Lago Titicaca",
+      "parada": "puno",
       "resumen": "Día completo en lancha compartida por el Titicaca: isla de los Uros e isla de Taquile.",
-      "actividades": ["uros", "taquile"],
-      "comidas": ["desayuno"], "libre": ["Tarde libre en Puno al volver"],
-      "avisos": ["sol-lago", "sin-cobertura"]
+      "actividades": [
+        "uros",
+        "taquile"
+      ],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [
+        "Tarde libre en Puno al volver"
+      ],
+      "avisos": [
+        "sol-lago",
+        "sin-cobertura"
+      ]
     },
     {
-      "n": 7, "fecha": "2026-09-05", "titulo": "Puno · Cusco", "parada": "cusco",
+      "n": 7,
+      "fecha": "2026-09-05",
+      "titulo": "Puno · Cusco",
+      "parada": "cusco",
       "resumen": "Bus turístico a Cusco. En ruta: museo Lítico de Pucará y templo de Raqchi. Almuerzo y pueblo colonial de Andahuaylillas.",
-      "actividades": ["pucara", "la-raya", "raqchi", "andahuaylillas"],
-      "comidas": ["desayuno", "almuerzo"], "libre": [],
-      "avisos": ["tasa-bus-puno-cusco", "dia-de-bus", "sin-cobertura"]
+      "actividades": [
+        "pucara",
+        "la-raya",
+        "raqchi",
+        "andahuaylillas"
+      ],
+      "comidas": [
+        "desayuno",
+        "almuerzo"
+      ],
+      "libre": [],
+      "avisos": [
+        "tasa-bus-puno-cusco",
+        "dia-de-bus",
+        "sin-cobertura"
+      ]
     },
     {
-      "n": 8, "fecha": "2026-09-06", "titulo": "Cusco", "parada": "cusco",
+      "n": 8,
+      "fecha": "2026-09-06",
+      "titulo": "Cusco",
+      "parada": "cusco",
       "resumen": "Por la mañana: Koricancha, plaza de Armas y catedral. Después, el barrio de San Blas.",
-      "actividades": ["koricancha", "plaza-armas-cusco", "catedral-cusco", "san-blas"],
-      "comidas": ["desayuno"], "libre": ["Tarde libre en Cusco"],
-      "avisos": ["koricancha-domingo", "equipaje-5kg-preparar"]
+      "actividades": [
+        "koricancha",
+        "plaza-armas-cusco",
+        "catedral-cusco",
+        "san-blas"
+      ],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [
+        "Tarde libre en Cusco"
+      ],
+      "avisos": [
+        "koricancha-domingo",
+        "equipaje-5kg-preparar"
+      ]
     },
     {
-      "n": 9, "fecha": "2026-09-07", "titulo": "Valle Sagrado · Aguas Calientes", "parada": "aguas-calientes",
+      "n": 9,
+      "fecha": "2026-09-07",
+      "titulo": "Valle Sagrado · Aguas Calientes",
+      "parada": "aguas-calientes",
       "resumen": "Chinchero y su iglesia del XVII, museo Vivo de Yucay, Ollantaytambo. Tren por el valle sagrado hasta Machu Picchu Pueblo.",
-      "actividades": ["chinchero", "yucay", "ollantaytambo", "tren-valle"],
-      "comidas": ["desayuno"], "libre": [],
-      "avisos": ["equipaje-5kg", "custodia-cusco"]
+      "actividades": [
+        "chinchero",
+        "yucay",
+        "ollantaytambo",
+        "tren-valle"
+      ],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [],
+      "avisos": [
+        "equipaje-5kg",
+        "custodia-cusco"
+      ]
     },
     {
-      "n": 10, "fecha": "2026-09-08", "titulo": "Machu Picchu", "parada": "machu-picchu",
+      "n": 10,
+      "fecha": "2026-09-08",
+      "titulo": "Machu Picchu",
+      "parada": "machu-picchu",
       "resumen": "Visita de Machu Picchu. Después, tren a Ollantaytambo o Poroy y traslado a Cusco.",
-      "actividades": ["machu-picchu", "templo-del-sol", "intihuatana", "tres-ventanas"],
-      "comidas": ["desayuno"], "libre": [],
-      "avisos": ["pasaporte-mp"]
+      "actividades": [
+        "machu-picchu",
+        "templo-del-sol",
+        "intihuatana",
+        "tres-ventanas",
+        "templo-del-condor",
+        "ciudadela-machu-picchu"
+      ],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [],
+      "avisos": [
+        "pasaporte-mp"
+      ]
     },
     {
-      "n": 11, "fecha": "2026-09-09", "titulo": "Cusco · Lima · España", "parada": "lima",
+      "n": 11,
+      "fecha": "2026-09-09",
+      "titulo": "Cusco · Lima · España",
+      "parada": "lima",
       "resumen": "Traslado al aeropuerto. Vuelo a Lima y de Lima a Madrid. Noche a bordo.",
-      "actividades": [], "comidas": ["desayuno"], "libre": ["~4 h de escala en Lima"],
-      "avisos": ["tuua-lima", "aeropuerto-3h"]
+      "actividades": [],
+      "comidas": [
+        "desayuno"
+      ],
+      "libre": [
+        "~4 h de escala en Lima"
+      ],
+      "avisos": [
+        "tuua-lima",
+        "aeropuerto-3h"
+      ]
     },
     {
-      "n": 12, "fecha": "2026-09-10", "titulo": "Llegada", "parada": "madrid",
+      "n": 12,
+      "fecha": "2026-09-10",
+      "titulo": "Llegada",
+      "parada": "madrid",
       "resumen": "Llegada a Madrid a las 13:05. Fin del viaje.",
-      "actividades": [], "comidas": [], "libre": [], "avisos": []
+      "actividades": [],
+      "comidas": [],
+      "libre": [],
+      "avisos": []
     }
   ]
 }
