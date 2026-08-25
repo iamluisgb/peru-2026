@@ -1,6 +1,6 @@
 // Orquestador. Router de hash, cinco pantallas, sin framework.
 import { cargar, diaDe, paradaDe, nivelAltitud, avisosDe, culturaDe } from './datos.js';
-import { esc } from './ui/escape.js';
+import { esc, enlazar } from './ui/escape.js';
 import { hoyISO, bonita, diasHasta } from './ui/fecha.js';
 import { icono } from './ui/icons.js';
 
@@ -189,7 +189,7 @@ function verGuia(id) {
 
       ${(f.fuentes || []).length ? `<details>
         <summary>Fuentes</summary>
-        <ul class="fuentes">${f.fuentes.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+        <ul class="fuentes">${f.fuentes.map(x => `<li>${enlazar(x)}</li>`).join('')}</ul>
       </details>` : ''}
     </article>`);
 }
