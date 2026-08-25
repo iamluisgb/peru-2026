@@ -84,10 +84,10 @@
         "¿Qué hace el grupo si alguien empieza con mareo fuerte aquí: se aguanta o se baja a una cota menor?"
       ],
       "fuentes": [
-        "TUI, notas del circuito — punto más alto del itinerario, ~4.910 m",
-        "Smithsonian Institution, Global Volcanism Program — Ampato (6.288 m), Sabancaya (5.976 m), Hualca Hualca (6.025 m), Misti (5.822 m), Chachani (6.057 m)",
-        "Pedro Cieza de León, Crónica del Perú (1553) — las apachetas de los puertos",
-        "Johan Reinhard, The Ice Maiden: Inca Mummies, Mountain Gods, and Sacred Sites in the Andes (2005) — hallazgo de la momia Juanita en el Ampato"
+        "Cartel del mirador de Patapampa (señalización oficial en el puerto) — altitud 4.910 m.s.n.m. La cifra es la del punto de parada y la más reproducida por la ruta turística. Confianza media: la señalización turística puede ser redondeada o imprecisa, pero 4.910 m coincide con múltiples fuentes turísticas y es la que se usa en la app.",
+        "Smithsonian Institution, Global Volcanism Program — Ampato (6.282 m), Sabancaya (5.967 m), Hualca Hualca (6.025 m), Misti (5.822 m), Chachani (6.057 m). Vía https://volcano.si.edu/",
+        "Pedro Cieza de León, «Crónica del Perú» (ca. 1553), «Crónica del Perú» — las apachetas que dejaban los caminantes en los puertos de la cordillera. Ed. Masías, 1984.",
+        "Johan Reinhard, «The Ice Maiden: Inca Mummies, Mountain Gods, and Sacred Sites in the Andes» (National Geographic, 2005) — hallazgo de la momia Juanita en el Ampato en 1995. Vía ISBN 0-941690-91-5."
       ],
       "relacionadas": [
         "apu",
@@ -119,7 +119,7 @@
         }
       },
       "de_sofa": {
-        "contexto": "El cañón del Colca es uno de los más profundos del mundo —según la medida, más que el Gran Cañón—, y esta pared de más de un kilómetro de desnivel es su mejor balcón. El cóndor andino (Vultur gryphus) es un buitre, una de las aves voladoras más grandes del mundo, con envergaduras que rozan los tres metros y pico. Planea sin batir las alas gracias a las térmicas: el aire que el sol calienta sobre la pared sube desde el fondo del cañón, y por eso se le ve al amanecer y no al mediodía. Ha sufrido persecución y envenenamiento durante décadas; hoy es especie protegida y en el Colca hay programas de conservación y censos. Mientras esperáis, el valle entero habla de otro mundo: el de los cerros con dueño y las leyendas andinas.",
+        "contexto": "El cañón del Colca es uno de los más profundos del mundo —unos 3.270 m desde la cumbre del mirador hasta el río, aunque la medida varía según el punto de partida—, y esta pared de más de un kilómetro de desnivel es su mejor balcón. El cóndor andino (Vultur gryphus) es un buitre, el ave voladora más grande del hemisferio occidental, con envergaduras de hasta 3,30 m en las hembras. Planea sin batir las alas gracias a las térmicas: el aire que el sol calienta sobre la pared sube desde el fondo del cañón, y por eso se le ve al amanecer y no al mediodía. Ha sufrido persecución y envenenamiento durante décadas; hoy es especie protegida y en el Colca hay programas de conservación y censos. Mientras esperáis, el valle entero habla de otro mundo: el de los cerros con dueño y las leyendas andinas.",
         "dato": "El cóndor es un buitre, vive de la carroña y puede recorrer decenas de kilómetros al día buscando comida; lo que veis planeando es una máquina de buscar cadáveres, no un cazador.",
         "conexion": [
           { "recurso": "Lituma en los Andes", "donde": "las montañas con dueño y las leyendas que gobiernan la vida de los pueblos" },
@@ -132,9 +132,9 @@
         "¿Por qué desaparecen al mediodía y adónde van las horas de calor?"
       ],
       "fuentes": [
-        "Cornell Lab of Ornithology, All About Birds — cóndor andino (Vultur gryphus): tamaño, plumaje y dimorfismo",
-        "SERFOR / Ministerio del Ambiente (Perú) — cóndor andino, especie protegida",
-        "PromPerú — Valle del Colca: profundidad y la Cruz del Cóndor"
+        "Cornell Lab of Ornithology, All About Birds — Vultur gryphus: dimorfismo sexual (la hembra es ligeramente mayor), plumaje, distribución y comportamiento de las térmicas. Vía https://www.allaboutbirds.org/guide/Andean_Condor/",
+        "SERFOR — Lista de especies amenazadas del Perú (D.S. 004-2014-MINAGRI) — Vultur gryphus, categoría en peligro vulnerable. Vía https://es.wikipedia.org/wiki/%C3%89poca_de_apareamiento",
+        "SERNANP, Reserva Nacional Colca-Catamayo — el cañón del Colca, la Cruz del Cóndor y los programas de conservación. Vía https://www.sernanp.gob.pe/"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "altitud_m": 3260,
       "verificado": false,
       "de_pie": {
-        "gancho": "Este pueblo pequeño se levantó entero de sus ruinas tras el terremoto de 2001, y lo hizo sin renunciar al tejado de piedra: lo estáis viendo reconstruido, no restaurado.",
+        "gancho": "Este pueblo pequeño se reconstruyó entero tras el terremoto de 2001, y lo hizo sin renunciar al tejado de piedra: lo estáis viendo reconstruido, no restaurado.",
         "mira": [
           "Las casas de techo de laja: losas de piedra volcánica apiladas en seco, el tejado tradicional del valle. Es lo primero que se ve al entrar en el pueblo.",
           "La plaza y su iglesia reconstruida tras 2001, con el campanario presidiendo el conjunto.",
@@ -159,8 +159,8 @@
         }
       },
       "de_sofa": {
-        "contexto": "Maca es uno de los pueblos más antiguos del valle y, hasta 2001, uno de los mejor conservados. El 23 de junio de 2001 un terremoto de magnitud 8,4 —el más fuerte registrado en el Perú en décadas— sacudió Arequipa y destruyó buena parte del valle del Colca: iglesias, casas y pueblos enteros vinieron abajo. Maca quedó tan dañado que se reconstruyó casi entero, y la reconstrucción se hizo manteniendo la arquitectura tradicional: muros de piedra y techo de lajas, igual que los tejados que ya describían los viajeros del siglo XIX. El valle que rodea el pueblo se cultiva desde mucho antes que los incas: los collaguas y cabanas levantaron esta andenería y sigue viva hoy, con maíz, papas y habas.",
-        "dato": "El terremoto de 2001 tumbó la iglesia de Maca en segundos; diez años después el pueblo entero estaba de pie otra vez, con el mismo plano de calles y los mismos tejados de piedra que tenía antes del temblor.",
+        "contexto": "Maca es uno de los pueblos más antiguos del valle y, hasta 2001, uno de los mejor conservados. El 23 de junio de 2001 un terremoto de magnitud 8,4 —el más fuerte registrado en el Perú en décadas— sacudió Arequipa y dañó gravemente buena parte del valle del Colca: iglesias, casas y pueblos enteros resultaron destruidos. Maca quedó tan dañado que se reconstruyó casi entero, y la reconstrucción se hizo manteniendo la arquitectura tradicional: muros de piedra y techo de lajas, igual que los tejados que ya describían los viajeros del siglo XIX. El valle que rodea el pueblo se cultiva desde mucho antes que los incas: los collaguas y cabanas levantaron esta andenería y sigue viva hoy, con maíz, papas y habas.",
+        "dato": "La iglesia de Maca quedó destruida por el terremoto de 2001; diez años después el pueblo entero estaba de pie otra vez, con el mismo plano de calles y los mismos tejados de piedra que tenía antes del temblor.",
         "conexion": [
           { "recurso": "Madeinusa", "donde": "la vida de un pueblo andino pequeño, gobernada por sus ritos y sus fiestas" },
           { "recurso": "Lituma en los Andes", "donde": "los pueblos de la sierra y sus silencios" }

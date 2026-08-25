@@ -29,7 +29,7 @@
         }
       },
       "de_sofa": {
-        "contexto": "Lo fundó en 1579 Ana de Monteagudo, una monja dominica nacida en Arequipa, con las dotes de las familias ricas de la ciudad. En el siglo XVII creció hasta ocupar una manzana entera: dos claustros, cuatro calles con nombre de ciudad española, una plaza, un huerto y una lavandería. Las monjas entraban con dote y su ajuar: algunas vivían con su servicio, tenían casa propia con cocina y hasta criadas. Cuando Roma impuso la vida común y la clausura estricta, casi todas las monjas de familia se marcharon y el recinto quedó medio vacío. Se restauró a fondo y se abrió al público en 1970.",
+        "contexto": "Lo fundó en 1579 Ana Ramírez de Monteagudo, una monja dominica de familia adinerada de Arequipa, con las rentas de su dote. En el siglo XVII creció hasta ocupar una manzana entera: tres claustros, cuatro calles con nombre de ciudad española, una plaza, un huerto y una lavandería. Las monjas entraban con dote y su ajuar: algunas vivían con su servicio, tenían casa propia con cocina y hasta criadas. Cuando Roma impuso la vida común y la clausura estricta, casi todas las monjas de familia se marcharon y el recinto quedó medio vacío. Se restauró a fondo y se destinó a visita pública.",
         "dato": "Hasta bien entrado el XIX esto no era exactamente una clausura: las monjas ricas vivían aquí con criadas y familia que entraba y salía, de modo que la puerta nunca fue tan sorda como parece.",
         "conexion": [
           {
@@ -44,8 +44,8 @@
         "¿Qué vidas llevaban las monjas antes de la reforma que impuso la vida común?"
       ],
       "fuentes": [
-        "Perú Travel — ficha del Monasterio de Santa Catalina (peru.travel): fundación en 1579, apertura al público en 1970",
-        "UNESCO, Centro Histórico de la ciudad de Arequipa (whc.unesco.org/es/list/1016): inscripción en 2000 y contexto urbano de la manzana de Santa Catalina"
+        "Turismo Arequipa, Monasterio de Santa Catalina (turismoarequipa.gob.pe): fundación en 1579 por Ana Ramírez de Monteagudo, estructura con tres claustros y calles con nombres de ciudades españolas. Vía https://turismoarequipa.gob.pe/monasterio-santa-catalina/",
+        "UNESCO, Centro Histórico de la ciudad de Arequipa (whc.unesco.org/es/list/1016): inscripción en 2000; el convento de Santa Catalina aparece como parte del contexto urbano del centro histórico. Vía https://whc.unesco.org/en/tentativelist/1016/"
       ]
     },
     {
@@ -146,7 +146,7 @@
       "altitud_m": 2335,
       "verificado": false,
       "de_pie": {
-        "gancho": "Mirad el Misti asomando sobre la catedral: no hay otra plaza de armas de Perú que se haya construido delante de un volcán.",
+        "gancho": "Mirad el Misti asomando sobre la catedral: el cono del volcán cierra la plaza por el lado de la catedral, y eso le da un encuadre que pocas plazas peruanas tienen.",
         "mira": [
           "El lado norte: la catedral de sillar, con su fachada ancha y sin campanario central; esa fachada se reconstruyó tras el terremoto de 1868.",
           "Los soportales de los otros tres lados, con sus arcos de medio punto: aquí está la sombra y la vida comercial de la plaza desde la colonia.",
@@ -164,7 +164,7 @@
         }
       },
       "de_sofa": {
-        "contexto": "Arequipa nació aquí el 15 de agosto de 1540: Garcí Manuel de Carbajal trazó la plaza en nombre del rey y fundó la ciudad sobre el trazado colonial que se ve hoy. La ciudad se ordenó alrededor de esta manzana y creció en sillar, el material volcánico que la hace blanca y que se endurece con el aire. Los terremotos de 1582 y 1868 la tumbaron, y cada vez se reconstruyó con la misma piedra: la catedral actual es de la reconstrucción de 1868. En 2000 la UNESCO inscribió el centro histórico, con la plaza como pieza clave.",
+        "contexto": "Arequipa nació aquí el 15 de agosto de 1540: Garcí Manuel de Carbajal trazó la plaza en nombre del rey y fundó la ciudad sobre el trazado colonial que se ve hoy. La ciudad se ordenó alrededor de esta manzana y creció en sillar, el material volcánico que la hace blanca y que se endurece con el aire. Los terremotos de 1582, 1586 y 1868 la tumbaron, y cada vez se reconstruyó con la misma piedra: la catedral actual es de la reconstrucción de 1868. En 2000 la UNESCO inscribió el centro histórico, con la plaza como pieza clave.",
         "dato": "El sillar con el que se construyó la plaza entera sale de canteras al pie del Misti: cuando un terremoto la tumba, Arequipa se levanta con la misma lava de siempre, y la ciudad blanca es literalmente piedra volcánica reaprovechada.",
         "conexion": [
           {
@@ -183,9 +183,9 @@
         "¿Cuál es la historia de la fuente de la Fama y quién la mandó colocar?"
       ],
       "fuentes": [
-        "UNESCO, Centro Histórico de la ciudad de Arequipa (whc.unesco.org/es/list/1016): fundación en 1540, reconstrucción tras los terremotos, inscripción en 2000",
-        "Britannica, 'Arequipa': fundación de la ciudad y terremotos de 1582 y 1868",
-        "Perú Travel — ficha de la Plaza de Armas de Arequipa (peru.travel): catedral y portales"
+        "UNESCO, Centro Histórico de la ciudad de Arequipa (whc.unesco.org/es/list/1016): inscripción en 2000; el centro histórico y la plaza como eje urbano colonial. Vía https://whc.unesco.org/en/tentativelist/1016/",
+        "Britannica, 'Arequipa': fundación de la ciudad en 1540 por Garcí Manuel de Carbajal y terremotos de 1582 y 1868. Vía https://www.britannica.com/place/Arequipa-Peru",
+        "Turismo Arequipa, Plaza de Armas (turismoarequipa.gob.pe): catedral, portales y vista del Misti. Vía https://turismoarequipa.gob.pe/plaza-de-armas-de-arequipa/"
       ],
       "relacionadas": [
         "barroco-andino"
