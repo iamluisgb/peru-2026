@@ -47,15 +47,45 @@
       "altitud_m": 3400,
       "verificado": false,
       "de_pie": {
-        "gancho": "Bajo estos soportales se ejecutó a Túpac Amaru II en 1781, y la plaza se diseñó para que todo el mundo lo viera.",
+        "gancho": "Aquí se celebraban las victorias del ejército inca y aquí se ejecutó a Túpac Amaru II en 1781: esta plaza lleva cinco siglos siendo el sitio donde el poder se enseña.",
         "mira": [
-          "PENDIENTE — detalles localizables"
+          "El Portal de Panes, la arcada del lado noroeste: debajo estaba el Qasana, el palacio de Pachacútec. Cada portal de la plaza tapa un palacio inca distinto.",
+          "La calle Loreto, la que sale de la plaza pegada a la Compañía: muro inca a los dos lados. Uno es el del Amarucancha, el palacio de Huayna Cápac sobre el que se levantó la iglesia.",
+          "Las torres de la catedral, cortas y anchas para el cuerpo que sostienen. El terremoto de 1650 obligó a suprimirles el tercer cuerpo y se quedaron así.",
+          "La fachada de la Compañía, justo al lado, empinada por encima de la catedral. El obispo pleiteó para impedirlo y perdió."
         ],
-        "practico": { "duracion": "~30 min", "incluido": true, "fotos": "sí", "notas": [] }
+        "practico": {
+          "duracion": "~30 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": [
+            "Es el punto de reunión evidente si alguien se separa del grupo.",
+            "Las cuestas que salen de la plaza (Suecia, Procuradores, Cuesta del Almirante) suben más de lo que parecen a 3.400 m."
+          ]
+        }
       },
-      "de_sofa": { "contexto": "", "dato": "", "conexion": [] },
-      "preguntas": [],
-      "fuentes": []
+      "de_sofa": {
+        "contexto": "Aquí había un pantano, alimentado por los ríos Saphy y Tullumayo. Los incas lo secaron —Sinchi Roca con tierra de los cerros, Pachacútec cubriéndolo con arena traída del litoral— y lo convirtieron en el centro administrativo y ceremonial de la capital. No era una plaza sino dos, separadas por el cauce del Saphy: Huacaypata, donde estáis, y Cusipata, que hoy es la plaza Regocijo. Garcilaso cuenta que ambas estaban unidas por un entablado con losas encima, que los españoles levantaron para reaprovechar la madera antes de construir cuatro puentes. La plaza empezó a encoger en 1555, cuando el corregidor Sebastián Garcilaso de la Vega —padre del cronista— autorizó edificar en mitad de la Huacaypata: de ahí salieron las manzanas que hoy separan las dos plazas.",
+        "dato": "En 1545 el corregidor Polo de Ondegardo mandó retirar la arena de playa del suelo de la plaza para usarla en la obra de la catedral. La arena que Pachacútec había traído del mar acabó en el edificio que se levantó encima de su ciudad.",
+        "conexion": [
+          {
+            "recurso": "Comentarios reales de los Incas",
+            "donde": "la descripción de Huacaypata y Cusipata"
+          },
+          { "recurso": "Los últimos días de los Incas", "donde": "el cerco de Manco Inca al Cusco" }
+        ]
+      },
+      "preguntas": [
+        "¿Hasta dónde llegaba la plaza inca y se puede recorrer hoy a pie su perímetro?",
+        "¿Por dónde pasa exactamente el Saphy bajo nuestros pies?",
+        "¿Queda algo del Qasana detrás de las fachadas del Portal de Panes?"
+      ],
+      "fuentes": [
+        "Víctor Angles Vargas, «Historia del Cusco» (1998), pp. 74-89 — pantano, nombres Huacaypata/Cusipata, palacios y portales, retirada de la arena en 1545. Vía https://es.wikipedia.org/wiki/Plaza_de_Armas_de_Cusco",
+        "Waldemar Espinoza Soriano, «Los Incas» (1997), p. 87 — la arena del litoral con que Pachacútec terminó de secar el pantano. Vía la misma entrada.",
+        "https://es.wikipedia.org/wiki/Catedral_del_Cusco — supresión del tercer cuerpo de las torres tras el terremoto de 1650 (Angles Vargas, 1983, p. 101).",
+        "https://es.wikipedia.org/wiki/Iglesia_de_la_Compañía_de_Jesús_(Cusco) — el pleito del obispo Pedro de Ortega Sotomayor contra los planos de los jesuitas (1656)."
+      ]
     },
     {
       "id": "catedral-cusco",
@@ -65,13 +95,45 @@
       "altitud_m": 3400,
       "verificado": false,
       "de_pie": {
-        "gancho": "PENDIENTE",
-        "mira": ["PENDIENTE — detalles localizables"],
-        "practico": { "duracion": "~45 min", "incluido": true, "fotos": "no", "notas": ["Cierra en festividades religiosas."] }
+        "gancho": "Se levantó sobre el palacio del inca Viracocha y con granito rojo arrancado de Sacsayhuamán: el edificio es el Cusco inca desmontado y vuelto a montar.",
+        "mira": [
+          "Los bloques de granito rojizo en los muros. No son de aquí: vienen de Sacsayhuamán, que se usó de cantera.",
+          "El techo: bóveda de crucería, que es gótica, apoyada sobre capiteles y frisos clásicos. Casi un siglo de obra y dos modas distintas en el mismo sitio.",
+          "La Última Cena de Marcos Zapata, en el muro del lado de la sacristía: en la fuente del centro de la mesa hay un cuy.",
+          "La puerta que comunica con el Triunfo, por el sotocoro: al cruzarla se pasa a la primera catedral del Cusco, la de 1539."
+        ],
+        "practico": {
+          "duracion": "~45 min",
+          "incluido": true,
+          "fotos": "no",
+          "notas": [
+            "Cierra en festividades religiosas.",
+            "Vuestra visita es domingo por la mañana: hay misa, y puede que se retrase la entrada o que parte del templo esté acotada.",
+            "La catedral, el Triunfo y la Sagrada Familia son un mismo conjunto y se recorren seguidos."
+          ]
+        }
       },
-      "de_sofa": { "contexto": "", "dato": "", "conexion": [] },
-      "preguntas": [],
-      "fuentes": []
+      "de_sofa": {
+        "contexto": "El cabildo compró en 1552 el solar del antiguo Kiswarkancha, el palacio del inca Viracocha, y puso la primera piedra el 11 de marzo de 1560. La obra duró casi un siglo: se cerró en 1654, la misa de estreno fue el 15 de agosto de ese año y la consagración definitiva no llegó hasta el 19 de agosto de 1668. Antes de todo eso ya existía el Triunfo, construido en 1539 sobre el Suntur Wasi, que hizo de catedral provisional y que se llama así por la victoria española sobre Manco Inca en 1536. El terremoto de 1650 hizo poco daño a la catedral —tiró la bóveda de crucería—, pero obligó a rehacer la parte alta de la fachada y a suprimir el tercer cuerpo de las torres. De ahí que el edificio parezca más ancho que alto.",
+        "dato": "Del Señor de los Temblores, el cristo negro que la ciudad tiene por patrón desde el terremoto de 1650, se dijo durante siglos que estaba modelado en pergamino de llama. En una restauración de 1985 se vio que no: el cuerpo es de fibra de lino, la cabeza de maguey y los pies y las manos de madera de balsa. Materiales andinos, hechura local.",
+        "conexion": [
+          {
+            "recurso": "Los últimos días de los Incas",
+            "donde": "el cerco de 1536, del que viene el nombre del Triunfo"
+          },
+          { "recurso": "Crónica del Perú", "donde": "el Cusco de los primeros años tras la conquista" }
+        ]
+      },
+      "preguntas": [
+        "¿Se distinguen a simple vista los bloques traídos de Sacsayhuamán de la piedra de canteras cercanas?",
+        "¿Qué se sabe del Kiswarkancha que hay debajo?",
+        "¿Por qué la corona del Señor de los Temblores no es la que le regaló el virrey?"
+      ],
+      "fuentes": [
+        "Víctor Angles Vargas, «Historia del Cusco (Cusco Colonial)» (1983), pp. 84-107 — compra del solar del Kiswarkancha, primera piedra en 1560, cierre en 1654, consagración en 1668, torres recortadas tras 1650, granito rojo de Sacsayhuamán, iglesia del Triunfo. Vía https://es.wikipedia.org/wiki/Catedral_del_Cusco",
+        "https://es.wikipedia.org/wiki/Señor_de_los_Temblores — restauración de 1985: lino, maguey y madera de balsa; corona original robada en los años ochenta.",
+        "https://es.wikipedia.org/wiki/Marcos_Zapata_(pintor) — «La última cena», 1755, catedral del Cusco."
+      ]
     },
     {
       "id": "san-blas",
@@ -81,13 +143,37 @@
       "altitud_m": 3450,
       "verificado": false,
       "de_pie": {
-        "gancho": "PENDIENTE",
-        "mira": ["PENDIENTE — detalles localizables"],
-        "practico": { "duracion": "~1 h", "incluido": true, "fotos": "sí", "notas": ["Cuesta empinada a 3.400 m: subid despacio."] }
+        "gancho": "La parroquia más antigua del Cusco es una caja de adobe sin torre, y la gente sube esta cuesta a ver lo que hay dentro.",
+        "mira": [
+          "La piedra de los doce ángulos, a media cuesta de Hatun Rumiyoc, en el muro del palacio Arzobispal: diorita verde, encajada sin mortero. En febrero de 2025 un hombre la golpeó con un objeto metálico y le dejó seis impactos que no tienen arreglo.",
+          "Dentro, el púlpito de cedro: buscad la calavera tallada en lo alto, bajo la figura de san Blas.",
+          "La fachada no tiene torre: lo que hay es una espadaña de tres cuerpos. Las paredes son de adobe y sólo se reforzaron parcialmente con piedra después del terremoto de 1650."
+        ],
+        "practico": {
+          "duracion": "~1 h",
+          "incluido": true,
+          "fotos": "sí en la calle; dentro de la iglesia, no",
+          "notas": [
+            "Cuesta empinada a 3.400 m: subid despacio.",
+            "La iglesia está a unos 430 m al noreste de la Plaza de Armas, todo cuesta arriba.",
+            "El barrio es de talleres de artesanía: si algo os interesa, es aquí y no en la plaza."
+          ]
+        }
       },
-      "de_sofa": { "contexto": "", "dato": "", "conexion": [] },
-      "preguntas": [],
-      "fuentes": []
+      "de_sofa": {
+        "contexto": "En tiempos incas esto era T'oqokachi, «hueco con sal», y en el sitio de la iglesia hubo un santuario dedicado a Illapa, el dios del rayo y el trueno. El corregidor Polo de Ondegardo levantó aquí, por orden del virrey Andrés Hurtado de Mendoza, una de las cinco primeras parroquias de indios del Cusco: la fórmula colonial de siempre, la iglesia encima de la huaca. El púlpito se atribuye al escultor indígena Juan Tomás Tuyro Túpac y se hizo a expensas del obispo Manuel de Mollinedo y Angulo.",
+        "dato": "Lo que se cuenta del púlpito —que está tallado en un solo tronco de cedro— es falso: son piezas ensambladas y sujetas con espinas de gigantón, el cactus San Pedro. Lo de la calavera es leyenda: dicen que es la del tallador, que prometió hacer el trabajo gratis en agradecimiento por una curación, luego quiso cobrarlo y murió aplastado por un muro.",
+        "conexion": []
+      },
+      "preguntas": [
+        "¿Queda algo del santuario a Illapa bajo la iglesia?",
+        "¿Cuáles eran las otras cuatro parroquias de indios y siguen en pie?",
+        "¿Cómo se protege ahora la piedra de los doce ángulos después del ataque de 2025?"
+      ],
+      "fuentes": [
+        "Víctor Angles Vargas, «Historia del Cusco (Cusco Colonial)» (1983), pp. 553-563 — T'oqokachi, parroquia de indios de Polo de Ondegardo, santuario a Illapa, estructura de adobe y espadaña, púlpito de Tuyro Túpac costeado por Mollinedo y Angulo. Vía https://es.wikipedia.org/wiki/Iglesia_de_San_Blas_(Cusco)",
+        "Ministerio de Cultura del Perú, comunicado del 18 de febrero de 2025 — ataque a la piedra de los doce ángulos, «caída de fragmentos de piedra, en seis impactos visibles». Vía https://www.infobae.com/peru/2025/02/19/caida-de-fragmentos-de-piedra-en-seis-impactos-visibles-los-danos-que-sufrio-la-piedra-de-los-12-angulos-de-cusco-tras-atentado/"
+      ]
     }
   ]
 }
