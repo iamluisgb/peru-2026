@@ -11,11 +11,11 @@
       "altitud_m": 154,
       "verificado": false,
       "de_pie": {
-        "gancho": "Esta es la plaza que fundó Francisco Pizarro en 1535: el punto exacto del que salió toda la ciudad.",
+        "gancho": "Pizarro trazó esta plaza el 18 de enero de 1535 sobre tierras del curaca Taulichusco y clavó el rollo en el centro: de este rectángulo salió, en damero, el resto de la ciudad.",
         "mira": [
-          "Al norte, la fachada del Palacio de Gobierno, con el balcón central desde el que se asoma el presidente y la guardia de palacio en la puerta.",
-          "Al este, la fachada barroca de la catedral — y a su derecha, el Palacio Arzobispal con sus balcones de madera tallada.",
-          "La fuente del centro de la plaza, una de las más antiguas de la ciudad: todas las calles de Lima se empiezan a numerar desde aquí."
+          "Al norte, el Palacio de Gobierno. Ocupa el solar que Pizarro se reservó para sí, encima de la casa del curaca que mandaba aquí antes de que llegaran. El relevo de la guardia se hace en su puerta.",
+          "Al este, la catedral. Pegado a ella, en la esquina noreste —a vuestra izquierda si la miráis de frente—, el Palacio Arzobispal con sus balcones de cedro tallado, que son de 1924 y no de la colonia.",
+          "La pileta de bronce del centro: diseño de Pedro de Noguera, fundición de Antonio de Rivas, estrenada en 1651. Es lo único colonial que queda en pie en la plaza; todo lo que la rodea se rehizo después."
         ],
         "practico": {
           "duracion": "~30 min",
@@ -25,18 +25,26 @@
         }
       },
       "de_sofa": {
-        "contexto": "Lima nació aquí, y nació dos veces: Pizarro la fundó en 1535 junto al río Rímac, y de esta plaza partió el reparto de solares entre los conquistadores que la acompañaron. Fue el centro político de un virreinato que llegaba hasta Panamá, y durante siglos también el escenario público: aquí se celebraron procesiones, corridas de toros y, en la plaza, se leyeron pregones que toda la ciudad tenía que escuchar. Es el corazón desde el que se numeran las calles, y el lugar por el que han pasado todos los presidentes del Perú.",
-        "dato": "Las calles de Lima no tienen 'kilómetro cero' en un letrero, pero sí un origen real: la numeración arranca en esta plaza y crece hacia fuera, así que cada casa del centro se referencia desde aquí.",
+        "contexto": "Lima nació dos veces. La Ciudad de los Reyes se fundó primero en Jauja, en la sierra, y al año siguiente Pizarro la bajó al valle del Rímac: el acto del 18 de enero de 1535 es en rigor un traslado. Y el sitio no estaba vacío — eran tierras del curaca Taulichusco, que no opuso resistencia. Siguiendo las ordenanzas de poblamiento de Carlos I, lo primero que se trazó fue la plaza, y de ella salió la retícula de calles. Después fue mercado, plaza de toros y sitio de castigo público, y aquí proclamó San Martín la independencia el 28 de julio de 1821 — la primera de las cuatro plazas de Lima en las que la proclamó ese mismo día. De todo aquello sólo queda la pileta.",
+        "dato": "Lo primero que se plantó en el centro de la plaza no fue una fuente: fue el rollo, el poste de la picota donde se ejecutaban los castigos públicos. Lo mandó retirar el virrey Diego López de Zúñiga para hacerle sitio a la pila. El símbolo del castigo lo desalojó el agua.",
         "conexion": [
-          { "recurso": "Crónica del Perú", "donde": "descripción de los primeros años de Lima y de su fundación" },
-          { "recurso": "Historia de la conquista del Perú", "donde": "instalación de Pizarro en Lima y la fundación de la ciudad" }
+          { "recurso": "Crónica del Perú", "donde": "los primeros años de la ciudad y del valle" },
+          { "recurso": "Historia de la conquista del Perú", "donde": "la instalación de Pizarro en la costa y la fundación de Lima" }
         ]
       },
       "preguntas": [
-        "¿Cuál era el solar que se reservó Pizarro y dónde está hoy?",
-        "¿Qué se celebró en este mismo espacio antes de que se construyera la plaza urbana que vemos?"
+        "¿Por qué se abandonó Jauja y se bajó la capital al valle del Rímac?",
+        "¿Queda algo del asentamiento de Taulichusco bajo esta plaza, o se ha excavado alguna vez?",
+        "¿Qué se hizo con el rollo cuando lo quitaron de aquí?"
       ],
-      "fuentes": []
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/Plaza_Mayor_de_Lima — refundación del 18 de enero de 1535, el rollo o picota plantado en el centro y su retirada por el virrey Diego López de Zúñiga para dar sitio a la pileta, ordenanzas de poblamiento de Carlos I (1523) y el trazado en damero a partir de la plaza; usos históricos (mercado, toros, castigos).",
+        "https://en.wikipedia.org/wiki/Fountain_of_the_Plaza_Mayor,_Lima — pileta diseñada por Pedro de Noguera y fundida en bronce por Antonio de Rivas, estrenada el 8 de septiembre de 1651 bajo el virrey conde de Salvatierra; la fuente de piedra anterior era de 1578.",
+        "https://es.wikipedia.org/wiki/Palacio_de_Gobierno_del_Perú — el solar que Pizarro se reservó el 18 de enero de 1535 sobre tierras del curaca Taulichusco, ocupado desde entonces por la sede de gobierno.",
+        "https://es.wikipedia.org/wiki/Palacio_Arzobispal_de_Lima — «esquina nororiental de la Plaza Mayor», junto a la iglesia del Sagrario y a la catedral; edificio actual inaugurado en 1924, balcones neobarrocos tallados en cedro.",
+        "Agencia Andina, «Estas son las 4 plazas de Lima donde se gritó la Independencia» — https://andina.pe/agencia/noticia-fiestas-patrias-estas-son-las-4-plazas-lima-donde-se-grito-independencia-fotos-853502.aspx",
+        "NOTA — afirmación retirada: la ficha decía antes que «todas las calles de Lima se numeran desde aquí». No se ha encontrado ninguna fuente institucional que lo respalde; lo que circula es una tradición sobre un «kilómetro cero» para distancias de carretera, sin sustento documental localizable. No se publica."
+      ]
     },
     {
       "id": "catedral-lima",
@@ -46,12 +54,12 @@
       "altitud_m": 154,
       "verificado": false,
       "de_pie": {
-        "gancho": "En el suelo de esta iglesia descansan los restos del hombre que fundó la ciudad: Francisco Pizarro.",
+        "gancho": "Esta catedral exhibió durante 86 años una momia que decía ser Pizarro, hasta que en 1977 aparecieron en un nicho tapiado de la cripta los huesos de verdad.",
         "mira": [
-          "Las sillerías del coro, talladas en cedro con motivos mudéjares: madera esculpida que ha sobrevivido a los terremotos.",
-          "La capilla donde está la urna con los restos de Pizarro, en el sector del altar mayor.",
+          "Nada más entrar, la primera capilla de la nave derecha: la de Pizarro, forrada entera de mosaicos sobre la Conquista. Ahí están los restos auténticos desde 1985, con el cráneo separado del cuerpo.",
+          "La sillería del coro, hoy flanqueando el altar mayor: diseño de Martín Alonso de Mesa y talla de Pedro de Noguera, el mismo que diseñó la pila de la plaza que acabáis de dejar.",
           "Los altares barrocos dorados de las capillas laterales según entras.",
-          "La diferencia de estilo entre la fachada barroca y el interior: cada reconstrucción tras un terremoto dejó su marca."
+          "La fachada y las torres no van juntas: abajo, renacentista con adornos platerescos; las torres, neoclásicas. Cada terremoto obligó a rehacer una parte y dejó su moda encima."
         ],
         "practico": {
           "duracion": "~45 min",
@@ -61,19 +69,26 @@
         }
       },
       "de_sofa": {
-        "contexto": "La primera catedral se levantó sobre el solar junto a la plaza en los años de la fundación, y desde entonces ha sufrido una vida dura: los terremotos de Lima la han tumbado y rehecho en varias ocasiones, de modo que lo que se visita es un edificio reconstruido más que el original del XVI. Es la catedral de la capital del virreinato, la sede desde la que la Iglesia organizó la evangelización de buena parte de Sudamérica. Que Pizarro esté enterrado aquí, y que sus restos se hayan identificado y vuelto a enterrar, cierra en la piedra el ciclo que abrió la fundación de la plaza.",
-        "dato": "El hombre que fundó la ciudad está enterrado bajo su catedral: el conquistador y su obra comparten el mismo suelo.",
+        "contexto": "Pizarro puso la primera piedra en 1535 y cargó él mismo el primer madero; la iglesia se estrenó el 11 de marzo de 1540. A partir de ahí la historia del edificio es la de los terremotos de Lima: el de 1609 le tiró las bóvedas y mandó al cabildo a otra iglesia durante noventa años, el de 1687 obligó a una reconstrucción que no se reinauguró hasta 1697, y el de 1746 se llevó naves y columnas — se rehízo bajo dirección de Juan Rher y se reabrió en 1778. Lo que se visita es, por tanto, un edificio rehecho, no el del XVI. En esos años Lima fue sede del Tercer Concilio Limense (1582-1583), el que ordenó imprimir el catecismo trilingüe en español, quechua y aymara: la primera obra impresa en Sudamérica.",
+        "dato": "La momia que la catedral enseñó como Pizarro desde 1891 era un fraude. El estudio de 1977-1984, con antropólogos forenses peruanos y estadounidenses, lo demostró por la vía más simple: el cuerpo momificado no tenía ninguna de las heridas que el informe del XIX le atribuía, y a Pizarro lo mataron a cuchilladas. Los huesos buenos llevaban tres siglos emparedados en un nicho de la cripta.",
         "conexion": [
           { "recurso": "Los últimos días de los Incas", "donde": "el final de Pizarro y el reparto del imperio conquistado" },
-          { "recurso": "Historia de la conquista del Perú", "donde": "el asentamiento español en Lima y la catedral del virreinato" }
+          { "recurso": "Historia de la conquista del Perú", "donde": "el asentamiento español en Lima" }
         ]
       },
       "preguntas": [
-        "¿Cuántas veces se ha reconstruido esta catedral tras los terremotos, y cuál fue el peor?",
-        "¿Dónde se identificaron los restos de Pizarro y qué prueba se usó?",
-        "¿Qué diferencias hay entre la catedral de Lima y la del Cusco que veremos después?"
+        "¿De quién era entonces la momia que se exhibió durante 86 años?",
+        "¿Por qué se emparedaron los restos auténticos en la cripta y quién lo hizo?",
+        "¿Qué diferencias hay entre esta catedral y la del Cusco, que veremos después?"
       ],
-      "fuentes": []
+      "fuentes": [
+        "W. R. Maples, B. P. Gatliff, H. Ludeña, R. Benfer y W. Goza, «The Death and Mortal Remains of Francisco Pizarro», Journal of Forensic Sciences, vol. 34, n.º 4 (julio de 1989), pp. 1021-1036 — momia expuesta desde 1891, hallazgo de 1977 en un nicho tapiado de la cripta, estudio forense y conclusión de fraude. https://dl.astm.org/jofs/article/34/4/1021/9255/The-Death-and-Mortal-Remains-of-Francisco-Pizarro",
+        "Hugo R. Ludeña, «La momia de Pizarro: un fraude científico del siglo XIX» — detalle del estudio interdisciplinar de 1977-1984 y del traslado de los restos auténticos a su capilla en 1985. https://www.researchgate.net/publication/275276637_La_Momia_de_Pizarro_Un_Fraude_Cientifico_del_Siglo_XIX",
+        "https://es.wikipedia.org/wiki/Catedral_de_Lima — primera piedra de Pizarro (1535) y estreno el 11 de marzo de 1540; sismos de 1609, 1687 (reinauguración en 1697) y 1746 (reconstrucción de Juan Rher, reapertura en 1778); sillería del coro diseñada por Martín Alonso de Mesa y labrada por Pedro de Noguera; capilla de Pizarro, primera de la nave derecha, cubierta de mosaicos; fachada renacentista con platerescos y torres neoclásicas.",
+        "UNESCO, Memoria del Mundo — «Originales del Concilio Limense de Santo Toribio de Mogrovejo, 1582-1583». https://www.unesco.org/en/memory-world/lac/originals-lima-council-its-archbishop-toribio-mogrovejo-1582-1583",
+        "Proyecto Estudios Indianos (Universidad del Pacífico), «Catecismo en lengua española y quichua, ordenado por autoridad del concilio provincial de Lima el año de 1583» — primera obra impresa en Sudamérica. https://estudiosindianos.org/incunables-peruanos/catecismo-en-lengua-espanola-y-quichua-ordenado-por-autoridad-del-concilio-provincial-de-lima-el-ano-de-1583/",
+        "NOTA — afirmaciones retiradas: la sillería del coro no se describe en ninguna fuente consultada como «mudéjar» (es de tradición renacentista) y la fecha de su talla baila entre el XVII y el XVIII según la fuente, así que no se da siglo. La capilla de Pizarro no está «en el sector del altar mayor»: es la primera de la nave derecha según se entra."
+      ]
     },
     {
       "id": "huaca-pucllana",
@@ -83,11 +98,11 @@
       "altitud_m": 154,
       "verificado": false,
       "de_pie": {
-        "gancho": "Esto es una pirámide de barro en pleno Miraflores, levantada varios siglos antes de que los incas llegaran a la costa.",
+        "gancho": "Una pirámide de siete plataformas hecha con millones de adobes, levantada en lo que hoy es Miraflores más de ochocientos años antes de que los incas llegaran a esta costa.",
         "mira": [
-          "Los adobes colocados en vertical en los muros: la técnica de 'adobitos' que distingue a la cultura Lima.",
-          "La pequeña pirámide escalonada con su plaza ceremonial, rodeada hoy de edificios y tráfico.",
-          "El contraste con el entorno: Miraflores moderno a unos metros, y aquí el barro milenario intacto."
+          "Los adobes puestos de canto y separados unos de otros, como libros en un estante. Se llama técnica del «librero» y es la firma de la cultura Lima: en ningún otro sitio del viaje veréis un muro así.",
+          "Las plataformas escalonadas superpuestas: la pirámide no se hizo de una vez, sino creciendo por capas encima de sí misma.",
+          "El contraste con el entorno: los edificios y el tráfico de Miraflores a unos metros del barro."
         ],
         "practico": {
           "duracion": "~1 h",
@@ -97,19 +112,24 @@
         }
       },
       "de_sofa": {
-        "contexto": "Huaca Pucllana es un centro ceremonial y administrativo de la cultura Lima, un pueblo costeño que floreció en estos valles mucho antes de los incas, y que levantó pirámides escalonadas de adobe a los pies de los Andes. Aquí se ha excavado un recinto con rampas, plazas y áreas de ofrendas que hablan de una sociedad organizada en torno al mar y a los ríos que bajan de la sierra. Es, además, un monumento urbano improbable: en medio de una de las zonas más modernas de Lima, ha sobrevivido a siglos, terremotos y al crecimiento de la ciudad. Verlo es recordar que la costa no empezó con los conquistadores ni con los incas.",
-        "dato": "En un valle donde casi nadie esperaría encontrar arqueología, esta pirámide de adobe lleva de pie desde bastante antes del Imperio inca, y sigue en pie.",
+        "contexto": "Huaca Pucllana fue el centro ceremonial y administrativo de la cultura Lima, que ocupó la costa central peruana entre los años 200 y 700 d.C.; el complejo monumental se levantó entre el 450 y el 650. Cuando los Lima desaparecieron el sitio siguió usándose: los wari lo convirtieron en cementerio y más tarde llegaron los ychsma. Lo que no se puede decir es que haya llegado intacto. Entre los años cuarenta y los setenta el montículo fue cantera de adobe, terreno de huaqueros y estorbo para las obras: se le pasaron máquinas por encima y desapareció parte del recinto. La destrucción paró en 1981, cuando Isabel Flores Espinoza empezó las excavaciones, y en 1984 se abrió el museo de sitio. Lo que se visita es lo que se salvó, excavado y consolidado en los últimos cuarenta años.",
+        "dato": "Los adobes no están pegados unos a otros: se colocaron de canto y con holgura entre ellos, rellenando después con tierra. A esa holgura se atribuye que la pirámide siga en pie en una de las costas más sísmicas del mundo — las piezas se mueven y vuelven, en vez de partirse.",
         "conexion": [
-          { "recurso": "Crónica del Perú", "donde": "descripción de los pueblos y culturas costeñas anteriores a los incas" },
-          { "recurso": "Comentarios reales de los Incas", "donde": "el mundo que encontraron los incas al incorporar la costa" }
+          { "recurso": "Crónica del Perú", "donde": "los capítulos sobre Pachacámac y las huacas de la costa" }
         ]
       },
       "preguntas": [
-        "¿Qué era exactamente este lugar: templo, palacio o mercado, y cómo se sabe?",
-        "¿Por qué la pirámide está hecha de adobitos verticales y no de piedra como en Cusco?",
-        "¿Qué culturas ocuparon este mismo valle antes y después de la cultura Lima?"
+        "¿Cuánto del sitio sigue sin excavar, y qué se espera encontrar ahí?",
+        "¿Por qué aquí se construyó con adobe y en Cusco con piedra?",
+        "¿Qué encontraron los wari al llegar, y por qué eligieron esto como cementerio?"
       ],
-      "fuentes": []
+      "fuentes": [
+        "Ministerio de Cultura del Perú, ficha del Museo de Sitio Pucllana — excavaciones desde 1981, museo abierto en 1984, ocupación de la cultura Lima y uso posterior por wari e ychsma, visita diurna y nocturna. https://museos.cultura.pe/museos/museo-de-sitio-pucllana",
+        "https://es.wikipedia.org/wiki/Museo_de_Sitio_Pucllana — cultura Lima entre 200 y 700 d.C., centro ceremonial y administrativo, adobes dispuestos con la técnica del «librero»; Patrimonio Cultural de la Nación por R. V. M. n.º 125-2017-VMPCIC-MC.",
+        "https://en.wikipedia.org/wiki/Huaca_Pucllana — pirámide de siete plataformas escalonadas de adobe y barro, construida entre 450 y 650 d.C.",
+        "Isabel Flores Espinoza, programa de excavación, conservación y puesta en valor iniciado en 1981 — el saqueo, la extracción de adobe y el arrasamiento con maquinaria que sufrió el sitio en los decenios anteriores. Vía https://museos.cultura.pe/museos/museo-de-sitio-pucllana",
+        "NOTA — cifras no publicadas: la altura de la pirámide varía entre 22 y 25 m según la fuente, así que no se da. Y se ha retirado que el sitio esté «intacto»: es falso, buena parte del recinto se destruyó antes de 1981."
+      ]
     },
     {
       "id": "parque-del-amor",
@@ -119,12 +139,11 @@
       "altitud_m": 154,
       "verificado": false,
       "de_pie": {
-        "gancho": "Este es el parque del beso de Lima, colgado sobre el Pacífico desde el borde del acantilado de Miraflores.",
+        "gancho": "Un parque inaugurado el día de San Valentín de 1993 con una pareja gigante besándose al borde del acantilado de Miraflores.",
         "mira": [
-          "La gran escultura central 'El beso', de Víctor Delfín, con la pareja en un abrazo imposible.",
-          "Los bancos y muros cubiertos de mosaico de colores del paseo, inspirados en el Park Güell de Gaudí.",
-          "El borde del acantilado: la vista abierta del Pacífico y los parapentes que despegan justo aquí.",
-          "Las citas y versos sobre el amor escritos por el paseo."
+          "«El beso», de Víctor Delfín, en el centro del parque: una pareja tumbada, a escala monumental, en cemento con pigmento rojo.",
+          "Los muros y bancos revestidos de mosaico de cerámica que recorren el parque, con frases sobre el amor incrustadas en el azulejo.",
+          "El borde del acantilado: el Pacífico abajo y los parapentes cruzando por delante a la altura de los ojos."
         ],
         "practico": {
           "duracion": "~30 min",
@@ -134,18 +153,25 @@
         }
       },
       "de_sofa": {
-        "contexto": "Miraflores es el barrio que mira al mar, y este parque está pensado como su homenaje al amor: un paseo de mosaicos en la cima del acantilado, inaugurado a principios de los años noventa, con la gran escultura de una pareja besándose como centro. El gesto es doblemente limeño, porque se levanta justo donde la ciudad se asoma al océano, en un borde que define cómo se vive Lima. Está a un paseo del hotel y es el contrapunto costero a las huacas y a la plaza histórica: aquí no hay piedra antigua, solo la ciudad moderna mirando al Pacífico.",
-        "dato": "La escultura representa un beso literalmente en el aire: 'El beso' de Víctor Delfín cuelga de un abrazo que se sostiene por equilibrio, no apoyado en el suelo como una estatua convencional.",
+        "contexto": "El parque se inauguró el 14 de febrero de 1993 en el malecón de Miraflores, y lo abrió el alcalde Alberto Andrade Carmona; hoy lleva oficialmente su nombre. La pieza central es «El beso», de Víctor Delfín, que existía antes como una escultura pequeña de bronce y aquí se rehízo a escala monumental. Es el contrapunto costero a las huacas y a la plaza histórica: aquí no hay piedra antigua, sólo la ciudad moderna asomada al Pacífico, y está a un paseo del hotel.",
+        "dato": "El beso que se fotografía media Lima es un autorretrato: los modelos de la pareja fueron el propio Víctor Delfín y su compañera Ana María Ortiz.",
         "conexion": [
           { "recurso": "La ciudad y los perros", "donde": "la otra Lima, la de los años 50, tan distinta del Miraflores actual" }
         ]
       },
       "preguntas": [
-        "¿Quién encargó la escultura 'El beso' y en qué año se inauguró el parque?",
-        "¿Qué significan los versos que hay escritos por el paseo y de quién son?",
-        "¿De qué barrio aledaño salen los parapentes que vemos despegar y hasta dónde vuelan?"
+        "¿De quién son los versos que hay escritos en los muros de mosaico?",
+        "¿Desde qué punto exacto del malecón despegan los parapentes y hasta dónde llegan?",
+        "¿Por qué el parque lleva ahora el nombre de Alberto Andrade?"
       ],
-      "fuentes": []
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/El_beso_(Víctor_Delfín) — escultura instalada en 1993 como pieza central del Parque del Amor; los modelos fueron el propio Delfín y su compañera Ana María Ortiz, según entrevista de El Comercio.",
+        "El Comercio, «Víctor Delfín revela detalles desconocidos de su obra más famosa, El beso» — el paso de la escultura pequeña de bronce a la versión monumental en cemento, arcilla y pigmento rojo. https://elcomercio.pe/luces/arte/victor-delfin-revela-detalles-desconocidos-su-obra-mas-famosa-beso-noticia-1536845/",
+        "El Comercio, «Parque del Amor: historia y datos que quizá no conocías» — inauguración el 14 de febrero de 1993 por el alcalde de Miraflores, Alberto Andrade Carmona. https://elcomercio.pe/vamos/peru/san-valentin-parque-del-amor-historia-y-datos-que-quiza-no-conocias-del-rincon-limeno-preferido-de-los-enamorados-victor-delfin-alberto-andrade-miraflores-noticia/",
+        "Mincetur, Inventario Nacional de Recursos Turísticos, ficha «Parque del Amor – Parque Alberto Andrade Carmona». https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=8832",
+        "NOTA — afirmaciones retiradas: la ficha decía que la escultura «cuelga de un abrazo que se sostiene por equilibrio, no apoyado en el suelo». Ninguna fuente lo dice y no es así: es una pareja tumbada sobre su base. También se ha quitado la atribución del diseño de los mosaicos al Park Güell de Gaudí, que sólo aparece en webs de viajes y que las fuentes sobre la obra no recogen.",
+        "NOTA — cifras no publicadas: las medidas de «El beso» no coinciden entre fuentes (3 × 12 m según Wikipedia; 8,02 × 7,31 m según la entrevista de Delfín en El Comercio), así que no se dan."
+      ]
     }
   ]
 }

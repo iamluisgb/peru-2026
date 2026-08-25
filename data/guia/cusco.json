@@ -12,10 +12,10 @@
       "verificado": false,
       "avisos": ["koricancha-domingo"],
       "de_pie": {
-        "gancho": "Las paredes que vais a tocar estuvieron forradas de oro. Ese oro fue el rescate de Atahualpa, se fundió en lingotes y desapareció.",
+        "gancho": "Estas paredes estuvieron forradas de planchas de oro, y de aquí salió buena parte del rescate de Atahualpa: se arrancaron, se fundieron y desaparecieron.",
         "mira": [
-          "El muro curvo de la fachada: es el único muro curvo inca, y no tiene una junta donde entre un papel.",
-          "Los nichos trapezoidales. Esa forma no es estética, es antisísmica.",
+          "El muro curvo del exterior, el que hace de base al ábside de Santo Domingo: es el mejor muro curvo inca que se conserva, aunque no el único — el Torreón de Machu Picchu es otro, y también lo veréis.",
+          "Los nichos trapezoidales de las cámaras: más anchos abajo que arriba. Se le atribuye a esa forma una función sismorresistente.",
           "Dónde acaba la piedra inca y empieza la colonial. La línea se ve a simple vista y cuenta toda la historia sin una palabra."
         ],
         "practico": {
@@ -26,8 +26,8 @@
         }
       },
       "de_sofa": {
-        "contexto": "Era el templo más sagrado del imperio y el centro desde el que salían los ceques, las líneas rituales que organizaban todo el Cusco. Los españoles construyeron encima el convento de Santo Domingo, y lo hicieron ahí precisamente por eso: levantar la iglesia sobre el templo era el argumento. En 1950 un terremoto tiró buena parte del convento. Los muros incas de debajo no se movieron. Al reconstruir se decidió dejar la piedra inca a la vista, así que hoy se ve lo que se ve: el terremoto deshizo el gesto.",
-        "dato": "El recinto tenía un jardín con plantas de oro a tamaño real, mazorcas de maíz incluidas. No queda ninguna: todo se fundió.",
+        "contexto": "Era el templo principal del imperio y el punto del que partían los ceques, las líneas rituales que enlazaban las huacas repartidas por el valle; lo que sabemos de ellas viene de la relación que dejó el jesuita Bernabé Cobo en 1653. Los españoles construyeron encima el convento de Santo Domingo, y lo hicieron ahí precisamente por eso: levantar la iglesia sobre el templo era el argumento. El terremoto del 21 de mayo de 1950 dejó a Santo Domingo como el templo más dañado de la ciudad — se vinieron abajo los arcos de la torre y buena parte del crucero, y cayó el balcón que dominaba el Cusco. Los muros incas de debajo aguantaron. La reconstrucción arrancó en 1956 con la UNESCO detrás, y se optó por dejar a la vista la fábrica inca. Así que hoy se ve lo que se ve: el terremoto deshizo el gesto.",
+        "dato": "El jardín de oro con mazorcas y animales a tamaño real que se cuenta de este recinto no lo ha visto nunca un arqueólogo. Viene entero de lo que escribieron los cronistas —Garcilaso sobre todo, décadas después y desde España—, no queda una sola pieza y no hay manera de comprobarlo. Es de las cosas que un guía cuenta como si fuera un inventario y es un relato.",
         "conexion": [
           { "recurso": "Los últimos días de los Incas", "donde": "capítulos del saqueo del Cusco" },
           { "recurso": "Comentarios reales de los Incas", "donde": "descripción del Cusco" }
@@ -35,9 +35,18 @@
       },
       "preguntas": [
         "¿Qué eran los ceques y se puede seguir alguno hoy por la ciudad?",
-        "¿Cómo se decidió en 1950 qué reconstruir y qué dejar a la vista?"
+        "¿Quién decidió, en la reconstrucción de los años cincuenta, qué se rehacía y qué se dejaba a la vista?",
+        "¿Se ha encontrado alguna vez en el Cusco una pieza del ajuar de oro del templo, o todo se fundió?"
       ],
-      "fuentes": []
+      "fuentes": [
+        "George Kubler, «Cuzco: Reconstruction of the Town and Restoration of its Monuments. Report of the UNESCO Mission of 1951», UNESCO, Museums and Monuments III, París, 1952, pp. 10-12 — daños del terremoto del 21 de mayo de 1950 en la iglesia y el convento de Santo Domingo: arcos de la torre, crucero, esquina noroeste, balcón. Vía https://es.wikipedia.org/wiki/Convento_de_Santo_Domingo_(Cusco)",
+        "Benedicto Cuervo Álvarez, «El templo de Koricancha» (2016) — reconstrucción iniciada en 1956 bajo supervisión de la UNESCO, dando preferencia a dejar expuestos los muros incas. Vía https://es.wikipedia.org/wiki/Coricancha",
+        "https://es.wikipedia.org/wiki/Arquitectura_incaica — los mejores muros curvos incas están en el Coricancha, «aunque hay muchos otros como el torreón de Machu Picchu»; vanos y nichos trapezoidales y la función sismorresistente que se les atribuye.",
+        "R. Tom Zuidema, «The Ceque System of Cuzco. The Social Organization of the Capital of the Inca» (Leiden, 1964), a partir de la relación de ceques de Bernabé Cobo, «Historia del Nuevo Mundo» (1653) — las líneas rituales que parten del Coricancha. Vía https://es.wikipedia.org/wiki/El_sistema_de_ceques_del_Cuzco",
+        "Pedro Cieza de León, «Crónica del Perú» (ca. 1553) — el oro del Coricancha recogido en 1533 para el rescate de Atahualpa. Vía https://es.wikipedia.org/wiki/Coricancha",
+        "Inca Garcilaso de la Vega, «Comentarios reales de los Incas» (1609) — descripción del jardín de oro; es la fuente del relato, no una comprobación de él.",
+        "NOTA — cifras no publicadas: el número de planchas de oro arrancadas del templo varía según el cronista (Pedro Sancho habla de más de 500; a Cieza se le atribuyen 700), así que la ficha no da ninguna. Tampoco da el número de ceques y huacas, que oscila según el autor."
+      ]
     },
     {
       "id": "plaza-armas-cusco",
