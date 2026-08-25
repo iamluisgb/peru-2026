@@ -14,16 +14,22 @@ async function json(ruta) {
 
 export async function cargar() {
   if (cache) return cache;
-  const [itinerario, avisos, cultura, ...guias] = await Promise.all([
+  const [itinerario, avisos, cultura, mapa, ...guias] = await Promise.all([
     json('./data/itinerario.json'),
     json('./data/avisos.json'),
     json('./data/cultura.json'),
+    json('./data/mapa.json'),
     ...BLOQUES_GUIA.map(b => json(`./data/guia/${b}.json`)),
   ]);
   cache = {
     itinerario,
     avisos: Object.fromEntries(avisos.avisos.map(a => [a.id, a])),
     cultura: cultura.recursos,
+    mapa: {
+      ruta: Object.fromEntries(mapa.ruta.map(r => [r.id, r])),
+      puntos: mapa.puntos,
+      viewBox: mapa.viewBox,
+    },
     fichas: Object.fromEntries(guias.flatMap(g => g.fichas.map(f => [f.id, f]))),
   };
   return cache;

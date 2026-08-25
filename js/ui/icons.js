@@ -15,6 +15,7 @@ const TRAZOS = {
   plato: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/>',
   libre: '<circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.5 11 15l4.5-5"/>',
   atras: '<path d="M15 5l-7 7 7 7"/>',
+  mapa:  '<path d="M9 3.5 3 5.7v14.8l6-2.2 6 2.2 6-2.2V3.5l-6 2.2z"/><path d="M9 3.5v14.8M15 5.7v14.8"/>',
 };
 
 export function icono(nombre, tam = 22) {

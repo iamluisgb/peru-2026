@@ -7,13 +7,13 @@ import { icono } from './ui/icons.js';
 const app = document.getElementById('app');
 let datos = null;
 
-const RUTAS = { hoy: verHoy, dias: verDias, guia: verGuia, altura: verAltura, emergencias: verEmergencias, mochila: verMochila };
+const RUTAS = { hoy: verHoy, dias: verDias, guia: verGuia, altura: verAltura, emergencias: verEmergencias, mochila: verMochila, mapa: verMapa };
 
 const MOCHILA_CLAVE = 'peru_mochila_mp';
 
 // La mochila no está en la nav: se llega desde el aviso del día 8, que es cuando importa.
 const NAV = [
-  ['hoy', 'Hoy'], ['dias', 'Días'], ['guia', 'Guía'], ['altura', 'Altura'], ['emergencias', 'SOS'],
+  ['hoy', 'Hoy'], ['dias', 'Días'], ['guia', 'Guía'], ['mapa', 'Mapa'], ['altura', 'Altura'], ['emergencias', 'SOS'],
 ];
 
 function pintarNav() {
@@ -273,6 +273,69 @@ function verAltura() {
     <div class="tarjeta">
       ${htmlAvisos([datos.avisos.soroche, datos.avisos['patapampa-4900'], datos.avisos['altura-empieza']].filter(Boolean))}
     </div>`);
+}
+
+// El mapa: la ruta (9 paradas de data/itinerario.json) y los puntos de las fichas dibujados
+// EN SVG PROPIO, con fill/stroke por tokens para que el tema los arrastre solo (mismo truco
+// que la silueta del hero). Las teselas de un proveedor no sirven: son imágenes con color
+// fijo —no siguen el tema— y además red, que es justo lo que no hay en el Colca ni en el
+// Titicaca (BACKLOG v2). Las transversales no están en ningún sitio: no van al mapa.
+function verMapa(arg) {
+  const diasConPuntos = [...new Set(Object.values(datos.fichas)
+    .filter(f => f.tipo !== 'transversal')
+    .map(f => f.dia))].sort((a, b) => a - b);
+  const activo = diasConPuntos.includes(parseInt(arg, 10)) ? parseInt(arg, 10) : null;
+
+  const { ruta, puntos, viewBox } = datos.mapa;
+  const { W, H } = viewBox;
+
+  // Paradas en el orden del itinerario: la ruta se dibuja como se recorre, no alfabéticamente.
+  const paradas = datos.itinerario.paradas
+    .map(p => ({ p, c: ruta[p.id] }))
+    .filter(x => x.c);
+  const linea = paradas.map((x, i) => `${i ? 'L' : 'M'}${x.c.x} ${x.c.y}`).join(' ');
+
+  const todas = Object.entries(puntos)
+    .map(([id, c]) => ({ id, c, f: datos.fichas[id] }))
+    .filter(x => x.f && x.f.tipo !== 'transversal');
+  const visibles = activo === null ? todas : todas.filter(x => x.f.dia === activo);
+
+  const chips = [
+    `<a class="chip${activo === null ? ' chip--acento' : ''}" href="#/mapa"${activo === null ? ' aria-current="page"' : ''}>Todo</a>`,
+    ...diasConPuntos.map(d =>
+      `<a class="chip${activo === d ? ' chip--acento' : ''}" href="#/mapa/${d}"${activo === d ? ' aria-current="page"' : ''}>Día ${d}</a>`),
+  ].join('');
+
+  pintar(`
+    <header class="cabecera">
+      <p class="eyebrow">${icono('mapa', 14)} El recorrido</p>
+      <h1>Mapa</h1>
+      <p class="sub">Los ${todas.length} sitios sobre la ruta. Cada punto enlaza a su ficha.</p>
+    </header>
+
+    <div class="filtro chips">${chips}</div>
+
+    <div class="tarjeta">
+      <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" role="img"
+           aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
+        <path class="mapa-ruta" d="${linea}"/>
+        ${paradas.map(({ p, c }) => `
+          <g class="mapa-parada" data-nivel="${nivelAltitud(p.altitud_m)}">
+            <circle cx="${c.x}" cy="${c.y}" r="4.5"/>
+            <text class="mapa-parada-nombre" x="${c.x}" y="${c.y + 14}" text-anchor="middle">${esc(p.corto || p.nombre)}</text>
+          </g>`).join('')}
+        ${visibles.map(({ id, c, f }) => `
+          <a class="mapa-ficha" href="#/guia/${esc(id)}" aria-label="${esc(f.nombre)}">
+            <circle cx="${c.x}" cy="${c.y}" r="3.5"/>
+            ${activo === null ? '' : `<text class="mapa-ficha-nombre" x="${c.x}" y="${c.y - 9}" text-anchor="middle">${esc(f.nombre)}</text>`}
+            <title>${esc(f.nombre)}</title>
+          </a>`).join('')}
+      </svg>
+    </div>
+
+    <p class="seccion-titulo">${activo === null ? 'Todos los sitios' : `Día ${activo} · qué toca`}</p>
+    <div class="indice">${visibles.map(({ f }) => htmlEnlaceFicha(f)).join('')}</div>
+  `);
 }
 
 function verEmergencias() {

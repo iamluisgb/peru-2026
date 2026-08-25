@@ -322,6 +322,53 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .vacio { text-align: center; color: var(--text-faint); padding: var(--s-8) var(--s-4); }
 
 /* ==========================================================================
+   Mapa — SVG propio, coloreado por tokens para que el tema lo arrastre solo
+   (DESIGN.md y BACKLOG v2: sin teselas de proveedor, que son imágenes con color
+   fijo y red). La geometría es la geometría; el color es CSS.
+   ========================================================================== */
+
+.filtro { margin-bottom: var(--s-3); }
+.filtro .chip { min-height: 36px; } /* targets ≥ 44 px reclama esto cerca del mapa */
+
+.mapa-svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* La ruta recorrida: trazo de acento, no una mancha. */
+.mapa-ruta {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.45;
+}
+
+/* Porparada: círculo de nivel de altitud (mismo código de color que chip--alt). */
+.mapa-parada circle { stroke: var(--surface-2); stroke-width: 2; }
+.mapa-parada[data-nivel="baja"]  circle { fill: var(--altitud-baja); }
+.mapa-parada[data-nivel="media"] circle { fill: var(--altitud-media); }
+.mapa-parada[data-nivel="alta"] circle { fill: var(--altitud-alta); }
+.mapa-parada-nombre {
+  font-size: 9px; font-weight: 600;
+  fill: var(--text-faint); font-family: var(--font-ui);
+}
+
+/* Cada punto enlaza a su ficha: blanco con borde de acento, como el punto del perfil.
+   El enlace es el <a svg>, no el círculo solo: el target entero es tocable. */
+.mapa-ficha { cursor: pointer; }
+.mapa-ficha circle {
+  fill: var(--surface-2);
+  stroke: var(--accent);
+  stroke-width: 2;
+  transition: fill var(--dur-fast) var(--ease);
+}
+.mapa-ficha:hover circle, .mapa-ficha:focus circle { fill: var(--accent); }
+.mapa-ficha-nombre {
+  font-size: 9px; fill: var(--text-soft);
+  font-family: var(--font-ui); paint-order: stroke;
+  stroke: var(--surface-2); stroke-width: 3px; stroke-linejoin: round;
+}
+
+/* ==========================================================================
    Desktop — la nav sube arriba y el contenido respira
    ========================================================================== */
 

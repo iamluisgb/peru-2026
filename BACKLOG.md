@@ -30,7 +30,7 @@
 
 ## v2
 
-- [ ] **Mapa con los puntos de interés, filtrable por día.** Las 33 fichas sobre el mapa, y un
+- [x] **Mapa con los puntos de interés, filtrable por día.** Las 33 fichas sobre el mapa, y un
       filtro que deje ver sólo las de un día. Requisitos:
       - **Tema claro y oscuro**, como el resto de la app. Esto descarta de entrada las teselas
         de un proveedor: son imágenes con su propio color, no siguen el tema y además son

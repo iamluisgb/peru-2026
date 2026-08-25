@@ -149,3 +149,38 @@ test('todo bloque de data/guia está registrado en BLOQUES_GUIA', () => {
   assert.deepEqual(sinCargar, [],
     `bloques escritos que la app NO carga: ${sinCargar.join(', ')}`);
 });
+
+// El mapa SVG propio dibuja la ruta y las fichas desde data/mapa.json. Si una ficha de sitio
+// se queda sin punto (o un punto no apunta a una ficha de sitio), el mapa enseña una mentira
+// o un punto muerto — y es justo lo que no se arregla de pie, sin cobertura.
+const mapa = leer('data/mapa.json');
+
+function coordsDentro(c) {
+  const { w, h } = mapa.viewBox;
+  return typeof c.x === 'number' && typeof c.y === 'number' &&
+    Number.isFinite(c.x) && Number.isFinite(c.y) && c.x >= 0 && c.x <= w && c.y >= 0 && c.y <= h;
+}
+
+test('cada parada tiene su coordenada en el mapa y viceversa', () => {
+  const pids = new Set(itinerario.paradas.map(p => p.id));
+  const rids = mapa.ruta.map(r => r.id);
+  assert.deepEqual([...rids].sort(), [...pids].sort(),
+    `la ruta del mapa no cubre exactamente las paradas: ${rids.join(', ')}`);
+  for (const r of mapa.ruta) assert.ok(coordsDentro(r), `coordenada fuera del viewBox: ${r.id}`);
+});
+
+test('cada ficha de sitio tiene un punto en el mapa (sin transversales ni huérfanos)', () => {
+  const sitios = fichas.filter(f => !esTransversal(f)).map(f => f.id);
+  const idsPuntos = Object.keys(mapa.puntos);
+  const faltan = sitios.filter(s => !idsPuntos.includes(s));
+  const puntosTransversales = idsPuntos.filter(id => esTransversal(fichas.find(f => f.id === id)));
+  const huerfanos = idsPuntos.filter(id => !sitios.includes(id));
+  assert.deepEqual(faltan, [], `fichas de sitio sin punto en el mapa: ${faltan.join(', ')}`);
+  assert.deepEqual(huerfanos, [], `puntos del mapa que no apuntan a una ficha de sitio: ${huerfanos.join(', ')}`);
+  assert.deepEqual(puntosTransversales, [], `las transversales NO van al mapa: ${puntosTransversales.join(', ')}`);
+});
+
+test('todas las coordenadas del mapa están dentro del viewBox', () => {
+  const todos = [...mapa.ruta, ...Object.values(mapa.puntos)];
+  for (const c of todos) assert.ok(coordsDentro(c), `coordenada fuera del viewBox: ${JSON.stringify(c)}`);
+});
