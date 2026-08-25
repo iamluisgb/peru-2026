@@ -1,0 +1,192 @@
+{
+  "bloque": "arequipa",
+  "nombre": "Arequipa",
+  "_nota": "Bloque Arequipa del día 3. Copia la forma de koricancha (ficha de REFERENCIA). Ver CONTENIDO.md.",
+  "fichas": [
+    {
+      "id": "santa-catalina",
+      "nombre": "Monasterio de Santa Catalina",
+      "lugar": "Arequipa",
+      "dia": 3,
+      "altitud_m": 2335,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Un convento que es una ciudad, con sus calles, su plaza y su lavandería: durante más de tres siglos, para muchas mujeres de Arequipa esto fue el mundo entero.",
+        "mira": [
+          "Nada más entrar, el primer patio y los muros de sillar con sus puertas y zócalos pintados: la mezcla de blanco, azul y rojo no existe en ninguna otra calle de la ciudad y es la tarjeta de visita del convento.",
+          "La calle que sale a la derecha del primer patio, la calle Sevilla: una calle entera con nombre de ciudad española y casas a ambos lados, porque las monjas añoraban la España que jamás iban a volver a ver.",
+          "La plaza Zocodover, la única plaza 'pública' de la clausura: de aquí salían las cuatro calles y aquí se hacía la única vida comunitaria del recinto.",
+          "Al fondo, junto a los huertos, la lavandería con sus grandes pilas de piedra: aquí se lavaba a mano la ropa del convento, y el agua llegaba de la acequia como a toda la ciudad."
+        ],
+        "practico": {
+          "duracion": "~1 h 30 min",
+          "incluido": true,
+          "fotos": "sí, sin flash en las capillas",
+          "notas": [
+            "La entrada es por la calle Santa Catalina, no por la iglesia de Santa Catalina de la misma calle.",
+            "El suelo es de piedra y sillar, con desniveles: calzado cerrado."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Lo fundó en 1579 Ana de Monteagudo, una monja dominica nacida en Arequipa, con las dotes de las familias ricas de la ciudad. En el siglo XVII creció hasta ocupar una manzana entera: dos claustros, cuatro calles con nombre de ciudad española, una plaza, un huerto y una lavandería. Las monjas entraban con dote y su ajuar: algunas vivían con su servicio, tenían casa propia con cocina y hasta criadas. Cuando Roma impuso la vida común y la clausura estricta, casi todas las monjas de familia se marcharon y el recinto quedó medio vacío. Se restauró a fondo y se abrió al público en 1970.",
+        "dato": "Hasta bien entrado el XIX esto no era exactamente una clausura: las monjas ricas vivían aquí con criadas y familia que entraba y salía, de modo que la puerta nunca fue tan sorda como parece.",
+        "conexion": [
+          {
+            "recurso": "Crónica del Perú",
+            "donde": "el retrato de las ciudades españolas recién fundadas, con su vida cotidiana"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Por qué se eligió esta manzana para el convento y cómo se financió con dotes?",
+        "¿Cuántas monjas llegó a acoger la ciudadela en su momento de máximo esplendor?",
+        "¿Qué vidas llevaban las monjas antes de la reforma que impuso la vida común?"
+      ],
+      "fuentes": [
+        "Perú Travel — ficha del Monasterio de Santa Catalina (peru.travel): fundación en 1579, apertura al público en 1970",
+        "UNESCO, Centro Histórico de la ciudad de Arequipa (whc.unesco.org/es/list/1016): inscripción en 2000 y contexto urbano de la manzana de Santa Catalina"
+      ]
+    },
+    {
+      "id": "yanahuara",
+      "nombre": "Mirador de Yanahuara",
+      "lugar": "Arequipa",
+      "dia": 3,
+      "altitud_m": 2335,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Desde estos arcos de sillar se ve Arequipa entera en un solo vistazo: la ciudad blanca, la campiña y el Misti vigilando.",
+        "mira": [
+          "Los arcos de sillar del mirador con sus columnas: buscad en ellas las frases grabadas de arequipeños ilustres; la de Mariano Melgar es la que la gente busca primero.",
+          "Desde el pretil, la ciudad debajo con la catedral en el centro y el volcán Misti cerrando el horizonte: es el encuadre clásico de Arequipa.",
+          "A la izquierda del mirador, la plaza del barrio con la iglesia de San Juan Bautista, del siglo XVIII: la iglesia blanca que se ve desde buena parte de la ciudad."
+        ],
+        "practico": {
+          "duracion": "~45 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": [
+            "Es una subida corta desde el centro: mejor en taxi para no llegar fatigados.",
+            "El barrio es la cuna de las picanterías: preguntad al guía cuál recomienda para el rocoto relleno."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Yanahuara nació como un asentamiento de indígenas fuera del trazado de la ciudad española, y con el tiempo se convirtió en el barrio tradicional de Arequipa: el de las procesiones, los quioscos de la plaza y las picanterías donde se come el rocoto relleno. Su mirador de arcos de sillar es el balcón clásico de la ciudad, y la iglesia de San Juan Bautista, del XVIII, remata la plaza. Es parada corta: la tradición está en el barrio, no en el monumento.",
+        "dato": "Mariano Melgar, el poeta del yaraví, es hijo de Arequipa: nació aquí en 1790 y lo fusilaron con 24 años en Umachiri, camino de Puno, tras la derrota de la rebelión independentista. Su poesía, mitad amorosa mitad andina, está en el origen de la melancolía que este viaje va a encontrar una y otra vez.",
+        "conexion": [
+          {
+            "recurso": "Los heraldos negros",
+            "donde": "el yaraví, de Melgar a Vallejo: la melancolía andina"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Qué frase de Melgar está en los arcos y quién eligió las inscripciones?",
+        "¿De dónde viene el nombre Yanahuara y qué era el barrio antes de ser colonial?",
+        "¿Cuál es la picantería del barrio que de verdad recomienda para el rocoto relleno?"
+      ],
+      "fuentes": [
+        "Perú Travel — ficha del Mirador de Yanahuara (peru.travel): arcos de sillar e iglesia de San Juan Bautista del XVIII",
+        "Britannica, 'Mariano Melgar': nacimiento en Arequipa (1790) y fusilamiento en Umachiri (1815)"
+      ]
+    },
+    {
+      "id": "carmen-alto",
+      "nombre": "Mirador de Carmen Alto",
+      "lugar": "Arequipa",
+      "dia": 3,
+      "altitud_m": 2335,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Este es el único sitio del circuito donde se ve el truco de Arequipa: una ciudad blanca de piedra volcánica asomada a un valle verde regado a mano.",
+        "mira": [
+          "Abajo, el valle del Chili con su río abriéndose paso: aquí se ve dónde acaba la ciudad y empieza el campo que la alimenta.",
+          "Las terrazas y fincas de la campiña, verdes y con árboles: es el oasis que ninguna foto del centro de la ciudad explica.",
+          "En el horizonte, el Misti con su cono: el volcán que domina todas las fotos de Arequipa y que en los días claros aparece con nieve en la cima.",
+          "En la bajada, camino del bus, las acequias de piedra que cruzan los cultivos: el riego de la campiña es de origen colonial y sigue repartiéndose igual."
+        ],
+        "practico": {
+          "duracion": "~30 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": [
+            "Parada corta de fotos: el valle y al bus.",
+            "Sopla el viento del cañón: una capa no sobra aunque sea mediodía."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Arequipa no es 'la ciudad blanca' porque la pinten: es blanca porque su piedra, el sillar, es ceniza volcánica compactada que se saca de canteras al pie del Misti y se corta con sierra. Pero una ciudad sin agua, en medio del desierto, no se sostiene: la sostienen el Chili y la campiña, la franja de terrazas y acequias que se riega desde la colonia al borde del valle. Desde Carmen Alto se ve ese mecanismo entero: el río abajo, el campo cultivado, la ciudad a un lado y los volcanes cerrando todo.",
+        "dato": "La campiña no es un paisaje natural, es ingeniería colonial que sigue viva: las acequias reparten el agua del Chili por turnos que hoy se siguen peleando, porque en Arequipa el agua se discute tanto como la piedra.",
+        "conexion": [
+          {
+            "recurso": "Hija de la laguna",
+            "donde": "el agua como territorio: de la campiña arequipeña a los conflictos mineros"
+          },
+          { "recurso": "Wiñaypacha", "donde": "la vida rural que sostiene los Andes" }
+        ]
+      },
+      "preguntas": [
+        "¿Quién riega la campiña y cómo se reparte el agua del Chili entre las fincas?",
+        "¿Qué se cultiva aquí y qué hace que un año sea bueno uno malo?",
+        "¿Por qué se elige este mirador y no otro para la primera parada del día?"
+      ],
+      "fuentes": [
+        "Perú Travel — ficha del Mirador de Carmen Alto (peru.travel): vista del valle del Chili y la campiña",
+        "UNESCO, Centro Histórico de la ciudad de Arequipa (whc.unesco.org/es/list/1016): la campiña como contexto del centro histórico"
+      ]
+    },
+    {
+      "id": "plaza-de-armas-arequipa",
+      "nombre": "Plaza de Armas de Arequipa",
+      "lugar": "Arequipa",
+      "dia": 3,
+      "altitud_m": 2335,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Mirad el Misti asomando sobre la catedral: no hay otra plaza de armas de Perú que se haya construido delante de un volcán.",
+        "mira": [
+          "El lado norte: la catedral de sillar, con su fachada ancha y sin campanario central; esa fachada se reconstruyó tras el terremoto de 1868.",
+          "Los soportales de los otros tres lados, con sus arcos de medio punto: aquí está la sombra y la vida comercial de la plaza desde la colonia.",
+          "El Misti asomando por el extremo este de la catedral: el cono gris que aparece en todas las postales de esta plaza.",
+          "A media cuadra, saliendo de la plaza, la portada churrigueresca de la iglesia de la Compañía: la talla barroca en sillar más recargada de la ciudad."
+        ],
+        "practico": {
+          "duracion": "~45 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": [
+            "Al mediodía el sol pega de lleno: las fotos de la fachada salen mejor por la mañana.",
+            "Los portales dan sombra para esperar al grupo."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Arequipa nació aquí el 15 de agosto de 1540: Garcí Manuel de Carbajal trazó la plaza en nombre del rey y fundó la ciudad sobre el trazado colonial que se ve hoy. La ciudad se ordenó alrededor de esta manzana y creció en sillar, el material volcánico que la hace blanca y que se endurece con el aire. Los terremotos de 1582 y 1868 la tumbaron, y cada vez se reconstruyó con la misma piedra: la catedral actual es de la reconstrucción de 1868. En 2000 la UNESCO inscribió el centro histórico, con la plaza como pieza clave.",
+        "dato": "El sillar con el que se construyó la plaza entera sale de canteras al pie del Misti: cuando un terremoto la tumba, Arequipa se levanta con la misma lava de siempre, y la ciudad blanca es literalmente piedra volcánica reaprovechada.",
+        "conexion": [
+          {
+            "recurso": "Crónica del Perú",
+            "donde": "la fundación de las ciudades españolas en el Perú"
+          },
+          {
+            "recurso": "Los últimos días de los Incas",
+            "donde": "el Perú conquistado donde se funda una ciudad más"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Por qué eligió Carbajal este sitio exacto para fundar la ciudad en 1540?",
+        "¿Cómo se reconstruyó la plaza después de cada terremoto y quién decidió conservar el trazado?",
+        "¿Cuál es la historia de la fuente de la Fama y quién la mandó colocar?"
+      ],
+      "fuentes": [
+        "UNESCO, Centro Histórico de la ciudad de Arequipa (whc.unesco.org/es/list/1016): fundación en 1540, reconstrucción tras los terremotos, inscripción en 2000",
+        "Britannica, 'Arequipa': fundación de la ciudad y terremotos de 1582 y 1868",
+        "Perú Travel — ficha de la Plaza de Armas de Arequipa (peru.travel): catedral y portales"
+      ]
+    }
+  ]
+}

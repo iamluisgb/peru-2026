@@ -1,0 +1,151 @@
+{
+  "bloque": "lima",
+  "nombre": "Lima",
+  "_nota": "Forma copiada de koricancha (cusco.json), la ficha de referencia. Ver CONTENIDO.md.",
+  "fichas": [
+    {
+      "id": "plaza-de-armas-lima",
+      "nombre": "Plaza de Armas",
+      "lugar": "Lima",
+      "dia": 2,
+      "altitud_m": 154,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Esta es la plaza que fundó Francisco Pizarro en 1535: el punto exacto del que salió toda la ciudad.",
+        "mira": [
+          "Al norte, la fachada del Palacio de Gobierno, con el balcón central desde el que se asoma el presidente y la guardia de palacio en la puerta.",
+          "Al este, la fachada barroca de la catedral — y a su derecha, el Palacio Arzobispal con sus balcones de madera tallada.",
+          "La fuente del centro de la plaza, una de las más antiguas de la ciudad: todas las calles de Lima se empiezan a numerar desde aquí."
+        ],
+        "practico": {
+          "duracion": "~30 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["El relevo de la guardia de palacio tiene horario: preguntad al guía cuándo cae hoy."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Lima nació aquí, y nació dos veces: Pizarro la fundó en 1535 junto al río Rímac, y de esta plaza partió el reparto de solares entre los conquistadores que la acompañaron. Fue el centro político de un virreinato que llegaba hasta Panamá, y durante siglos también el escenario público: aquí se celebraron procesiones, corridas de toros y, en la plaza, se leyeron pregones que toda la ciudad tenía que escuchar. Es el corazón desde el que se numeran las calles, y el lugar por el que han pasado todos los presidentes del Perú.",
+        "dato": "Las calles de Lima no tienen 'kilómetro cero' en un letrero, pero sí un origen real: la numeración arranca en esta plaza y crece hacia fuera, así que cada casa del centro se referencia desde aquí.",
+        "conexion": [
+          { "recurso": "Crónica del Perú", "donde": "descripción de los primeros años de Lima y de su fundación" },
+          { "recurso": "Historia de la conquista del Perú", "donde": "instalación de Pizarro en Lima y la fundación de la ciudad" }
+        ]
+      },
+      "preguntas": [
+        "¿Cuál era el solar que se reservó Pizarro y dónde está hoy?",
+        "¿Qué se celebró en este mismo espacio antes de que se construyera la plaza urbana que vemos?"
+      ],
+      "fuentes": []
+    },
+    {
+      "id": "catedral-lima",
+      "nombre": "Catedral de Lima",
+      "lugar": "Lima",
+      "dia": 2,
+      "altitud_m": 154,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "En el suelo de esta iglesia descansan los restos del hombre que fundó la ciudad: Francisco Pizarro.",
+        "mira": [
+          "Las sillerías del coro, talladas en cedro con motivos mudéjares: madera esculpida que ha sobrevivido a los terremotos.",
+          "La capilla donde está la urna con los restos de Pizarro, en el sector del altar mayor.",
+          "Los altares barrocos dorados de las capillas laterales según entras.",
+          "La diferencia de estilo entre la fachada barroca y el interior: cada reconstrucción tras un terremoto dejó su marca."
+        ],
+        "practico": {
+          "duracion": "~45 min",
+          "incluido": true,
+          "fotos": "no",
+          "notas": ["Llevad ropa adecuada para entrar en un templo. Consultad cierres por celebraciones religiosas."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "La primera catedral se levantó sobre el solar junto a la plaza en los años de la fundación, y desde entonces ha sufrido una vida dura: los terremotos de Lima la han tumbado y rehecho en varias ocasiones, de modo que lo que se visita es un edificio reconstruido más que el original del XVI. Es la catedral de la capital del virreinato, la sede desde la que la Iglesia organizó la evangelización de buena parte de Sudamérica. Que Pizarro esté enterrado aquí, y que sus restos se hayan identificado y vuelto a enterrar, cierra en la piedra el ciclo que abrió la fundación de la plaza.",
+        "dato": "El hombre que fundó la ciudad está enterrado bajo su catedral: el conquistador y su obra comparten el mismo suelo.",
+        "conexion": [
+          { "recurso": "Los últimos días de los Incas", "donde": "el final de Pizarro y el reparto del imperio conquistado" },
+          { "recurso": "Historia de la conquista del Perú", "donde": "el asentamiento español en Lima y la catedral del virreinato" }
+        ]
+      },
+      "preguntas": [
+        "¿Cuántas veces se ha reconstruido esta catedral tras los terremotos, y cuál fue el peor?",
+        "¿Dónde se identificaron los restos de Pizarro y qué prueba se usó?",
+        "¿Qué diferencias hay entre la catedral de Lima y la del Cusco que veremos después?"
+      ],
+      "fuentes": []
+    },
+    {
+      "id": "huaca-pucllana",
+      "nombre": "Huaca Pucllana",
+      "lugar": "Lima",
+      "dia": 2,
+      "altitud_m": 154,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Esto es una pirámide de barro en pleno Miraflores, levantada varios siglos antes de que los incas llegaran a la costa.",
+        "mira": [
+          "Los adobes colocados en vertical en los muros: la técnica de 'adobitos' que distingue a la cultura Lima.",
+          "La pequeña pirámide escalonada con su plaza ceremonial, rodeada hoy de edificios y tráfico.",
+          "El contraste con el entorno: Miraflores moderno a unos metros, y aquí el barro milenario intacto."
+        ],
+        "practico": {
+          "duracion": "~1 h",
+          "incluido": true,
+          "fotos": "sí, trípode no",
+          "notas": ["Hay visita de día y visita nocturna con iluminación: preguntad cuál toca hoy."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Huaca Pucllana es un centro ceremonial y administrativo de la cultura Lima, un pueblo costeño que floreció en estos valles mucho antes de los incas, y que levantó pirámides escalonadas de adobe a los pies de los Andes. Aquí se ha excavado un recinto con rampas, plazas y áreas de ofrendas que hablan de una sociedad organizada en torno al mar y a los ríos que bajan de la sierra. Es, además, un monumento urbano improbable: en medio de una de las zonas más modernas de Lima, ha sobrevivido a siglos, terremotos y al crecimiento de la ciudad. Verlo es recordar que la costa no empezó con los conquistadores ni con los incas.",
+        "dato": "En un valle donde casi nadie esperaría encontrar arqueología, esta pirámide de adobe lleva de pie desde bastante antes del Imperio inca, y sigue en pie.",
+        "conexion": [
+          { "recurso": "Crónica del Perú", "donde": "descripción de los pueblos y culturas costeñas anteriores a los incas" },
+          { "recurso": "Comentarios reales de los Incas", "donde": "el mundo que encontraron los incas al incorporar la costa" }
+        ]
+      },
+      "preguntas": [
+        "¿Qué era exactamente este lugar: templo, palacio o mercado, y cómo se sabe?",
+        "¿Por qué la pirámide está hecha de adobitos verticales y no de piedra como en Cusco?",
+        "¿Qué culturas ocuparon este mismo valle antes y después de la cultura Lima?"
+      ],
+      "fuentes": []
+    },
+    {
+      "id": "miraflores-parque-del-amor",
+      "nombre": "Parque del Amor",
+      "lugar": "Lima",
+      "dia": 2,
+      "altitud_m": 154,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Este es el parque del beso de Lima, colgado sobre el Pacífico desde el borde del acantilado de Miraflores.",
+        "mira": [
+          "La gran escultura central 'El beso', de Víctor Delfín, con la pareja en un abrazo imposible.",
+          "Los bancos y muros cubiertos de mosaico de colores del paseo, inspirados en el Park Güell de Gaudí.",
+          "El borde del acantilado: la vista abierta del Pacífico y los parapentes que despegan justo aquí.",
+          "Las citas y versos sobre el amor escritos por el paseo."
+        ],
+        "practico": {
+          "duracion": "~30 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["Está en el malecón: el viento y la altura se notan. Buen sitio para la puesta de sol."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Miraflores es el barrio que mira al mar, y este parque está pensado como su homenaje al amor: un paseo de mosaicos en la cima del acantilado, inaugurado a principios de los años noventa, con la gran escultura de una pareja besándose como centro. El gesto es doblemente limeño, porque se levanta justo donde la ciudad se asoma al océano, en un borde que define cómo se vive Lima. Está a un paseo del hotel y es el contrapunto costero a las huacas y a la plaza histórica: aquí no hay piedra antigua, solo la ciudad moderna mirando al Pacífico.",
+        "dato": "La escultura representa un beso literalmente en el aire: 'El beso' de Víctor Delfín cuelga de un abrazo que se sostiene por equilibrio, no apoyado en el suelo como una estatua convencional.",
+        "conexion": [
+          { "recurso": "La ciudad y los perros", "donde": "la otra Lima, la de los años 50, tan distinta del Miraflores actual" }
+        ]
+      },
+      "preguntas": [
+        "¿Quién encargó la escultura 'El beso' y en qué año se inauguró el parque?",
+        "¿Qué significan los versos que hay escritos por el paseo y de quién son?",
+        "¿De qué barrio aledaño salen los parapentes que vemos despegar y hasta dónde vuelan?"
+      ],
+      "fuentes": []
+    }
+  ]
+}
