@@ -58,7 +58,9 @@
         "NOTA — cifras no publicadas: el número de planchas de oro arrancadas del templo varía según el cronista (Pedro Sancho habla de más de 500; a Cieza se le atribuyen 700), así que la ficha no da ninguna. Tampoco da el número de ceques y huacas, que oscila según el autor."
       ],
       "relacionadas": [
-        "muro-inca"
+        "muro-inca",
+        "pachacutec",
+        "toponimos"
       ]
     },
     {
@@ -110,6 +112,10 @@
         "Waldemar Espinoza Soriano, «Los Incas» (1997), p. 87 — la arena del litoral con que Pachacútec terminó de secar el pantano. Vía la misma entrada.",
         "https://es.wikipedia.org/wiki/Catedral_del_Cusco — supresión del tercer cuerpo de las torres tras el terremoto de 1650 (Angles Vargas, 1983, p. 101).",
         "https://es.wikipedia.org/wiki/Iglesia_de_la_Compañía_de_Jesús_(Cusco) — el pleito del obispo Pedro de Ortega Sotomayor contra los planos de los jesuitas (1656)."
+      ],
+      "relacionadas": [
+        "pachacutec",
+        "toponimos"
       ]
     },
     {
@@ -161,6 +167,9 @@
         "Víctor Angles Vargas, «Historia del Cusco (Cusco Colonial)» (1983), pp. 84-107 — compra del solar del Kiswarkancha, primera piedra en 1560, cierre en 1654, consagración en 1668, torres recortadas tras 1650, granito rojo de Sacsayhuamán, iglesia del Triunfo. Vía https://es.wikipedia.org/wiki/Catedral_del_Cusco",
         "https://es.wikipedia.org/wiki/Señor_de_los_Temblores — restauración de 1985: lino, maguey y madera de balsa; corona original robada en los años ochenta.",
         "https://es.wikipedia.org/wiki/Marcos_Zapata_(pintor) — «La última cena», 1755, catedral del Cusco."
+      ],
+      "relacionadas": [
+        "barroco-andino"
       ]
     },
     {
@@ -201,6 +210,10 @@
       "fuentes": [
         "Víctor Angles Vargas, «Historia del Cusco (Cusco Colonial)» (1983), pp. 553-563 — T'oqokachi, parroquia de indios de Polo de Ondegardo, santuario a Illapa, estructura de adobe y espadaña, púlpito de Tuyro Túpac costeado por Mollinedo y Angulo. Vía https://es.wikipedia.org/wiki/Iglesia_de_San_Blas_(Cusco)",
         "Ministerio de Cultura del Perú, comunicado del 18 de febrero de 2025 — ataque a la piedra de los doce ángulos, «caída de fragmentos de piedra, en seis impactos visibles». Vía https://www.infobae.com/peru/2025/02/19/caida-de-fragmentos-de-piedra-en-seis-impactos-visibles-los-danos-que-sufrio-la-piedra-de-los-12-angulos-de-cusco-tras-atentado/"
+      ],
+      "relacionadas": [
+        "muro-inca",
+        "barroco-andino"
       ]
     }
   ]

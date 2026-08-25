@@ -42,6 +42,9 @@
         "Inca Garcilaso de la Vega, Comentarios reales de los Incas (1609), libro I — el ganado doméstico y silvestre",
         "SERNANP, Reserva Nacional de Salinas y Aguada Blanca (sernanp.gob.pe)",
         "Convenio para la Conservación y Manejo de la Vicuña (Convenio de La Paz, 1979)"
+      ],
+      "relacionadas": [
+        "toponimos"
       ]
     },
     {
@@ -85,6 +88,11 @@
         "Smithsonian Institution, Global Volcanism Program — Ampato (6.288 m), Sabancaya (5.976 m), Hualca Hualca (6.025 m), Misti (5.822 m), Chachani (6.057 m)",
         "Pedro Cieza de León, Crónica del Perú (1553) — las apachetas de los puertos",
         "Johan Reinhard, The Ice Maiden: Inca Mummies, Mountain Gods, and Sacred Sites in the Andes (2005) — hallazgo de la momia Juanita en el Ampato"
+      ],
+      "relacionadas": [
+        "apu",
+        "toponimos",
+        "comer-en-altura"
       ]
     },
     {
@@ -207,6 +215,9 @@
         "UNESCO — danza del wititi de la provincia de Caylloma, inscrita en 2015 en la Lista Representativa del Patrimonio Cultural Inmaterial",
         "PromPerú — Yanque y el valle del Colca",
         "Ministerio de Cultura (Perú) — sitio arqueológico Uyo Uyo, Yanque"
+      ],
+      "relacionadas": [
+        "barroco-andino"
       ]
     }
   ]

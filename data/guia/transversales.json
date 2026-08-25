@@ -1,6 +1,7 @@
 {
   "bloque": "transversales",
   "nombre": "Para entender lo que ves",
+  "_nota": "Una transversal no es un sitio: se lee UNA vez y sirve los doce días. Por eso lleva tipo:transversal y NO lleva dia, lugar ni altitud_m, y su practico sólo tiene duracion y notas. Se llega a ella desde el `relacionadas` de las fichas de sitio; una que nadie enlaza rompe la build. Ver CONTENIDO.md.",
   "fichas": [
     {
       "id": "muro-inca",
@@ -8,22 +9,286 @@
       "nombre": "Cómo leer un muro inca",
       "verificado": false,
       "de_pie": {
-        "gancho": "PENDIENTE",
+        "gancho": "Hay dos maneras muy distintas de levantar un muro inca y saber cuál tenéis delante se aprende en un minuto: una la pagó el Estado y la otra la levantó quien vivía allí.",
         "mira": [
-          "PENDIENTE — detalles localizables"
+          "La junta, antes que nada. En la sillería fina no hay mortero y la línea entre dos piedras es continua y limpia; en la pirca hay barro y piedrecillas de calzo metidas en los huecos. Lo demás se deduce de ahí.",
+          "La cara del sillar abombada como un cojín, con la junta hundida alrededor: es el almohadillado, y sólo aparece en obra de élite. En el Koricancha, en el muro de Hatun Rumiyoc camino de San Blas y en el Templo del Sol de Machu Picchu lo tenéis a un metro de la mano.",
+          "Los vanos: puertas, ventanas y hornacinas más anchas abajo que arriba. El trapecio es la firma inca y no aparece en lo colonial, así que sirve para ver a simple vista dónde acaba una fábrica y empieza la otra.",
+          "Poneos en la esquina de un muro y miradlo de abajo arriba: no sube a plomo, se mete hacia dentro, y la arista está redondeada en vez de viva."
         ],
         "practico": {
           "duracion": "2 min de lectura",
-          "notas": []
+          "notas": [
+            "El mejor sitio del viaje para leer esto es la calle Hatun Rumiyoc, subiendo a San Blas: los dos aparejos están a la vista, seguidos, y se comparan andando."
+          ]
         }
       },
       "de_sofa": {
-        "contexto": "",
-        "dato": "",
-        "conexion": []
+        "contexto": "John H. Rowe ordenó la cantería fina inca en dos familias —de hiladas, con piedras rectangulares, y poligonal, con bloques irregulares— y el arquitecto Santiago Agurto la afinó después en cuatro: poligonal celular, poligonal de sillares grandes, encajonado y sedimentario. Los dos primeros se reservaron a edificios importantes y cercas de recintos; los otros dos se ven sobre todo en andenes y canales. Enfrente está la pirca, que es piedra tosca trabada con argamasa y es lo que se usó para casi todo, porque es lo rápido. La fina se cortaba y se ajustaba en seco, sin mortero, con herramientas de piedra, bronce y cobre, partiendo los bloques por sus líneas naturales de fractura o abriendo una hilera de agujeros y metiendo cuñas. Los muros se inclinan ligeramente hacia dentro y las esquinas se redondean, y a eso se le atribuye el buen comportamiento sísmico: en terremotos fuertes se ha descrito cómo los bloques «bailan» y vuelven a asentarse en su sitio.",
+        "dato": "El muro perfecto es la excepción, y a propósito. La sillería imperial estuvo restringida a los edificios de élite; el resto del imperio —casas, andenes, canales, pueblos enteros— se levantó con pirca. Lo que os van a enseñar como «los incas construían así» es exactamente la parte del imperio que se hizo para que se viera.",
+        "conexion": [
+          {
+            "recurso": "Lost Kingdoms of South America",
+            "donde": "la cantería y la ingeniería inca"
+          },
+          {
+            "recurso": "Comentarios reales de los Incas",
+            "donde": "la descripción de los edificios y fortalezas del Cusco"
+          }
+        ]
       },
-      "preguntas": [],
-      "fuentes": []
+      "preguntas": [
+        "¿Qué aparejo es éste, y por qué éste aquí y otro distinto en el muro de al lado?",
+        "¿Cuánto de lo que estamos viendo está en su sitio original y cuánto es reconstrucción del siglo XX?",
+        "¿Con qué se dio el acabado a esta cara: se sabe o se supone?"
+      ],
+      "fuentes": [
+        "https://en.wikipedia.org/wiki/Inca_architecture — clasificación de Rowe (de hiladas / poligonal) y los cuatro subtipos de Santiago Agurto; primeros dos tipos en edificios importantes y cercas, los otros dos en andenes y canales; piedra ajustada sin mortero; herramientas de piedra, bronce y cobre, fractura natural y cuñas; muros «slightly inclined inside and the corners were rounded»; bloques que «dancing» y se reasientan en los terremotos; vanos trapezoidales; la kancha; las qollqas en cota alta.",
+        "https://es.wikipedia.org/wiki/Arquitectura_incaica — la pirca como «un montón de piedras toscas unidas con argamasa», la más usada por su facilidad; el aparejo imperial «restringido exclusivamente a los edificios de élite»; aparejos celular, ciclópeo, poligonal e imperial almohadillado; muros «sin que entre ellos pudiera pasar ni un alfiler».",
+        "Jean-Pierre Protzen, «Inca Architecture and Construction at Ollantaytambo» (Oxford University Press, 1993) — cantería, canteras y experimentos de talla con las herramientas de la época; es la referencia que citan las entradas anteriores.",
+        "NOTA — cifras no publicadas: no se da ningún peso de bloque, número de ángulos ni tolerancia de junta. Lo de «no cabe un papel» es una frase hecha, no una medida, y las cifras de peso que circulan varían según la fuente."
+      ]
+    },
+    {
+      "id": "toponimos",
+      "tipo": "transversal",
+      "nombre": "Por qué todo se llama -tambo, -pata o -pampa",
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Los nombres de este viaje no son nombres: son descripciones, y con cinco terminaciones se lee el mapa entero sin que nadie os lo traduzca.",
+        "mira": [
+          "En el cartel de la estación: Ollantay-tambo. La segunda mitad es tampu, la posada del camino real del Estado inca. La primera mitad es un nombre propio y ahí ya empieza la discusión.",
+          "En Cusco, los nombres de las dos plazas: Huacay-pata y Cusi-pata. La misma terminación -pata, «escalón, andén, sitio alto» — y en el Colca ya cruzasteis Pata-pampa, que es el andén y la llanura, las dos cosas seguidas.",
+          "En la Plaza de Armas de Cusco, los palacios que hay bajo los portales: Amaru-cancha y Kiswar-cancha. -kancha es el recinto cerrado con patio, la unidad básica de la arquitectura inca, y es la misma palabra que Kori-cancha, «el recinto de oro».",
+          "Por la ventana, el río que os acompaña desde La Raya: Vilcanota arriba, Uru-bamba abajo. -bamba es pampa castellanizado, «llanura» — la misma palabra que las Pampas Cañahuas del Colca."
+        ],
+        "practico": {
+          "duracion": "2 min de lectura",
+          "notas": [
+            "El día 7, en el bus de Puno a Cusco, es cuando esto se aprovecha: van pasando carteles de pueblos por la ventana durante horas."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "El quechua es aglutinante y sus topónimos son casi siempre compuestos que describen el sitio, no que lo bautizan: se pegan dos palabras y sale la definición del lugar. Las que más veréis: tampu, la posada del camino, un recinto junto a los caminos principales que hacía de alojamiento y de almacén para chasquis y funcionarios, atendido por gente de las comunidades cercanas dentro del sistema de la mita; kancha, el recinto rectangular con patio y varias estancias alrededor, del que salen desde la casa más humilde hasta el palacio; pata, el escalón, el andén, el sitio alto; pampa, la llanura, que en castellano acabó también como -bamba; y marka, «pueblo, región», palabra quechua de origen probablemente aimara. En este itinerario no pisáis ni un -marca, y eso ya dice algo: el gran ejemplo está lejos, en Cajamarca. Dos avisos. Uno: el altiplano que cruzáis entre Puno y Cusco tiene capas de quechua, aimara y puquina superpuestas, y las etimologías de por aquí se discuten más de lo que parece. Dos: casi todo lo que leeréis escrito pasó por el oído y la ortografía de un español del XVI, y por eso el mismo sitio aparece como Coricancha, Qorikancha o Koricancha según quién lo escriba.",
+        "dato": "La palabra tambo no se ha ido a ninguna parte: Tambo+, la cadena de tiendas de barrio abiertas a todas horas que veréis en cada esquina de Lima, se llama así por los tambos del camino inca, y lo dice ella misma. Quinientos años después sigue siendo el sitio donde el que va de paso para a comprar.",
+        "conexion": [
+          {
+            "recurso": "Comentarios reales de los Incas",
+            "donde": "Garcilaso corrigiendo a los españoles la pronunciación del quechua, que es medio libro"
+          },
+          {
+            "recurso": "Uchpa",
+            "donde": "la misma lengua, hoy y cantada"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Cómo se escribe hoy oficialmente en Cusco, Coricancha o Qorikancha, y quién decide eso?",
+        "¿Qué significa Ollantay y por qué no hay acuerdo?",
+        "¿Qué palabras estamos usando todo el día en el viaje sin saber que son quechuas?"
+      ],
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/Tambo_(inca) — tampu, «alojamiento temporal»; recintos junto a los caminos principales; centros de acopio de alimentos, lana y leña; atendidos por comunidades cercanas mediante la mita; distancias entre tambos muy variables (de menos de 10 km a casi 45).",
+        "https://en.wikipedia.org/wiki/Inca_architecture — kancha: «rectangular enclosure housing three or more rectangular buildings placed symmetrically around a central courtyard», base de todo, desde la vivienda hasta el palacio.",
+        "Antonio Cusihuamán, «Diccionario Quechua Cuzco-Collao» (Ministerio de Educación del Perú, 1976) — es el diccionario de referencia de la variedad que se habla en toda la ruta del viaje; pata («escalón, andén, borde»), pampa («llanura»), kancha («recinto cercado»).",
+        "Rodolfo Cerrón-Palomino, trabajos sobre toponimia andina y sobre el sustrato aimara — marka, «pueblo, región», voz quechua de probable origen aimara, y el caso de Cajamarca. Referido en https://es.wikipedia.org/wiki/Cajamarca",
+        "https://es.wikipedia.org/wiki/Tambo%2B — la cadena peruana de tiendas de conveniencia toma su nombre del quechua tanpu, los tambos del camino inca.",
+        "NOTA — no se publica aquí ninguna etimología de Ollantay ni de Chinchero: las fuentes consultadas dan versiones que no coinciden entre sí."
+      ]
+    },
+    {
+      "id": "pachacutec",
+      "tipo": "transversal",
+      "nombre": "Pachacútec, el que hizo casi todo esto",
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Casi todo lo que vais a ver en piedra en este viaje lo mandó hacer un solo hombre, o su hijo, y en menos de un siglo.",
+        "mira": [
+          "En la Plaza de Armas de Cusco, bajo el Portal de Panes: ahí estaba el Qasana, su palacio. Y el suelo que pisáis lo mandó secar él, cubriendo el pantano con arena traída del mar.",
+          "En Ollantaytambo, la parte de arriba —el Templo del Sol y sus seis monolitos— está sin terminar, con los bloques abandonados en la rampa. Es una obra suya que se quedó a medias, y se ve.",
+          "En Chinchero, el muro de hornacinas de la plaza: ése ya no es suyo, es de su hijo Túpac Yupanqui. Padre e hijo, dos generaciones, y entre los dos el noventa por ciento de lo que veréis.",
+          "En Machu Picchu, desde la Casa del Guardián: no lo miréis como una ciudad perdida, miradlo como lo que hoy se cree que fue, la finca privada de ese rey. Encaja mucho mejor."
+        ],
+        "practico": {
+          "duracion": "2 min de lectura",
+          "notas": [
+            "Conviene leerla la noche antes del día 8 (Cusco) o del día 9: a partir de ahí el nombre sale en cada parada."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Se llamaba Cusi Yupanqui y era hijo del inca Viracocha, aquel al que Raqchi le debe su templo. Hacia 1430 la confederación chanca invadió el Cusco; su padre se negó a defender la ciudad y él la defendió por su cuenta, ganó, y a partir de ahí se hizo con el poder y tomó el nombre por el que se le conoce: Pachakutiq, «el que voltea el mundo». La cronología tradicional le da un reinado de 1438 a 1471 y lo cuenta como el noveno inca; se le atribuyen la canalización de los ríos Saphy y Tullumayo, la reconstrucción del Koricancha y la replanificación entera del Cusco, y el proyecto de Sacsayhuamán, que terminaron sus sucesores. Después vino su hijo Túpac Yupanqui, que llevó las campañas al norte y al sur, acabó con el reino chimú y levantó Chinchero. Un aviso importante: todo esto sale de crónicas españolas del XVI —Betanzos, Sarmiento de Gamboa, Cieza de León— escritas décadas después y a partir de una memoria dinástica oral. Es la mejor lista que tenemos, no es un registro civil.",
+        "dato": "En 2021 un equipo dirigido por Richard Burger fechó por radiocarbono restos humanos de los cementerios de Machu Picchu y le salió una ocupación desde alrededor de 1420: unas dos décadas antes de la fecha en que las crónicas hacen subir al trono a Pachacútec. Dicho de otro modo, el sitio ya estaba en uso antes de que empezara el reinado que supuestamente lo construyó, y los autores concluyen que la cronología del imperio basada en documentos coloniales necesita revisión.",
+        "conexion": [
+          {
+            "recurso": "Los últimos días de los Incas",
+            "donde": "el imperio que se encontraron los Pizarro, hecho en tres generaciones"
+          },
+          {
+            "recurso": "Comentarios reales de los Incas",
+            "donde": "la lista de los incas y el reinado de Pachacútec, contada desde dentro de la familia"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Cuánto de la lista de los trece incas es historia y cuánto es genealogía reconstruida a posteriori?",
+        "¿Qué pasó con su momia? Se sabe que los españoles dieron con las momias reales en el siglo XVI.",
+        "Si Machu Picchu es anterior a su reinado según el carbono 14, ¿qué se cuenta ahora en el sitio?"
+      ],
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/Pachac%C3%BAtec — noveno inca; guerra chanca hacia 1430 y la negativa de su padre; «pacha kutiy», la vuelta del mundo; reinado de 1438-1471 según la cronología tradicional, a partir de Betanzos, Sarmiento de Gamboa y Cieza de León; canalización del Saphy y el Tullumayo, reconstrucción del Coricancha, replanificación del Cusco, proyecto de Sacsayhuamán terminado por sus sucesores, atribución discutida de Machu Picchu; Túpac Yupanqui y la conquista del reino chimú.",
+        "Richard L. Burger et al., «New AMS dates for Machu Picchu: results and implications», Antiquity 95 (2021) — dataciones AMS sobre restos humanos de cuatro cementerios: ocupación desde c. 1420 hasta 1532, unas dos décadas antes de lo que sugieren las fuentes textuales que asocian el sitio con el ascenso de Pachacútec en 1438; los autores concluyen que la cronología basada en registros coloniales requiere revisión. https://www.cambridge.org/core/journals/antiquity/article/abs/new-ams-dates-for-machu-picchu-results-and-implications/323804857B6EE4DD85B5B337F9E3C933",
+        "NOTA — cifras no publicadas: no se da extensión del imperio en kilómetros ni número de habitantes; las cifras que circulan varían enormemente según la fuente. La atribución de Machu Picchu a Pachacútec se da como lo que es, una atribución."
+      ]
+    },
+    {
+      "id": "apu",
+      "tipo": "transversal",
+      "nombre": "El apu: la montaña que es alguien",
+      "verificado": false,
+      "de_pie": {
+        "gancho": "En los Andes una montaña no es paisaje, es alguien, y en cuanto se acepta eso se entiende por qué las cosas están construidas donde están.",
+        "mira": [
+          "En los collados —La Raya, Patapampa—, los montones de piedras junto al camino: son apachetas. Cada piedra la puso alguien al cruzar, y se ponen al pasar el punto alto, no al llegar a ningún sitio.",
+          "En Machu Picchu, el Templo del Sol: el muro no se apoya sobre la roca, se construye alrededor de ella. La roca no era un estorbo que hubiera que allanar, era el motivo de que el templo esté ahí.",
+          "En las iglesias del valle, la Virgen pintada con silueta de montaña: falda ancha y triangular, cerro y manto confundidos. La de Monserrat de Chinchero, con los ángeles serrando el monte, es el caso más claro del viaje.",
+          "Cada vez que os señalen una cumbre con nombre propio —Misti, Chachani, Ampato, Verónica, Salkantay—: que tenga nombre y no número es justo el punto. Apu significa «señor», y a un señor se le llama por su nombre."
+        ],
+        "practico": {
+          "duracion": "2 min de lectura",
+          "notas": [
+            "Si dejáis una piedra en una apacheta, hacedlo como se hace: al cruzar el paso, y sin tocar ni recolocar las de los demás."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Apu es «señor» en quechua, y se usaba igual para un hombre con mando que para una cumbre: no es una metáfora poética, es el mismo cargo. La montaña se entiende como una entidad viva que influye directamente en los ciclos vitales de su territorio, y hay jerarquía: apus regionales, los grandes nevados con nieve perpetua, y apus locales, cerros modestos que dominan su propio valle. La clave práctica es el agua. El apu es la montaña tutelar porque de ella baja el agua que riega el valle, y el que bebe de ese agua le debe algo: de ahí los pagos a la tierra, las ofrendas, y los especialistas que hablan con ellos, los altomisayoq. En los santuarios de altura, sobre plataformas de piedra en las cumbres, se celebraban ceremonias que incluyeron sacrificios humanos, la capacocha. Tras la conquista se plantaron cruces en las cimas para borrar las ceremonias «paganas», y el resultado no fue que el culto desapareciera sino que se dobló: la peregrinación al santuario del Señor de Qoyllurit'i, al pie del Ausangate, que la Unesco inscribió en 2011, mezcla el catolicismo con el culto a dioses prehispánicos y sigue moviendo a decenas de miles de personas cada año.",
+        "dato": "La consecuencia arquitectónica es lo que más se nota andando: donde hay una roca importante, el edificio inca la rodea, la enmarca o la incorpora, pero no la sustituye. Cuando os parezca que un muro está mal resuelto porque tropieza con una piedra, mirad la piedra. Casi siempre la piedra estaba antes y es lo que se venía a ver.",
+        "conexion": [
+          {
+            "recurso": "Lituma en los Andes",
+            "donde": "el cerro que tiene dueño y lo que eso significa en un pueblo de verdad"
+          },
+          {
+            "recurso": "Hija de la laguna",
+            "donde": "la misma idea hoy, cuando el apu y la laguna están sobre una concesión minera"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Cuál es el apu de este sitio y cómo se llama?",
+        "¿Se sigue pagando a la tierra por aquí, quién lo hace y cuándo?",
+        "¿Queda algún altomisayoq en la zona o eso ya sólo se cuenta a los turistas?"
+      ],
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/Apu_(divinidad) — apu del quechua «señor»; la montaña como entidad viva que influye en los ciclos vitales de la región; variantes wamani/huamani; jerarquía de apus regionales (nevados) y locales (cerros); montañas tutelares que controlan el agua de los valles; santuarios de altura y capacocha; imposición de la cruz cristiana tras la conquista para borrar las ceremonias «paganas»; los altomisayoq como especialistas que dialogan con los apus.",
+        "Pedro Cieza de León, «Crónica del Perú» (ca. 1553) — las apachetas que los caminantes dejaban en los puertos de la cordillera.",
+        "Johan Reinhard, «The Ice Maiden: Inca Mummies, Mountain Gods, and Sacred Sites in the Andes» (National Geographic, 2005) — santuarios de altura y capacocha; el hallazgo del Ampato, junto al que pasáis en Patapampa.",
+        "Unesco, «La peregrinación al santuario del Señor de Qoyllurit'i», inscrita en la Lista Representativa del Patrimonio Cultural Inmaterial en 2011 — santuario de Sinakara al pie del Ausangate; mezcla de elementos del catolicismo con el culto a dioses prehispánicos. https://ich.unesco.org/es/RL/la-peregrinacion-al-santuario-del-senor-de-qoylluriti-00567",
+        "NOTA — cifras no publicadas: no se da altitud de ninguna cumbre que no esté ya sourceada en su propia ficha, ni número de peregrinos de Qoyllurit'i, que varía mucho según quién lo cuente."
+      ]
+    },
+    {
+      "id": "barroco-andino",
+      "tipo": "transversal",
+      "nombre": "La mano indígena en las iglesias",
+      "verificado": false,
+      "de_pie": {
+        "gancho": "En estas iglesias hay mano indígena por todas partes, y no está escondida: está firmada, cobrada y puesta donde se vea.",
+        "mira": [
+          "En la fachada, la talla plana: hojas, racimos y bichos cortados casi a bisel sobre la piedra, sin apenas relieve, como un bordado. La portada de la Compañía de Arequipa se lee así desde la propia Plaza de Armas.",
+          "Entre esa hojarasca, lo que no venía en el manual europeo: maíz, papayas, monos, pumas, sirenas con instrumento de cuerda, sol y luna. Están mezclados con los ángeles y las volutas, no en un rincón aparte.",
+          "Dentro, el pan de oro aplicado encima de la pintura para fingir el brocado de las telas. Miradlo de lado y no de frente: es cuando el vestido de la Virgen se enciende y se entiende para qué se hizo.",
+          "Los dos ejemplos rotundos del viaje: el cuy servido en la fuente de la Última Cena de la catedral del Cusco, y la Virgen de Monserrat de Chinchero con los ángeles serrando la montaña."
+        ],
+        "practico": {
+          "duracion": "2 min de lectura",
+          "notas": [
+            "En casi todas estas iglesias está prohibido fotografiar el interior. Es el momento de mirar en vez de disparar.",
+            "Se aprovecha en Arequipa (día 3), en Andahuaylillas (día 7), en Cusco (día 8) y en Chinchero (día 9): cuatro paradas, la misma clave de lectura."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Entre 1680 y 1780, más o menos, cuajó en los Andes centrales —de Arequipa al Titicaca y el Collao, y de ahí a Potosí— un modo de tallar fachadas que combina el repertorio del Renacimiento tardío y el barroco europeos con símbolos andinos, sagrados y profanos, algunos de origen prehispánico. Se le ha llamado «estilo mestizo», etiqueta de la historiografía de mediados del siglo XX que hoy incomoda porque clasifica por raza en vez de por lo que los edificios hacen; Gauvin Alexander Bailey propuso «barroco híbrido andino» y es el término que ha ido ganando. En la pintura pasa lo propio con la escuela cusqueña: el obispo Manuel de Mollinedo y Angulo puso el dinero y su colección europea a disposición de los pintores locales, y de ahí salen Diego Quispe Tito, Basilio Santa Cruz Pumacallao, Marcos Zapata, Francisco Chihuantito. Los rasgos que se reconocen a ojo son el pan de oro, el abandono de la perspectiva lineal, la flora y la fauna de aquí, los arcángeles arcabuceros y una cantidad enorme de obra anónima. Y ahora lo que hay que contar con cuidado. La versión de las visitas —que los indígenas escondían a sus dioses dentro de las imágenes cristianas para seguir adorándolos a escondidas— es una simplificación que la historiografía no sostiene tal cual. Casi todo esto se hizo por encargo, con contrato, para clientes de la Iglesia, y los talladores y pintores indígenas firmaban y cobraban. Hay motivos que son simplemente decoración local; hay otros que funcionaban a la vez en las dos claves y todo el mundo lo sabía; y hubo culto clandestino real, que está documentado en los procesos de extirpación de idolatrías y que es otra cosa distinta. Leerlo todo como resistencia oculta le quita a esta gente lo único que sí tuvo de forma comprobable: la autoría.",
+        "dato": "En 1688 los pintores indígenas y mestizos del Cusco se separaron del gremio de los españoles por las condiciones en que trabajaban, y a partir de ahí pintaron por su cuenta. La escuela cusqueña que hoy se vende como «arte colonial» nace en buena parte de una escisión laboral: no de un misticismo, de un conflicto por el trabajo.",
+        "conexion": [
+          {
+            "recurso": "Comentarios reales de los Incas",
+            "donde": "Garcilaso, mestizo y consciente de serlo: la misma operación de estas iglesias, hecha en un libro"
+          },
+          {
+            "recurso": "También la lluvia",
+            "donde": "quién hace el trabajo y quién firma la obra, cinco siglos después"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Se sabe quién talló esta portada, o es anónima como casi todo?",
+        "¿Qué parte de esta iconografía es local y qué parte viene de un grabado europeo que circulaba por los talleres?",
+        "¿Hay documentación de los contratos: cuánto cobraba un tallador indígena por una fachada como ésta?"
+      ],
+      "fuentes": [
+        "https://en.wikipedia.org/wiki/Andean_Baroque — movimiento aparecido en el Perú colonial entre 1680 y 1780, también llamado «arquitectura mestiza», de la colaboración de artesanos criollos e indígenas; extensión de Arequipa al Titicaca y el Collao; los cuatro repertorios ornamentales (flora y fauna tropical, elementos manieristas como sirenas y mascarones, motivos americanos —sol, luna, pumas—, e imaginería cristiana prerrenacentista); la sirena en las iglesias del Titicaca; la Compañía de Arequipa, la catedral de Puno (con sirenas, pumas, papayas y un mono) y Santiago de Pomata.",
+        "Gauvin Alexander Bailey, «The Andean Hybrid Baroque: Convergent Cultures in the Churches of Colonial Peru» (University of Notre Dame Press, 2010) — propone «barroco híbrido andino» frente a «estilo mestizo» por representar mejor la hibridez cultural sin clasificar por raza; primer estudio de conjunto de la arquitectura y la escultura arquitectónica del sur del Perú entre los años 1660 y 1820.",
+        "https://es.wikipedia.org/wiki/Escuela_cuzque%C3%B1a_de_pintura — el mecenazgo del obispo Manuel de Mollinedo y Angulo, que puso su colección europea a disposición de los pintores locales; Diego Quispe Tito, Basilio Santa Cruz Pumacallao y Marcos Zapata; la separación en 1688 de los pintores indígenas y mestizos del gremio de los españoles por explotación; pan de oro, abandono de la perspectiva lineal, flora y fauna nativas, arcángeles arcabuceros y predominio del anonimato.",
+        "Pablo José de Arriaga, «La extirpación de la idolatría en el Pirú» (1621) — la fuente clásica sobre el culto clandestino perseguido, que es un fenómeno documentado y distinto del sincretismo iconográfico.",
+        "Los ejemplos concretos citados (el cuy de la Última Cena de Marcos Zapata en la catedral del Cusco, la Virgen de Monserrat de Chihuantito en Chinchero, la portada de la Compañía de Arequipa, el púlpito de Tuyro Túpac en San Blas, los murales de Riaño en Andahuaylillas) están sourceados en las fichas de sus respectivos sitios."
+      ]
+    },
+    {
+      "id": "comer-en-altura",
+      "tipo": "transversal",
+      "nombre": "Comer y beber a 3.800 m",
+      "verificado": false,
+      "de_pie": {
+        "gancho": "A partir de Arequipa el cuerpo digiere peor de lo que se cree, y la primera cena en altura es la que decide cómo dormís esa noche.",
+        "mira": [
+          "En el desayuno del hotel, a partir de Arequipa: el bol de hojas de coca sueltas y el agua caliente al lado. Está puesto ahí a propósito, es gratis y forma parte de la casa.",
+          "En la carta, el chuño: patata pequeña, arrugada y de color entre gris y casi negro, servida rehidratada. Parece estropeada y no lo está — es la conserva del altiplano.",
+          "En el mercado de Cusco o de Puno, el mostrador de las papas: decenas de formas y colores distintos, cada una con su nombre. Es donde de golpe se ve qué significa que la patata salió de aquí.",
+          "En el plato, el cuy: se sirve entero, con cabeza y patas. Es exactamente el mismo animal que veréis suelto en el corral de la cocina en Yucay."
+        ],
+        "practico": {
+          "duracion": "2 min de lectura",
+          "notas": [
+            "La cena de la primera noche en Arequipa, ligera y sin alcohol. No es consejo de folleto: se nota al día siguiente, subiendo al Colca.",
+            "Varias comidas del viaje no están incluidas —el almuerzo del día del Titicaca, entre otras—: soles en efectivo y en billete pequeño.",
+            "El agua del grifo no se bebe en ninguna parada del circuito. Embotellada, y beber más de lo que apetece: en altura se deshidrata uno sin enterarse."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "El mal agudo de montaña aparece normalmente a partir de los 2.500 m, y sus síntomas son dolor de cabeza, náuseas, falta de apetito, agotamiento y sueño roto. Vosotros lo vais a recorrer entero: Lima al nivel del mar, Arequipa a 2.335, el paso de Patapampa a 4.910, el lago a 3.812, Cusco a 3.400, y Aguas Calientes a 2.040 como noche de descanso. La prevención que sostienen las recomendaciones médicas es aburrida y funciona: subir despacio, hidratarse bien, evitar el alcohol los primeros días y comer ligero y con muchos hidratos, porque la digestión pesada compite con un cuerpo que ya está trabajando de más. Lo que sienta mal es lo previsible: fritos, carne grasa, postre azucarado y una cena copiosa con cerveza a 3.800 m. Lo que sienta bien también: caldos y sopas, quinua, papa, arroz, pan. La hoja de coca es otra cosa y conviene decirla como es. Se masca (chacchado) y se toma en infusión desde hace milenios en los Andes: quita el hambre, aguanta el trabajo y el frío, se ofrece a las visitas, se usa en los pagos a la tierra y se lee. En Perú es legal y el Estado la regula a través de ENACO, que tiene el monopolio de su comercialización para el consumo tradicional. Sobre si cura el soroche, la evidencia es floja: no se ha demostrado que mejore la oxigenación ni que acelere la aclimatación, y las revisiones de medicina del viajero advierten de que no debe sustituir a las medidas que sí están probadas. Y un aviso práctico: la hoja de coca sigue en la Lista I de la Convención Única de 1961 sobre Estupefacientes, de la que España es parte. Legal aquí, no en la maleta de vuelta — ni la hoja, ni el mate en bolsitas, ni los caramelos.",
+        "dato": "El chuño se hace en junio y julio, aprovechando que en el altiplano hiela de noche y calienta de día: la patata se congela, se pisa para expulsarle el agua, se pela y se seca al sol en ciclos de unos veinte días, y pierde al menos el 80 % de su peso. Así aguanta años. Es liofilización, inventada en los Andes siglos antes de que existiera la palabra, y es una de las razones de que se pudiera vivir en el altiplano. Vosotros llegáis en septiembre: veréis el resultado, no el proceso.",
+        "conexion": [
+          {
+            "recurso": "Chef's Table: Virgilio Martínez",
+            "donde": "el menú de Central está organizado por altitudes: es literalmente este viaje, en platos"
+          },
+          {
+            "recurso": "The Latin American Cookbook",
+            "donde": "qué es cada cosa de la carta antes de pedirla"
+          }
+        ]
+      },
+      "preguntas": [
+        "¿Qué se come aquí de verdad a diario y qué está en la carta sólo para nosotros?",
+        "¿Dónde compra el hotel la coca que sirve, y cómo funciona lo de ENACO en la práctica?",
+        "¿Qué hacéis si alguien del grupo lleva tres noches sin dormir por la altura?"
+      ],
+      "fuentes": [
+        "https://es.wikipedia.org/wiki/Mal_de_altura — aparición normalmente a partir de los 2.500 m; síntomas (cefalea, náuseas y vómitos, falta de apetito, agotamiento, trastornos del sueño); edema pulmonar y edema cerebral de altitud como manifestaciones potencialmente letales; prevención por ascenso gradual e hidratación constante.",
+        "Aviso «soroche» de data/avisos.json — señales de alarma que obligan a bajar en vez de aguantar. Es la misma doctrina y no se repite aquí.",
+        "https://es.wikipedia.org/wiki/Chu%C3%B1o — elaboración por congelación nocturna y sol de día, pisado para expulsar el agua, pelado y secado en ciclos de unos veinte días; reducción de al menos el 80 % del peso; heladas intensas de junio y julio; conservación durante años; consumo desde época prehispánica, con hallazgos en el área de Tiahuanaco.",
+        "Robert Conway, Ian Evans y Deshan Weeraman, «Assessing Travelers' Knowledge and Use of Coca for Altitude Sickness», Wilderness & Environmental Medicine (2012) — uso de la coca entre viajeros en los Andes y ausencia de una reducción consistente de los casos de mal agudo de montaña. https://journals.sagepub.com/doi/10.1016/j.wem.2012.06.005",
+        "«Travel medicine, coca and cocaine: demystifying and rehabilitating Erythroxylum – a comprehensive review», Tropical Diseases, Travel Medicine and Vaccines (2019) — revisión del uso tradicional y de la evidencia disponible. https://link.springer.com/article/10.1186/s40794-019-0095-7",
+        "ENACO S. A., marco legal — monopolio estatal de la comercialización e industrialización de la hoja de coca para el consumo tradicional en el Perú. https://transparencia.enaco.com.pe/marco-legal/",
+        "Convención Única de 1961 sobre Estupefacientes — la hoja de coca figura en la Lista I. Texto en https://www.incb.org/documents/Narcotic-Drugs/1961-Convention/convention_1961_es.pdf y ratificación española en https://www.boe.es/buscar/doc.php?id=BOE-A-1966-5373",
+        "Altitudes citadas (Arequipa 2.335, Patapampa 4.910, lago Titicaca 3.812, Cusco 3.400, Aguas Calientes 2.040): son las de las fichas de cada parada, donde están sourceadas.",
+        "NOTA — cifras no publicadas: no se da número de variedades de papa (las fuentes van de tres mil a más de cuatro mil según qué se cuente), ni incidencia porcentual del soroche por altitud, ni contenido de alcaloide de la hoja."
+      ]
     }
   ]
 }
