@@ -1,0 +1,7 @@
+#!/bin/sh
+# El repo es público. Un localizador commiteado se queda en el historial de git para siempre,
+# aunque después se borre del fichero. Por eso este check bloquea ANTES del commit.
+node scripts/check-privacidad.mjs || {
+  echo "\nCommit abortado. Ver ADR-002 en DECISIONS.md."
+  exit 1
+}

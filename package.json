@@ -1,0 +1,25 @@
+{
+  "name": "peru-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Guía de viaje offline para Perú Mágico (TUI), 30 ago – 10 sep 2026. PWA, 100% frontend, sin build step.",
+  "homepage": "https://iamluisgb.github.io/peru-2026/",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs && npm run check:privacidad",
+    "check:privacidad": "node scripts/check-privacidad.mjs",
+    "check:datos": "node scripts/check-datos.mjs",
+    "serve": "python3 -m http.server 8080",
+    "lint": "eslint js sw.js scripts",
+    "format": "prettier --write \"**/*.{js,mjs,css,html,json,md}\"",
+    "prepare": "git config core.hooksPath .githooks || true"
+  },
+  "author": "iamluisgb",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "prettier": "^3.9.4"
+  }
+}

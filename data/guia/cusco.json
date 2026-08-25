@@ -1,0 +1,93 @@
+{
+  "bloque": "cusco",
+  "nombre": "Cusco",
+  "_nota": "Koricancha es la ficha de REFERENCIA: si escribes otra, cópiale la forma. Ver CONTENIDO.md.",
+  "fichas": [
+    {
+      "id": "koricancha",
+      "nombre": "Koricancha",
+      "lugar": "Cusco",
+      "dia": 8,
+      "altitud_m": 3400,
+      "verificado": false,
+      "avisos": ["koricancha-domingo"],
+      "de_pie": {
+        "gancho": "Las paredes que vais a tocar estuvieron forradas de oro. Ese oro fue el rescate de Atahualpa, se fundió en lingotes y desapareció.",
+        "mira": [
+          "El muro curvo de la fachada: es el único muro curvo inca, y no tiene una junta donde entre un papel.",
+          "Los nichos trapezoidales. Esa forma no es estética, es antisísmica.",
+          "Dónde acaba la piedra inca y empieza la colonial. La línea se ve a simple vista y cuenta toda la historia sin una palabra."
+        ],
+        "practico": {
+          "duracion": "~1 h",
+          "incluido": true,
+          "fotos": "sí, trípode no",
+          "notas": ["Cierra domingos por la mañana — y vuestra visita es domingo por la mañana."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Era el templo más sagrado del imperio y el centro desde el que salían los ceques, las líneas rituales que organizaban todo el Cusco. Los españoles construyeron encima el convento de Santo Domingo, y lo hicieron ahí precisamente por eso: levantar la iglesia sobre el templo era el argumento. En 1950 un terremoto tiró buena parte del convento. Los muros incas de debajo no se movieron. Al reconstruir se decidió dejar la piedra inca a la vista, así que hoy se ve lo que se ve: el terremoto deshizo el gesto.",
+        "dato": "El recinto tenía un jardín con plantas de oro a tamaño real, mazorcas de maíz incluidas. No queda ninguna: todo se fundió.",
+        "conexion": [
+          { "recurso": "Los últimos días de los Incas", "donde": "capítulos del saqueo del Cusco" },
+          { "recurso": "Comentarios reales de los Incas", "donde": "descripción del Cusco" }
+        ]
+      },
+      "preguntas": [
+        "¿Qué eran los ceques y se puede seguir alguno hoy por la ciudad?",
+        "¿Cómo se decidió en 1950 qué reconstruir y qué dejar a la vista?"
+      ],
+      "fuentes": []
+    },
+    {
+      "id": "plaza-armas-cusco",
+      "nombre": "Plaza de Armas",
+      "lugar": "Cusco",
+      "dia": 8,
+      "altitud_m": 3400,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Bajo estos soportales se ejecutó a Túpac Amaru II en 1781, y la plaza se diseñó para que todo el mundo lo viera.",
+        "mira": [
+          "PENDIENTE — detalles localizables"
+        ],
+        "practico": { "duracion": "~30 min", "incluido": true, "fotos": "sí", "notas": [] }
+      },
+      "de_sofa": { "contexto": "", "dato": "", "conexion": [] },
+      "preguntas": [],
+      "fuentes": []
+    },
+    {
+      "id": "catedral-cusco",
+      "nombre": "Catedral del Cusco",
+      "lugar": "Cusco",
+      "dia": 8,
+      "altitud_m": 3400,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "PENDIENTE",
+        "mira": ["PENDIENTE — detalles localizables"],
+        "practico": { "duracion": "~45 min", "incluido": true, "fotos": "no", "notas": ["Cierra en festividades religiosas."] }
+      },
+      "de_sofa": { "contexto": "", "dato": "", "conexion": [] },
+      "preguntas": [],
+      "fuentes": []
+    },
+    {
+      "id": "san-blas",
+      "nombre": "Barrio de San Blas",
+      "lugar": "Cusco",
+      "dia": 8,
+      "altitud_m": 3450,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "PENDIENTE",
+        "mira": ["PENDIENTE — detalles localizables"],
+        "practico": { "duracion": "~1 h", "incluido": true, "fotos": "sí", "notas": ["Cuesta empinada a 3.400 m: subid despacio."] }
+      },
+      "de_sofa": { "contexto": "", "dato": "", "conexion": [] },
+      "preguntas": [],
+      "fuentes": []
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perú 2026</title>
+<meta name="description" content="Guía de viaje offline — Perú Mágico, 30 ago – 10 sep 2026">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16130f" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Perú 2026">
+<!-- Rutas RELATIVAS siempre: el sitio vive bajo /peru-2026/ en Pages. Ver ADR-006. -->
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="stylesheet" href="./css/themes.css">
+<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+<main id="app" class="envoltorio">
+  <p class="cargando">Cargando…</p>
+</main>
+
+<nav class="navbar" aria-label="Principal">
+  <a href="#/hoy"          data-ruta="hoy"><span class="icono" aria-hidden="true">◉</span>Hoy</a>
+  <a href="#/dias"         data-ruta="dias"><span class="icono" aria-hidden="true">▤</span>Días</a>
+  <a href="#/guia"         data-ruta="guia"><span class="icono" aria-hidden="true">◈</span>Guía</a>
+  <a href="#/altura"       data-ruta="altura"><span class="icono" aria-hidden="true">▲</span>Altura</a>
+  <a href="#/emergencias"  data-ruta="emergencias"><span class="icono" aria-hidden="true">✚</span>SOS</a>
+</nav>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>

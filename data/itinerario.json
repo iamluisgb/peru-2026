@@ -1,0 +1,129 @@
+{
+  "viaje": {
+    "nombre": "Perú Mágico",
+    "operador": "TUI",
+    "corresponsal_destino": "Lima Tours",
+    "inicio": "2026-08-30",
+    "fin": "2026-09-10",
+    "viajeros": 2,
+    "nota": "Los localizadores, tickets y póliza NO viven aquí. Ver ADR-002."
+  },
+
+  "paradas": [
+    { "id": "lima",            "nombre": "Lima",             "altitud_m": 154,  "verificado": false },
+    { "id": "arequipa",        "nombre": "Arequipa",         "altitud_m": 2335, "verificado": false },
+    { "id": "colca",           "nombre": "Cañón del Colca",  "altitud_m": 3635, "verificado": false },
+    { "id": "patapampa",       "nombre": "Mirador de Patapampa", "altitud_m": 4910, "verificado": false, "solo_paso": true },
+    { "id": "puno",            "nombre": "Puno",             "altitud_m": 3830, "verificado": false },
+    { "id": "cusco",           "nombre": "Cusco",            "altitud_m": 3400, "verificado": false },
+    { "id": "ollantaytambo",   "nombre": "Ollantaytambo",    "altitud_m": 2790, "verificado": false },
+    { "id": "aguas-calientes", "nombre": "Aguas Calientes",  "altitud_m": 2040, "verificado": false },
+    { "id": "machu-picchu",    "nombre": "Machu Picchu",     "altitud_m": 2430, "verificado": false }
+  ],
+
+  "hoteles": [
+    { "parada": "lima",            "nombre": "Britania Miraflores Hotel",       "noches": 2, "desde": "2026-08-30", "direccion": null, "telefono": null },
+    { "parada": "arequipa",        "nombre": "Hotel Corregidor",               "noches": 1, "desde": "2026-09-01", "direccion": null, "telefono": null },
+    { "parada": "colca",           "nombre": "Hotel Pozo del Cielo",           "noches": 1, "desde": "2026-09-02", "direccion": null, "telefono": null },
+    { "parada": "puno",            "nombre": "Casa Andina Standard Puno",      "noches": 2, "desde": "2026-09-03", "direccion": null, "telefono": null },
+    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 2, "desde": "2026-09-05", "direccion": null, "telefono": null },
+    { "parada": "aguas-calientes", "nombre": "Casa Andina Standard Machu Picchu", "noches": 1, "desde": "2026-09-07", "direccion": null, "telefono": null },
+    { "parada": "cusco",           "nombre": "Agustos Cusco Hotel",            "noches": 1, "desde": "2026-09-08", "direccion": null, "telefono": null }
+  ],
+
+  "vuelos": [
+    { "n": "PU301",   "cia": "Plus Ultra", "de": "MAD", "a": "LIM", "sale": "2026-08-30T11:00", "llega": "2026-08-30T16:10", "equipaje": "1 pieza" },
+    { "n": "H2 5103", "cia": "Sky Airline", "de": "LIM", "a": "AQP", "sale": "2026-09-01T10:15", "llega": "2026-09-01T11:50", "equipaje": "1 pieza" },
+    { "n": "H2 5008", "cia": "Sky Airline", "de": "CUZ", "a": "LIM", "sale": "2026-09-09T12:10", "llega": "2026-09-09T13:55", "equipaje": "1 pieza" },
+    { "n": "PU302",   "cia": "Plus Ultra", "de": "LIM", "a": "MAD", "sale": "2026-09-09T18:10", "llega": "2026-09-10T13:05", "equipaje": "1 pieza" }
+  ],
+
+  "dias": [
+    {
+      "n": 0, "fecha": "2026-08-29", "titulo": "Noche en Barajas", "parada": "madrid",
+      "resumen": "Noche previa junto al aeropuerto para no madrugar a las 5 desde casa.",
+      "actividades": [], "comidas": [], "libre": [],
+      "avisos": ["hotel-barajas"]
+    },
+    {
+      "n": 1, "fecha": "2026-08-30", "titulo": "España · Lima", "parada": "lima",
+      "resumen": "Vuelo a Lima. Llegada, asistencia y traslado al hotel.",
+      "actividades": [], "comidas": [], "libre": ["Noche en Miraflores"],
+      "avisos": ["aeropuerto-3h", "primer-dia-altura-no"]
+    },
+    {
+      "n": 2, "fecha": "2026-08-31", "titulo": "Lima", "parada": "lima",
+      "resumen": "Visita panorámica: plaza de Armas con el Palacio Presidencial y la catedral. De vuelta en Miraflores, la Huaca Pucllana y el parque del Amor.",
+      "actividades": ["plaza-armas-lima", "catedral-lima", "huaca-pucllana", "parque-del-amor"],
+      "comidas": ["desayuno"], "libre": ["Tarde libre en Miraflores o Barranco"],
+      "avisos": []
+    },
+    {
+      "n": 3, "fecha": "2026-09-01", "titulo": "Arequipa", "parada": "arequipa",
+      "resumen": "Vuelo a Arequipa. Miradores de Carmen Alto y Yanahuara, plaza de Armas y monasterio de Santa Catalina.",
+      "actividades": ["carmen-alto", "yanahuara", "plaza-armas-arequipa", "santa-catalina"],
+      "comidas": ["desayuno"], "libre": [],
+      "avisos": ["altura-empieza"]
+    },
+    {
+      "n": 4, "fecha": "2026-09-02", "titulo": "Cañón del Colca", "parada": "colca",
+      "resumen": "Salida hacia el Colca por la reserva de Pampas Cañahuas. Tarde libre.",
+      "actividades": ["pampas-canahuas", "patapampa"],
+      "comidas": ["desayuno"], "libre": ["Tarde libre en Chivay — termas de La Calera"],
+      "avisos": ["patapampa-4900", "soroche"]
+    },
+    {
+      "n": 5, "fecha": "2026-09-03", "titulo": "Colca · Puno", "parada": "puno",
+      "resumen": "Salida a primera hora a la Cruz del Cóndor. Pueblos de Maca y Yanque. Almuerzo y salida hacia Puno.",
+      "actividades": ["cruz-del-condor", "maca", "yanque"],
+      "comidas": ["desayuno", "almuerzo"], "libre": [],
+      "avisos": ["condor-madrugon", "dia-de-bus"]
+    },
+    {
+      "n": 6, "fecha": "2026-09-04", "titulo": "Lago Titicaca", "parada": "puno",
+      "resumen": "Día completo en lancha compartida por el Titicaca: isla de los Uros e isla de Taquile.",
+      "actividades": ["uros", "taquile"],
+      "comidas": ["desayuno"], "libre": ["Tarde libre en Puno al volver"],
+      "avisos": ["sol-lago", "sin-cobertura"]
+    },
+    {
+      "n": 7, "fecha": "2026-09-05", "titulo": "Puno · Cusco", "parada": "cusco",
+      "resumen": "Bus turístico a Cusco. En ruta: museo Lítico de Pucará y templo de Raqchi. Almuerzo y pueblo colonial de Andahuaylillas.",
+      "actividades": ["pucara", "la-raya", "raqchi", "andahuaylillas"],
+      "comidas": ["desayuno", "almuerzo"], "libre": [],
+      "avisos": ["tasa-bus-puno-cusco", "dia-de-bus", "sin-cobertura"]
+    },
+    {
+      "n": 8, "fecha": "2026-09-06", "titulo": "Cusco", "parada": "cusco",
+      "resumen": "Por la mañana: Koricancha, plaza de Armas y catedral. Después, el barrio de San Blas.",
+      "actividades": ["koricancha", "plaza-armas-cusco", "catedral-cusco", "san-blas"],
+      "comidas": ["desayuno"], "libre": ["Tarde libre en Cusco"],
+      "avisos": ["koricancha-domingo", "equipaje-5kg-preparar"]
+    },
+    {
+      "n": 9, "fecha": "2026-09-07", "titulo": "Valle Sagrado · Aguas Calientes", "parada": "aguas-calientes",
+      "resumen": "Chinchero y su iglesia del XVII, museo Vivo de Yucay, Ollantaytambo. Tren por el valle sagrado hasta Machu Picchu Pueblo.",
+      "actividades": ["chinchero", "yucay", "ollantaytambo", "tren-valle"],
+      "comidas": ["desayuno"], "libre": [],
+      "avisos": ["equipaje-5kg", "custodia-cusco"]
+    },
+    {
+      "n": 10, "fecha": "2026-09-08", "titulo": "Machu Picchu", "parada": "machu-picchu",
+      "resumen": "Visita de Machu Picchu. Después, tren a Ollantaytambo o Poroy y traslado a Cusco.",
+      "actividades": ["machu-picchu", "templo-del-sol", "intihuatana", "tres-ventanas"],
+      "comidas": ["desayuno"], "libre": [],
+      "avisos": ["pasaporte-mp"]
+    },
+    {
+      "n": 11, "fecha": "2026-09-09", "titulo": "Cusco · Lima · España", "parada": "lima",
+      "resumen": "Traslado al aeropuerto. Vuelo a Lima y de Lima a Madrid. Noche a bordo.",
+      "actividades": [], "comidas": ["desayuno"], "libre": ["~4 h de escala en Lima"],
+      "avisos": ["tuua-lima", "aeropuerto-3h"]
+    },
+    {
+      "n": 12, "fecha": "2026-09-10", "titulo": "Llegada", "parada": "madrid",
+      "resumen": "Llegada a Madrid a las 13:05. Fin del viaje.",
+      "actividades": [], "comidas": [], "libre": [], "avisos": []
+    }
+  ]
+}

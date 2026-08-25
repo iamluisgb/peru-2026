@@ -1,0 +1,405 @@
+{
+  "_nota": "Generado desde recursos_culturales_peru_2026.csv. Las fichas de guía enlazan aquí por `titulo` exacto.",
+  "recursos": [
+    {
+      "titulo": "Los últimos días de los Incas",
+      "autor": "Kim MacQuarrie",
+      "anio": 2007,
+      "tipo": "Libro",
+      "prioridad": "Imprescindible",
+      "porque": "La mejor narrativa sobre la conquista del Imperio Inca. Se lee como novela. Transforma cada piedra de Cusco en historia viva.",
+      "tags": [
+        "incas",
+        "conquista",
+        "cusco",
+        "machu picchu"
+      ]
+    },
+    {
+      "titulo": "Turn Right at Machu Picchu",
+      "autor": "Mark Adams",
+      "anio": 2011,
+      "tipo": "Libro",
+      "prioridad": "Imprescindible",
+      "porque": "Periodístico y ligero. Perfecto para los vuelos de ida. Cuenta el redescubrimiento de Machu Picchu por Hiram Bingham.",
+      "tags": [
+        "machu picchu",
+        "incas",
+        "aventura"
+      ]
+    },
+    {
+      "titulo": "The Latin American Cookbook",
+      "autor": "Virgilio Martínez",
+      "anio": 2021,
+      "tipo": "Libro",
+      "prioridad": "Imprescindible",
+      "porque": "El chef de Central organiza la cocina peruana por altitudes. Si vais a Central en Lima, leerlo antes multiplica la experiencia.",
+      "tags": [
+        "gastronomía",
+        "lima",
+        "contemporáneo"
+      ]
+    },
+    {
+      "titulo": "También la lluvia",
+      "autor": "Icíar Bollaín",
+      "anio": 2010,
+      "tipo": "Película",
+      "prioridad": "Imprescindible",
+      "porque": "Conecta la conquista colonial con conflictos sociales actuales en los Andes. Bernal y Tosar. Te prepara emocionalmente para Perú.",
+      "tags": [
+        "conquista",
+        "andes",
+        "contemporáneo",
+        "social"
+      ]
+    },
+    {
+      "titulo": "Aguirre, la cólera de Dios",
+      "autor": "Werner Herzog",
+      "anio": 1972,
+      "tipo": "Película",
+      "prioridad": "Imprescindible",
+      "porque": "Klaus Kinski como conquistador enloquecido bajando por el Amazonas. Rodada en Perú en condiciones brutales. Una obra maestra del cine.",
+      "tags": [
+        "conquista",
+        "amazonía",
+        "clásico"
+      ]
+    },
+    {
+      "titulo": "La teta asustada",
+      "autor": "Claudia Llosa",
+      "anio": 2009,
+      "tipo": "Película",
+      "prioridad": "Imprescindible",
+      "porque": "Oso de Oro en Berlín. Trauma transgeneracional de mujeres víctimas de Sendero Luminoso. Difícil pero magnífica.",
+      "tags": [
+        "contemporáneo",
+        "sendero",
+        "social",
+        "andes"
+      ]
+    },
+    {
+      "titulo": "Chef's Table: Virgilio Martínez",
+      "autor": "Netflix",
+      "anio": 2017,
+      "tipo": "Documental",
+      "prioridad": "Imprescindible",
+      "porque": "Imprescindible si vais a comer en Central. Filosofía de cocina por altitudes, expediciones a la selva y altiplano. Vedlo la noche antes de la reserva.",
+      "tags": [
+        "gastronomía",
+        "lima",
+        "contemporáneo"
+      ]
+    },
+    {
+      "titulo": "Buscando a Gastón",
+      "autor": "Patricia Pérez",
+      "anio": 2014,
+      "tipo": "Documental",
+      "prioridad": "Imprescindible",
+      "porque": "Sobre Gastón Acurio. Explica cómo Perú pasó de no tener reconocimiento gastronómico a ser referencia mundial en 15 años.",
+      "tags": [
+        "gastronomía",
+        "lima",
+        "contemporáneo",
+        "sociedad"
+      ]
+    },
+    {
+      "titulo": "Chabuca Granda",
+      "autor": "Chabuca Granda",
+      "anio": 1950,
+      "tipo": "Música",
+      "prioridad": "Imprescindible",
+      "porque": "La gran cantautora limeña. La flor de la canela la escucharéis en cada esquina de Barranco.",
+      "tags": [
+        "lima",
+        "clásico",
+        "música"
+      ]
+    },
+    {
+      "titulo": "Comentarios reales de los Incas",
+      "autor": "Inca Garcilaso de la Vega",
+      "anio": 1609,
+      "tipo": "Libro",
+      "prioridad": "Recomendado",
+      "porque": "La fuente original. Garcilaso era hijo de conquistador y princesa inca. Lectura selectiva por capítulos: origen mítico, descripción del Cusco, sistema de caminos.",
+      "tags": [
+        "incas",
+        "conquista",
+        "clásico",
+        "denso"
+      ]
+    },
+    {
+      "titulo": "Crónica del Perú",
+      "autor": "Pedro Cieza de León",
+      "anio": 1553,
+      "tipo": "Libro",
+      "prioridad": "Recomendado",
+      "porque": "Más legible que Garcilaso. Cieza recorrió Perú a los 23 años con asombro genuino. Selecciona capítulos sobre Cusco, Pachacámac y Titicaca.",
+      "tags": [
+        "conquista",
+        "clásico",
+        "cusco",
+        "titicaca"
+      ]
+    },
+    {
+      "titulo": "Lituma en los Andes",
+      "autor": "Mario Vargas Llosa",
+      "anio": 1993,
+      "tipo": "Libro",
+      "prioridad": "Recomendado",
+      "porque": "Ambientada en los Andes durante Sendero Luminoso. Da contexto del conflicto interno que aún se siente en zonas rurales.",
+      "tags": [
+        "andes",
+        "contemporáneo",
+        "sendero",
+        "vargas llosa"
+      ]
+    },
+    {
+      "titulo": "La ciudad y los perros",
+      "autor": "Mario Vargas Llosa",
+      "anio": 1963,
+      "tipo": "Libro",
+      "prioridad": "Recomendado",
+      "porque": "Retrato brutal de la Lima de los 50 desde un colegio militar. Si vais a estar varios días en Lima, esta novela os la transforma.",
+      "tags": [
+        "lima",
+        "contemporáneo",
+        "vargas llosa",
+        "sociedad"
+      ]
+    },
+    {
+      "titulo": "Los heraldos negros",
+      "autor": "César Vallejo",
+      "anio": 1918,
+      "tipo": "Libro",
+      "prioridad": "Recomendado",
+      "porque": "Vallejo es el poeta peruano más universal. Más accesible que Trilce. Conecta con la melancolía profunda andina.",
+      "tags": [
+        "poesía",
+        "andes",
+        "clásico"
+      ]
+    },
+    {
+      "titulo": "Wiñaypacha",
+      "autor": "Óscar Catacora",
+      "anio": 2017,
+      "tipo": "Película",
+      "prioridad": "Recomendado",
+      "porque": "Primera película rodada íntegramente en aimara. Pareja anciana en el altiplano. Lenta, contemplativa, te conecta con la cosmovisión andina.",
+      "tags": [
+        "andes",
+        "titicaca",
+        "contemporáneo"
+      ]
+    },
+    {
+      "titulo": "Madeinusa",
+      "autor": "Claudia Llosa",
+      "anio": 2006,
+      "tipo": "Película",
+      "prioridad": "Recomendado",
+      "porque": "Su debut, ambientada en un pueblo andino ficticio durante Semana Santa. Antropológicamente fascinante.",
+      "tags": [
+        "andes",
+        "contemporáneo",
+        "cultura"
+      ]
+    },
+    {
+      "titulo": "Lost Kingdoms of South America",
+      "autor": "BBC / Jago Cooper",
+      "anio": 2013,
+      "tipo": "Documental",
+      "prioridad": "Recomendado",
+      "porque": "Episodio sobre los incas excelente. Te explica cosas que en el sitio arqueológico no te van a contar.",
+      "tags": [
+        "incas",
+        "cusco",
+        "machu picchu"
+      ]
+    },
+    {
+      "titulo": "Machu Picchu Decoded",
+      "autor": "PBS Secrets of the Dead",
+      "anio": 2010,
+      "tipo": "Documental",
+      "prioridad": "Recomendado",
+      "porque": "Teorías más recientes sobre por qué se construyó Machu Picchu y para qué servía. Disponible en YouTube.",
+      "tags": [
+        "machu picchu",
+        "incas"
+      ]
+    },
+    {
+      "titulo": "State of Fear",
+      "autor": "Pamela Yates",
+      "anio": 2005,
+      "tipo": "Documental",
+      "prioridad": "Recomendado",
+      "porque": "Sobre el conflicto con Sendero Luminoso. Duro pero esencial para entender heridas todavía abiertas en zonas rurales.",
+      "tags": [
+        "sendero",
+        "contemporáneo",
+        "social"
+      ]
+    },
+    {
+      "titulo": "Susana Baca (discografía)",
+      "autor": "Susana Baca",
+      "anio": 1997,
+      "tipo": "Música",
+      "prioridad": "Recomendado",
+      "porque": "Premio Grammy. Música afroperuana. El lado costeño negro que casi nadie conoce. Sonidos de la costa norte.",
+      "tags": [
+        "lima",
+        "afroperuano",
+        "música"
+      ]
+    },
+    {
+      "titulo": "Conversación en La Catedral",
+      "autor": "Mario Vargas Llosa",
+      "anio": 1969,
+      "tipo": "Libro",
+      "prioridad": "Bonus",
+      "porque": "Su novela cumbre, también la más densa. Lee solo la primera parte (5 capítulos). El famoso ¿En qué momento se había jodido el Perú?",
+      "tags": [
+        "lima",
+        "contemporáneo",
+        "vargas llosa",
+        "denso"
+      ]
+    },
+    {
+      "titulo": "El sueño del celta",
+      "autor": "Mario Vargas Llosa",
+      "anio": 2010,
+      "tipo": "Libro",
+      "prioridad": "Bonus",
+      "porque": "Sobre las atrocidades del caucho en la Amazonía a inicios del XX. Más accesible que sus novelas urbanas.",
+      "tags": [
+        "amazonía",
+        "contemporáneo",
+        "vargas llosa",
+        "historia"
+      ]
+    },
+    {
+      "titulo": "La fiesta del Chivo",
+      "autor": "Mario Vargas Llosa",
+      "anio": 2000,
+      "tipo": "Libro",
+      "prioridad": "Bonus",
+      "porque": "No trata directamente de Perú, pero explica las claves del poder político en Latinoamérica. Más accesible que las novelas peruanas.",
+      "tags": [
+        "contemporáneo",
+        "vargas llosa",
+        "política"
+      ]
+    },
+    {
+      "titulo": "Historia de la conquista del Perú",
+      "autor": "William H. Prescott",
+      "anio": 1847,
+      "tipo": "Libro",
+      "prioridad": "Bonus",
+      "porque": "Clásico americano del XIX. Alternativa narrativa a MacQuarrie. Los capítulos sobre Cajamarca y Atahualpa son brutales.",
+      "tags": [
+        "conquista",
+        "clásico",
+        "historia",
+        "denso"
+      ]
+    },
+    {
+      "titulo": "Canción sin nombre",
+      "autor": "Melina León",
+      "anio": 2019,
+      "tipo": "Película",
+      "prioridad": "Bonus",
+      "porque": "Drama en blanco y negro sobre tráfico de bebés en los 80. Estética bellísima. Lima oscura y poética.",
+      "tags": [
+        "lima",
+        "contemporáneo",
+        "social"
+      ]
+    },
+    {
+      "titulo": "Días de Santiago",
+      "autor": "Josué Méndez",
+      "anio": 2004,
+      "tipo": "Película",
+      "prioridad": "Bonus",
+      "porque": "Excombatiente que vuelve a Lima tras la guerra. Lima vista desde abajo, lejos del turismo.",
+      "tags": [
+        "lima",
+        "contemporáneo",
+        "social"
+      ]
+    },
+    {
+      "titulo": "Hija de la laguna",
+      "autor": "Ernesto Cabellos",
+      "anio": 2015,
+      "tipo": "Documental",
+      "prioridad": "Bonus",
+      "porque": "Sobre conflictos mineros en los Andes. Si os interesa la dimensión socioambiental del país actual.",
+      "tags": [
+        "andes",
+        "contemporáneo",
+        "social"
+      ]
+    },
+    {
+      "titulo": "La revolución y la tierra",
+      "autor": "Gonzalo Benavente Secco",
+      "anio": 2019,
+      "tipo": "Documental",
+      "prioridad": "Bonus",
+      "porque": "Sobre la reforma agraria peruana de 1969. Si os interesa el Perú profundo, es revelador.",
+      "tags": [
+        "andes",
+        "historia",
+        "social"
+      ]
+    },
+    {
+      "titulo": "Yma Sumac",
+      "autor": "Yma Sumac",
+      "anio": 1950,
+      "tipo": "Música",
+      "prioridad": "Bonus",
+      "porque": "Voz de cuatro octavas de los años 50. Surreal y precolombina. Para escuchar al menos una vez en la vida.",
+      "tags": [
+        "clásico",
+        "música",
+        "precolombino"
+      ]
+    },
+    {
+      "titulo": "Uchpa",
+      "autor": "Uchpa",
+      "anio": 1995,
+      "tipo": "Música",
+      "prioridad": "Bonus",
+      "porque": "Rock-blues cantado en quechua. Cuando entendáis que existen dos Perús lingüísticos.",
+      "tags": [
+        "andes",
+        "quechua",
+        "música"
+      ]
+    }
+  ]
+}

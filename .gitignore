@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.log
+
+# Datos personales: NUNCA en el repo (ADR-002). Si algún día se exporta una copia local,
+# que no se cuele por accidente.
+data/personal*.json
+*.privado.json
