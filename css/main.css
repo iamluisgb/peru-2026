@@ -33,45 +33,6 @@ body {
 .tarjeta h2 { font-size: var(--fs-xl); margin: 0 0 var(--s-2); }
 .tarjeta h3 { font-size: var(--fs-lg); margin: 0 0 var(--s-1); }
 
-/* ---- Emergencias: teléfonos, seguro y formulario personal ---- */
-.tel {
-  font-size: var(--fs-lg); font-weight: 600; color: var(--accent);
-  text-decoration: none;
-}
-.seguro-guardado { display: flex; flex-direction: column; gap: var(--s-2); margin: 0; font-size: var(--fs-lg); }
-.seguro-guardado strong { font-variant-numeric: tabular-nums; word-break: break-word; }
-
-/* ---- Formulario (emergencias). Los datos viven SOLO en localStorage (ADR-002). ---- */
-.form-datos label {
-  display: block; margin: var(--s-3) 0 var(--s-1);
-  font-size: var(--fs-sm); font-weight: 600; color: var(--text-soft);
-}
-.form-datos input,
-.form-datos textarea {
-  width: 100%; padding: var(--s-3);
-  font: inherit; font-size: var(--fs-md); color: var(--text);
-  background: var(--surface-3); border: 1px solid var(--border);
-  border-radius: var(--r-md);
-}
-.form-datos textarea { min-height: 84px; resize: vertical; }
-.form-datos input:focus,
-.form-datos textarea:focus {
-  outline: none; border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-.form-datos .boton { margin-top: var(--s-4); }
-.aviso-privado { margin: var(--s-2) 0 0; font-size: var(--fs-xs); color: var(--text-faint); }
-
-/* ---- Botones ---- */
-.boton {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 44px; padding: var(--s-2) var(--s-5);
-  font: inherit; font-weight: 600; font-size: var(--fs-md);
-  border-radius: var(--r-pill); border: 1px solid transparent;
-  cursor: pointer;
-}
-.boton--primario { background: var(--accent); color: var(--on-accent); }
-
 /* ---- Chips ---- */
 .chip {
   display: inline-flex; align-items: center; gap: var(--s-1);
@@ -131,6 +92,56 @@ body {
 .altitud-badge[data-nivel="baja"]  { color: var(--altitud-baja); }
 .altitud-badge[data-nivel="media"] { color: var(--altitud-media); }
 .altitud-badge[data-nivel="alta"]  { color: var(--altitud-alta); }
+
+/* Gráfica del ascenso: SVG a mano. Las zonas usan los tokens de altitud con poca opacidad. */
+.grafico svg { display: block; width: 100%; height: auto; }
+.grafico-zona--baja  { fill: var(--altitud-baja);  opacity: 0.08; }
+.grafico-zona--media { fill: var(--altitud-media); opacity: 0.10; }
+.grafico-zona--alta  { fill: var(--altitud-alta);  opacity: 0.12; }
+.grafico-grid { stroke: var(--border); stroke-width: 1; stroke-dasharray: 2 4; }
+.grafico-eje  { stroke: var(--border); stroke-width: 1; }
+.grafico-valor, .grafico-zona-label, .grafico-dia { fill: var(--text-faint); font-size: 9px; }
+.grafico-zona-label { text-transform: uppercase; letter-spacing: 0.05em; }
+.grafico-linea { stroke-width: 2.5; stroke-linecap: round; }
+.grafico-linea--baja  { stroke: var(--altitud-baja); }
+.grafico-linea--media { stroke: var(--altitud-media); }
+.grafico-linea--alta  { stroke: var(--altitud-alta); }
+.grafico-punto { stroke: var(--surface-2); stroke-width: 1.5; }
+.grafico-punto[data-nivel="baja"]  { fill: var(--altitud-baja); }
+.grafico-punto[data-nivel="media"] { fill: var(--altitud-media); }
+.grafico-punto[data-nivel="alta"]  { fill: var(--altitud-alta); }
+.grafico-pico { fill: var(--surface-2); stroke: var(--accent); stroke-width: 2; }
+.grafico-pico-vara { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 2 3; opacity: 0.85; }
+
+.picos { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-4); margin: var(--s-3) 0 var(--s-4); }
+.pico { display: inline-flex; align-items: center; gap: var(--s-2); margin: 0; font-size: var(--fs-sm); }
+
+/* Noches del circuito: cada tarjeta, con su aviso de esa noche. */
+.seccion-titulo { font-size: var(--fs-xl); margin: var(--s-6) 0 var(--s-3); }
+.tarjeta > .aviso:last-child { margin-bottom: 0; }
+.noche-cab { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); }
+.noche-cab h3 { margin: 0; font-size: var(--fs-lg); }
+.noche-meta { margin: var(--s-1) 0 var(--s-3); font-size: var(--fs-sm); color: var(--text-soft); }
+
+/* ---- Mochila de Machu Picchu ---- */
+.mochila-peso { display: flex; align-items: center; gap: var(--s-4); margin-bottom: var(--s-3); }
+.mochila-peso-numero { font-size: var(--fs-3xl); font-weight: 700; line-height: 1; color: var(--aviso-ojo); font-variant-numeric: tabular-nums; }
+.mochila-peso-texto { font-size: var(--fs-sm); color: var(--text-soft); }
+.mochila-peso-texto strong { color: var(--text); }
+.mochila-estado { margin-bottom: var(--s-3); }
+.mochila-estado-texto { margin: 0 0 var(--s-2); font-size: var(--fs-sm); color: var(--text-soft); }
+.mochila-estado-texto strong { color: var(--text); font-size: var(--fs-lg); }
+.progreso { height: 8px; border-radius: var(--r-pill); background: var(--surface-3); overflow: hidden; }
+.progreso-relleno { display: block; height: 100%; border-radius: var(--r-pill); background: var(--altitud-baja); transition: width var(--dur-normal) var(--ease); }
+.mochila-list { list-style: none; margin: 0; padding: 0; }
+.mochila-item { border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-3); margin-bottom: var(--s-2); }
+.mochila-item label { display: flex; align-items: flex-start; gap: var(--s-3); padding: var(--s-3); cursor: pointer; min-height: 44px; }
+.mochila-item input { flex: 0 0 auto; width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--altitud-baja); }
+.mochila-item span { font-size: var(--fs-md); }
+.mochila-item--hecho { background: color-mix(in srgb, var(--altitud-baja) 10%, transparent); border-color: color-mix(in srgb, var(--altitud-baja) 35%, var(--border)); }
+.mochila-item--hecho span { color: var(--text-faint); text-decoration: line-through; }
+.aviso-enlace { margin-top: var(--s-1); }
+.aviso-enlace a { color: var(--accent); font-weight: 600; }
 
 @media (min-width: 1024px) {
   body { padding-bottom: 0; padding-top: var(--alto-navbar); }

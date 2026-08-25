@@ -2,16 +2,11 @@
 import { cargar, diaDe, paradaDe, nivelAltitud, avisosDe, culturaDe } from './datos.js';
 import { esc } from './ui/escape.js';
 import { hoyISO, bonita, diasHasta } from './ui/fecha.js';
-import { leer, escribir } from './almacen.js';
-
-// Datos personales de emergencias. Viven SOLO en localStorage bajo el prefijo `peru_`
-// (ADR-002): el repo es público y nada de esto puede acabar versionado.
-const CLAVE_DATOS = 'datos';
 
 const app = document.getElementById('app');
 let datos = null;
 
-const RUTAS = { hoy: verHoy, dias: verDias, guia: verGuia, altura: verAltura, emergencias: verEmergencias };
+const RUTAS = { hoy: verHoy, dias: verDias, guia: verGuia, altura: verAltura, emergencias: verEmergencias, mochila: verMochila };
 
 function ruta() {
   const [, nombre = 'hoy', arg] = location.hash.split('/');
@@ -27,14 +22,18 @@ function marcarNav(nombre) {
   });
 }
 
-// ---- Trozos reutilizables ----
+// Trozos reutilizables ----
 
-function htmlAvisos(lista) {
-  return lista.map(a => `
+// Separador de miles para etiquetas de la gráfica: 2500 → "2.500".
+function mil(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+
+function htmlAvisos(lista, sinRuta) {
+  return (lista || []).map(a => (a ? `
     <div class="aviso aviso--${esc(a.nivel)}">
       <h4>${esc(a.titulo)}</h4>
       <p>${esc(a.texto)}</p>
-    </div>`).join('');
+      ${a.ruta && !sinRuta ? `<p class="aviso-enlace"><a href="${esc(a.ruta)}">${esc(a.ruta_etiqueta || 'Abrir checklist')} →</a></p>` : ''}
+    </div>` : '')).join('');
 }
 
 function htmlDia(d) {
@@ -121,79 +120,198 @@ function verGuia(id) {
 
 function verAltura() {
   const paradas = datos.itinerario.paradas;
-  const max = Math.max(...paradas.map(p => p.altitud_m));
+  const porId = new Map(paradas.map(p => [p.id, p]));
+  // Perfil día a día: la altitud de la parada de cada día de viaje (1..11).
+  const perfil = datos.itinerario.dias
+    .filter(d => d.n >= 1 && d.n <= 11 && porId.has(d.parada))
+    .map(d => ({ ...d, parada: porId.get(d.parada) }));
+
+  // Gráfica SVG a mano, sin librerías. Eje de 0 (mar) a 5.200 m: todo el viaje cabe.
+  const MAX = 5200;
+  const W = 372, H = 232, L = 40, T = 14, B = 28, R = 40;
+  const plotW = W - L - R;
+  const plotH = H - T - B;
+  const x = i => L + (i / (perfil.length - 1)) * plotW;
+  const y = a => T + (1 - a / MAX) * plotH;
+
+  // Las tres zonas de nivel, con los tokens de altitud del tema.
+  const NIVELES = [['baja', 0, 2500], ['media', 2500, 3500], ['alta', 3500, 5200]];
+  const zonas = NIVELES.map(([n, de, a]) =>
+    `<rect class="grafico-zona grafico-zona--${n}" x="${L}" y="${y(a)}" width="${plotW}" height="${y(de) - y(a)}"></rect>`).join('');
+  const grids = [2500, 3500].map(m => `
+    <line class="grafico-grid" x1="${L}" y1="${y(m)}" x2="${L + plotW}" y2="${y(m)}"></line>
+    <text class="grafico-valor" x="${L + plotW + 4}" y="${y(m) + 3}">${mil(m)} m</text>`).join('');
+  const zonasTexto = NIVELES.map(([n, de, a]) =>
+    `<text class="grafico-zona-label" x="${L - 6}" y="${(y(de) + y(a)) / 2 + 3}" text-anchor="end">${n}</text>`).join('');
+
+  // La línea del viaje: cada tramo se tiñe del nivel al que llega.
+  const segmentos = [];
+  for (let i = 1; i < perfil.length; i++) {
+    const de = perfil[i - 1].parada.altitud_m;
+    const a = perfil[i].parada.altitud_m;
+    segmentos.push(`<line class="grafico-linea grafico-linea--${nivelAltitud(a)}" x1="${x(i - 1)}" y1="${y(de)}" x2="${x(i)}" y2="${y(a)}"></line>`);
+  }
+  const eje = `<line class="grafico-eje" x1="${L}" y1="${y(0)}" x2="${L + plotW}" y2="${y(0)}"></line>`;
+  const puntos = perfil.map((d, i) =>
+    `<circle class="grafico-punto" data-nivel="${nivelAltitud(d.parada.altitud_m)}" cx="${x(i)}" cy="${y(d.parada.altitud_m)}" r="3.5"></circle>`).join('');
+  const dias = perfil.map((d, i) =>
+    `<text class="grafico-dia" x="${x(i)}" y="${H - 8}" text-anchor="middle">${d.n}</text>`).join('');
+
+  // Picos: Patapampa (solo se cruza, día del aviso patapampa-4900), Puno y Cusco (noches).
+  const PICOS = ['patapampa', 'puno', 'cusco'];
+  const picoDia = p => p.solo_paso
+    ? perfil.find(d => (d.avisos || []).includes('patapampa-4900'))
+    : perfil.find(d => d.parada.id === p.id);
+  const picos = paradas.filter(p => PICOS.includes(p.id))
+    .map(p => ({ p, dia: picoDia(p) }))
+    .filter(x => x.dia);
+  const picosMarca = picos.map(({ p, dia }) => {
+    const i = perfil.indexOf(dia);
+    return p.solo_paso
+      ? `
+      <line class="grafico-pico-vara" x1="${x(i)}" y1="${y(dia.parada.altitud_m)}" x2="${x(i)}" y2="${y(p.altitud_m)}"></line>
+      <circle class="grafico-pico" cx="${x(i)}" cy="${y(p.altitud_m)}" r="5"></circle>`
+      : `<circle class="grafico-pico" cx="${x(i)}" cy="${y(p.altitud_m)}" r="5"></circle>`;
+  }).join('');
+  const picoTexto = picos.map(({ p }) => `
+    <span class="pico">
+      <span class="altitud-badge" data-nivel="${nivelAltitud(p.altitud_m)}">▲ ${p.altitud_m} m</span>
+      <strong>${esc(p.nombre)}</strong>
+      <span class="chip">${p.solo_paso ? 'solo se cruza' : 'se duerme'}</span>
+    </span>`).join('');
+
+  // Noches y qué hacer: cada hotel del circuito, con los avisos marcados con `noche` en data.
+  const avisosDeNoche = n => Object.values(datos.avisos).filter(a =>
+    a.noche === n.parada.id && (a.noche_dia === undefined || n.dias.includes(a.noche_dia)));
+  const diasPorFecha = Object.fromEntries(datos.itinerario.dias.map(d => [d.fecha, d.n]));
+  const noches = datos.itinerario.hoteles.map(h => {
+    const [yy, mm, dd] = h.desde.split('-').map(Number);
+    const base = new Date(yy, mm - 1, dd);
+    const nums = [];
+    for (let i = 0; i < h.noches; i++) {
+      const f = new Date(base);
+      f.setDate(base.getDate() + i);
+      const iso = `${f.getFullYear()}-${String(f.getMonth() + 1).padStart(2, '0')}-${String(f.getDate()).padStart(2, '0')}`;
+      if (diasPorFecha[iso] !== undefined) nums.push(diasPorFecha[iso]);
+    }
+    return { parada: porId.get(h.parada), hotel: h.nombre, noches: h.noches, dias: nums };
+  }).map(n => ({ ...n, avisos: avisosDeNoche(n) }));
+  const nochesHtml = noches.map(n => `
+    <article class="tarjeta noche">
+      <div class="noche-cab">
+        <h3>${esc(n.parada.nombre)}</h3>
+        <span class="chip"><span class="altitud-badge" data-nivel="${nivelAltitud(n.parada.altitud_m)}">${n.parada.altitud_m} m</span></span>
+      </div>
+      <p class="noche-meta">${esc(n.hotel)} · ${n.noches > 1 ? 'Noches' : 'Noche'} de los días ${n.dias.join(' y ')}</p>
+      ${htmlAvisos(n.avisos)}
+    </article>`).join('');
+
   pintar(`
     <header class="cabecera"><p class="eyebrow">El ascenso</p><h1>Altura</h1></header>
     <div class="tarjeta">
-      ${paradas.map(p => `
-        <div style="display:flex;align-items:center;gap:var(--s-3);margin-bottom:var(--s-2)">
-          <span style="flex:0 0 9rem">${esc(p.nombre)}</span>
-          <span style="flex:1;height:8px;border-radius:var(--r-pill);background:var(--surface-3)">
-            <span style="display:block;height:100%;border-radius:var(--r-pill);width:${Math.round(p.altitud_m / max * 100)}%;background:var(--altitud-${nivelAltitud(p.altitud_m)})"></span>
-          </span>
-          <span class="altitud-badge" data-nivel="${nivelAltitud(p.altitud_m)}">${p.altitud_m}</span>
-        </div>`).join('')}
+      <div class="grafico">
+        <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Perfil del ascenso día a día: la altitud de cada día del viaje">
+          ${zonas}${grids}${zonasTexto}${eje}${segmentos.join('')}${puntos}${picosMarca}${dias}
+        </svg>
+      </div>
+      <div class="picos">${picoTexto}</div>
       <p class="chip">Altitudes pendientes de verificar — ver BACKLOG</p>
     </div>
-    ${htmlAvisos([datos.avisos.soroche, datos.avisos['patapampa-4900']].filter(Boolean))}`);
+    <div class="tarjeta">
+      ${htmlAvisos([datos.avisos.soroche].filter(Boolean))}
+    </div>
+    <h2 class="seccion-titulo">Las noches y qué hacer</h2>
+    ${nochesHtml}`);
 }
 
 function verEmergencias() {
-  const guardado = leer(CLAVE_DATOS, null) || {};
-  const haySeguro = Boolean(guardado.poliza);
-  const valor = (k) => esc(guardado[k] || '');
-
   pintar(`
     <header class="cabecera"><p class="eyebrow">Si algo pasa</p><h1>Emergencias</h1></header>
-
-    <div class="tarjeta tarjeta--punto">
-      <h3>Seguro de viaje</h3>
-      ${haySeguro
-        ? `<p class="seguro-guardado"><span class="chip chip--acento">Póliza guardada</span><strong>${valor('poliza')}</strong></p>`
-        : `<p>Anota abajo el número de póliza para tenerlo a mano sin cobertura.</p>`}
-    </div>
-
     <div class="tarjeta">
       <h3>Asistencia en viaje (seguro)</h3>
-      <p><a class="tel" href="tel:+34915724343">+34 915 72 43 43</a> · Iris Global, 24 h</p>
+      <p><a href="tel:+34915724343">+34 915 72 43 43</a> · Iris Global, 24 h</p>
     </div>
     <div class="tarjeta">
       <h3>TUI incidencias 24 h</h3>
-      <p><a class="tel" href="tel:+34919930612">+34 919 930 612</a> · también WhatsApp</p>
+      <p><a href="tel:+34919930612">+34 919 930 612</a> · también WhatsApp</p>
     </div>
     <div class="tarjeta">
       <h3>Lima Tours (en destino)</h3>
-      <p><a class="tel" href="tel:+51997516250">+51 997 516 250</a> · admite WhatsApp</p>
+      <p><a href="tel:+51997516250">+51 997 516 250</a> · admite WhatsApp</p>
     </div>
-
     <div class="tarjeta">
       <h3>Mis datos</h3>
-      <form class="form-datos" id="form-datos" novalidate>
-        <label for="fd-nombre">Nombre</label>
-        <input id="fd-nombre" name="nombre" value="${valor('nombre')}" autocomplete="name" placeholder="Vuestros nombres">
-        <label for="fd-contacto">Contacto de emergencia</label>
-        <input id="fd-contacto" name="contacto" value="${valor('contacto')}" autocomplete="tel" inputmode="tel" placeholder="Alguien en casa">
-        <label for="fd-poliza">Seguro / póliza</label>
-        <input id="fd-poliza" name="poliza" value="${valor('poliza')}" autocomplete="off" placeholder="Número de póliza">
-        <label for="fd-alergias">Alergias / medicación</label>
-        <textarea id="fd-alergias" name="alergias" placeholder="Lo que deba saber un médico">${valor('alergias')}</textarea>
-        <button class="boton boton--primario" type="submit">Guardar</button>
-        <p class="aviso-privado">Se guarda sólo en este móvil (localStorage) y no sale de él.</p>
-      </form>
+      <p>Localizador, tickets y póliza se introducen en el móvil y no salen de él.
+         Pendiente: el formulario (ver BACKLOG).</p>
+    </div>`);
+}
+
+// ---- Mochila de Machu Picchu ----
+
+// Checklist persistido: los ítems marcados viven en localStorage bajo el prefijo peru_.
+const MOCHILA_CLAVE = 'peru_mochila_mp';
+
+function mochilaHechos() {
+  try { return new Set(JSON.parse(localStorage.getItem(MOCHILA_CLAVE) || '[]')); } catch { return new Set(); }
+}
+
+function mochilaGuardar(hechos) {
+  try { localStorage.setItem(MOCHILA_CLAVE, JSON.stringify([...hechos])); } catch { /* modo privado: sigue en memoria */ }
+}
+
+function verMochila() {
+  const aviso = datos.avisos['equipaje-5kg'];
+  const checklist = aviso && aviso.checklist;
+  const items = (checklist && checklist.items) || [];
+  const limite = (checklist && checklist.limite_kg) || 5;
+  const hecho = mochilaHechos();
+  const porcentaje = items.length ? Math.round((hecho.size / items.length) * 100) : 0;
+  pintar(`
+    <header class="cabecera"><p class="eyebrow">Preparación</p><h1>Mochila de Machu Picchu</h1></header>
+    <div class="tarjeta">
+      <div class="mochila-peso">
+        <span class="mochila-peso-numero">${limite}</span>
+        <div class="mochila-peso-texto">
+          <strong>kg por persona</strong> en el tren a Machu Picchu. Todo el resto se queda custodiado
+          en el hotel de Cusco y os espera al volver del Valle Sagrado.
+        </div>
+      </div>
+      ${htmlAvisos([aviso, datos.avisos['equipaje-5kg-preparar']].filter(Boolean), true)}
+    </div>
+    <div class="tarjeta">
+      <div class="mochila-estado">
+        <p class="mochila-estado-texto">Dentro de la mochila <strong>${hecho.size}</strong> de ${items.length} cosas</p>
+        <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="${items.length}" aria-valuenow="${hecho.size}">
+          <span class="progreso-relleno" style="width:${porcentaje}%"></span>
+        </div>
+      </div>
+      ${items.length ? `
+        <ul class="mochila-list">
+          ${items.map(it => `
+            <li class="mochila-item${hecho.has(it.id) ? ' mochila-item--hecho' : ''}">
+              <label>
+                <input type="checkbox" data-id="${esc(it.id)}"${hecho.has(it.id) ? ' checked' : ''}>
+                <span>${esc(it.texto)}</span>
+              </label>
+            </li>`).join('')}
+        </ul>` : '<p>El checklist aún no está en los datos.</p>'}
     </div>`);
 
-  const form = document.getElementById('form-datos');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fd = new FormData(form);
-    const datos = {
-      nombre: (fd.get('nombre') || '').trim(),
-      contacto: (fd.get('contacto') || '').trim(),
-      poliza: (fd.get('poliza') || '').trim(),
-      alergias: (fd.get('alergias') || '').trim(),
-    };
-    escribir(CLAVE_DATOS, datos);
-    verEmergencias(); // re-render para reflejar lo guardado en la tarjeta de seguro
+  const lista = app.querySelector('.mochila-list');
+  if (lista) lista.addEventListener('change', (e) => {
+    const input = e.target.closest('input[type=checkbox]');
+    if (!input) return;
+    const set = mochilaHechos();
+    if (input.checked) set.add(input.dataset.id); else set.delete(input.dataset.id);
+    mochilaGuardar(set);
+    const li = input.closest('li');
+    if (li) li.classList.toggle('mochila-item--hecho', input.checked);
+    const contador = app.querySelector('.mochila-estado-texto strong');
+    if (contador) contador.textContent = set.size;
+    const barra = app.querySelector('.progreso');
+    if (barra) barra.setAttribute('aria-valuenow', String(set.size));
+    const relleno = app.querySelector('.progreso-relleno');
+    if (relleno && items.length) relleno.style.width = `${Math.round((set.size / items.length) * 100)}%`;
   });
 }
 
