@@ -86,7 +86,6 @@ function htmlDia(d, { esHoy = false } = {}) {
 function htmlEnlaceFicha(f) {
   return `<a href="#/guia/${esc(f.id)}">
     <span class="nom">${esc(f.nombre)}</span>
-    <span class="meta">${f.tipo === 'transversal' ? 'los 12 días' : mil(f.altitud_m) + ' m'}</span>
   </a>`;
 }
 

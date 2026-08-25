@@ -30,8 +30,17 @@
 
 ## v2
 
+- [ ] **Mapa con los puntos de interés, filtrable por día.** Las 33 fichas sobre el mapa, y un
+      filtro que deje ver sólo las de un día. Requisitos:
+      - **Tema claro y oscuro**, como el resto de la app. Esto descarta de entrada las teselas
+        de un proveedor: son imágenes con su propio color, no siguen el tema y además son
+        red — que es justo lo que no hay en el Colca ni en el Titicaca.
+      - Por eso el camino es **SVG propio**: la ruta y los puntos dibujados, con `fill`/`stroke`
+        por tokens para que el tema los arrastre solo (mismo truco que la silueta del hero).
+      - Cada punto enlaza a su ficha. El filtro por día reutiliza `dia` de la ficha, que ya
+        está en los datos: no hace falta modelo nuevo.
+      - Las transversales no van en el mapa: no están en ningún sitio.
 - [ ] Diario: foto + texto por día, localStorage, exportable a JSON. Sin backend.
-- [ ] Mapa SVG de la ruta con las 7 paradas. Estático: interactivo cuesta datos y dependencias.
 - [ ] Gastos soles/euros, con los pagos en destino ya conocidos (0,5 $ del bus Puno–Cusco, TUUA de
       12 $ si la conexión en Lima pasa de 24 h).
 - [ ] Tema **alto contraste para sol directo**. A 4.000 m al mediodía una pantalla normal no se lee.
