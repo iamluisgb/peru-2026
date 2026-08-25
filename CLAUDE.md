@@ -109,13 +109,20 @@ no aparecen. Desregístralo desde DevTools o abre desde otro puerto.
 **GitHub Actions → GitHub Pages**, en `.github/workflows/deploy.yml`. Push a `main` despliega.
 No hay build: el workflow sube el repo tal cual, menos lo que excluye `.pagesignore`.
 
-La URL es `https://iamluisgb.github.io/peru-2026/`. Es un repo de proyecto, así que **todo va bajo
-un subdirectorio**: las rutas del HTML, del manifest y del SW son **relativas** (`./`), nunca
-absolutas (`/css/...`), o el sitio se rompe entero en Pages aunque funcione en local.
+La URL es **`https://luisgonzalezbernal.com/peru-2026/`**, y eso no es lo que parece: la cuenta
+tiene un dominio propio configurado a nivel de usuario en `iamluisgb.github.io`, así que **todos
+los repos de proyecto heredan ese dominio**. `iamluisgb.github.io/peru-2026/` existe y redirige.
 
-**Decide el dominio antes de que nadie instale la PWA.** Mover el origen después obliga a la misma
-pantomima de migración de localStorage que hubo que escribir para Areté al salir de
-`luisgonzalezbernal.com`.
+Es un repo de proyecto, así que todo va bajo **subdirectorio**: las rutas del HTML, del manifest y
+del service worker son **relativas** (`./`), nunca absolutas (`/css/...`), o el sitio se rompe
+entero en Pages aunque funcione en local (ADR-006).
+
+**Ojo con el origen: `luisgonzalezbernal.com` es el mismo del que Areté acaba de retirarse.** La
+raíz sirve `gh-pages` de arete —una redirección y un `sw.js` de retirada—, pero ese service worker
+tiene alcance `/` y esta app vive en `/peru-2026/`, con el suyo propio. Conviven, pero es el tipo
+de vecindad que hay que vigilar si algún día la PWA se comporta raro. **Decide el dominio antes de
+que nadie instale la app**: mover el origen después obliga a la misma pantomima de migración de
+localStorage que hubo que escribir para Areté.
 
 ## Estilo visual
 

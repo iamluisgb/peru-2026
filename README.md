@@ -3,7 +3,7 @@
 Guía de viaje offline para *Perú Mágico* (TUI), 30 ago – 10 sep 2026.
 
 PWA sin build step: vanilla JS, módulos ES, service worker. Se sirve en
-**https://iamluisgb.github.io/peru-2026/**
+**https://luisgonzalezbernal.com/peru-2026/**
 
 ```
 python3 -m http.server    # local — hace falta servidor, no vale file://

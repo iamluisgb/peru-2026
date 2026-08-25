@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Guía de viaje offline para Perú Mágico (TUI), 30 ago – 10 sep 2026. PWA, 100% frontend, sin build step.",
-  "homepage": "https://iamluisgb.github.io/peru-2026/",
+  "homepage": "https://luisgonzalezbernal.com/peru-2026/",
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs && npm run check:privacidad",

@@ -42,3 +42,10 @@
 - Sin fotos de terceros → ADR-005.
 - Contenido estático, nada en runtime → ADR-003.
 - Diario fuera de v1: el viaje es en cinco días y primero tiene que funcionar lo que se usa de pie.
+
+## Dominio — decidir pronto
+
+- [ ] **El sitio ha salido en `luisgonzalezbernal.com/peru-2026/`**, no en `iamluisgb.github.io`:
+      la cuenta tiene dominio propio a nivel de usuario y todos los repos de proyecto lo heredan.
+      Es además el origen del que Areté acaba de retirarse. Decidir si se queda ahí o se mueve a un
+      subdominio propio **antes de que nadie instale la PWA** — después obliga a migrar localStorage.
