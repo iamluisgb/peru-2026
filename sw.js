@@ -6,7 +6,7 @@
 // Al tocar cualquier fichero de ASSETS hay que SUBIR CACHE_NAME, o los móviles ya instalados
 // se quedan con la versión vieja. tests/sw-precache.test.mjs vigila que la lista no se quede
 // corta: en bookreader ya se desincronizó una vez.
-const CACHE_NAME = 'peru-v1';
+const CACHE_NAME = 'peru-v2';
 
 const ASSETS = [
   './',
@@ -23,7 +23,12 @@ const ASSETS = [
   './data/avisos.json',
   './data/cultura.json',
   './data/guia/cusco.json',
-  './icons/icon.svg'
+  './data/guia/machu-picchu.json',
+  './icons/icon.svg',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/maskable-512.png',
+  './icons/apple-touch-icon.png'
 ];
 
 // Uno a uno, no addAll. addAll es ATÓMICO: un solo recurso que falle (un icono que aún no

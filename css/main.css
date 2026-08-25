@@ -33,6 +33,45 @@ body {
 .tarjeta h2 { font-size: var(--fs-xl); margin: 0 0 var(--s-2); }
 .tarjeta h3 { font-size: var(--fs-lg); margin: 0 0 var(--s-1); }
 
+/* ---- Emergencias: teléfonos, seguro y formulario personal ---- */
+.tel {
+  font-size: var(--fs-lg); font-weight: 600; color: var(--accent);
+  text-decoration: none;
+}
+.seguro-guardado { display: flex; flex-direction: column; gap: var(--s-2); margin: 0; font-size: var(--fs-lg); }
+.seguro-guardado strong { font-variant-numeric: tabular-nums; word-break: break-word; }
+
+/* ---- Formulario (emergencias). Los datos viven SOLO en localStorage (ADR-002). ---- */
+.form-datos label {
+  display: block; margin: var(--s-3) 0 var(--s-1);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--text-soft);
+}
+.form-datos input,
+.form-datos textarea {
+  width: 100%; padding: var(--s-3);
+  font: inherit; font-size: var(--fs-md); color: var(--text);
+  background: var(--surface-3); border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+.form-datos textarea { min-height: 84px; resize: vertical; }
+.form-datos input:focus,
+.form-datos textarea:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.form-datos .boton { margin-top: var(--s-4); }
+.aviso-privado { margin: var(--s-2) 0 0; font-size: var(--fs-xs); color: var(--text-faint); }
+
+/* ---- Botones ---- */
+.boton {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: var(--s-2) var(--s-5);
+  font: inherit; font-weight: 600; font-size: var(--fs-md);
+  border-radius: var(--r-pill); border: 1px solid transparent;
+  cursor: pointer;
+}
+.boton--primario { background: var(--accent); color: var(--on-accent); }
+
 /* ---- Chips ---- */
 .chip {
   display: inline-flex; align-items: center; gap: var(--s-1);

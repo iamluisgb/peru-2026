@@ -1,0 +1,240 @@
+{
+  "bloque": "machu-picchu",
+  "nombre": "Machu Picchu",
+  "_nota": "Koricancha es la ficha de REFERENCIA. Copia su forma. Toda la ciudadela está a ~2.430 m; la diferencia entre fichas es arquitectónica, no de altitud. Día 10. Ver CONTENIDO.md.",
+  "fichas": [
+    {
+      "id": "machu-picchu",
+      "nombre": "El sitio de Machu Picchu",
+      "lugar": "Machu Picchu",
+      "dia": 10,
+      "altitud_m": 2430,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Hace un siglo esto era pasto para cabras; hoy es una de las maravillas del mundo. La pregunta es qué pasó entre medias.",
+        "mira": [
+          "Desde la Casa del Guardián, la terraza más alta de la entrada, se ve la ciudad completa de una sola pieza: el muro del oeste cae 300 m hasta el río Vilcanota.",
+          "La Puerta del Sol (Inti Punku) al fondo del sendero: por ahí entró Hiram Bingham el 24 de julio de 1911.",
+          "Las terrazas agrícolas del sector sur: cada banco tiene su propio drenaje de piedra que siguió funcionando un siglo sin lluvia.",
+          "El pico de Huayna Picchu al norte, el perfil que sale en todas las fotos — y el pico más alto, Machu Picchu, al que da nombre el sitio."
+        ],
+        "practico": {
+          "duracion": "~3 h",
+          "incluido": true,
+          "fotos": "sí, trípode no",
+          "notas": ["Entrada por turnos y con horario fijado. El último bus de vuelta a Aguas Calientes sale por la tarde."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Machu Picchu parece una ciudad perdida, pero hoy se cree que fue una hacienda real de Pachacútec, construida hacia 1450 y abandonada más o menos de golpe un siglo después. Lo extraordinario es que los españoles nunca la encontraron: no aparece en ninguna crónica de la conquista. Hiram Bingham la redescubrió en 1911, y desde entonces cada generación reescribe qué era. No es ruinas guerreras: es el testimonio mejor conservado de cómo vivía la élite inca en la montaña.",
+        "dato": "Una ciudad de unos 200 edificios, con templos, barrios, almacenes y terrazas, y no existe una sola línea escrita contemporánea que la mencione. Todo lo que sabemos viene de piedra y de excavación.",
+        "conexion": [
+          { "recurso": "Turn Right at Machu Picchu", "donde": "todo el recorrido a pie por la ciudadela" },
+          { "recurso": "Machu Picchu Decoded", "donde": "las nuevas teorías sobre qué era el sitio" }
+        ]
+      },
+      "preguntas": [
+        "¿Por qué cree que los españoles nunca dieron con ella?",
+        "¿Qué distingue a este sitio de Ollantaytambo o Sacsayhuamán, que sí estaban en el mapa inca?"
+      ],
+      "fuentes": [
+        "Hiram Bingham, Lost City of the Incas (relato del redescubrimiento)",
+        "Mark Adams, Turn Right at Machu Picchu",
+        "Machu Picchu Decoded (PBS/NOVA)"
+      ]
+    },
+    {
+      "id": "intihuatana",
+      "nombre": "Intihuatana",
+      "lugar": "Machu Picchu",
+      "dia": 10,
+      "altitud_m": 2430,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Este es el reloj de sol de los incas, y su nombre significa 'donde se amarra el sol'.",
+        "mira": [
+          "El bloque de granito con el 'cuerno' inclinado al sur: al mediodía del solsticio no proyecta sombra, y en los equinoccios la sombra apunta al vértice.",
+          "El pedestal tallado en una sola pieza de roca; el pulido se hizo sin metal, solo con arena y piedra más dura.",
+          "La montaña Huayna Picchu al fondo, hacia la que mira el vértice del cuerno."
+        ],
+        "practico": {
+          "duracion": "~15 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["Está en la zona abierta de la ciudadela; se llega sin entrada extra."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "El intihuatana es el reloj de sol ceremonial de piedra. En el solsticio de junio, el 'cuerno' proyecta una sombra mínima al mediodía, y en el solsticio de diciembre la máxima. Para la concepción inca, en esos días el sol podía 'irse', y con este bloque se le 'amarraba' para que volviera y el año siguiera girando. Es el mejor ejemplo que se conserva de la astronomía aplicada a la política y a la religión inca.",
+        "dato": "Los españoles destrozaron los intihuatanas de todo el virreinato para erradicar ese culto — el de Machu Picchu es uno de los pocos que sobrevive por no haber sido descubierto.",
+        "conexion": [
+          { "recurso": "Machu Picchu Decoded", "donde": "el análisis astronómico del sitio" },
+          { "recurso": "Turn Right at Machu Picchu", "donde": "la visita al intihuatana" }
+        ]
+      },
+      "preguntas": [
+        "¿Cómo calculaban el solsticio con tanta precisión sin dejar una sola palabra escrita?",
+        "¿Qué significaba para ellos que se 'fuera' el sol?"
+      ],
+      "fuentes": [
+        "Machu Picchu Decoded (PBS/NOVA)",
+        "Fedérico Kauffmann Doig, El Perú Antiguo"
+      ]
+    },
+    {
+      "id": "templo-del-sol",
+      "nombre": "Templo del Sol",
+      "lugar": "Machu Picchu",
+      "dia": 10,
+      "altitud_m": 2430,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Un templo sin dioses: nadie sabe a quién estaba dedicado, pero su ventana apunta al solsticio de invierno.",
+        "mira": [
+          "La construcción semicircular sobre una roca que sobresale del suelo: no la cortaron, construyeron alrededor de ella.",
+          "El muro curvo de piedra granítica con las juntas pulidas donde no entra un papel, del mismo estilo que el Koricancha.",
+          "La ventana trapezoidal del noreste por donde, en el solsticio de junio, el sol enciende la piedra del fondo del templo.",
+          "El canal de agua que corre bajo el suelo y sigue desaguando hoy."
+        ],
+        "practico": {
+          "duracion": "~20 min",
+          "incluido": true,
+          "fotos": "sí, trípode no",
+          "notas": ["Zona de acceso libre dentro de la ciudadela."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Del Templo del Sol se sabe poco y se intuye mucho: es el único edificio de planta circular de la ciudadela, con la mejor cantería, y por eso se le considera el edificio religioso más importante. Está orientado al amanecer del solsticio de junio, el día más corto del año en el hemisferio sur. La roca viva por la que pasa el muro es deliberada: para el mundo andino, la montaña no es soporte, es la casa del apu, y el templo se construye en torno a ella, no sobre ella.",
+        "dato": "La piedra del fondo se ilumina con el sol de solsticio a través de la ventana, pero solo durante unos minutos — y para verlo hay que estar en el sitio exacto, lo que exige que los constructores hubieran medido el ángulo a ojo, sin instrumentos.",
+        "conexion": [
+          { "recurso": "Machu Picchu Decoded", "donde": "la orientación astronómica del templo" },
+          { "recurso": "Turn Right at Machu Picchu", "donde": "la visita al Templo del Sol" }
+        ]
+      },
+      "preguntas": [
+        "¿Qué pasaría aquí exactamente en el solsticio de junio?",
+        "¿Por qué decidieron conservar la roca viva en lugar de allanarla?"
+      ],
+      "fuentes": [
+        "Machu Picchu Decoded (PBS/NOVA)",
+        "Hiram Bingham, Lost City of the Incas"
+      ]
+    },
+    {
+      "id": "tres-ventanas",
+      "nombre": "Templo de las Tres Ventanas",
+      "lugar": "Machu Picchu",
+      "dia": 10,
+      "altitud_m": 2430,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Tres ventanas trapezoidales miran todas al mismo punto del horizonte: el amanecer del solsticio de junio.",
+        "mira": [
+          "Las tres ventanas trapezoidales encajadas en un solo muro de piedra fina, orientadas al noreste.",
+          "El muro de cantería imperial — juntas apretadas y esquinas trapezoidales — que no se ve en el resto de la ciudadela.",
+          "El pilar central de la fachada con los tres huecos que enmarcan el amanecer del solsticio."
+        ],
+        "practico": {
+          "duracion": "~10 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["Está junto al Templo Principal, en el sector urbano."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "El Templo de las Tres Ventanas está sobre una de las plataformas principales de la ciudadela, y su muro de tres ventanas es cantería del más alto nivel. Parte de la mitología andina cuenta el origen de los incas: los primeros hermanos Ayar salieron de las tres ventanas del cerro Tampu Tocco. Durante mucho tiempo se leyó este templo como el relato en piedra de ese mito de origen. La lectura astronómica es hoy más sólida: las ventanas se alinean con el amanecer del solsticio de junio, lo que lo emparenta con la red de marcadores del calendario del sitio.",
+        "dato": "El punto iluminado por el sol del solsticio entra por la ventana y cae sobre una piedra marcada del suelo — una alineación que sobrevive a más de quinientos años.",
+        "conexion": [
+          { "recurso": "Machu Picchu Decoded", "donde": "la teoría del mito de origen y la alineación" },
+          { "recurso": "Turn Right at Machu Picchu", "donde": "la visita a este sector" }
+        ]
+      },
+      "preguntas": [
+        "¿Es un relato de origen en piedra o un marcador de calendario — o las dos cosas?",
+        "¿Qué más migró con los incas cuando se instalaron aquí?"
+      ],
+      "fuentes": [
+        "Machu Picchu Decoded (PBS/NOVA)",
+        "Comentarios reales de los Incas — Garcilaso de la Vega (mito de los Ayar)"
+      ]
+    },
+    {
+      "id": "templo-del-condor",
+      "nombre": "Templo del Cóndor",
+      "lugar": "Machu Picchu",
+      "dia": 10,
+      "altitud_m": 2430,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "En el suelo está esculpido un cóndor completo: la cabeza, el pico y las alas al abrirlas. Este era su templo en la Tierra.",
+        "mira": [
+          "La laja de piedra del suelo del patio: el contorno de la cabeza y el pico del cóndor está tallado en relieve.",
+          "Las dos rocas a los lados que hacen de alas desplegadas, con las plumas marcadas.",
+          "El 'altar' de roca al fondo, donde se cree que se recepcionaban ofrendas.",
+          "Las puertas trapezoidales con el pivote de piedra donde giraban las hojas — uno de los pocos sistemas de puerta incas que quedan."
+        ],
+        "practico": {
+          "duracion": "~15 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["En el sector bajo de la ciudadela, junto a la zona monumental."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "El cóndor es el más grande de los tres animales sagrados andinos con la serpiente y el puma, y es además un apu: el nexo entre la Tierra y el cielo. Este templo le está dedicado de la forma más literal posible: la roca del suelo tallada como cabeza y pico, las rocas laterales como alas. Es un ejemplo rarísimo de escultura inca en el que la roca natural y la talla se funden. El altar trasero y el espacio cerrado sugieren que aquí se hacían ceremonias de ofrenda, quizá con sacrificios, reservadas a unos pocos.",
+        "dato": "La cara del cóndor y sus alas solo se reconocen desde un punto concreto del patio — el inca colocó la escena para que se leyera desde donde se celebraba, no desde cualquier sitio.",
+        "conexion": [
+          { "recurso": "Machu Picchu Decoded", "donde": "el Templo del Cóndor y los sacrificios" },
+          { "recurso": "Lost Kingdoms of South America", "donde": "la religión y los animales sagrados andinos" }
+        ]
+      },
+      "preguntas": [
+        "¿Por qué el cóndor, y no el puma o la serpiente, tiene templo propio?",
+        "¿Qué evidencias hay de que aquí se hicieran ofrendas?"
+      ],
+      "fuentes": [
+        "Machu Picchu Decoded (PBS/NOVA)",
+        "Fedérico Kauffmann Doig, El Perú Antiguo"
+      ]
+    },
+    {
+      "id": "ciudadela-machu-picchu",
+      "nombre": "La ciudadela, barrios y agua",
+      "lugar": "Machu Picchu",
+      "dia": 10,
+      "altitud_m": 2430,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "No es un pueblo: es una ciudad-estado en miniatura, con barrios, templos, almacenes y hasta su propio 'pueblo alto' y 'pueblo bajo'.",
+        "mira": [
+          "La división en dos sectores que se ven desde la entrada: el agrícola, a la izquierda con sus terrazas, y el urbano, a la derecha, separados por un muro y una escalinata.",
+          "El canal central que recorre toda la ciudad: el agua se trae del manantial de la montaña y alimenta dieciséis fuentes en cascada.",
+          "Las habitaciones en hilera del 'sector industrial' con las losas de moler — el taller de la ciudadela.",
+          "La estructura de dos pisos con el techo inclinado conservado, la única de ese tipo que queda en pie."
+        ],
+        "practico": {
+          "duracion": "~3 h",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["Llevad agua: hay fuentes, no puntos de venta dentro del recinto."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Machu Picchu está pensada como una ciudad completa: un sector agrícola que alimentaba a la población y un sector urbano con templos, dependencias reales y un barrio _industrial_ de talleres. El sistema de agua es la clave de todo: un manantial de la montaña alimenta una red de canales y fuentes en cascada que sigue funcionando, un alarde de ingeniería hidráulica que permitió a la ciudad sostenerse aislada en la cima. Su abandono, un siglo después de construirse, sigue sin explicarse del todo.",
+        "dato": "Las dieciséis fuentes en cascada canalizan el agua del manantial que sale a 2.440 m — el manantial nunca se ha secado desde que se construyó el canal.",
+        "conexion": [
+          { "recurso": "Lost Kingdoms of South America", "donde": "el abandono y el misterio de la ciudadela" },
+          { "recurso": "Turn Right at Machu Picchu", "donde": "los barrios y el agua a lo largo del recorrido" }
+        ]
+      },
+      "preguntas": [
+        "¿Por qué se abandonó una ciudad tan bien construida tan pronto?",
+        "¿Cómo resolverían ustedes el agua en un sitio aislado a 2.400 m?"
+      ],
+      "fuentes": [
+        "Machu Picchu Decoded (PBS/NOVA)",
+        "Hiram Bingham, Lost City of the Incas"
+      ]
+    }
+  ]
+}

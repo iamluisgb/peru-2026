@@ -2,6 +2,11 @@
 import { cargar, diaDe, paradaDe, nivelAltitud, avisosDe, culturaDe } from './datos.js';
 import { esc } from './ui/escape.js';
 import { hoyISO, bonita, diasHasta } from './ui/fecha.js';
+import { leer, escribir } from './almacen.js';
+
+// Datos personales de emergencias. Viven SOLO en localStorage bajo el prefijo `peru_`
+// (ADR-002): el repo es público y nada de esto puede acabar versionado.
+const CLAVE_DATOS = 'datos';
 
 const app = document.getElementById('app');
 let datos = null;
@@ -134,25 +139,62 @@ function verAltura() {
 }
 
 function verEmergencias() {
+  const guardado = leer(CLAVE_DATOS, null) || {};
+  const haySeguro = Boolean(guardado.poliza);
+  const valor = (k) => esc(guardado[k] || '');
+
   pintar(`
     <header class="cabecera"><p class="eyebrow">Si algo pasa</p><h1>Emergencias</h1></header>
+
+    <div class="tarjeta tarjeta--punto">
+      <h3>Seguro de viaje</h3>
+      ${haySeguro
+        ? `<p class="seguro-guardado"><span class="chip chip--acento">Póliza guardada</span><strong>${valor('poliza')}</strong></p>`
+        : `<p>Anota abajo el número de póliza para tenerlo a mano sin cobertura.</p>`}
+    </div>
+
     <div class="tarjeta">
       <h3>Asistencia en viaje (seguro)</h3>
-      <p><a href="tel:+34915724343">+34 915 72 43 43</a> · Iris Global, 24 h</p>
+      <p><a class="tel" href="tel:+34915724343">+34 915 72 43 43</a> · Iris Global, 24 h</p>
     </div>
     <div class="tarjeta">
       <h3>TUI incidencias 24 h</h3>
-      <p><a href="tel:+34919930612">+34 919 930 612</a> · también WhatsApp</p>
+      <p><a class="tel" href="tel:+34919930612">+34 919 930 612</a> · también WhatsApp</p>
     </div>
     <div class="tarjeta">
       <h3>Lima Tours (en destino)</h3>
-      <p><a href="tel:+51997516250">+51 997 516 250</a> · admite WhatsApp</p>
+      <p><a class="tel" href="tel:+51997516250">+51 997 516 250</a> · admite WhatsApp</p>
     </div>
+
     <div class="tarjeta">
       <h3>Mis datos</h3>
-      <p>Localizador, tickets y póliza se introducen en el móvil y no salen de él.
-         Pendiente: el formulario (ver BACKLOG).</p>
+      <form class="form-datos" id="form-datos" novalidate>
+        <label for="fd-nombre">Nombre</label>
+        <input id="fd-nombre" name="nombre" value="${valor('nombre')}" autocomplete="name" placeholder="Vuestros nombres">
+        <label for="fd-contacto">Contacto de emergencia</label>
+        <input id="fd-contacto" name="contacto" value="${valor('contacto')}" autocomplete="tel" inputmode="tel" placeholder="Alguien en casa">
+        <label for="fd-poliza">Seguro / póliza</label>
+        <input id="fd-poliza" name="poliza" value="${valor('poliza')}" autocomplete="off" placeholder="Número de póliza">
+        <label for="fd-alergias">Alergias / medicación</label>
+        <textarea id="fd-alergias" name="alergias" placeholder="Lo que deba saber un médico">${valor('alergias')}</textarea>
+        <button class="boton boton--primario" type="submit">Guardar</button>
+        <p class="aviso-privado">Se guarda sólo en este móvil (localStorage) y no sale de él.</p>
+      </form>
     </div>`);
+
+  const form = document.getElementById('form-datos');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const datos = {
+      nombre: (fd.get('nombre') || '').trim(),
+      contacto: (fd.get('contacto') || '').trim(),
+      poliza: (fd.get('poliza') || '').trim(),
+      alergias: (fd.get('alergias') || '').trim(),
+    };
+    escribir(CLAVE_DATOS, datos);
+    verEmergencias(); // re-render para reflejar lo guardado en la tarjeta de seguro
+  });
 }
 
 // ---- Arranque ----
