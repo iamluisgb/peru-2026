@@ -1,0 +1,190 @@
+{
+  "bloque": "trayectos",
+  "nombre": "Ruta Puno–Cusco",
+  "_nota": "Fichas para las horas de bus del día 7 (15% del viaje): se leen de pie en las paradas y largo en el asiento. La referencia de forma es koricancha (ver CONTENIDO.md).",
+  "fichas": [
+    {
+      "id": "pucara",
+      "nombre": "Pucará",
+      "lugar": "Ruta Puno–Cusco",
+      "dia": 7,
+      "altitud_m": 3887,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Antes de los incas hubo otra civilización en el altiplano, y su museo está a pie de carretera: piedras de dos metros talladas hace más de dos mil años.",
+        "mira": [
+          "En el patio del museo, la estela de la lluvia o del rayo: dos metros de altura, la pieza más alta del recinto y la primera que os va a mirar fijamente.",
+          "El monolito Degollador o Hatun Ñakaj, el 'sacrificador': la escultura que Luis E. Valcárcel destacó como la más resaltante cuando excavó aquí en 1925.",
+          "Fuera, en los tejados del pueblo y en los puestos: los toritos de cerámica que velan las casas. No son herencia preinca: son la cerámica viva del altiplano, hecha en Checca Pupuja y vendida en Pucará desde tiempos del tren."
+        ],
+        "practico": {
+          "duracion": "parada de ~30 min",
+          "incluido": true,
+          "fotos": "sí — y el torito de barro es el recuerdo local",
+          "notas": [
+            "El museo está junto a la plaza, a un paso del bus; la entrada se paga aparte y en efectivo.",
+            "Es la primera vez del día por encima de 3.800 m de viva voz: id despacio del bus al museo.",
+            "Abrigo aunque haga sol: en el Collao la sombra es fría."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Pucará está en la meseta del Collao, la gran llanura alta de los Andes que se extiende sobre los 3.800 m entre las cordilleras. Aquí, entre el 1400 a. C. y el 400 d. C., floreció la cultura Pucará: la primera civilización del altiplano, que dejó el primer asentamiento urbano de la cuenca del Titicaca y que fue contemporánea y predecesora de Tiwanaku. Su nombre es de origen puquina — pucará significa 'fortaleza' — y su centro ceremonial, Kalasaya, es el mundo que os está mirando desde el museo: las estelas y monolitos que veis salieron de ahí, excavados a partir de 1925. La estela de la lluvia no es decoración: es el contrato de una sociedad agraria con el agua, el mismo pacto que seguís viendo por la ventana cada vez que el bus cruza un campo o un rebaño.",
+        "dato": "El torito de Pucará, el souvenir de barro de todas las paradas, se fabrica en las comunidades de Checca Pupuja — no en Pucará —, se vendía a los viajeros del tren Puno–Cusco (abierto en 1908), se coloca en los tejados para proteger la casa y en 2019 el Ministerio de Cultura lo declaró Patrimonio Cultural de la Nación.",
+        "conexion": [
+          { "recurso": "Crónica del Perú", "donde": "el Collao y sus 'ovejas de la tierra', descritos por Cieza" },
+          { "recurso": "Comentarios reales de los Incas", "donde": "los rebaños y pastores de la provincia de los Collas" }
+        ]
+      },
+      "preguntas": [
+        "¿Qué diferencia una estela Pucará de una de Tiwanaku, viendo las dos de frente?",
+        "¿Se sigue fabricando el torito en Pucará o solo en Checca Pupuja?",
+        "¿Kalasaya era una fortaleza o un centro ceremonial? El nombre 'pucará' invita a lo primero y la arqueología apunta a lo segundo."
+      ],
+      "fuentes": [
+        "Wikipedia — Cultura pucará: cuenca noroccidental del Titicaca, Formativo (1400 a. C.–400 d. C.), primer asentamiento urbano del altiplano, excavación de Valcárcel en 1925",
+        "Wikipedia — Distrito de Pucará (Lampa): capital a 3.887 m s. n. m., museo lítico, complejo de Kalasaya",
+        "Wikipedia — Museo Lítico de Pukara: estela de la lluvia o del rayo (2 m), monolito Degollador o Hatun Ñakaj",
+        "Wikipedia — Torito de Pucará: origen en Checca Pupuja, venta en la estación de tren (ferrocarril de 1908), Patrimonio Cultural de la Nación en 2019"
+      ]
+    },
+    {
+      "id": "la-raya",
+      "nombre": "La Raya",
+      "lugar": "Ruta Puno–Cusco",
+      "dia": 7,
+      "altitud_m": 4313,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Estáis en la costura del continente: una gota que caiga a un lado de este collado acaba en el Titicaca, y una que caiga al otro, en el Amazonas.",
+        "mira": [
+          "El punto más alto del día: hacia atrás, la llanura del Collao recién cruzada; hacia delante, los nevados de la cordillera de Vilcanota donde nace el río que vais a seguir hasta Cusco.",
+          "La vía del ferrocarril que cruza el abra: la línea Puno–Cusco toca aquí su cota más alta (4.313 m), y a esta misma altura nace el Vilcanota.",
+          "Los rebaños y el ichu dorado de la puna: las altas de cuello largo son llamas; las bajitas, peludas y casi siempre blancas, alpacas — y conviene saber distinguir las dos lanas antes de mirar los puestos del collado.",
+          "Desde la ventana, en el otro lado: el paisaje cambia en minutos, la pampa se encaja en valle y aparecen los primeros campos cultivados del Vilcanota."
+        ],
+        "practico": {
+          "duracion": "parada de ~15-20 min",
+          "incluido": true,
+          "fotos": "sí — es la foto 'paso de montaña' del viaje",
+          "notas": [
+            "Es el punto más alto del día y el viento corta: abrigo y gorro aunque haga sol.",
+            "A 4.300 m, bajar y subir del bus cuesta de más: andad despacio del bus al mirador.",
+            "Suele haber puestos de lanas junto a la parada; id con el cambio pequeño."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "La Raya es el paso (más de 4.300 m; las fuentes citan entre 4.313 y 4.319) que separa la meseta del Collao, al sur, del valle del Vilcanota, al norte — y con él, dos vertientes que no hablan entre sí. Al sur, todo lo que cae — lluvia, nieve, arroyos — baja a la cuenca endorreica del Titicaca: el lago (3.812 m, el navegable más alto del mundo) desagua por el río Desaguadero hacia el Poopó y el Salar de Coipasa y no llega a ningún mar. Al norte nace el Vilcanota, que aguas abajo se llama Urubamba, después Ucayali y al final Amazonas: la vertiente atlántica, literalmente la otra mitad del continente. Por eso esta es la puerta natural entre dos mundos: aquí pasa la frontera entre Puno y Cusco, aquí se aprietan carretera y ferrocarril (la línea abierta en 1908), y aquí franqueaba la puna el camino inca hacia el Collasuyo. Lo que habéis visto por la ventana desde Puno es el altiplano: la puna del Collao, su ichu dorado, sus rebaños de llamas y alpacas, sus casas de adobe y el aire más seco que habéis respirado en el viaje.",
+        "dato": "El Titicaca es enorme y aun así no desemboca en el mar: su cuenca drena hacia el sur, al Desaguadero, y muere en los salares bolivianos. La Raya es la línea donde cada gota decidía ser lago o ser Amazonas, y el nombre del lugar lo dice todo: la raya, la costura.",
+        "conexion": [
+          { "recurso": "Crónica del Perú", "donde": "la travesía de la sierra y el frío del Collao" },
+          { "recurso": "Lituma en los Andes", "donde": "la niebla y los pueblos de la sierra alta" },
+          { "recurso": "Los heraldos negros", "donde": "la melancolía de la sierra, en el poema que da título al libro" }
+        ]
+      },
+      "preguntas": [
+        "¿Dónde está exactamente el límite entre Puno y Cusco: hay hito, rótulo o es solo la curva del collado?",
+        "¿Sigue el ferrocarril Puno–Cusco llevando pasajeros, o la vía que veis es ya solo memoria?",
+        "¿Por qué el camino inca, la carretera y el tren eligieron todos este mismo puerto y no otro?"
+      ],
+      "fuentes": [
+        "Wikipedia — Rail transport in Peru: cima del tramo en La Raya a 4.313 m (14.150 ft)",
+        "Wikipedia — Ferrocarril del Sur (Perú): estación de La Raya a 4.319 m s. n. m.",
+        "Wikipedia — Raqch'i y Río Urubamba: el Vilcanota nace en el nudo de Vilcanota (4.314 m), cuenca del Amazonas",
+        "Wikipedia — Lago Titicaca: 3.812 m, lago navegable más alto del mundo, sistema endorreico TDPS",
+        "Wikipedia — Simón Bolívar en el Cuzco: La Raya, límite entre los departamentos de Puno y Cusco"
+      ]
+    },
+    {
+      "id": "raqchi",
+      "nombre": "Raqchi",
+      "lugar": "Ruta Puno–Cusco",
+      "dia": 7,
+      "altitud_m": 3480,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Empezasteis el día a 4.300 m y aquí, a 3.480 junto al Vilcanota, el imperio inca levantó su edificio más ambicioso: un muro de adobe de veinte metros que sostuvo el mayor techo a dos aguas del imperio y que sigue en pie, solo, después de que los españoles intentaran derribarlo.",
+        "mira": [
+          "La pared central del templo de Wiracocha: 18-20 metros de adobe sobre basamento de andesita, con sus ventanas y puertas. Era el caballete del techo, que cubría 92 metros de largo por 25,5 de ancho.",
+          "Las columnas circulares a ambos lados de la pared — piedra abajo, barro arriba: los once pilares de cada lado que sostenían ese techo y de los que quedan los tambores.",
+          "En la ladera este, las colcas de la cuesta: los almacenes redondos del estado inca. Son las únicas colcas circulares del imperio — en todas partes se hicieron cuadradas — y guardaban papa, chuño, quinua, maíz, charqui de alpaca y pescado seco de la costa.",
+          "El río Vilcanota pasando al lado del complejo: la misma agua que cruzasteis en La Raya, la que veréis en Cusco y la que llevará mañana el tren hacia Machu Picchu."
+        ],
+        "practico": {
+          "duracion": "~45 min",
+          "incluido": true,
+          "fotos": "sí — el adobe dorado a mediodía",
+          "notas": [
+            "La entrada se paga en taquilla, en efectivo y aparte.",
+            "Sin cobertura y poca sombra: sombrero y agua antes de bajar del bus.",
+            "Las colcas están en cuesta y el suelo es irregular: calzado cerrado."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Si Pucará era la frontera preinca del altiplano, Raqchi es la estación de servicio del imperio en el camino real: aquí el camino hacia el Collasuyo cruzaba el Vilcanota y el estado inca instaló su almacén — las más de 150 colcas circulares de la ladera —, su puesto de control y un templo al dios creador. El templo es la apuesta religiosa de un rey: el Inca Viracocha, el octavo de la lista, tomó su nombre del dios tras la visión que tuvo de él y ordenó levantar aquí su santuario; la crónica está en los Comentarios reales, que ya tenéis en casa. Los españoles derribaron el techo — el más grande a dos aguas del imperio, sostenido por 22 columnas — y la pared central de adobe se quedó sola, tal como la veis: veinte metros de tierra apisonada que siguen en pie cuatro siglos después. El conjunto guarda además una rareza arqueológica: el único almacén redondo del imperio, porque la despensa del altiplano — chuño, charqui, quinua, maíz — tenía que respirar de una manera que las colcas cuadradas del resto del imperio no necesitaban.",
+        "dato": "Del ídolo que presidía el templo no queda el cuerpo entero: la 'cabeza de Viracocha' está en el Museo de América de Madrid y el resto, en la municipalidad de Cusco. Los indígenas del siglo XVII la veneraban como san Bartolomé; los curas españoles la cortaron y la enterraron por idolatría, y aun así dos fragmentos sobrevivieron para contarlo.",
+        "conexion": [
+          { "recurso": "Comentarios reales de los Incas", "donde": "el templo que el Inca Viracocha ordenó levantar en Cacha" },
+          { "recurso": "Los últimos días de los Incas", "donde": "la religión del imperio y el culto a Wiracocha" }
+        ]
+      },
+      "preguntas": [
+        "¿Por qué este templo está dedicado a Wiracocha, el dios creador, y no a Inti, el sol?",
+        "¿Qué se guardaba en cada colca y cómo sabía el estado cuánto había en cada una?",
+        "¿Cuántas de las colcas que veis se han reconstruido, y con qué criterio?"
+      ],
+      "fuentes": [
+        "Wikipedia — Raqch'i (inglés)/Racchi (español): 3.480 m, a 110 km de Cusco; templo de 92 × 25,5 m; pared central de adobe de 18-20 m; once columnas por lado; mayor techo a dos aguas del imperio; colcas circulares",
+        "Wikipedia — Escultura incaica: cabeza de Viracocha hallada en el antiguo templo de Cacha (Rapchi), hoy en el Museo de América de Madrid; venerada como san Bartolomé antes de ser seccionada",
+        "Wikipedia — Comentarios reales de los incas: el Inca Viracocha levantó un templo en Cacha, a 16 leguas al sur del Cusco"
+      ]
+    },
+    {
+      "id": "andahuaylillas",
+      "nombre": "Andahuaylillas",
+      "lugar": "Ruta Puno–Cusco",
+      "dia": 7,
+      "altitud_m": 3121,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Por fuera es una iglesia de adobe insignificante al borde de la plaza; por dentro la llaman la Capilla Sixtina de los Andes, y no exageran.",
+        "mira": [
+          "El contraste del umbral: por fuera, muros sobrios de adobe; al cruzar, pan de oro y mural de arriba abajo, sin un palmo sin pintar. Ese contraste era la catequesis entera.",
+          "Los muros: los murales encargados por el párroco Juan Pérez Bocanegra, con uno firmado y fechado por Luis de Riaño en 1626, el discípulo de Bitti.",
+          "El altar mayor: la iglesia se llama San Pedro, pero lo preside la Virgen del Rosario. Preguntad quién manda de verdad en la jerarquía del pueblo.",
+          "Los tramos de muro inca que asoman entre las pinturas: la iglesia se levantó sobre la huaca del lugar. Dos religiones, el mismo pedazo de tierra."
+        ],
+        "practico": {
+          "duracion": "~30-40 min + café en la plaza",
+          "incluido": true,
+          "fotos": "exterior sí; interior sin flash y sin vídeo, como es costumbre",
+          "notas": [
+            "La iglesia sufrió daños en los sismos de 2024 y estuvo cerrada: aunque el viaje la incluye, confirmad con el guía si la visita es al interior o solo al exterior.",
+            "La entrada se paga aparte y en efectivo.",
+            "Es la última parada antes de Cusco (a unos 45 km): la plaza, con sus pisonay, es buen sitio para el último café del día."
+          ]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Andahuaylillas (el nombre en quechua viene a ser 'pradera cobriza', y lleva diminutivo castellano porque existe una Andahuaylas grande en Apurímac) fue antes asentamiento inca: la iglesia de San Pedro se construyó a finales del siglo XVI, presumiblemente sobre la huaca, y los muretes incas siguen dentro, entre las pinturas. La levantaron cuando la evangelización se decidió hacer en quechua: el párroco que encargó los murales, Juan Pérez Bocanegra, era examinador de quechua y aimara y autor del Hanacpachap cussicuinin, la 'Alegría del cielo', la primera obra polifónica compuesta y publicada en el Nuevo Mundo, con letra en quechua — escrita en esta parroquia y publicada en Lima en 1631. Los jesuitas la tuvieron en su cargo entre 1628 y 1636, y el resultado es lo que veis: una catequesis pintada de arriba abajo para quien no sabía leer, con maestros venidos de Cusco y manos indígenas. El cliché de la Capilla Sixtina no es tan tonto: hay pocos centros del barroco americano donde el oro, la pintura y la música dijeran lo mismo a la vez.",
+        "dato": "La primera canción polifónica de América se compuso aquí: el Hanacpachap cussicuinin, con letra quechua, del mismo párroco que encargó los murales — aunque algunos estudiosos sostienen que la música la escribió un estudiante inca del cura y que la autoría sigue abierta.",
+        "conexion": [
+          { "recurso": "Los últimos días de los Incas", "donde": "el Cusco colonial que se construyó sobre el incaico" },
+          { "recurso": "Comentarios reales de los Incas", "donde": "Garcilaso, hijo de conquistador y princesa inca: el mestizaje que esta iglesia escenifica" }
+        ]
+      },
+      "preguntas": [
+        "¿Quiénes pintaron los muros: maestros jesuitas llegados de Cusco o artistas indígenas del pueblo?",
+        "¿De quién es el Hanacpachap, del cura Bocanegra o del estudiante inca? La autoría sigue sin cerrarse.",
+        "¿Qué se veía en este solar antes de la iglesia y hasta dónde llega la huaca por debajo?"
+      ],
+      "fuentes": [
+        "Wikipedia — Iglesia de San Pedro (Andahuaylillas): 'Capilla Sixtina de América', construida a finales del siglo XVI sobre posible huaca, mural de Luis de Riaño fechado en 1626, altar mayor presidido por la Virgen del Rosario, jesuitas 1628-1636, daños por sismos de 2024",
+        "Wikipedia — Hanacpachap cussicuinin: primera obra polifónica compuesta y publicada en el Nuevo Mundo, en quechua, 1631; autoría discutida",
+        "Wikipedia — Andahuaylillas: altitud 3.121 m s. n. m., a no más de 45 km de Cusco"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "bloque": "colca",
+  "nombre": "Cañón del Colca",
+  "_nota": "Bloque Colca. Día 4: llegada desde Arequipa (pampas y Patapampa). Día 5: Cruz del Cóndor, Maca y Yanque. Todas las cifras con verificado:false — ver CONTENIDO.md y CLAUDE.md.",
+  "fichas": [
+    {
+      "id": "pampas-canahuas",
+      "nombre": "Pampas Cañahuas",
+      "lugar": "Reserva Nacional Salinas y Aguada Blanca",
+      "dia": 4,
+      "altitud_m": 4200,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Aquí las vicuñas pastan a pie de carretera, y cada rebaño es un pedazo de historia: su fibra es la más fina del mundo y en el imperio inca sólo podía vestirla el Inca.",
+        "mira": [
+          "Los rebaños de vicuñas: cuerpo menudo, cuello largo y pelo corto color canela, a menudo junto a la misma carretera. Se cruzan sobre todo a primera hora, que es cuando pasáis.",
+          "Las alpacas de los rebaños domésticos del otro lado del vallado: más bajitas y cargadas de lana. Si hay una al lado de una vicuña, la diferencia se ve en un segundo.",
+          "Los bofedales verdosos donde pasta el ganado: en mitad de la pampa seca, son charcos alimentados por manantiales y hacen habitable este páramo de altura."
+        ],
+        "practico": {
+          "duracion": "~15-20 min de parada",
+          "incluido": true,
+          "fotos": "sí — teleobjetivo largo; a pie de carretera se ven, pero no se acercan",
+          "notas": ["Son animales silvestres y protegidos: no alimentarlas ni acercarse.", "Parada a más de 4.000 m: sin esfuerzos, ya empieza el soroche."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Esta pampa es la puerta del valle del Colca: la carretera Arequipa–Chivay la cruza por dentro de la Reserva Nacional de Salinas y Aguada Blanca, a más de 4.000 m. Aquí pasta la vicuña, el camélido silvestre más pequeño y el de la fibra más fina del mundo. En tiempos del Inca la vicuña tenía estatus de tesoro real: estaba prohibido cazarla o esquilarla para cualquiera que no fuera el soberano, y su vellón se reservaba para los tejidos del Inca. Los reyes organizaban batidas rituales —el chacu— para esquilarlas en común, tal como describieron Cieza de León y Garcilaso. Hoy el chacu se ha recuperado en varias comunidades como manejo sostenible con permiso oficial: se esquila a la vicuña viva, se la suelta, y la fibra se vende a precio de lujo.",
+        "dato": "La fibra de vicuña es más fina que la cachemira —el título de fibra natural más fina del mundo lo aguanta— y por eso se la ha llamado el oro de los Andes: en el imperio era exclusiva de la corte, y hoy el kilo en bruto se paga a la altura de lo que cuesta la fibra de pocos animales.",
+        "conexion": [
+          { "recurso": "Crónica del Perú", "donde": "la descripción del ganado de la tierra y el respeto por la vicuña" },
+          { "recurso": "Comentarios reales de los Incas", "donde": "el vellón de la vicuña y las cacerías reales del Inca" }
+        ]
+      },
+      "preguntas": [
+        "¿Cómo se distingue a simple vista una vicuña de una alpaca cuando pastan juntas?",
+        "¿Sigue practicándose el chacu (esquila comunal) en esta reserva y quién lo autoriza?",
+        "¿Qué se hace con la fibra que se recoge: quién la compra y a cuánto el kilo?"
+      ],
+      "fuentes": [
+        "Pedro Cieza de León, Crónica del Perú (1553) — el ganado de la tierra",
+        "Inca Garcilaso de la Vega, Comentarios reales de los Incas (1609), libro I — el ganado doméstico y silvestre",
+        "SERNANP, Reserva Nacional de Salinas y Aguada Blanca (sernanp.gob.pe)",
+        "Convenio para la Conservación y Manejo de la Vicuña (Convenio de La Paz, 1979)"
+      ]
+    },
+    {
+      "id": "patapampa",
+      "nombre": "Mirador de Patapampa",
+      "lugar": "Puerto de Patapampa, carretera Arequipa–Chivay",
+      "dia": 4,
+      "altitud_m": 4910,
+      "verificado": false,
+      "solo_paso": true,
+      "avisos": ["patapampa-4900", "soroche"],
+      "de_pie": {
+        "gancho": "Estáis a 4.910 m, el punto más alto del viaje, y delante tenéis un volcán que sigue activo.",
+        "mira": [
+          "El cartel con la altitud del mirador, donde se hace la foto de rigor del punto más alto del viaje.",
+          "Al frente, la cadena Ampato–Sabancaya–Hualca Hualca: el Sabancaya es uno de los volcanes más activos del Perú y en días claros se le ve la columna de vapor o ceniza.",
+          "A la espalda, hacia Arequipa, el cono casi perfecto del Misti y, a su lado, el nevado Chachani."
+        ],
+        "practico": {
+          "duracion": "~10 min",
+          "incluido": true,
+          "fotos": "sí — a casi 5.000 m sopla viento: estabilizad los codos",
+          "notas": ["Parada de paso, no de visita (solo_paso): se baja unos minutos y se sigue.", "4.910 m: nada de correr, bebed agua y no comáis pesado antes.", "Ropa de abrigo: a esta altura hace frío y viento de verdad."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Desde aquí se ve por qué el Colca está donde está: la carretera Arequipa–Chivay sube del valle de Arequipa a casi 5.000 m en pocas horas, y las cordilleras que guardan el cañón se ven enteras desde este puerto. Al frente, la cadena Ampato–Sabancaya–Hualca Hualca; a la espalda, el Misti y el Chachani que coronan Arequipa. El Sabancaya es de los volcanes más activos del Perú, con episodios de erupción recientes. Para los incas y sus antepasados, estas cimas eran dioses: los apus, y en los pasos se dejaban las apachetas, montones de piedras como ofrenda para que el cruce fuera seguro — costumbre que Cieza de León recogió en su crónica. A esta altitud el cuerpo nota la falta de oxígeno: dolor de cabeza y mareo son normales las primeras horas, y no son motivo de alarma mientras no aparezcan síntomas fuertes.",
+        "dato": "En 1995 se encontró en la ladera del vecino Ampato, a más de 6.000 m, a la 'Momia Juanita', una muchacha inca ofrecida a las montañas: la mejor prueba de que estas cimas no eran paisaje, eran dioses que cobraban tributo.",
+        "conexion": [
+          { "recurso": "Crónica del Perú", "donde": "las apachetas que se dejaban en los puertos de la cordillera" },
+          { "recurso": "Comentarios reales de los Incas", "donde": "la adoración de los cerros y montañas sagradas" }
+        ]
+      },
+      "preguntas": [
+        "¿El Sabancaya está en actividad ahora mismo o en reposo?",
+        "¿Dónde se ven restos de apachetas hoy, o todavía se deja alguna ofrenda al pasar?",
+        "¿Qué hace el grupo si alguien empieza con mareo fuerte aquí: se aguanta o se baja a una cota menor?"
+      ],
+      "fuentes": [
+        "TUI, notas del circuito — punto más alto del itinerario, ~4.910 m",
+        "Smithsonian Institution, Global Volcanism Program — Ampato (6.288 m), Sabancaya (5.976 m), Hualca Hualca (6.025 m), Misti (5.822 m), Chachani (6.057 m)",
+        "Pedro Cieza de León, Crónica del Perú (1553) — las apachetas de los puertos",
+        "Johan Reinhard, The Ice Maiden: Inca Mummies, Mountain Gods, and Sacred Sites in the Andes (2005) — hallazgo de la momia Juanita en el Ampato"
+      ]
+    },
+    {
+      "id": "cruz-del-condor",
+      "nombre": "Cruz del Cóndor",
+      "lugar": "Borde norte del cañón del Colca",
+      "dia": 5,
+      "altitud_m": 3200,
+      "verificado": false,
+      "avisos": ["condor-madrugon"],
+      "de_pie": {
+        "gancho": "Vais a ver despegar al ave voladora más grande de América desde la pared de enfrente — pero sólo si habéis madrugado: el cóndor vuela cuando el sol empieza a calentar.",
+        "mira": [
+          "La pared de enfrente, donde el cañón cae casi vertical sobre el río: es donde tienen los nidos y desde donde despegan al empezar las térmicas.",
+          "La explanada de piedra del mirador, con sus gradas de mampostería donde se sienta la gente a esperar — elegid sitio mirando hacia el este, por donde sale el sol.",
+          "Los cóndores en el aire: el macho se distingue por la cresta y el collar blanco alrededor del cuello; la hembra es algo menor y de cabeza lisa.",
+          "Sobre el hombro del mirador, las terrazas de cultivo que bajan hacia el valle: el cañón es tan profundo que se cultiva en sus paredes."
+        ],
+        "practico": {
+          "duracion": "~45-60 min de espera + vuelo",
+          "incluido": true,
+          "fotos": "sí — con un 200-600 mm se ve mucho; a simple vista también se disfruta",
+          "notas": ["Salida muy temprano: los cóndores aprovechan las térmicas de la mañana y desaparecen al mediodía.", "A esa hora hace frío de verdad: ropa de abrigo.", "De vuelta se pasa por Maca y Yanque antes del almuerzo."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "El cañón del Colca es uno de los más profundos del mundo —según la medida, más que el Gran Cañón—, y esta pared de más de un kilómetro de desnivel es su mejor balcón. El cóndor andino (Vultur gryphus) es un buitre, una de las aves voladoras más grandes del mundo, con envergaduras que rozan los tres metros y pico. Planea sin batir las alas gracias a las térmicas: el aire que el sol calienta sobre la pared sube desde el fondo del cañón, y por eso se le ve al amanecer y no al mediodía. Ha sufrido persecución y envenenamiento durante décadas; hoy es especie protegida y en el Colca hay programas de conservación y censos. Mientras esperáis, el valle entero habla de otro mundo: el de los cerros con dueño y las leyendas andinas.",
+        "dato": "El cóndor es un buitre, vive de la carroña y puede recorrer decenas de kilómetros al día buscando comida; lo que veis planeando es una máquina de buscar cadáveres, no un cazador.",
+        "conexion": [
+          { "recurso": "Lituma en los Andes", "donde": "las montañas con dueño y las leyendas que gobiernan la vida de los pueblos" },
+          { "recurso": "Madeinusa", "donde": "un pueblo andino regido por sus fiestas y creencias" }
+        ]
+      },
+      "preguntas": [
+        "¿A qué hora suelen salir los cóndores según la época, y cuánto conviene llegar antes?",
+        "¿Se sabe cuántos cóndores hay hoy en el cañón? ¿Se cuentan con anillados y censos?",
+        "¿Por qué desaparecen al mediodía y adónde van las horas de calor?"
+      ],
+      "fuentes": [
+        "Cornell Lab of Ornithology, All About Birds — cóndor andino (Vultur gryphus): tamaño, plumaje y dimorfismo",
+        "SERFOR / Ministerio del Ambiente (Perú) — cóndor andino, especie protegida",
+        "PromPerú — Valle del Colca: profundidad y la Cruz del Cóndor"
+      ]
+    },
+    {
+      "id": "maca",
+      "nombre": "Maca",
+      "lugar": "Maca, valle del Colca",
+      "dia": 5,
+      "altitud_m": 3260,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "Este pueblo pequeño se levantó entero de sus ruinas tras el terremoto de 2001, y lo hizo sin renunciar al tejado de piedra: lo estáis viendo reconstruido, no restaurado.",
+        "mira": [
+          "Las casas de techo de laja: losas de piedra volcánica apiladas en seco, el tejado tradicional del valle. Es lo primero que se ve al entrar en el pueblo.",
+          "La plaza y su iglesia reconstruida tras 2001, con el campanario presidiendo el conjunto.",
+          "Las terrazas de cultivo que bajan desde el pueblo hacia el fondo del cañón: los andenes del Colca, cultivados siglos antes de que llegaran los incas."
+        ],
+        "practico": {
+          "duracion": "~30 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["Parada breve en la vuelta de la Cruz del Cóndor.", "En la plaza suele haber puestos de tejidos y fruta del valle."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Maca es uno de los pueblos más antiguos del valle y, hasta 2001, uno de los mejor conservados. El 23 de junio de 2001 un terremoto de magnitud 8,4 —el más fuerte registrado en el Perú en décadas— sacudió Arequipa y destruyó buena parte del valle del Colca: iglesias, casas y pueblos enteros vinieron abajo. Maca quedó tan dañado que se reconstruyó casi entero, y la reconstrucción se hizo manteniendo la arquitectura tradicional: muros de piedra y techo de lajas, igual que los tejados que ya describían los viajeros del siglo XIX. El valle que rodea el pueblo se cultiva desde mucho antes que los incas: los collaguas y cabanas levantaron esta andenería y sigue viva hoy, con maíz, papas y habas.",
+        "dato": "El terremoto de 2001 tumbó la iglesia de Maca en segundos; diez años después el pueblo entero estaba de pie otra vez, con el mismo plano de calles y los mismos tejados de piedra que tenía antes del temblor.",
+        "conexion": [
+          { "recurso": "Madeinusa", "donde": "la vida de un pueblo andino pequeño, gobernada por sus ritos y sus fiestas" },
+          { "recurso": "Lituma en los Andes", "donde": "los pueblos de la sierra y sus silencios" }
+        ]
+      },
+      "preguntas": [
+        "¿Qué se cultivaba aquí antes de los incas y qué se cultiva hoy en estos andenes?",
+        "¿Cuánto tardó la reconstrucción del pueblo y quién la financió?",
+        "¿Se reconoce alguna casa o muro que sobreviviera al terremoto de 2001?"
+      ],
+      "fuentes": [
+        "USGS — terremoto de Arequipa, 23/06/2001 (Mw 8,4)",
+        "Prensa peruana (El Comercio / El Peruano) — reconstrucción del valle del Colca tras 2001",
+        "PromPerú — Valle del Colca: andenería preincaica y pueblos del valle"
+      ]
+    },
+    {
+      "id": "yanque",
+      "nombre": "Yanque",
+      "lugar": "Yanque, valle del Colca",
+      "dia": 5,
+      "altitud_m": 3425,
+      "verificado": false,
+      "de_pie": {
+        "gancho": "La plaza de Yanque tiene dos pisos de historia en un paseo: la iglesia barroca del valle a un lado, y un sitio inca al que se sube andando por detrás del pueblo.",
+        "mira": [
+          "La plaza empedrada con la iglesia colonial presidiendo un lado, fachada blanca y campanario: es la iglesia más trabajada del valle.",
+          "Detrás del pueblo, colgada sobre la loma, la ruina inca de Uyo Uyo: se ve el sendero que sube desde el pueblo y las paredes de piedra que quedan.",
+          "Las señoras de la plaza con sus monteras y polleras bordadas de vivos colores: el traje tradicional del valle del Colca."
+        ],
+        "practico": {
+          "duracion": "~45 min",
+          "incluido": true,
+          "fotos": "sí",
+          "notas": ["Suele ser la última parada del valle antes del almuerzo y la salida hacia Puno.", "Si hay tiempo, merece subir a Uyo Uyo: el sendero sale tras el pueblo."]
+        }
+      },
+      "de_sofa": {
+        "contexto": "Yanque es el pueblo grande del valle, entre Chivay y Maca, y la plaza concentra lo mejor de la ruta: la iglesia de la Inmaculada, barroca y con lienzos antiguos dentro, se reconstruyó parcialmente tras el terremoto de 2001. Detrás del pueblo, casi colgadas sobre el cañón, quedan las ruinas de Uyo Uyo, un asentamiento inca con muros y hornacinas que se visita a pie en un rato. Y el valle es también música: la danza del wititi, propia de la provincia de Caylloma, fue inscrita por la UNESCO en 2015 como Patrimonio Cultural Inmaterial de la Humanidad, y Yanque es uno de sus escenarios. Es una de esas tardes donde conviene dejar el celular y mirar: por aquí se ve el Perú de las comunidades, no el de los museos.",
+        "dato": "El wititi —el baile más famoso del valle— es Patrimonio Cultural Inmaterial de la Humanidad desde 2015 (UNESCO) y se baila en las fiestas del valle: la lengua que oís en la plaza es la misma que se canta en el rock de Uchpa.",
+        "conexion": [
+          { "recurso": "Uchpa", "donde": "rock en quechua: la lengua que se oye en las fiestas del valle" },
+          { "recurso": "Madeinusa", "donde": "un pueblo andino y sus fiestas, con sus reglas propias" }
+        ]
+      },
+      "preguntas": [
+        "¿Qué lienzos guarda la iglesia y de qué escuela son?",
+        "¿Se puede subir a Uyo Uyo en la visita y cuánto se tarda?",
+        "¿Cuándo es la fiesta grande de Yanque y qué se baila ese día?"
+      ],
+      "fuentes": [
+        "UNESCO — danza del wititi de la provincia de Caylloma, inscrita en 2015 en la Lista Representativa del Patrimonio Cultural Inmaterial",
+        "PromPerú — Yanque y el valle del Colca",
+        "Ministerio de Cultura (Perú) — sitio arqueológico Uyo Uyo, Yanque"
+      ]
+    }
+  ]
+}

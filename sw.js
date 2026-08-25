@@ -26,6 +26,8 @@ const ASSETS = [
   './data/guia/machu-picchu.json',
   './data/guia/lima.json',
   './data/guia/arequipa.json',
+  './data/guia/colca.json',
+  './data/guia/trayectos.json',
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
