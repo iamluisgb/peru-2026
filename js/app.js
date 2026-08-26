@@ -295,6 +295,27 @@ function verMapa(arg) {
     .filter(x => x.c);
   const linea = paradas.map((x, i) => `${i ? 'L' : 'M'}${x.c.x} ${x.c.y}`).join(' ');
 
+  // Fondo de sierra: dos siluetas de relieve tras la ruta (como en el repo de Picos de
+  // Europa, pero SVG propio con tokens — offline y con tema claro/oscuro). Las siluetas
+  // se generan desde las altitudes REALES de las paradas: a más altitud, pico más alto.
+  // No es una foto: es la forma de los Andes tonada por debajo de la ruta.
+  function sierra(base, alturaMax) {
+    // Empieza abajo a la izquierda, recorre un pico por cada parada (las cimas son los
+    // puntos medios entre paradas, compensados por la altitud), y cierra abajo a la derecha.
+    let d = `M ${paradas[0].c.x} ${base}`;
+    for (let i = 0; i < paradas.length; i++) {
+      const a = paradas[i].c;
+      const b = paradas[i + 1] ? paradas[i + 1].c : paradas[i].c;
+      const mx = (a.x + b.x) / 2;
+      // La altura del pico sube con la altitud de la parada (patapampa 4910, puno 3830…).
+      const alt = paradas[i].p.altitud_m || 0;
+      const pico = base - (alt / 5200) * alturaMax;
+      d += ` L ${a.x.toFixed(1)} ${base} L ${mx.toFixed(1)} ${pico.toFixed(1)}`;
+    }
+    d += ` L ${paradas[paradas.length - 1].c.x} ${base} Z`;
+    return d;
+  }
+
   const todas = Object.entries(puntos)
     .map(([id, c]) => ({ id, c, f: datos.fichas[id] }))
     .filter(x => x.f && x.f.tipo !== 'transversal');
@@ -318,6 +339,9 @@ function verMapa(arg) {
     <div class="tarjeta">
       <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" role="img"
            aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
+        <rect class="mapa-fondo" x="0" y="0" width="${W}" height="${H}" rx="12"/>
+        <path class="mapa-sierra--lejana" d="${sierra(H * 0.70, H * 0.30)}" />
+        <path class="mapa-sierra--cercana" d="${sierra(H * 0.86, H * 0.16)}" />
         <path class="mapa-ruta" d="${linea}"/>
         ${paradas.map(({ p, c }) => `
           <g class="mapa-parada" data-nivel="${nivelAltitud(p.altitud_m)}">

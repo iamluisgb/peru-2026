@@ -332,6 +332,16 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 
 .mapa-svg { width: 100%; height: auto; display: block; overflow: visible; }
 
+/* Fondo del mapa: la "tierra" donde se apoya la ruta y dos siluetas de sierra detrás.
+   Todo son tokens del tema: la misma forma sirve en claro y oscuro sin imágenes. */
+.mapa-fondo { fill: var(--mapa-tierra); }
+.mapa-sierra--lejana,
+.mapa-sierra--cercana {
+  fill: var(--mapa-sierra-lejana);
+  vector-effect: non-scaling-stroke;
+}
+.mapa-sierra--cercana { fill: var(--mapa-sierra-cercana); }
+
 /* La ruta recorrida: trazo de acento, no una mancha. */
 .mapa-ruta {
   fill: none;
