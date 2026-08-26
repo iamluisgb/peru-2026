@@ -16,14 +16,21 @@
   /* Tipografía. Se lee de pie y con sol: la escala arranca más alta que en bookreader. */
   --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-lectura: ui-serif, 'New York', Georgia, 'Times New Roman', serif;
-  --fs-xs: 12px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 18px;
-  --fs-xl: 22px; --fs-2xl: 28px; --fs-3xl: 34px;
-  --fs-4xl: 42px;
+  /* En rem, no en px: en px el «tamaño de texto» del sistema —el que se configura una vez y
+     no se vuelve a tocar— no hace absolutamente nada (WCAG 1.4.4). Los tamaños de toque y los
+     trazos siguen en px a propósito: un dedo con guantes mide lo mismo a cualquier escala.
+     Equivalencias a 16px de raíz: 12 / 14 / 16 / 18 / 22 / 28 / 34 / 42. */
+  --fs-xs: 0.75rem; --fs-sm: 0.875rem; --fs-md: 1rem; --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem; --fs-2xl: 1.75rem; --fs-3xl: 2.125rem;
+  --fs-4xl: 2.625rem;
 
   /* Portada de Hoy. El degradado y la silueta de cordillera son la identidad del
-     proyecto y no cuestan una imagen: pesan cero y siguen al tema (ADR-005). */
-  --hero-a: #c2562f;
-  --hero-b: #8f3a1e;
+     proyecto y no cuestan una imagen: pesan cero y siguen al tema (ADR-005).
+     El degradado baja un escalón de luminancia respecto al terracota original: la fecha va
+     al 85 % de opacidad sobre él y a plena luz se quedaba en 3,5:1. Mismo tono, misma familia
+     que el resto de terracotas del tema. */
+  --hero-a: #a04727;
+  --hero-b: #77300f;
   --hero-texto: #fff6f1;
   --hero-sierra: rgba(255, 255, 255, 0.14);
   --surface-nav: rgba(255, 255, 255, 0.86);
@@ -42,7 +49,9 @@
 
   /* Layout */
   --ancho-lectura: 640px;
-  --alto-navbar: 60px;
+  /* 60px es el mínimo de toque; el max() deja que la barra crezca con el texto del sistema
+     en vez de recortar las etiquetas. */
+  --alto-navbar: max(60px, 3.75rem);
 
   /* ---- Paleta CLARA (por defecto) ---- */
   --surface-0: #ffffff;
@@ -54,10 +63,10 @@
   --mapa-costa: #cfd6da;
   --mapa-tierra: #f7f2ea;
   --text: #1f2328;
-  --text-soft: #6b7280;
-  --text-faint: #9aa1ab;
-  --accent: #c2562f;
-  --accent-hover: #a4441f;
+  --text-soft: #4f545e;
+  --text-faint: #646c78;
+  --accent: #a44928;
+  --accent-hover: #86391d;
   --accent-soft: rgba(194, 86, 47, 0.12);
   --on-accent: #ffffff;
   --border: #e6e2dd;
@@ -67,13 +76,19 @@
   --shadow-2: 0 4px 16px rgba(var(--shadow-color), 0.07);
   --shadow-3: 0 12px 40px rgba(var(--shadow-color), 0.12);
 
-  /* Semánticos del proyecto. Se usan en muchos sitios: no improvisar en el componente. */
-  --altitud-baja: #6aa84f;
-  --altitud-media: #d9a441;
-  --altitud-alta: #c2562f;
-  --aviso-info: #4a7fb5;
-  --aviso-ojo: #d9a441;
-  --aviso-serio: #c2453a;
+  /* Semánticos del proyecto. Se usan en muchos sitios: no improvisar en el componente.
+
+     Cada uno se pinta como TEXTO sobre su propio tinte `-soft`, y un tono sobre sí mismo al
+     12-18 % nunca llega a 4,5:1: el `ojo` medía 1,99, o sea que «5 kg en el tren» era el
+     aviso MENOS legible de los tres justo al sol. Así que el token guarda la versión oscura
+     del tono (≥5:1 sobre su tinte) y la identidad del color vive en el tinte, que es la banda
+     que se ve. El tono no cambia; cambia la luminancia. */
+  --altitud-baja: #466f34;
+  --altitud-media: #845f1a;
+  --altitud-alta: #a04727;
+  --aviso-info: #3d6894;
+  --aviso-ojo: #845f1a;
+  --aviso-serio: #ad3d34;
   --aviso-info-soft: rgba(74, 127, 181, 0.12);
   --aviso-ojo-soft: rgba(217, 164, 65, 0.16);
   --aviso-serio-soft: rgba(194, 69, 58, 0.12);
@@ -90,10 +105,10 @@
   --mapa-costa: #3b4348;
   --mapa-tierra: #24201a;
   --text: #f4f2ef;
-  --text-soft: #b0a89f;
-  --text-faint: #837b73;
-  --accent: #e07a4e;
-  --accent-hover: #ef8d61;
+  --text-soft: #bcb5ae;
+  --text-faint: #9d9690;
+  --accent: #e48a63;
+  --accent-hover: #f09a72;
   --accent-soft: rgba(224, 122, 78, 0.18);
   --on-accent: #16130f;
   --border: #35302a;
@@ -104,10 +119,10 @@
   --shadow-3: 0 12px 40px rgba(0, 0, 0, 0.5);
   --altitud-baja: #85c46a;
   --altitud-media: #e8bc63;
-  --altitud-alta: #e07a4e;
+  --altitud-alta: #e48a63;
   --aviso-info: #79aede;
   --aviso-ojo: #e8bc63;
-  --aviso-serio: #e8695c;
+  --aviso-serio: #eb7b70;
   --aviso-info-soft: rgba(121, 174, 222, 0.16);
   --aviso-ojo-soft: rgba(232, 188, 99, 0.18);
   --aviso-serio-soft: rgba(232, 105, 92, 0.16);
@@ -132,10 +147,10 @@
     --mapa-costa: #3b4348;
     --mapa-tierra: #24201a;
     --text: #f4f2ef;
-    --text-soft: #b0a89f;
-    --text-faint: #837b73;
-    --accent: #e07a4e;
-    --accent-hover: #ef8d61;
+    --text-soft: #bcb5ae;
+    --text-faint: #9d9690;
+    --accent: #e48a63;
+    --accent-hover: #f09a72;
     --accent-soft: rgba(224, 122, 78, 0.18);
     --on-accent: #16130f;
     --border: #35302a;
@@ -146,10 +161,10 @@
     --shadow-3: 0 12px 40px rgba(0, 0, 0, 0.5);
     --altitud-baja: #85c46a;
     --altitud-media: #e8bc63;
-    --altitud-alta: #e07a4e;
+    --altitud-alta: #e48a63;
     --aviso-info: #79aede;
     --aviso-ojo: #e8bc63;
-    --aviso-serio: #e8695c;
+    --aviso-serio: #eb7b70;
     --aviso-info-soft: rgba(121, 174, 222, 0.16);
     --aviso-ojo-soft: rgba(232, 188, 99, 0.18);
     --aviso-serio-soft: rgba(232, 105, 92, 0.16);
