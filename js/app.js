@@ -318,20 +318,33 @@ function verMapa(arg) {
   // nombres se pisaban ("PaseSampa"); el racimo de Cusco era ilegible. Se prueban cuatro
   // posiciones por etiqueta y se coge la primera libre; si ninguna lo está, no se dibuja.
   // Perder una etiqueta es mejor que superponer dos: dos superpuestas no se leen ninguna.
-  function colocarEtiquetas(items) {
-    const puestas = [];
+  // `ocupado` son los círculos ya dibujados: paradas y sitios. Antes sólo se evitaba que dos
+  // etiquetas chocaran entre sí, así que caían encima de los puntos —que es lo único que el
+  // mapa tiene que dejar ver—. Un nombre tapando su propio punto es peor que no tenerlo.
+  function colocarEtiquetas(items, ocupado = []) {
+    const puestas = [...ocupado];
     const salida = [];
     const solapa = (a, b) =>
       a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
 
     for (const it of items) {
       const ancho = it.texto.length * 4.1 + 2;
-      const candidatos = [
-        { dx: 0, dy: 13, anclaje: 'middle' },
-        { dx: 0, dy: -8, anclaje: 'middle' },
-        { dx: 8, dy: 3.5, anclaje: 'start' },
-        { dx: -8, dy: 3.5, anclaje: 'end' },
-      ];
+      // Ocho direcciones y dos distancias. Con cuatro posiciones y los círculos ocupados,
+      // en el racimo de Cusco no quedaba ni un hueco y se perdían casi todas las etiquetas:
+      // el problema no era el criterio, era que había pocos sitios donde probar.
+      const candidatos = [];
+      for (const d of [1, 1.7]) {
+        candidatos.push(
+          { dx: 0, dy: 13 * d, anclaje: 'middle' },
+          { dx: 0, dy: -9 * d, anclaje: 'middle' },
+          { dx: 8 * d, dy: 3, anclaje: 'start' },
+          { dx: -8 * d, dy: 3, anclaje: 'end' },
+          { dx: 7 * d, dy: -6 * d, anclaje: 'start' },
+          { dx: -7 * d, dy: -6 * d, anclaje: 'end' },
+          { dx: 7 * d, dy: 10 * d, anclaje: 'start' },
+          { dx: -7 * d, dy: 10 * d, anclaje: 'end' },
+        );
+      }
       for (const c of candidatos) {
         const x = it.x + c.dx, y = it.y + c.dy;
         const izq = c.anclaje === 'middle' ? x - ancho / 2 : c.anclaje === 'start' ? x : x - ancho;
@@ -364,11 +377,17 @@ function verMapa(arg) {
     return i === -1 ? PRIORIDAD.length : i;
   };
 
+  const caja = (c, r) => ({ x1: c.x - r, x2: c.x + r, y1: c.y - r, y2: c.y + r });
+  const circulos = [
+    ...paradas.map(({ p, c }) => caja(c, p.solo_paso ? 3.6 : 6)),
+    ...visibles.map(({ c }) => caja(c, activo === null ? 2.8 : 4.8)),
+  ];
+
   const etiquetas = colocarEtiquetas([
     ...paradas.filter(({ p }) => !p.solo_paso).sort((a, b) => pesoParada(a) - pesoParada(b))
       .map(({ p, c }) => ({ texto: p.corto || p.nombre, x: c.x, y: c.y })),
     ...(activo === null ? [] : visibles.map(({ c, f }) => ({ texto: f.nombre, x: c.x, y: c.y }))),
-  ]);
+  ], circulos);
 
   const chips = [
     `<a class="chip${activo === null ? ' chip--acento' : ''}" href="#/mapa"${activo === null ? ' aria-current="page"' : ''}>Todo</a>`,

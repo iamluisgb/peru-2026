@@ -330,7 +330,10 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .filtro { margin-bottom: var(--s-3); }
 .filtro .chip { min-height: 36px; } /* targets ≥ 44 px reclama esto cerca del mapa */
 
-.mapa-svg { width: 100%; height: auto; display: block; }
+/* El SVG escala, y con él el texto: a 640 px las etiquetas de 8,5 unidades se veían enormes
+   y a 400 px justas. Se topa el ancho para que el factor de escala se mueva poco (≈1,2-1,4)
+   y las etiquetas se lean igual en móvil y en escritorio. */
+.mapa-svg { width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto; }
 .mapa-fondo { fill: var(--mapa-tierra); }
 .mapa-sierra--lejana { fill: var(--mapa-sierra-lejana); }
 .mapa-sierra--cercana { fill: var(--mapa-sierra-cercana); }
@@ -360,8 +363,8 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
    `paint-order` dibuja el trazo por detrás del relleno, así el texto se lee sobre la
    sierra sin necesidad de una caja de fondo. */
 .mapa-etiqueta {
-  font-family: var(--font-ui); font-size: 8.5px; font-weight: 600;
-  fill: var(--text-soft); stroke: var(--mapa-tierra); stroke-width: 2.4;
+  font-family: var(--font-ui); font-size: 8px; font-weight: 600;
+  fill: var(--text-soft); stroke: var(--mapa-tierra); stroke-width: 2.2;
   paint-order: stroke fill; pointer-events: none;
 }
 
