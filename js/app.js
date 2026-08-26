@@ -285,10 +285,15 @@ function verAltura() {
 // El mapa ocupa la pantalla entera y sus controles van DENTRO, superpuestos. Un mapa metido
 // en una tarjeta de 460 px, con los filtros arriba y los botones debajo, obliga a mirar en
 // tres sitios para hacer una cosa. Aquí el mapa es la pantalla.
+// Los tamaños del mapa van en PÍXELES DE PANTALLA, no en unidades del SVG: zoom.js publica
+// en `--esc` cuántos píxeles mide una unidad y el CSS divide. Al ver Perú entero en un móvil
+// la escala baja a un tercio de la de un portátil, y sin esto los puntos quedaban en 4 px.
+const R_PARADA = 9, R_PASO = 5, R_SITIO = 7, R_SITIO_DIA = 10, FS_ETIQUETA = 12;
+
 // Colocación de etiquetas sin solapes, ni entre ellas ni sobre los círculos. Se prueban ocho
 // direcciones por dos distancias y se coge la primera libre; si ninguna lo está, no se dibuja.
 // Perder una etiqueta es mejor que superponer dos: dos superpuestas no se leen ninguna.
-function colocarEtiquetas(paradas, visibles, activo, W, H) {
+function colocarEtiquetas(paradas, visibles, activo, W, H, esc) {
   // Prioridad: el primero que pide sitio se lo queda. Machu Picchu y Aguas Calientes están
   // pegados y sólo cabe un nombre entre los dos; sin esto ganaba Aguas Calientes por ir antes
   // en el itinerario, y el mapa del viaje se quedaba sin el nombre del sitio al que va.
@@ -298,10 +303,16 @@ function colocarEtiquetas(paradas, visibles, activo, W, H) {
     return i === -1 ? PRIORIDAD.length : i;
   };
 
+  // Todo el reparto se hace en unidades del SVG, pero los tamaños son píxeles: `u` traduce.
+  // `k` es lo mismo para las distancias que la geometría de abajo daba por supuestas con una
+  // etiqueta de 8 unidades.
+  const u = (px) => px / esc;
+  const k = FS_ETIQUETA / (8 * esc);
+
   const caja = (c, r) => ({ x1: c.x - r, x2: c.x + r, y1: c.y - r, y2: c.y + r });
   const puestas = [
-    ...paradas.map(({ p, c }) => caja(c, p.solo_paso ? 3.6 : 6)),
-    ...visibles.map(({ c }) => caja(c, activo === null ? 2.8 : 4.8)),
+    ...paradas.map(({ p, c }) => caja(c, u((p.solo_paso ? R_PASO : R_PARADA) + 1))),
+    ...visibles.map(({ c }) => caja(c, u((activo === null ? R_SITIO : R_SITIO_DIA) + 1))),
   ];
 
   const items = [
@@ -314,24 +325,24 @@ function colocarEtiquetas(paradas, visibles, activo, W, H) {
   const salida = [];
 
   for (const it of items) {
-    const ancho = it.texto.length * 4.1 + 2;
+    const ancho = (it.texto.length * 4.1 + 2) * k;
     const candidatos = [];
     for (const d of [1, 1.7]) {
       candidatos.push(
-        { dx: 0, dy: 13 * d, anclaje: 'middle' },
-        { dx: 0, dy: -9 * d, anclaje: 'middle' },
-        { dx: 8 * d, dy: 3, anclaje: 'start' },
-        { dx: -8 * d, dy: 3, anclaje: 'end' },
-        { dx: 7 * d, dy: -6 * d, anclaje: 'start' },
-        { dx: -7 * d, dy: -6 * d, anclaje: 'end' },
-        { dx: 7 * d, dy: 10 * d, anclaje: 'start' },
-        { dx: -7 * d, dy: 10 * d, anclaje: 'end' },
+        { dx: 0, dy: 13 * d * k, anclaje: 'middle' },
+        { dx: 0, dy: -9 * d * k, anclaje: 'middle' },
+        { dx: 8 * d * k, dy: 3 * k, anclaje: 'start' },
+        { dx: -8 * d * k, dy: 3 * k, anclaje: 'end' },
+        { dx: 7 * d * k, dy: -6 * d * k, anclaje: 'start' },
+        { dx: -7 * d * k, dy: -6 * d * k, anclaje: 'end' },
+        { dx: 7 * d * k, dy: 10 * d * k, anclaje: 'start' },
+        { dx: -7 * d * k, dy: 10 * d * k, anclaje: 'end' },
       );
     }
     for (const c of candidatos) {
       const x = it.x + c.dx, y = it.y + c.dy;
       const izq = c.anclaje === 'middle' ? x - ancho / 2 : c.anclaje === 'start' ? x : x - ancho;
-      const cj = { x1: izq, x2: izq + ancho, y1: y - 8, y2: y + 3 };
+      const cj = { x1: izq, x2: izq + ancho, y1: y - 8 * k, y2: y + 3 * k };
       if (cj.x1 < 2 || cj.x2 > W - 2 || cj.y1 < 2 || cj.y2 > H - 2) continue;
       if (puestas.some(q => solapa(cj, q))) continue;
       puestas.push(cj);
@@ -374,26 +385,9 @@ function verMapa(arg) {
 
   pintar(`
     <section class="mapa-pantalla">
-      <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"
-           role="img" aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
-        <rect class="mapa-mar" x="0" y="0" width="${W}" height="${H}"/>
-        ${contorno.map(d => `<path class="mapa-pais" d="${d}"/>`).join('')}
-        <path class="mapa-ruta" d="${linea}"/>
-        <g class="mapa-sitios">
-          ${todas.map(({ id, c, f }) => `
-            <g class="mapa-ficha" data-ficha="${esc(id)}" data-dia="${f.dia}"
-               role="button" tabindex="0" aria-label="${esc(f.nombre)}">
-              <circle cx="${c.x}" cy="${c.y}" r="2.8"/>
-              <title>${esc(f.nombre)}</title>
-            </g>`).join('')}
-        </g>
-        ${paradas.map(({ p, c }) => `
-          <circle class="mapa-parada" cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? 3 : 5.5}"/>`).join('')}
-        <g class="mapa-etiquetas"></g>
-      </svg>
-
-      <div class="sat-lienzo" hidden></div>
-
+      <!-- Los controles van ANTES del SVG en el DOM: con position:absolute se ven donde
+           siempre, pero el teclado llega al filtro de día en un Tab y no en treinta y cuatro
+           persiguiendo puntos. Lo navegable es contenido, y el contenido va después. -->
       <div class="mapa-capa mapa-capa--arriba"><div class="mapa-filtros">${chips}</div></div>
 
       <div class="mapa-capa mapa-capa--abajo">
@@ -409,6 +403,35 @@ function verMapa(arg) {
           <button type="button" data-zoom="reset" aria-label="Ver todo">⤢</button>
         </div>
       </div>
+
+      <!-- meet y no slice: con slice el SVG apaisado se recortaba para cubrir un hueco
+           casi vertical y en un móvil no se veían ni Lima ni Cusco. El mar ya no es un <rect>
+           que obligue a cubrir: lo pinta el fondo de .mapa-pantalla. -->
+      <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
+           role="img" aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
+        <!-- El marco lo recortaba antes el propio slice. El contorno se dibuja entero (el país
+             se sale del encuadre por los cuatro lados, que se encuadró sobre el RECORRIDO y no
+             sobre Perú) y hay que seguir recortándolo, o al dejar de recortar el viewport
+             aparecía Loreto entera colgando por arriba. -->
+        <clipPath id="mapa-marco"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>
+        <g clip-path="url(#mapa-marco)">
+        ${contorno.map(d => `<path class="mapa-pais" d="${d}"/>`).join('')}
+        <path class="mapa-ruta" d="${linea}"/>
+        <g class="mapa-sitios">
+          ${todas.map(({ id, c, f }) => `
+            <g class="mapa-ficha" data-ficha="${esc(id)}" data-dia="${f.dia}"
+               role="button" tabindex="0" aria-label="${esc(f.nombre)}">
+              <circle cx="${c.x}" cy="${c.y}" r="${R_SITIO}"/>
+              <title>${esc(f.nombre)}</title>
+            </g>`).join('')}
+        </g>
+        ${paradas.map(({ p, c }) => `
+          <circle class="mapa-parada" cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? R_PASO : R_PARADA}"/>`).join('')}
+        <g class="mapa-etiquetas"></g>
+        </g>
+      </svg>
+
+      <div class="sat-lienzo" hidden></div>
 
       <p class="mapa-nota" hidden></p>
     </section>
@@ -428,32 +451,41 @@ function verMapa(arg) {
   function filtrar(d, { encuadrar = true } = {}) {
     mapaVivo.dia = d;
     // Ocultar por atributo y no rehaciendo el SVG: los nodos siguen siendo los mismos, así
-    // que el zoom y el foco no se pierden.
+    // que el zoom y el foco no se pierden. El `tabindex` va con la visibilidad: un punto que
+    // no está en pantalla tampoco debe recibir el foco del teclado.
     svg.querySelectorAll('.mapa-ficha').forEach(g => {
       const suyo = d === null || Number(g.dataset.dia) === d;
       g.toggleAttribute('hidden', !suyo);
-      g.querySelector('circle').setAttribute('r', d === null ? 2.8 : 4.2);
+      g.setAttribute('tabindex', suyo ? '0' : '-1');
+      g.querySelector('circle').setAttribute('r', d === null ? R_SITIO : R_SITIO_DIA);
     });
 
+    let activo = null;
     app.querySelectorAll('.mapa-filtros .chip').forEach(b => {
-      const activo = (b.dataset.dia === '' && d === null) || Number(b.dataset.dia) === d;
-      b.classList.toggle('chip--acento', activo);
-      b.setAttribute('aria-pressed', String(activo));
+      const suyo = (b.dataset.dia === '' && d === null) || Number(b.dataset.dia) === d;
+      b.classList.toggle('chip--acento', suyo);
+      b.setAttribute('aria-pressed', String(suyo));
+      if (suyo) activo = b;
     });
+    // Llegando por enlace a #/mapa/8 el chip del día estaba a 444 px en una pantalla de 402:
+    // el mapa saltaba a otro encuadre y ningún filtro parecía puesto.
+    if (activo) activo.scrollIntoView({ inline: 'center', block: 'nearest' });
 
     const visibles = visiblesDe(d);
-    capaEtiquetas.innerHTML = colocarEtiquetas(paradas, visibles, d, W, H).map(e =>
-      `<text class="mapa-etiqueta" x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}"
-             text-anchor="${e.anclaje}">${esc(e.texto)}</text>`).join('');
-
     if (encuadrar) {
       if (d === null) zoom.reiniciar();
       else zoom.encuadrar(caja(visibles.map(v => v.c)));
     }
+    // Las etiquetas se reparten DESPUÉS de encuadrar: su tamaño en unidades del SVG depende
+    // de la escala final, y repartirlas antes reservaba huecos de otro mapa.
+    capaEtiquetas.innerHTML = colocarEtiquetas(paradas, visibles, d, W, H, zoom.escala()).map(e =>
+      `<text class="mapa-etiqueta" x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}"
+             text-anchor="${e.anclaje}">${esc(e.texto)}</text>`).join('');
+
     satelite.encuadrar(visibles, d);
   }
 
-  mapaVivo = { dia: null, filtrar, cerrar: () => { satelite.cerrar(); mapaVivo = null; } };
+  mapaVivo = { dia: null, filtrar, cerrar: () => { satelite.cerrar(); zoom.destruir(); mapaVivo = null; } };
   filtrar(dia, { encuadrar: dia !== null });
 
   // Un solo juego de botones para las dos vistas: si el satélite está encendido, mandan sobre
@@ -677,24 +709,44 @@ function verMochila() {
 
 // ---- Arranque ----
 
+// Emergencias es la única pantalla que NO lee `datos`: los cuatro teléfonos están escritos
+// aquí arriba. Así que es la única que sigue funcionando si el itinerario no carga — que es
+// justo el caso que importa: la caché desalojada por iOS, en Puno y sin cobertura.
+const SIN_DATOS = new Set(['emergencias']);
+
+function verSinDatos() {
+  pintar(`
+    <div class="tarjeta">
+      <p>No se pudieron cargar los datos del viaje. Puede ser un despliegue a medias o la
+         caché del móvil; los teléfonos de emergencia siguen funcionando igual.</p>
+      <p><button type="button" class="chip chip--acento" data-reintentar>Reintentar</button></p>
+      <p><a href="#/emergencias">Teléfonos de emergencia →</a></p>
+    </div>`);
+  app.querySelector('[data-reintentar]').addEventListener('click', async (e) => {
+    e.target.disabled = true;
+    if (await cargarDatos()) ir(); else verSinDatos();
+  });
+}
+
+async function cargarDatos() {
+  try { datos = await cargar(); return true; } catch (e) { console.error(e); return false; }
+}
+
 async function ir() {
   const { nombre, arg } = ruta();
   marcarNav(nombre);
-  document.body.classList.toggle('ruta-mapa', nombre === 'mapa');
+  document.body.classList.toggle('ruta-mapa', nombre === 'mapa' && Boolean(datos));
   if (nombre !== 'mapa' && mapaVivo) mapaVivo.cerrar();
+  if (!datos && !SIN_DATOS.has(nombre)) return verSinDatos();
   RUTAS[nombre](arg);
 }
 
 async function init() {
   pintarNav();
-  try {
-    datos = await cargar();
-  } catch (e) {
-    app.innerHTML = '<div class="tarjeta"><p>No se pudieron cargar los datos del viaje.</p></div>';
-    console.error(e);
-    return;
-  }
+  // El router se registra ANTES de cargar: si el `await` falla, la barra de abajo tiene que
+  // seguir navegando. Antes el `catch` hacía `return` aquí y se llevaba por delante el SOS.
   window.addEventListener('hashchange', ir);
+  await cargarDatos();
   ir();
 }
 
