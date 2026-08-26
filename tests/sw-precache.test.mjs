@@ -20,7 +20,9 @@ test('todo el js, css y data está en ASSETS', () => {
   const esperados = [
     ...ficherosDe('js/', '.js'),
     ...ficherosDe('css/', '.css'),
-    ...ficherosDe('data/', '.json'),
+    // `data/fotos/` queda fuera: son insumos del pipeline (candidatas y veredictos de la
+    // revisión visual), no datos que la app cargue. Lo que sí carga es data/fotos.json.
+    ...ficherosDe('data/', '.json').filter(f => !f.startsWith('data/fotos/')),
     // Fuentes e iconos también: una fuente que no está precacheada convierte la app en
     // Times New Roman en el Colca, y un icono ausente rompe la pantalla de instalación.
     ...ficherosDe('fonts/', '.woff2'),

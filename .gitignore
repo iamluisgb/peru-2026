@@ -6,3 +6,6 @@ node_modules/
 # que no se cuele por accidente.
 data/personal*.json
 *.privado.json
+
+# Insumos del pipeline de fotos: se conservan porque documentan de dónde salió cada imagen.
+# (No se ignoran; esta nota está para que quede claro que NO son datos de la app.)

@@ -6,7 +6,7 @@
 // Al tocar cualquier fichero de ASSETS hay que SUBIR CACHE_NAME, o los móviles ya instalados
 // se quedan con la versión vieja. tests/sw-precache.test.mjs vigila que la lista no se quede
 // corta: en bookreader ya se desincronizó una vez.
-const CACHE_NAME = 'peru-v22';
+const CACHE_NAME = 'peru-v23';
 
 const ASSETS = [
   './',
@@ -27,6 +27,7 @@ const ASSETS = [
   './data/avisos.json',
   './data/cultura.json',
   './data/coordenadas.json',
+  './data/fotos.json',
   './data/mapa.json',
   './data/guia/cusco.json',
   './data/guia/transversales.json',
@@ -53,6 +54,10 @@ const ASSETS = [
   './icons/apple-touch-icon.png'
 ];
 
+// img/ tampoco entra: son 3,5 MB de fotos. El manifiesto (data/fotos.json) SÍ, porque pesa
+// nada y decide qué se pinta; las imágenes se piden perezosas y el navegador las cachea por
+// HTTP. Sin red la ficha se ve igual, sin foto — que es el trato desde el principio.
+//
 // vendor/ (MapLibre, 784 KB) NO entra en ASSETS a propósito: son 784 KB para una vista que
 // sin cobertura no puede funcionar de todos modos. Se pide sólo si el atleta pulsa Satélite,
 // y el navegador la cachea por HTTP como cualquier otro recurso.
