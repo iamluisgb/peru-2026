@@ -29,6 +29,7 @@ export async function cargar() {
       ruta: Object.fromEntries(mapa.ruta.map(r => [r.id, r])),
       puntos: mapa.puntos,
       viewBox: mapa.viewBox,
+      contorno: mapa.contorno,
     },
     fichas: Object.fromEntries(guias.flatMap(g => g.fichas.map(f => [f.id, f]))),
   };

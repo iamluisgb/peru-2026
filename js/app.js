@@ -286,7 +286,7 @@ function verMapa(arg) {
     .map(f => f.dia))].sort((a, b) => a - b);
   const activo = diasConPuntos.includes(parseInt(arg, 10)) ? parseInt(arg, 10) : null;
 
-  const { ruta, puntos, viewBox } = datos.mapa;
+  const { ruta, puntos, viewBox, contorno } = datos.mapa;
   // data/mapa.json trae `w`/`h` en minúscula. Desestructurar `{ W, H }` daba undefined, y de
   // ahí salían un viewBox inválido y toda la geometría en NaN: el mapa no se dibujaba.
   const { w: W, h: H } = viewBox;
@@ -296,23 +296,6 @@ function verMapa(arg) {
     .map(p => ({ p, c: ruta[p.id] }))
     .filter(x => x.c);
   const linea = paradas.map((x, i) => `${i ? 'L' : 'M'}${x.c.x} ${x.c.y}`).join(' ');
-
-  // Fondo de cordillera. Antes se generaba desde las altitudes de las paradas: idea bonita,
-  // forma mala —picos sueltos y un hueco a la izquierda, porque empezaba en la primera
-  // parada en vez de en el borde—. Aquí es DECORACIÓN y se asume como tal: una cresta
-  // continua de borde a borde, determinista (misma semilla, mismo dibujo) y en dos capas
-  // para dar profundidad. Los datos de altitud ya se cuentan en la pantalla de Altura.
-  function cresta(base, amplitud, pasos, semilla) {
-    let n = semilla;
-    const aleatorio = () => (n = (n * 1103515245 + 12345) % 2147483648) / 2147483648;
-    const cima = [];
-    for (let i = 0; i <= pasos; i++) {
-      // Dos ondas de distinta frecuencia más ruido: ni dientes iguales ni caos.
-      const onda = Math.sin(i * 1.1) * 0.35 + Math.sin(i * 0.43) * 0.4 + aleatorio() * 0.25;
-      cima.push([(i / pasos) * W, base - amplitud * (0.45 + onda * 0.55)]);
-    }
-    return `M 0 ${H} L ${cima.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(' L ')} L ${W} ${H} Z`;
-  }
 
   // Colocación de etiquetas sin solapes. Colca y Patapampa están a cuatro píxeles y sus
   // nombres se pisaban ("PaseSampa"); el racimo de Cusco era ilegible. Se prueban cuatro
@@ -408,24 +391,23 @@ function verMapa(arg) {
       <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" role="img"
            aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
         <defs>
-          <clipPath id="recorte"><rect x="0" y="0" width="${W}" height="${H}" rx="12"/></clipPath>
+          <clipPath id="marco"><rect x="0" y="0" width="${W}" height="${H}" rx="12"/></clipPath>
         </defs>
-        <g clip-path="url(#recorte)">
-          <rect class="mapa-fondo" x="0" y="0" width="${W}" height="${H}"/>
-          <path class="mapa-sierra--lejana" d="${cresta(H * 0.80, H * 0.34, 26, 7)}"/>
-          <path class="mapa-sierra--cercana" d="${cresta(H * 1.0, H * 0.26, 20, 31)}"/>
+        <g clip-path="url(#marco)">
+          <rect class="mapa-mar" x="0" y="0" width="${W}" height="${H}"/>
+          ${contorno.map(d => `<path class="mapa-pais" d="${d}"/>`).join('')}
         </g>
         <path class="mapa-ruta" d="${linea}"/>
 
-        ${paradas.map(({ p, c }) => `
-          <circle class="mapa-parada" data-nivel="${nivelAltitud(p.altitud_m)}"
-                  cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? 2.8 : 5}"/>`).join('')}
-
         ${visibles.map(({ id, c, f }) => `
           <a class="mapa-ficha" href="#/guia/${esc(id)}" aria-label="${esc(f.nombre)}">
-            <circle cx="${c.x}" cy="${c.y}" r="${activo === null ? 2.6 : 4.5}"/>
+            <circle cx="${c.x}" cy="${c.y}" r="${activo === null ? 2.8 : 4.2}"/>
             <title>${esc(f.nombre)}</title>
           </a>`).join('')}
+
+        ${paradas.map(({ p, c }) => `
+          <circle class="mapa-parada" data-nivel="${nivelAltitud(p.altitud_m)}"
+                  cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? 3 : 5.5}"/>`).join('')}
 
         ${etiquetas.map(e => `
           <text class="mapa-etiqueta" x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}"

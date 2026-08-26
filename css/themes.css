@@ -50,9 +50,9 @@
   --surface-2: #ffffff;
   --surface-3: #f1efec;
   /* Fondo del mapa SVG: tierra de los Andes, tema claro */
+  --mapa-mar: #eef2f4;
+  --mapa-costa: #cfd6da;
   --mapa-tierra: #f7f2ea;
-  --mapa-sierra-lejana: #efe4d3;
-  --mapa-sierra-cercana: #e4d5ba;
   --text: #1f2328;
   --text-soft: #6b7280;
   --text-faint: #9aa1ab;
@@ -86,9 +86,9 @@
   --surface-2: #26221d;
   --surface-3: #322c26;
   /* Fondo del mapa SVG: tierra de los Andes, tema oscuro */
-  --mapa-tierra: #1a1711;
-  --mapa-sierra-lejana: #262017;
-  --mapa-sierra-cercana: #312a1e;
+  --mapa-mar: #14171a;
+  --mapa-costa: #3b4348;
+  --mapa-tierra: #24201a;
   --text: #f4f2ef;
   --text-soft: #b0a89f;
   --text-faint: #837b73;
@@ -128,9 +128,9 @@
     --surface-2: #26221d;
     --surface-3: #322c26;
     /* Fondo del mapa SVG: tierra de los Andes, por sistema (oscuro) */
-    --mapa-tierra: #1a1711;
-    --mapa-sierra-lejana: #262017;
-    --mapa-sierra-cercana: #312a1e;
+    --mapa-mar: #14171a;
+    --mapa-costa: #3b4348;
+    --mapa-tierra: #24201a;
     --text: #f4f2ef;
     --text-soft: #b0a89f;
     --text-faint: #837b73;

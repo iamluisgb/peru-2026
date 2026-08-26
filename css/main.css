@@ -334,9 +334,9 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
    y a 400 px justas. Se topa el ancho para que el factor de escala se mueva poco (≈1,2-1,4)
    y las etiquetas se lean igual en móvil y en escritorio. */
 .mapa-svg { width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto; }
-.mapa-fondo { fill: var(--mapa-tierra); }
-.mapa-sierra--lejana { fill: var(--mapa-sierra-lejana); }
-.mapa-sierra--cercana { fill: var(--mapa-sierra-cercana); }
+/* El mar es el fondo de la tarjeta; el país, la silueta real de Perú proyectada. */
+.mapa-mar { fill: var(--mapa-mar); }
+.mapa-pais { fill: var(--mapa-tierra); stroke: var(--mapa-costa); stroke-width: 0.6; }
 
 .mapa-ruta {
   fill: none; stroke: var(--accent); stroke-width: 1.6;
@@ -345,12 +345,10 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
   stroke-dasharray: 5 3; opacity: 0.85;
 }
 
-/* Las paradas son el esqueleto: círculo relleno con halo del fondo para que se despeguen
-   de la ruta y de los puntos de sitio. */
-.mapa-parada { stroke: var(--surface-2); stroke-width: 1.8; }
-.mapa-parada[data-nivel="baja"]  { fill: var(--altitud-baja); }
-.mapa-parada[data-nivel="media"] { fill: var(--altitud-media); }
-.mapa-parada[data-nivel="alta"]  { fill: var(--altitud-alta); }
+/* Dos niveles y sólo dos: las paradas mandan (disco lleno con halo) y los sitios son
+   satélites (aro fino). Colorear las paradas por altitud repetía lo que ya cuenta la
+   pantalla de Altura y aquí sólo añadía ruido de color. */
+.mapa-parada { fill: var(--accent); stroke: var(--mapa-tierra); stroke-width: 1.6; }
 
 .mapa-ficha { cursor: pointer; }
 .mapa-ficha circle {
@@ -364,7 +362,7 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
    sierra sin necesidad de una caja de fondo. */
 .mapa-etiqueta {
   font-family: var(--font-ui); font-size: 8px; font-weight: 600;
-  fill: var(--text-soft); stroke: var(--mapa-tierra); stroke-width: 2.2;
+  fill: var(--text-soft); stroke: var(--mapa-tierra); stroke-width: 2.4;
   paint-order: stroke fill; pointer-events: none;
 }
 
