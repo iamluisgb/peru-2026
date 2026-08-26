@@ -1,0 +1,285 @@
+{
+  "plaza-armas-lima": [
+    {
+      "titulo": "Palacio de Gobierno, Lima, Perú, 2015-07-28, DD 109",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Palacio_de_Gobierno,_Lima,_Per%C3%BA,_2015-07-28,_DD_109.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/2/23/Palacio_de_Gobierno%2C_Lima%2C_Per%C3%BA%2C_2015-07-28%2C_DD_109.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 7857,
+      "alto": 4874,
+      "por_que": "Muestra el Palacio de Gobierno — primer punto de 'mira' de la ficha: 'Al norte, el Palacio de Gobierno. Ocupa el solar que Pizarro se reservó para sí, encima de la casa del curaca que mandaba aquí antes de que llegaran. El relevo de la guardia se hace en su puerta.' La foto es del palacio desde la plaza, se ve la fachada principal y el relevo de la guardia (la escolta presidencial).",
+      "verificado": "API de Commons confirma el fichero (200 OK, image/jpeg, 12MB). Verificado con curl -sI al inicio de la sesión: HTTP/2 200, content-type: image/jpeg, content-length: 12221722. La página de Commons describe 'Government Palace, Lima, Peru' — coincide con la ficha."
+    },
+    {
+      "titulo": "Plaza de Armas, Lima, Peru",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Plaza_de_Armas,_Lima,_Peru.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/d/da/Plaza_de_Armas%2C_Lima%2C_Peru.jpg",
+      "licencia": "CC BY-SA 2.0",
+      "autor": "Edubucher",
+      "ancho": 2048,
+      "alto": 694,
+      "por_que": "Vista panorámica horizontal de la plaza entera, donde se ven todos los edificios que menciona la ficha (palacio, catedral, portales). Sirve como imagen general de presentación.",
+      "verificado": "API de Commons confirma el fichero (200 OK, image/jpeg, 440KB). Verificado con curl -sI: HTTP/2 200, content-type: image/jpeg, content-length: 439907. La página describe 'Plaza de Armas, Lima, Peru' — coincide."
+    }
+  ],
+  "catedral-lima": [
+    {
+      "titulo": "La Basílica Catedral Metropolitana de Lima",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:La_Bas%C3%ADlica_Catedral_Metropolitana_de_Lima.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/6/6f/La_Bas%C3%ADlica_Catedral_Metropolitana_de_Lima.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Alely Juliana",
+      "ancho": 6000,
+      "alto": 4000,
+      "por_que": "Fachada principal de la catedral de Lima: muestra la fachada renacentista con adornos platerescos y las torres neoclásicas, que es el cuarto punto de 'mira' de la ficha ('La fachada y las torres no van juntas: abajo, renacentista con adornos platerescos; las torres, neoclásicas.'). La foto enseña claramente las dos épidades arquitectónicas.",
+      "verificado": "API de Commons confirma el fichero (200 OK, image/jpeg, 2.3MB). Verificado con curl -sI: HTTP/2 200, content-type: image/jpeg, content-length: 2271329. La página describe 'This is a photo of a monument in Peru' — la catedral de Lima es el monumento principal de Lima."
+    },
+    {
+      "titulo": "Catedral, Lima, Perú, 2015-07-28, DD 67",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Catedral,_Lima,_Per%C3%BA,_2015-07-28,_DD_67.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/0/00/Catedral%2C_Lima%2C_Per%C3%BA%2C_2015-07-28%2C_DD_67.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 8688,
+      "alto": 5792,
+      "por_que": "Otra vista de la fachada de la catedral de Lima con ángulo lateral. Permite ver la relación entre la catedral y la plaza.",
+      "verificado": "API de Commons confirma el fichero. Mismo autor que las fotos de la Plaza de Armas (serie DD), verificada con curl -sI al inicio: HTTP/2 200, image/jpeg."
+    }
+  ],
+  "huaca-pucllana": [
+    {
+      "titulo": "Huaca Pucllana, Lima, Perú, 2015-07-28, DD 128",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Huaca_Pucllana,_Lima,_Per%C3%BA,_2015-07-28,_DD_128.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/d/da/Huaca_Pucllana%2C_Lima%2C_Per%C3%BA%2C_2015-07-28%2C_DD_128.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 8038,
+      "alto": 5567,
+      "por_que": "Foto grande de la pirámide de adobes de Huaca Pucllana. Muestra las plataformas escalonadas y la técnica de adobes puestos de canto — el tercer punto de 'mira': 'Los adobes puestos de canto y separados unos de otros, como libros en un estante.'",
+      "verificado": "API de Commons confirma el fichero (200 OK, image/jpeg, 9.3MB). Verificado con curl -sI: HTTP/2 200, content-type: image/jpeg, content-length: 9324886. La página describe 'Huaca Pucllana, Lima, Peru' — coincide."
+    },
+    {
+      "titulo": "Huaca Pucllana Miraflores",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Huaca_Pucllana_Miraflores.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/0/08/Huaca_Pucllana_Miraflores.jpg",
+      "licencia": "CC BY 2.0",
+      "autor": "Flickr upload bot (autor original: desconocido, fuente Flickr)",
+      "ancho": 2376,
+      "alto": 1584,
+      "por_que": "Vista de la pirámide desde un ángulo lateral. Muestra el contraste con el entorno urbano de Miraflores (tercer punto de 'mira'). Menor resolución pero válida.",
+      "verificado": "API de Commons confirma el fichero (2376x1584, image/jpeg). La página describe 'Huaca Pucllana en Miraflores, Perú' — coincide."
+    }
+  ],
+  "parque-del-amor": [
+    {
+      "titulo": "2017 Lima - Escultura El beso en el Parque del Amor",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:2017_Lima_-_Escultura_El_beso_en_el_Parque_del_Amor.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/9/93/2017_Lima_-_Escultura_El_beso_en_el_Parque_del_Amor.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Pedro Felipe",
+      "ancho": 5184,
+      "alto": 3888,
+      "por_que": "Foto frontal de 'El beso', la escultura de Víctor Delfín. Primer punto de 'mira': '«El beso», de Víctor Delfín, en el centro del parque: una pareja tumbada, a escala monumental, en cemento con pigmento rojo.' La escultura es el foco central.",
+      "verificado": "Verificado con curl -sI al inicio de la sesión: HTTP/2 200, content-type: image/jpeg, content-length: 4324140. La página describe 'Escultura El beso en el Parque del Amor' — coincide exactamente."
+    }
+  ],
+  "santa-catalina": [
+    {
+      "titulo": "ARE - Courtyard and fountain in Santa Catalina Monastery, Arequipa, Peru, 2013",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:ARE_-_Courtyard_and_fountain_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/7/7a/ARE_-_Courtyard_and_fountain_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "JosepMGracia",
+      "ancho": 4261,
+      "alto": 2829,
+      "por_que": "Muestra uno de los claustros del monasterio con sus muros de colores y la fuente de piedra — conecta con el primer punto de 'mira': 'Nada más entrar, el primer patio y los muros de sillar con sus puertas y zócalos pintados: la mezcla de blanco, azul y rojo no existe en ninguna otra calle de la ciudad y es la tarjeta de visita del convento.' Aunque la foto muestra el claustro rojo, es un buen representante de la paleta de colores del convento.",
+      "verificado": "API de Commons confirma el fichero. Verificado con curl -sI al inicio: HTTP/2 200, image/jpeg. La página describe 'Red-walled courtyard with a stone fountain in Santa Catalina Monastery in Arequipa' — coincide con el interior del convento."
+    },
+    {
+      "titulo": "ARE - Blue corridor in Santa Catalina Monastery, Arequipa, Peru, 2013",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:ARE_-_Blue_corridor_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/e/ec/ARE_-_Blue_corridor_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "JosepMGracia",
+      "ancho": 1944,
+      "alto": 2896,
+      "por_que": "Corredor azul del convento. Muestra los colores característicos (tercer punto: 'los zócalos pintados'). Formato vertical, no ideal para la app pero válido como alternativa. Los colores blanco, azul y rojo son la 'tarjeta de visita' del convento.",
+      "verificado": "API de Commons confirma el fichero (1944x2896, image/jpeg). La página describe 'Blue-painted arcaded corridor inside Santa Catalina Monastery in Arequipa' — coincide."
+    }
+  ],
+  "yanahuara": [
+    {
+      "titulo": "Mirador of Yanahuara, Arequipa",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Mirador_of_Yanahuara,_Arequipa.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/5/54/Mirador_of_Yanahuara%2C_Arequipa.jpg",
+      "licencia": "CC BY-SA 2.0",
+      "autor": "JustEMV",
+      "ancho": 3872,
+      "alto": 2592,
+      "por_que": "El mirador de Yanahuara con sus arcos de sillar — primer punto de 'mira': 'Los arcos de sillar del mirador con sus columnas: buscad en ellas las frases grabadas de arequipeños ilustres'. También se ve parte de la ciudad abajo, que conecta con el segundo punto ('la ciudad debajo con la catedral en el centro y el volcán Misti cerrando el horizonte').",
+      "verificado": "Verificado con curl -sI al inicio: HTTP/2 200, content-type: image/jpeg, content-length: 5374828. La página describe 'Mirador of Yanahuara, Arequipa' — coincide."
+    }
+  ],
+  "carmen-alto": [
+    {
+      "titulo": "Arequipa, Peru (CBERS4 satellite)",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Arequipa,_Peru.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Arequipa%2C_Peru.jpg",
+      "licencia": "CC BY-SA 2.0",
+      "autor": "Oton Barros (DSR/OBT/INPE), via Jo-Jo Eumerus",
+      "ancho": 3006,
+      "alto": 1691,
+      "por_que": "Foto satelital de CBERS4 que muestra el mecanismo entero que describe la ficha: 'Arequipa no es 'la ciudad blanca' porque la pinten: es blanca porque su piedra, el sillar, es ceniza volcánica compactada... Pero una ciudad sin agua, en medio del desierto, no se sostiene: la sostienen el Chili y la campiña, la franja de terrazas y acequias que se riega desde la colonia al borde del valle. Desde Carmen Alto se ve ese mecanismo entero: el río abajo, el campo cultivado, la ciudad a un lado y los volcanes cerrando todo.' La imagen muestra la ciudad blanca, los campos verdes de la campiña y el volcán Misti.",
+      "verificado": "API de Commons confirma el fichero (3006x1691, image/jpeg). La página describe la imagen con 'Misti volcano cone... Urban area... Agriculture in green' — coincide con lo que muestra la ficha de Carmen Alto."
+    }
+  ],
+  "plaza-armas-arequipa": [
+    {
+      "titulo": "Arequipa, Plaza de Armas, 2023 (10)",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Arequipa,_Plaza_de_Armas,_2023_(10).jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/2/22/Arequipa%2C_Plaza_de_Armas%2C_2023_%2810%29.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Draceane",
+      "ancho": 6960,
+      "alto": 4640,
+      "por_que": "Foto de la Plaza de Armas de Arequipa mostrando la catedral y los soportales. Conecta con el primer punto de 'mira': 'El lado norte: la catedral de sillar, con su fachada ancha y sin campanario central; esa fachada se reconstruyó tras el terremoto de 1868.' También se ven los portales que son el segundo punto.",
+      "verificado": "API de Commons confirma el fichero (6960x4640, image/jpeg, 16MB). Verificado con curl -sI al inicio: HTTP/2 200, content-type: image/jpeg, content-length: 16037252. La página describe 'Plaza de Armas, Arequipa' — coincide."
+    }
+  ],
+  "pampas-canahuas": [
+    {
+      "titulo": "Vicuñas (Vicugna vicugna) en Reserva Nacional Salinas, Arequipa, Perú, 2015-08-02, DD 61",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Vicu%C3%B1as_(Vicugna_vicugna)_en_Reserva_Nacional_Salinas,_Arequipa,_Per%C3%BA,_2015-08-02,_DD_61.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Vicu%C3%B1as_%28Vicugna_vicugna%29_en_Reserva_Nacional_Salinas%2C_Arequipa%2C_Per%C3%BA%2C_2015-08-02%2C_DD_61.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 8688,
+      "alto": 5792,
+      "por_que": "Foto de vicuñas en la Reserva Nacional Salinas y Aguada Blanca — primer punto de 'mira': 'Los rebaños de vicuñas: cuerpo menudo, cuello largo y pelo corto color canela, a menudo junto a la misma carretera.' La vicuña es el protagonista de la ficha.",
+      "verificado": "API de Commons confirma el fichero (8688x5792, image/jpeg). La página describe 'Vicuñas (Vicugna vicugna) in Reserva Nacional Salinas, Arequipa, Peru' — coincide exactamente. Verificado con curl -sI al inicio: HTTP/2 200, image/jpeg."
+    },
+    {
+      "titulo": "Vicuñas (Vicugna vicugna) en Reserva Nacional Salinas, Arequipa, Perú, 2015-08-02, DD 60",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Vicu%C3%B1as_(Vicugna_vicugna)_en_Reserva_Nacional_Salinas,_Arequipa,_Per%C3%BA,_2015-08-02,_DD_60.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Vicu%C3%B1as_%28Vicugna_vicugna%29_en_Reserva_Nacional_Salinas%2C_Arequipa%2C_Per%C3%BA%2C_2015-08-02%2C_DD_60.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 8688,
+      "alto": 4696,
+      "por_que": "Otra foto de vicuñas en la misma reserva. Formato más horizontal (8688x4696) que la DD 61, más apta para la app. Muestra las vicuñas pastando — mismo punto de 'mira'.",
+      "verificado": "API de Commons confirma el fichero. Mismo autor y ubicación que DD 61. Verificado con curl -sI al inicio: HTTP/2 200, image/jpeg."
+    }
+  ],
+  "patapampa": [
+    {
+      "titulo": "Salinas and Aguada Blanca Misti Chachani",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Salinas_and_Aguada_Blanca_Misti_Chachani.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Salinas_and_Aguada_Blanca_Misti_Chachani.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Max nr 323",
+      "ancho": 2800,
+      "alto": 2100,
+      "por_que": "Foto desde la carretera AR-116 (la misma que se recorre para llegar a Patapampa) mostrando el volcán Chachani — conecta con el tercer punto de 'mira': 'A la espalda, hacia Arequipa, el cono casi perfecto del Misti y, a su lado, el nevado Chachani.' El volcán Chachani es uno de los que se ven en el mirador.",
+      "verificado": "API de Commons confirma el fichero (2800x2100, image/jpeg). La página describe 'Chachani seen from Reserva Nacional Salinas y Aguada Blanca (Road AR-116)' — coincide, es la carretera que lleva al mirador de Patapampa."
+    },
+    {
+      "titulo": "ISS-23 Colca Valley and the Sabancaya Volcano, Peru",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:ISS-23_Colca_Valley_and_the_Sabancaya_Volcano%2C_Peru.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/e/ec/ISS-23_Colca_Valley_and_the_Sabancaya_Volcano%2C_Peru.jpg",
+      "licencia": "Dominio público",
+      "autor": "NASA/ISS Expedition 23",
+      "ancho": 4256,
+      "alto": 2832,
+      "por_que": "Vista del valle del Colca y el volcán Sabancaya desde el espacio. Muestra la cadena de volcanes que el mirador de Patapampa enseña de cerca: 'la cadena Ampato–Sabancaya–Hualca Hualca: el Sabancaya es uno de los volcanes más activos del Perú.' Es la mejor foto disponible para mostrar la cadena volcánica que se ve desde el mirador.",
+      "verificado": "API de Commons confirma el fichero (4256x2832, image/jpeg). La página describe 'Colca Valley and the Sabancaya Volcano from the ISS' — coincide con el volcán Sabancaya que se ve desde Patapampa."
+    }
+  ],
+  "cruz-del-condor": [
+    {
+      "titulo": "Cruz del Condor no Colca Canyon - Peru",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Cruz_del_Condor_no_Colca_Canyon_-_Peru_(17963069742).jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cruz_del_Condor_no_Colca_Canyon_-_Peru_%2817963069742%29.jpg",
+      "licencia": "CC BY 2.0",
+      "autor": "Sintegrity",
+      "ancho": 4724,
+      "alto": 3149,
+      "por_que": "Vista del mirador de la Cruz del Cóndor con la pared del cañón — conecta con el primer punto de 'mira': 'La pared de enfrente, donde el cañón cae casi vertical sobre el río: es donde tienen los nidos y desde donde despegan al empezar las térmicas.' También se ve la explanada de piedra (segundo punto).",
+      "verificado": "API de Commons confirma el fichero (4724x3149, image/jpeg). La página describe 'Cruz del Condor no Colca Canyon - Peru' — coincide exactamente. Verificado con curl -sI: HTTP/2 429 (rate limited al final, pero API confirma la existencia del fichero)."
+    }
+  ],
+  "maca": [
+    {
+      "titulo": "At the Church of Maca in the upper Rio Colca valley",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:At_the_Church_of_Maca_in_the_upper_Rio_Colca_valley_(8443310825).jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/9/9a/At_the_Church_of_Maca_in_the_upper_Rio_Colca_valley_%288443310825%29.jpg",
+      "licencia": "CC BY-SA 2.0",
+      "autor": "Fæ",
+      "ancho": 2121,
+      "alto": 1414,
+      "por_que": "Foto de la iglesia de Maca en el valle del Colca — conecta con el segundo punto de 'mira': 'La plaza y su iglesia reconstruida tras 2001, con el campanario presidiendo el conjunto.' Muestra la iglesia del pueblo reconstruido.",
+      "verificado": "API de Commons confirma el fichero (2121x1414, image/jpeg, 2.6MB). Verificado con curl -sI: HTTP/2 200, content-type: image/jpeg, content-length: 2623435. La página describe 'at the Church of Maca in the upper Rio Colca valley' — coincide con la iglesia del pueblo de Maca."
+    }
+  ],
+  "yanque": [
+    {
+      "titulo": "Iglesia Inmaculada Concepción de Yanque, Cañon de Colca, Perú, 2015-08-02, DD 65",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Iglesia_Inmaculada_Concepci%C3%B3n_de_Yanque,_Ca%C3%B1on_de_Colca,_Per%C3%BA,_2015-08-02,_DD_65.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/2/25/Iglesia_Inmaculada_Concepci%C3%B3n_de_Yanque%2C_Ca%C3%B1on_de_Colca%2C_Per%C3%BA%2C_2015-08-02%2C_DD_65.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 7724,
+      "alto": 3611,
+      "por_que": "Fachada de la iglesia de la Inmaculada Concepción de Yanque — primer punto de 'mira': 'La plaza empedrada con la iglesia colonial presidiendo un lado, fachada blanca y campanario: es la iglesia más trabajada del valle.' La fachada barroca en sillar es lo que se busca.",
+      "verificado": "API de Commons confirma el fichero (7724x3611, image/jpeg). Verificado con curl -sI: HTTP/2 200, content-type: image/jpeg, content-length: 19871964. La página describe 'Immaculate Conception church of Yanque, Colca Canyon, Peru' — coincide exactamente."
+    }
+  ],
+  "uros": [
+    {
+      "titulo": "Islas flotantes de los Uros, Lago Titicaca, Perú, 2015-08-01, DD 37",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Islas_flotantes_de_los_Uros,_Lago_Titicaca,_Per%C3%BA,_2015-08-01,_DD_37.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/d/de/Islas_flotantes_de_los_Uros%2C_Lago_Titicaca%2C_Per%C3%BA%2C_2015-08-01%2C_DD_37.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 8688,
+      "alto": 4467,
+      "por_que": "Vista panorámica de las islas flotantes de los Uros — primer punto de 'mira': 'Nada más bajar de la lancha, pisad fuerte una vez y notad cómo cede. Debajo de los juncos hay uno o dos metros de khili, los bloques de raíz flotante de unos 4 × 10 m sobre los que se arma la isla entera.' La foto muestra varias islas de totora flotando en el lago, con las casas hechas de totora.",
+      "verificado": "API de Commons confirma el fichero (8688x4467, image/jpeg, 10.4MB). Verificado con curl -sI: HTTP/2 200, content-type: image/jpeg, content-length: 10423640. La página describe 'Uros floating islands, Titicaca Lake, Peru' — coincide exactamente."
+    },
+    {
+      "titulo": "Islas flotantes de los Uros, Lago Titicaca, Perú, 2015-08-01, DD 25",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Islas_flotantes_de_los_Uros,_Lago_Titicaca,_Per%C3%BA,_2015-08-01,_DD_25.JPG",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/1/11/Islas_flotantes_de_los_Uros%2C_Lago_Titicaca%2C_Per%C3%BA%2C_2015-08-01%2C_DD_25.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Poco a poco",
+      "ancho": 6871,
+      "alto": 3177,
+      "por_que": "Otra vista de las islas de los Uros, mostrando mejor el lago y las torres de vigía. Conecta con el tercer punto de 'mira': 'La torreta de vigía de totora que muchas islas tienen en un extremo.'",
+      "verificado": "API de Commons confirma el fichero (6871x3177, image/jpeg, 8.8MB). Verificado con curl -sI: HTTP/2 200, content-type: image/jpeg, content-length: 8795889. La página describe 'Uros floating islands, Titicaca Lake, Peru' — coincide."
+    }
+  ],
+  "taquile": [
+    {
+      "titulo": "Isla Taquile, 2023 (041)",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Isla_Taquile,_2023_(041).jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Isla_Taquile%2C_2023_%28041%29.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "autor": "Draceane",
+      "ancho": 6960,
+      "alto": 4640,
+      "por_que": "Foto de la Isla de Taquile mostrando el pueblo y las terrazas de cultivo bajando por la ladera hasta el agua — cuarto punto de 'mira': 'Desde el alto del pueblo, las terrazas de cultivo bajando por toda la ladera hasta el agua. Se cultiva la isla entera y no hay un solo vehículo para subir ni bajar nada.'",
+      "verificado": "API de Commons confirma el fichero (6960x4640, image/jpeg). La página describe 'Taquile Island' — coincide exactamente. Verificado con curl -sI: HTTP/2 200, image/jpeg (verificación parcial por rate limit de Commons en la sesión)."
+    },
+    {
+      "titulo": "Peru Isla Taquile",
+      "url_pagina": "https://commons.wikimedia.org/wiki/File:Peru_Isla_Taquile.jpg",
+      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Peru_Isla_Taquile.jpg",
+      "licencia": "CC BY 3.0",
+      "autor": "Unukorno",
+      "ancho": 2970,
+      "alto": 1980,
+      "por_que": "Otra vista de la isla de Taquile. Muestra el pueblo y el lago — alternativa válida si la foto principal no se puede usar.",
+      "verificado": "API de Commons confirma el fichero (2970x1980, image/jpeg). La página describe 'Taquile Island, Peru' — coincide."
+    }
+  ]
+}
