@@ -425,6 +425,7 @@ function verMapa(arg) {
         </div>
         <div class="mapa-botones">
           <button type="button" data-sat aria-pressed="false" title="Vista satélite">◎</button>
+          <button type="button" data-3d aria-pressed="false" title="Relieve en 3D" hidden>3D</button>
           <button type="button" data-zoom="mas" aria-label="Acercar">+</button>
           <button type="button" data-zoom="menos" aria-label="Alejar">−</button>
           <button type="button" data-zoom="reset" aria-label="Ver todo">⤢</button>
@@ -519,7 +520,9 @@ function verMapa(arg) {
   // él; si no, sobre el SVG. Dos juegos de controles para lo mismo es un control de más.
   app.querySelector('.mapa-botones').addEventListener('click', (e) => {
     const b = e.target.closest('button');
-    if (!b || !b.dataset.zoom) return;
+    if (!b) return;
+    if (b.hasAttribute('data-3d')) { satelite.alternar3D(); return; }
+    if (!b.dataset.zoom) return;
     if (satelite.encendido()) satelite.zoom(b.dataset.zoom, mapaVivo.dia);
     else ({ mas: zoom.acercar, menos: zoom.alejar, reset: zoom.reiniciar })[b.dataset.zoom]();
   });
@@ -581,6 +584,9 @@ function abrirHoja(id) {
 
 function montarBotonSatelite() {
   const boton = app.querySelector('[data-sat]');
+  // El 3D sólo aparece con el satélite puesto: el relieve sin fotos encima es un bulto gris,
+  // y el mapa base es un esquema plano donde inclinar la cámara no significa nada.
+  const boton3D = app.querySelector('[data-3d]');
   const nota = app.querySelector('.mapa-nota');
   const svg = app.querySelector('.mapa-svg');
   const lienzo = app.querySelector('.sat-lienzo');
@@ -595,6 +601,8 @@ function montarBotonSatelite() {
     lienzo.hidden = true;
     svg.hidden = false;
     boton.setAttribute('aria-pressed', 'false');
+    boton3D.hidden = true;
+    boton3D.setAttribute('aria-pressed', 'false');
   }
 
   boton.addEventListener('click', async () => {
@@ -616,6 +624,7 @@ function montarBotonSatelite() {
         alPulsar: abrirHoja,
       });
       boton.setAttribute('aria-pressed', 'true');
+      boton3D.hidden = false;
       avisar('');
     } catch {
       apagar();
@@ -633,6 +642,10 @@ function montarBotonSatelite() {
       if (mapa) mapa.enfocar(visibles, dia);
     },
     encendido: () => Boolean(mapa),
+    alternar3D() {
+      if (!mapa) return;
+      boton3D.setAttribute('aria-pressed', String(mapa.tres_d()));
+    },
     zoom(accion, dia) {
       if (!mapa) return;
       if (accion === 'mas') mapa.zoomIn();
