@@ -282,6 +282,66 @@ function verAltura() {
 // que la silueta del hero). Las teselas de un proveedor no sirven: son imágenes con color
 // fijo —no siguen el tema— y además red, que es justo lo que no hay en el Colca ni en el
 // Titicaca (BACKLOG v2). Las transversales no están en ningún sitio: no van al mapa.
+// El mapa ocupa la pantalla entera y sus controles van DENTRO, superpuestos. Un mapa metido
+// en una tarjeta de 460 px, con los filtros arriba y los botones debajo, obliga a mirar en
+// tres sitios para hacer una cosa. Aquí el mapa es la pantalla.
+// Colocación de etiquetas sin solapes, ni entre ellas ni sobre los círculos. Se prueban ocho
+// direcciones por dos distancias y se coge la primera libre; si ninguna lo está, no se dibuja.
+// Perder una etiqueta es mejor que superponer dos: dos superpuestas no se leen ninguna.
+function colocarEtiquetas(paradas, visibles, activo, W, H) {
+  // Prioridad: el primero que pide sitio se lo queda. Machu Picchu y Aguas Calientes están
+  // pegados y sólo cabe un nombre entre los dos; sin esto ganaba Aguas Calientes por ir antes
+  // en el itinerario, y el mapa del viaje se quedaba sin el nombre del sitio al que va.
+  const PRIORIDAD = ['machu-picchu', 'lima', 'cusco', 'puno', 'arequipa'];
+  const peso = ({ p }) => {
+    const i = PRIORIDAD.indexOf(p.id);
+    return i === -1 ? PRIORIDAD.length : i;
+  };
+
+  const caja = (c, r) => ({ x1: c.x - r, x2: c.x + r, y1: c.y - r, y2: c.y + r });
+  const puestas = [
+    ...paradas.map(({ p, c }) => caja(c, p.solo_paso ? 3.6 : 6)),
+    ...visibles.map(({ c }) => caja(c, activo === null ? 2.8 : 4.8)),
+  ];
+
+  const items = [
+    ...paradas.filter(({ p }) => !p.solo_paso).sort((a, b) => peso(a) - peso(b))
+      .map(({ p, c }) => ({ texto: p.corto || p.nombre, x: c.x, y: c.y })),
+    ...(activo === null ? [] : visibles.map(({ c, f }) => ({ texto: f.nombre, x: c.x, y: c.y }))),
+  ];
+
+  const solapa = (a, b) => a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
+  const salida = [];
+
+  for (const it of items) {
+    const ancho = it.texto.length * 4.1 + 2;
+    const candidatos = [];
+    for (const d of [1, 1.7]) {
+      candidatos.push(
+        { dx: 0, dy: 13 * d, anclaje: 'middle' },
+        { dx: 0, dy: -9 * d, anclaje: 'middle' },
+        { dx: 8 * d, dy: 3, anclaje: 'start' },
+        { dx: -8 * d, dy: 3, anclaje: 'end' },
+        { dx: 7 * d, dy: -6 * d, anclaje: 'start' },
+        { dx: -7 * d, dy: -6 * d, anclaje: 'end' },
+        { dx: 7 * d, dy: 10 * d, anclaje: 'start' },
+        { dx: -7 * d, dy: 10 * d, anclaje: 'end' },
+      );
+    }
+    for (const c of candidatos) {
+      const x = it.x + c.dx, y = it.y + c.dy;
+      const izq = c.anclaje === 'middle' ? x - ancho / 2 : c.anclaje === 'start' ? x : x - ancho;
+      const cj = { x1: izq, x2: izq + ancho, y1: y - 8, y2: y + 3 };
+      if (cj.x1 < 2 || cj.x2 > W - 2 || cj.y1 < 2 || cj.y2 > H - 2) continue;
+      if (puestas.some(q => solapa(cj, q))) continue;
+      puestas.push(cj);
+      salida.push({ texto: it.texto, x, y, anclaje: c.anclaje });
+      break;
+    }
+  }
+  return salida;
+}
+
 function verMapa(arg) {
   const diasConPuntos = [...new Set(Object.values(datos.fichas)
     .filter(f => f.tipo !== 'transversal')
@@ -289,207 +349,174 @@ function verMapa(arg) {
   const activo = diasConPuntos.includes(parseInt(arg, 10)) ? parseInt(arg, 10) : null;
 
   const { ruta, puntos, viewBox, contorno } = datos.mapa;
-  // data/mapa.json trae `w`/`h` en minúscula. Desestructurar `{ W, H }` daba undefined, y de
-  // ahí salían un viewBox inválido y toda la geometría en NaN: el mapa no se dibujaba.
   const { w: W, h: H } = viewBox;
 
-  // Paradas en el orden del itinerario: la ruta se dibuja como se recorre, no alfabéticamente.
   const paradas = datos.itinerario.paradas
     .map(p => ({ p, c: ruta[p.id] }))
     .filter(x => x.c);
   const linea = paradas.map((x, i) => `${i ? 'L' : 'M'}${x.c.x} ${x.c.y}`).join(' ');
-
-  // Colocación de etiquetas sin solapes. Colca y Patapampa están a cuatro píxeles y sus
-  // nombres se pisaban ("PaseSampa"); el racimo de Cusco era ilegible. Se prueban cuatro
-  // posiciones por etiqueta y se coge la primera libre; si ninguna lo está, no se dibuja.
-  // Perder una etiqueta es mejor que superponer dos: dos superpuestas no se leen ninguna.
-  // `ocupado` son los círculos ya dibujados: paradas y sitios. Antes sólo se evitaba que dos
-  // etiquetas chocaran entre sí, así que caían encima de los puntos —que es lo único que el
-  // mapa tiene que dejar ver—. Un nombre tapando su propio punto es peor que no tenerlo.
-  function colocarEtiquetas(items, ocupado = []) {
-    const puestas = [...ocupado];
-    const salida = [];
-    const solapa = (a, b) =>
-      a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
-
-    for (const it of items) {
-      const ancho = it.texto.length * 4.1 + 2;
-      // Ocho direcciones y dos distancias. Con cuatro posiciones y los círculos ocupados,
-      // en el racimo de Cusco no quedaba ni un hueco y se perdían casi todas las etiquetas:
-      // el problema no era el criterio, era que había pocos sitios donde probar.
-      const candidatos = [];
-      for (const d of [1, 1.7]) {
-        candidatos.push(
-          { dx: 0, dy: 13 * d, anclaje: 'middle' },
-          { dx: 0, dy: -9 * d, anclaje: 'middle' },
-          { dx: 8 * d, dy: 3, anclaje: 'start' },
-          { dx: -8 * d, dy: 3, anclaje: 'end' },
-          { dx: 7 * d, dy: -6 * d, anclaje: 'start' },
-          { dx: -7 * d, dy: -6 * d, anclaje: 'end' },
-          { dx: 7 * d, dy: 10 * d, anclaje: 'start' },
-          { dx: -7 * d, dy: 10 * d, anclaje: 'end' },
-        );
-      }
-      for (const c of candidatos) {
-        const x = it.x + c.dx, y = it.y + c.dy;
-        const izq = c.anclaje === 'middle' ? x - ancho / 2 : c.anclaje === 'start' ? x : x - ancho;
-        const caja = { x1: izq, x2: izq + ancho, y1: y - 8, y2: y + 3 };
-        if (caja.x1 < 2 || caja.x2 > W - 2 || caja.y1 < 2 || caja.y2 > H - 2) continue;
-        if (puestas.some(q => solapa(caja, q))) continue;
-        puestas.push(caja);
-        salida.push({ texto: it.texto, x, y, anclaje: c.anclaje });
-        break;
-      }
-    }
-    return salida;
-  }
 
   const todas = Object.entries(puntos)
     .map(([id, c]) => ({ id, c, f: datos.fichas[id] }))
     .filter(x => x.f && x.f.tipo !== 'transversal');
   const visibles = activo === null ? todas : todas.filter(x => x.f.dia === activo);
 
-  // Las paradas van primero: si algo se queda sin etiqueta, que sea un sitio y no una parada.
-  // Con un día filtrado caben además los nombres de sus sitios; con los 33 a la vez, no.
-  //
-  // Y dentro de las paradas hay orden de prioridad, porque el primero que pide sitio se lo
-  // queda: Machu Picchu y Aguas Calientes están pegados y sólo cabe una etiqueta entre los
-  // dos. Sin esto ganaba Aguas Calientes por ir antes en el itinerario, y el mapa del viaje
-  // se quedaba sin el nombre del sitio al que va el viaje.
-  const PRIORIDAD = ['machu-picchu', 'lima', 'cusco', 'puno', 'arequipa'];
-  const pesoParada = ({ p }) => {
-    const i = PRIORIDAD.indexOf(p.id);
-    return i === -1 ? PRIORIDAD.length : i;
-  };
-
-  const caja = (c, r) => ({ x1: c.x - r, x2: c.x + r, y1: c.y - r, y2: c.y + r });
-  const circulos = [
-    ...paradas.map(({ p, c }) => caja(c, p.solo_paso ? 3.6 : 6)),
-    ...visibles.map(({ c }) => caja(c, activo === null ? 2.8 : 4.8)),
-  ];
-
-  const etiquetas = colocarEtiquetas([
-    ...paradas.filter(({ p }) => !p.solo_paso).sort((a, b) => pesoParada(a) - pesoParada(b))
-      .map(({ p, c }) => ({ texto: p.corto || p.nombre, x: c.x, y: c.y })),
-    ...(activo === null ? [] : visibles.map(({ c, f }) => ({ texto: f.nombre, x: c.x, y: c.y }))),
-  ], circulos);
+  const etiquetas = colocarEtiquetas(paradas, visibles, activo, W, H);
 
   const chips = [
-    `<a class="chip${activo === null ? ' chip--acento' : ''}" href="#/mapa"${activo === null ? ' aria-current="page"' : ''}>Todo</a>`,
+    `<button type="button" class="chip${activo === null ? ' chip--acento' : ''}" data-dia="">Todo</button>`,
     ...diasConPuntos.map(d =>
-      `<a class="chip${activo === d ? ' chip--acento' : ''}" href="#/mapa/${d}"${activo === d ? ' aria-current="page"' : ''}>Día ${d}</a>`),
+      `<button type="button" class="chip${activo === d ? ' chip--acento' : ''}" data-dia="${d}">Día ${d}</button>`),
   ].join('');
 
   pintar(`
-    <header class="cabecera">
-      <p class="eyebrow">${icono('mapa', 14)} El recorrido</p>
-      <h1>Mapa</h1>
-      <p class="sub">Los ${todas.length} sitios sobre la ruta. Cada punto enlaza a su ficha.</p>
-    </header>
-
-    <div class="filtro chips">${chips}</div>
-
-    <div class="tarjeta">
-      <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" role="img"
-           aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
-        <defs>
-          <clipPath id="marco"><rect x="0" y="0" width="${W}" height="${H}" rx="12"/></clipPath>
-        </defs>
-        <g clip-path="url(#marco)">
-          <rect class="mapa-mar" x="0" y="0" width="${W}" height="${H}"/>
-          ${contorno.map(d => `<path class="mapa-pais" d="${d}"/>`).join('')}
-        </g>
+    <section class="mapa-pantalla">
+      <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"
+           role="img" aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
+        <rect class="mapa-mar" x="0" y="0" width="${W}" height="${H}"/>
+        ${contorno.map(d => `<path class="mapa-pais" d="${d}"/>`).join('')}
         <path class="mapa-ruta" d="${linea}"/>
-
         ${visibles.map(({ id, c, f }) => `
-          <a class="mapa-ficha" href="#/guia/${esc(id)}" aria-label="${esc(f.nombre)}">
+          <g class="mapa-ficha" data-ficha="${esc(id)}" role="button" tabindex="0" aria-label="${esc(f.nombre)}">
             <circle cx="${c.x}" cy="${c.y}" r="${activo === null ? 2.8 : 4.2}"/>
             <title>${esc(f.nombre)}</title>
-          </a>`).join('')}
-
+          </g>`).join('')}
         ${paradas.map(({ p, c }) => `
-          <circle class="mapa-parada" data-nivel="${nivelAltitud(p.altitud_m)}"
-                  cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? 3 : 5.5}"/>`).join('')}
-
+          <circle class="mapa-parada" cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? 3 : 5.5}"/>`).join('')}
         ${etiquetas.map(e => `
           <text class="mapa-etiqueta" x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}"
                 text-anchor="${e.anclaje}">${esc(e.texto)}</text>`).join('')}
       </svg>
-      </svg>
-    </div>
 
-    <div class="mapa-controles">
-      <button type="button" data-zoom="mas" aria-label="Acercar">+</button>
-      <button type="button" data-zoom="menos" aria-label="Alejar">−</button>
-      <button type="button" data-zoom="reset" aria-label="Ver todo el recorrido">Todo</button>
-      <button type="button" data-sat aria-pressed="false">Satélite</button>
-    </div>
-    <p class="mapa-nota" hidden></p>
+      <div class="sat-lienzo" hidden></div>
 
-    <p class="seccion-titulo">${activo === null ? 'Todos los sitios' : `Día ${activo} · qué toca`}</p>
-    <div class="indice">${visibles.map(({ f }) => htmlEnlaceFicha(f)).join('')}</div>
+      <div class="mapa-capa mapa-capa--arriba">
+        <div class="mapa-filtros">${chips}</div>
+      </div>
+
+      <div class="mapa-capa mapa-capa--abajo">
+        <div class="mapa-leyenda">
+          <span><i class="lg lg--parada"></i>Parada</span>
+          <span><i class="lg lg--sitio"></i>Sitio</span>
+          <span><i class="lg lg--ruta"></i>Recorrido</span>
+        </div>
+        <div class="mapa-botones">
+          <button type="button" data-sat aria-pressed="false" title="Vista satélite">◎</button>
+          <button type="button" data-zoom="mas" aria-label="Acercar">+</button>
+          <button type="button" data-zoom="menos" aria-label="Alejar">−</button>
+          <button type="button" data-zoom="reset" aria-label="Ver todo">⤢</button>
+        </div>
+      </div>
+
+      <p class="mapa-nota" hidden></p>
+    </section>
+
+    <dialog class="hoja" aria-label="Detalle del sitio"></dialog>
   `);
 
   const svg = app.querySelector('.mapa-svg');
   const zoom = activarZoom(svg, { w: W, h: H });
-  app.querySelector('.mapa-controles').addEventListener('click', (e) => {
+
+  app.querySelector('.mapa-botones').addEventListener('click', (e) => {
     const b = e.target.closest('button');
-    if (!b || !b.dataset.zoom) return;
-    ({ mas: zoom.acercar, menos: zoom.alejar, reset: zoom.reiniciar })[b.dataset.zoom]();
+    if (b && b.dataset.zoom) ({ mas: zoom.acercar, menos: zoom.alejar, reset: zoom.reiniciar })[b.dataset.zoom]();
+  });
+
+  // Los filtros son botones y no enlaces: cambiar el hash volvería a pintar la pantalla, y
+  // con ella se perdería el zoom y la vista satélite que el atleta tuviera puestos.
+  app.querySelector('.mapa-filtros').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    location.hash = b.dataset.dia ? `#/mapa/${b.dataset.dia}` : '#/mapa';
+  });
+
+  // Pinchar un punto abre una hoja, no otra pantalla: en un mapa, navegar fuera te hace
+  // perder el sitio donde estabas mirando y obliga a volver y recolocarte.
+  svg.addEventListener('click', (e) => {
+    const g = e.target.closest('[data-ficha]');
+    if (g) abrirHoja(g.dataset.ficha);
+  });
+  svg.addEventListener('keydown', (e) => {
+    const g = e.target.closest('[data-ficha]');
+    if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); abrirHoja(g.dataset.ficha); }
   });
 
   montarBotonSatelite({ visibles });
 }
 
-// El satélite es la única parte de la app que pide red. Se carga bajo demanda, nunca al
-// arrancar, y si falla se vuelve al mapa base — que funciona siempre — en vez de dejar un
-// hueco. Sin conexión el botón lo dice y no lo intenta.
+// Ficha resumida en una hoja. Sólo la capa `de_pie`, que es lo que se mira de un vistazo; lo
+// largo tiene su pantalla y se llega con el enlace del pie.
+function abrirHoja(id) {
+  const f = datos.fichas[id];
+  if (!f) return;
+  const hoja = app.querySelector('.hoja');
+  const p = f.de_pie.practico || {};
+
+  hoja.innerHTML = `
+    <button class="hoja-cerrar" type="button" aria-label="Cerrar">✕</button>
+    <p class="eyebrow">${esc(f.lugar)} · Día ${f.dia}</p>
+    <h2>${esc(f.nombre)}</h2>
+    ${htmlAvisos((f.avisos || []).map(a => datos.avisos[a]).filter(Boolean))}
+    <p class="gancho">${esc(f.de_pie.gancho)}</p>
+    <h3>Mira esto</h3>
+    <ol class="mira">${f.de_pie.mira.map(m => `<li>${esc(m)}</li>`).join('')}</ol>
+    <div class="chips">
+      ${p.duracion ? `<span class="chip">${icono('reloj', 13)}${esc(p.duracion)}</span>` : ''}
+      ${typeof f.altitud_m === 'number' ? chipAltitud(f.altitud_m) : ''}
+      ${p.incluido ? '<span class="chip chip--acento">incluido</span>' : ''}
+    </div>
+    <a class="hoja-mas" href="#/guia/${esc(f.id)}">Ficha completa →</a>`;
+
+  hoja.querySelector('.hoja-cerrar').addEventListener('click', () => hoja.close());
+  // Clic en el fondo: el <dialog> recibe el clic cuando cae fuera de su contenido.
+  hoja.addEventListener('click', (e) => { if (e.target === hoja) hoja.close(); });
+  hoja.showModal();
+}
+
 function montarBotonSatelite({ visibles }) {
   const boton = app.querySelector('[data-sat]');
   const nota = app.querySelector('.mapa-nota');
-  const tarjeta = app.querySelector('.mapa-svg').closest('.tarjeta');
-  let lienzo = null;
+  const svg = app.querySelector('.mapa-svg');
+  const lienzo = app.querySelector('.sat-lienzo');
+  let mapa = null;
 
   const avisar = (texto) => { nota.textContent = texto; nota.hidden = !texto; };
 
   boton.addEventListener('click', async () => {
     if (boton.getAttribute('aria-pressed') === 'true') {
-      lienzo.remove(); lienzo = null;
-      tarjeta.hidden = false;
+      if (mapa) { mapa.remove(); mapa = null; }
+      lienzo.replaceChildren();
+      lienzo.hidden = true;
+      svg.hidden = false;
       boton.setAttribute('aria-pressed', 'false');
-      boton.textContent = 'Satélite';
       avisar('');
       return;
     }
 
     if (!haySatelite()) {
-      avisar('El satélite son fotos que se piden por internet y ahora no hay conexión. El mapa de al lado funciona sin ella.');
+      avisar('El satélite son fotos que se piden por internet y ahora no hay conexión. El mapa funciona sin ella.');
       return;
     }
 
     boton.disabled = true;
-    boton.textContent = 'Cargando…';
     try {
-      lienzo = document.createElement('div');
-      lienzo.className = 'sat-lienzo';
-      tarjeta.after(lienzo);
-      await montarSatelite(lienzo, {
+      lienzo.hidden = false;
+      svg.hidden = true;
+      mapa = await montarSatelite(lienzo, {
         geo: datos.mapa.geo,
         ruta: datos.itinerario.paradas,
         visibles,
-        alPulsar: (id) => { location.hash = `#/guia/${id}`; },
+        alPulsar: abrirHoja,
       });
-      tarjeta.hidden = true;
       boton.setAttribute('aria-pressed', 'true');
-      boton.textContent = 'Mapa';
       avisar('');
     } catch {
-      if (lienzo) { lienzo.remove(); lienzo = null; }
-      tarjeta.hidden = false;
+      lienzo.replaceChildren();
+      lienzo.hidden = true;
+      svg.hidden = false;
       avisar('No se pudo cargar el satélite. Sigues con el mapa de siempre.');
     } finally {
       boton.disabled = false;
-      if (boton.getAttribute('aria-pressed') !== 'true') boton.textContent = 'Satélite';
     }
   });
 }
@@ -593,6 +620,7 @@ function verMochila() {
 async function ir() {
   const { nombre, arg } = ruta();
   marcarNav(nombre);
+  document.body.classList.toggle('ruta-mapa', nombre === 'mapa');
   RUTAS[nombre](arg);
 }
 
