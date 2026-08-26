@@ -29,7 +29,25 @@ function ruta() {
   return { nombre: RUTAS[nombre] ? nombre : 'hoy', arg };
 }
 
-function pintar(html) { app.innerHTML = html; window.scrollTo(0, 0); }
+// Posición de scroll por ruta. Volver al índice de Guía —39 entradas en 9 grupos— y aparecer
+// arriba del todo obliga a buscar otra vez dónde estabas. Pasa igual desde Días y desde una
+// ficha, así que se guarda por ruta y no sólo para la Guía.
+const scrollPorRuta = new Map();
+let rutaPintada = null;
+
+// Se apunta la posición MIENTRAS se hace scroll, no al navegar: para cuando salta
+// `hashchange` el navegador ya ha llevado la página arriba, así que allí siempre se leía 0.
+addEventListener('scroll', () => {
+  if (rutaPintada !== null) scrollPorRuta.set(rutaPintada, window.scrollY);
+}, { passive: true });
+
+function pintar(html, { restaurar = false } = {}) {
+  const y = restaurar ? scrollPorRuta.get(location.hash) || 0 : 0;
+  rutaPintada = location.hash;
+  app.innerHTML = html;
+  // En dos fotogramas: uno para que el navegador mida el contenido nuevo, otro para saltar.
+  requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, y)));
+}
 
 function marcarNav(nombre) {
   document.querySelectorAll('.navbar a').forEach(a => {
@@ -137,7 +155,7 @@ function verDias() {
       <h1>Los 12 días</h1>
       <p class="sub">Del 30 de agosto al 10 de septiembre de 2026</p>
     </header>
-    ${datos.itinerario.dias.map(d => htmlDia(d, { esHoy: d.fecha === iso })).join('')}`);
+    ${datos.itinerario.dias.map(d => htmlDia(d, { esHoy: d.fecha === iso })).join('')}`, { restaurar: true });
 }
 
 function verGuia(id) {
@@ -208,7 +226,8 @@ function verGuia(id) {
         <summary>Fuentes</summary>
         <ul class="fuentes">${f.fuentes.map(x => `<li>${enlazar(x)}</li>`).join('')}</ul>
       </details>` : ''}
-    </article>`);
+    </article>
+    ${f.tipo === 'transversal' ? '' : htmlVecinos(f)}`);
 
   revelarFoto();
 }
@@ -226,6 +245,52 @@ function verGuia(id) {
 // si se reservara, el modo de fallo sin cobertura pasaría de "no hay foto" a "hay un agujero
 // gris de 219 px", que es peor que no tenerla. Y sin mensaje: nadie ha pedido esta foto, así
 // que el silencio es el fallo correcto.
+// El recorrido de sitios en el orden del viaje: día a día, y dentro del día en el orden en
+// que el itinerario los lista. Es el mismo orden del índice, así que "siguiente" no sorprende.
+function ordenSitios() {
+  const porDia = new Map();
+  for (const f of Object.values(datos.fichas)) {
+    if (f.tipo === 'transversal') continue;
+    if (!porDia.has(f.dia)) porDia.set(f.dia, []);
+    porDia.get(f.dia).push(f);
+  }
+  const orden = [];
+  for (const n of [...porDia.keys()].sort((a, b) => a - b)) {
+    const dia = datos.itinerario.dias.find(d => d.n === n);
+    // El itinerario ya trae las actividades ordenadas por cómo transcurre el día; lo que no
+    // esté listado va detrás, para no perderlo.
+    const listadas = (dia?.actividades || []).filter(id => datos.fichas[id]);
+    const resto = porDia.get(n).map(f => f.id).filter(id => !listadas.includes(id));
+    orden.push(...[...listadas, ...resto].map(id => datos.fichas[id]));
+  }
+  return orden;
+}
+
+// Anterior/siguiente al pie de la ficha, para no tener que volver al índice por cada sitio.
+// Encadenado entre días —el viaje se recorre entero en orden— pero diciendo el día cuando se
+// cruza la frontera, para que el salto sea explícito y no una sorpresa.
+function htmlVecinos(f) {
+  const orden = ordenSitios();
+  const i = orden.findIndex(x => x.id === f.id);
+  if (i === -1) return '';
+  const enlace = (v, lado) => {
+    if (!v) return '<span></span>';   // hueco: mantiene al otro en su lado
+    const cambiaDia = v.dia !== f.dia;
+    return `<a class="vecino vecino--${lado}" href="#/guia/${esc(v.id)}">
+      <span class="vecino-eti">${lado === 'antes' ? '← Anterior' : 'Siguiente →'}${cambiaDia ? ` · Día ${v.dia}` : ''}</span>
+      <span class="vecino-nom">${esc(v.nombre)}</span>
+    </a>`;
+  };
+  const delDia = orden.filter(x => x.dia === f.dia);
+  const pos = delDia.findIndex(x => x.id === f.id) + 1;
+  return `
+    <nav class="vecinos" aria-label="Otros sitios">
+      ${enlace(orden[i - 1], 'antes')}
+      ${enlace(orden[i + 1], 'despues')}
+    </nav>
+    <p class="vecinos-pos">Día ${f.dia} · ${pos} de ${delDia.length}</p>`;
+}
+
 function htmlFoto(f) {
   const foto = f.tipo === 'transversal' ? null : datos.fotos[f.id];
   if (!foto) return '';
@@ -283,7 +348,7 @@ function verIndiceGuia() {
       ${orden.map(grupo).join('')}
       ${transversales.length ? `<div class="indice-grupo">Para entender lo que ves</div>` +
         transversales.map(htmlEnlaceFicha).join('') : ''}
-    </div>`);
+    </div>`, { restaurar: true });
 }
 
 // El perfil se dibuja como un perfil —una línea de ascenso— y no como barras: lo que hay

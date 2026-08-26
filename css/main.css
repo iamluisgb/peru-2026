@@ -246,6 +246,22 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
    --text-faint mide 2,61:1 (hallazgo 10 de la auditoría). */
 .foto figcaption { margin-top: var(--s-2); font-size: var(--fs-xs); color: var(--text-soft); }
 
+/* Anterior/siguiente: dos targets grandes con el NOMBRE del sitio, no flechas sueltas. Con
+   guantes y sin gafas, "→" no dice a dónde vas. */
+.vecinos { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); margin-top: var(--s-4); }
+.vecino {
+  display: flex; flex-direction: column; gap: 2px; justify-content: center;
+  min-height: 64px; padding: var(--s-3) var(--s-4);
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-lg);
+  text-decoration: none;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.vecino:hover { border-color: var(--accent); }
+.vecino--despues { text-align: right; }
+.vecino-eti { font-size: var(--fs-xs); font-weight: 600; color: var(--accent); }
+.vecino-nom { font-size: var(--fs-sm); font-weight: 500; color: var(--text); }
+.vecinos-pos { margin: var(--s-3) 0 0; text-align: center; font-size: var(--fs-xs); color: var(--text-faint); }
+
 .fuentes { font-size: var(--fs-xs); color: var(--text-faint); }
 .fuentes li { margin-bottom: var(--s-3); word-break: break-word; }
 /* El enlace tiene que verse enlace: el color solo no basta a este tamaño. */
