@@ -3,6 +3,7 @@ import { cargar, diaDe, paradaDe, nivelAltitud, avisosDe, culturaDe } from './da
 import { esc, enlazar } from './ui/escape.js';
 import { hoyISO, bonita, diasHasta } from './ui/fecha.js';
 import { icono } from './ui/icons.js';
+import { activarZoom } from './ui/zoom.js';
 
 const app = document.getElementById('app');
 let datos = null;
@@ -416,9 +417,23 @@ function verMapa(arg) {
       </svg>
     </div>
 
+    <div class="mapa-controles">
+      <button type="button" data-zoom="mas" aria-label="Acercar">+</button>
+      <button type="button" data-zoom="menos" aria-label="Alejar">−</button>
+      <button type="button" data-zoom="reset" aria-label="Ver todo el recorrido">Todo</button>
+    </div>
+
     <p class="seccion-titulo">${activo === null ? 'Todos los sitios' : `Día ${activo} · qué toca`}</p>
     <div class="indice">${visibles.map(({ f }) => htmlEnlaceFicha(f)).join('')}</div>
   `);
+
+  const svg = app.querySelector('.mapa-svg');
+  const zoom = activarZoom(svg, { w: W, h: H });
+  app.querySelector('.mapa-controles').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    ({ mas: zoom.acercar, menos: zoom.alejar, reset: zoom.reiniciar })[b.dataset.zoom]();
+  });
 }
 
 function verEmergencias() {

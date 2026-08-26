@@ -333,7 +333,22 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 /* El SVG escala, y con él el texto: a 640 px las etiquetas de 8,5 unidades se veían enormes
    y a 400 px justas. Se topa el ancho para que el factor de escala se mueva poco (≈1,2-1,4)
    y las etiquetas se lean igual en móvil y en escritorio. */
-.mapa-svg { width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto; }
+.mapa-svg {
+  width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto;
+  touch-action: none;            /* el pellizco lo gestiona el mapa, no el navegador */
+  cursor: grab;
+}
+.mapa-svg:active { cursor: grabbing; }
+
+.mapa-controles { display: flex; gap: var(--s-2); justify-content: center; margin-top: var(--s-3); }
+.mapa-controles button {
+  min-width: 44px; min-height: 44px; padding: 0 var(--s-4);
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  background: var(--surface-2); color: var(--text-soft);
+  font-family: var(--font-ui); font-size: var(--fs-md); font-weight: 600;
+  cursor: pointer; transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.mapa-controles button:hover { border-color: var(--accent); color: var(--accent); }
 /* El mar es el fondo de la tarjeta; el país, la silueta real de Perú proyectada. */
 .mapa-mar { fill: var(--mapa-mar); }
 .mapa-pais { fill: var(--mapa-tierra); stroke: var(--mapa-costa); stroke-width: 0.6; }
@@ -343,12 +358,25 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
   stroke-linecap: round; stroke-linejoin: round;
   /* Discontinua: es el orden en que se recorre, no una carretera que exista así. */
   stroke-dasharray: 5 3; opacity: 0.85;
+  /* El trazo y el patrón discontinuo se miden en píxeles de pantalla, no del viewBox: al
+     acercarse, la ruta sigue siendo una línea y no una franja. */
+  vector-effect: non-scaling-stroke;
 }
 
 /* Dos niveles y sólo dos: las paradas mandan (disco lleno con halo) y los sitios son
    satélites (aro fino). Colorear las paradas por altitud repetía lo que ya cuenta la
    pantalla de Altura y aquí sólo añadía ruido de color. */
 .mapa-parada { fill: var(--accent); stroke: var(--mapa-tierra); stroke-width: 1.6; }
+
+/* Los marcadores tampoco crecen con el zoom: se contraescalan sobre su propio centro. Sin
+   esto, a 2,25x los puntos se convertían en manchas del tamaño de una ciudad. `fill-box`
+   pone el origen en el centro del propio círculo, no en el del SVG. */
+.mapa-parada,
+.mapa-ficha circle {
+  transform-box: fill-box; transform-origin: center;
+  transform: scale(calc(1 / var(--z, 1)));
+  vector-effect: non-scaling-stroke;
+}
 
 .mapa-ficha { cursor: pointer; }
 .mapa-ficha circle {
@@ -361,8 +389,8 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
    `paint-order` dibuja el trazo por detrás del relleno, así el texto se lee sobre la
    sierra sin necesidad de una caja de fondo. */
 .mapa-etiqueta {
-  font-family: var(--font-ui); font-size: 8px; font-weight: 600;
-  fill: var(--text-soft); stroke: var(--mapa-tierra); stroke-width: 2.4;
+  font-family: var(--font-ui); font-size: calc(8px / var(--z, 1)); font-weight: 600;
+  fill: var(--text-soft); stroke: var(--mapa-tierra); stroke-width: calc(2.4px / var(--z, 1));
   paint-order: stroke fill; pointer-events: none;
 }
 
