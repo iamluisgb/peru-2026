@@ -351,7 +351,8 @@ body.ruta-mapa { padding-bottom: 0; overflow: hidden; }
 .mapa-svg { touch-action: none; cursor: grab; }
 .mapa-svg:active { cursor: grabbing; }
 
-.mapa-mar { fill: var(--mapa-mar); }
+/* No hay <rect> de mar: lo pinta el fondo de .mapa-pantalla. Mientras el mar era un
+   rectángulo del SVG había que cubrir el hueco con `slice`, y `slice` recorta el país. */
 .mapa-pais { fill: var(--mapa-tierra); stroke: var(--mapa-costa); stroke-width: 0.6; }
 
 .mapa-ruta {
@@ -369,17 +370,19 @@ body.ruta-mapa { padding-bottom: 0; overflow: hidden; }
 }
 .mapa-ficha:hover circle, .mapa-ficha:focus-visible circle { fill: var(--accent); }
 
-/* Nada crece con el zoom: `--z` lo escribe zoom.js en cada movimiento. Sin esto, a 2,25x los
-   puntos eran manchas del tamaño de una ciudad y las etiquetas tapaban el mapa. */
+/* Nada crece con el zoom NI encoge con la pantalla: `--esc` son los píxeles que mide una
+   unidad del SVG y lo escribe zoom.js en cada movimiento. Los radios de app.js son píxeles
+   reales, así que dividir por `--esc` los deja clavados. Sin esto, a 2,25x los puntos eran
+   manchas del tamaño de una ciudad, y viendo Perú entero en un móvil, motas de 4 px. */
 .mapa-parada, .mapa-ficha circle {
   transform-box: fill-box; transform-origin: center;
-  transform: scale(calc(1 / var(--z, 1)));
+  transform: scale(calc(1 / var(--esc, 1)));
   vector-effect: non-scaling-stroke;
 }
 .mapa-etiqueta {
-  font-family: var(--font-ui); font-size: calc(8px / var(--z, 1)); font-weight: 600;
+  font-family: var(--font-ui); font-size: calc(12px / var(--esc, 1)); font-weight: 600;
   fill: var(--text-soft); stroke: var(--mapa-tierra);
-  stroke-width: calc(2.4px / var(--z, 1));
+  stroke-width: calc(3px / var(--esc, 1));
   paint-order: stroke fill; pointer-events: none;
 }
 
