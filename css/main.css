@@ -330,52 +330,39 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .filtro { margin-bottom: var(--s-3); }
 .filtro .chip { min-height: 36px; } /* targets ≥ 44 px reclama esto cerca del mapa */
 
-.mapa-svg { width: 100%; height: auto; display: block; overflow: visible; }
-
-/* Fondo del mapa: la "tierra" donde se apoya la ruta y dos siluetas de sierra detrás.
-   Todo son tokens del tema: la misma forma sirve en claro y oscuro sin imágenes. */
+.mapa-svg { width: 100%; height: auto; display: block; }
 .mapa-fondo { fill: var(--mapa-tierra); }
-.mapa-sierra--lejana,
-.mapa-sierra--cercana {
-  fill: var(--mapa-sierra-lejana);
-  vector-effect: non-scaling-stroke;
-}
+.mapa-sierra--lejana { fill: var(--mapa-sierra-lejana); }
 .mapa-sierra--cercana { fill: var(--mapa-sierra-cercana); }
 
-/* La ruta recorrida: trazo de acento, no una mancha. */
 .mapa-ruta {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.45;
+  fill: none; stroke: var(--accent); stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+  /* Discontinua: es el orden en que se recorre, no una carretera que exista así. */
+  stroke-dasharray: 5 3; opacity: 0.85;
 }
 
-/* Porparada: círculo de nivel de altitud (mismo código de color que chip--alt). */
-.mapa-parada circle { stroke: var(--surface-2); stroke-width: 2; }
-.mapa-parada[data-nivel="baja"]  circle { fill: var(--altitud-baja); }
-.mapa-parada[data-nivel="media"] circle { fill: var(--altitud-media); }
-.mapa-parada[data-nivel="alta"] circle { fill: var(--altitud-alta); }
-.mapa-parada-nombre {
-  font-size: 9px; font-weight: 600;
-  fill: var(--text-faint); font-family: var(--font-ui);
-}
+/* Las paradas son el esqueleto: círculo relleno con halo del fondo para que se despeguen
+   de la ruta y de los puntos de sitio. */
+.mapa-parada { stroke: var(--surface-2); stroke-width: 1.8; }
+.mapa-parada[data-nivel="baja"]  { fill: var(--altitud-baja); }
+.mapa-parada[data-nivel="media"] { fill: var(--altitud-media); }
+.mapa-parada[data-nivel="alta"]  { fill: var(--altitud-alta); }
 
-/* Cada punto enlaza a su ficha: blanco con borde de acento, como el punto del perfil.
-   El enlace es el <a svg>, no el círculo solo: el target entero es tocable. */
 .mapa-ficha { cursor: pointer; }
 .mapa-ficha circle {
-  fill: var(--surface-2);
-  stroke: var(--accent);
-  stroke-width: 2;
-  transition: fill var(--dur-fast) var(--ease);
+  fill: var(--surface-2); stroke: var(--accent); stroke-width: 1.4;
+  transition: fill var(--dur-fast) var(--ease), r var(--dur-fast) var(--ease);
 }
 .mapa-ficha:hover circle, .mapa-ficha:focus circle { fill: var(--accent); }
-.mapa-ficha-nombre {
-  font-size: 9px; fill: var(--text-soft);
-  font-family: var(--font-ui); paint-order: stroke;
-  stroke: var(--surface-2); stroke-width: 3px; stroke-linejoin: round;
+
+/* Una sola clase de etiqueta: las coloca colocarEtiquetas() y ninguna se superpone.
+   `paint-order` dibuja el trazo por detrás del relleno, así el texto se lee sobre la
+   sierra sin necesidad de una caja de fondo. */
+.mapa-etiqueta {
+  font-family: var(--font-ui); font-size: 8.5px; font-weight: 600;
+  fill: var(--text-soft); stroke: var(--mapa-tierra); stroke-width: 2.4;
+  paint-order: stroke fill; pointer-events: none;
 }
 
 /* ==========================================================================

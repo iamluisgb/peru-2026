@@ -297,31 +297,78 @@ function verMapa(arg) {
     .filter(x => x.c);
   const linea = paradas.map((x, i) => `${i ? 'L' : 'M'}${x.c.x} ${x.c.y}`).join(' ');
 
-  // Fondo de sierra: dos siluetas de relieve tras la ruta (como en el repo de Picos de
-  // Europa, pero SVG propio con tokens — offline y con tema claro/oscuro). Las siluetas
-  // se generan desde las altitudes REALES de las paradas: a más altitud, pico más alto.
-  // No es una foto: es la forma de los Andes tonada por debajo de la ruta.
-  function sierra(base, alturaMax) {
-    // Empieza abajo a la izquierda, recorre un pico por cada parada (las cimas son los
-    // puntos medios entre paradas, compensados por la altitud), y cierra abajo a la derecha.
-    let d = `M ${paradas[0].c.x} ${base}`;
-    for (let i = 0; i < paradas.length; i++) {
-      const a = paradas[i].c;
-      const b = paradas[i + 1] ? paradas[i + 1].c : paradas[i].c;
-      const mx = (a.x + b.x) / 2;
-      // La altura del pico sube con la altitud de la parada (patapampa 4910, puno 3830…).
-      const alt = paradas[i].p.altitud_m || 0;
-      const pico = base - (alt / 5200) * alturaMax;
-      d += ` L ${a.x.toFixed(1)} ${base} L ${mx.toFixed(1)} ${pico.toFixed(1)}`;
+  // Fondo de cordillera. Antes se generaba desde las altitudes de las paradas: idea bonita,
+  // forma mala —picos sueltos y un hueco a la izquierda, porque empezaba en la primera
+  // parada en vez de en el borde—. Aquí es DECORACIÓN y se asume como tal: una cresta
+  // continua de borde a borde, determinista (misma semilla, mismo dibujo) y en dos capas
+  // para dar profundidad. Los datos de altitud ya se cuentan en la pantalla de Altura.
+  function cresta(base, amplitud, pasos, semilla) {
+    let n = semilla;
+    const aleatorio = () => (n = (n * 1103515245 + 12345) % 2147483648) / 2147483648;
+    const cima = [];
+    for (let i = 0; i <= pasos; i++) {
+      // Dos ondas de distinta frecuencia más ruido: ni dientes iguales ni caos.
+      const onda = Math.sin(i * 1.1) * 0.35 + Math.sin(i * 0.43) * 0.4 + aleatorio() * 0.25;
+      cima.push([(i / pasos) * W, base - amplitud * (0.45 + onda * 0.55)]);
     }
-    d += ` L ${paradas[paradas.length - 1].c.x} ${base} Z`;
-    return d;
+    return `M 0 ${H} L ${cima.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(' L ')} L ${W} ${H} Z`;
+  }
+
+  // Colocación de etiquetas sin solapes. Colca y Patapampa están a cuatro píxeles y sus
+  // nombres se pisaban ("PaseSampa"); el racimo de Cusco era ilegible. Se prueban cuatro
+  // posiciones por etiqueta y se coge la primera libre; si ninguna lo está, no se dibuja.
+  // Perder una etiqueta es mejor que superponer dos: dos superpuestas no se leen ninguna.
+  function colocarEtiquetas(items) {
+    const puestas = [];
+    const salida = [];
+    const solapa = (a, b) =>
+      a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
+
+    for (const it of items) {
+      const ancho = it.texto.length * 4.1 + 2;
+      const candidatos = [
+        { dx: 0, dy: 13, anclaje: 'middle' },
+        { dx: 0, dy: -8, anclaje: 'middle' },
+        { dx: 8, dy: 3.5, anclaje: 'start' },
+        { dx: -8, dy: 3.5, anclaje: 'end' },
+      ];
+      for (const c of candidatos) {
+        const x = it.x + c.dx, y = it.y + c.dy;
+        const izq = c.anclaje === 'middle' ? x - ancho / 2 : c.anclaje === 'start' ? x : x - ancho;
+        const caja = { x1: izq, x2: izq + ancho, y1: y - 8, y2: y + 3 };
+        if (caja.x1 < 2 || caja.x2 > W - 2 || caja.y1 < 2 || caja.y2 > H - 2) continue;
+        if (puestas.some(q => solapa(caja, q))) continue;
+        puestas.push(caja);
+        salida.push({ texto: it.texto, x, y, anclaje: c.anclaje });
+        break;
+      }
+    }
+    return salida;
   }
 
   const todas = Object.entries(puntos)
     .map(([id, c]) => ({ id, c, f: datos.fichas[id] }))
     .filter(x => x.f && x.f.tipo !== 'transversal');
   const visibles = activo === null ? todas : todas.filter(x => x.f.dia === activo);
+
+  // Las paradas van primero: si algo se queda sin etiqueta, que sea un sitio y no una parada.
+  // Con un día filtrado caben además los nombres de sus sitios; con los 33 a la vez, no.
+  //
+  // Y dentro de las paradas hay orden de prioridad, porque el primero que pide sitio se lo
+  // queda: Machu Picchu y Aguas Calientes están pegados y sólo cabe una etiqueta entre los
+  // dos. Sin esto ganaba Aguas Calientes por ir antes en el itinerario, y el mapa del viaje
+  // se quedaba sin el nombre del sitio al que va el viaje.
+  const PRIORIDAD = ['machu-picchu', 'lima', 'cusco', 'puno', 'arequipa'];
+  const pesoParada = ({ p }) => {
+    const i = PRIORIDAD.indexOf(p.id);
+    return i === -1 ? PRIORIDAD.length : i;
+  };
+
+  const etiquetas = colocarEtiquetas([
+    ...paradas.filter(({ p }) => !p.solo_paso).sort((a, b) => pesoParada(a) - pesoParada(b))
+      .map(({ p, c }) => ({ texto: p.corto || p.nombre, x: c.x, y: c.y })),
+    ...(activo === null ? [] : visibles.map(({ c, f }) => ({ texto: f.nombre, x: c.x, y: c.y }))),
+  ]);
 
   const chips = [
     `<a class="chip${activo === null ? ' chip--acento' : ''}" href="#/mapa"${activo === null ? ' aria-current="page"' : ''}>Todo</a>`,
@@ -341,21 +388,30 @@ function verMapa(arg) {
     <div class="tarjeta">
       <svg class="mapa-svg" viewBox="0 0 ${W} ${H}" role="img"
            aria-label="Mapa de la ruta de Lima a Machu Picchu con los sitios de la guía">
-        <rect class="mapa-fondo" x="0" y="0" width="${W}" height="${H}" rx="12"/>
-        <path class="mapa-sierra--lejana" d="${sierra(H * 0.70, H * 0.30)}" />
-        <path class="mapa-sierra--cercana" d="${sierra(H * 0.86, H * 0.16)}" />
+        <defs>
+          <clipPath id="recorte"><rect x="0" y="0" width="${W}" height="${H}" rx="12"/></clipPath>
+        </defs>
+        <g clip-path="url(#recorte)">
+          <rect class="mapa-fondo" x="0" y="0" width="${W}" height="${H}"/>
+          <path class="mapa-sierra--lejana" d="${cresta(H * 0.80, H * 0.34, 26, 7)}"/>
+          <path class="mapa-sierra--cercana" d="${cresta(H * 1.0, H * 0.26, 20, 31)}"/>
+        </g>
         <path class="mapa-ruta" d="${linea}"/>
+
         ${paradas.map(({ p, c }) => `
-          <g class="mapa-parada" data-nivel="${nivelAltitud(p.altitud_m)}">
-            <circle cx="${c.x}" cy="${c.y}" r="4.5"/>
-            <text class="mapa-parada-nombre" x="${c.x}" y="${c.y + 14}" text-anchor="middle">${esc(p.corto || p.nombre)}</text>
-          </g>`).join('')}
+          <circle class="mapa-parada" data-nivel="${nivelAltitud(p.altitud_m)}"
+                  cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? 2.8 : 5}"/>`).join('')}
+
         ${visibles.map(({ id, c, f }) => `
           <a class="mapa-ficha" href="#/guia/${esc(id)}" aria-label="${esc(f.nombre)}">
-            <circle cx="${c.x}" cy="${c.y}" r="3.5"/>
-            ${activo === null ? '' : `<text class="mapa-ficha-nombre" x="${c.x}" y="${c.y - 9}" text-anchor="middle">${esc(f.nombre)}</text>`}
+            <circle cx="${c.x}" cy="${c.y}" r="${activo === null ? 2.6 : 4.5}"/>
             <title>${esc(f.nombre)}</title>
           </a>`).join('')}
+
+        ${etiquetas.map(e => `
+          <text class="mapa-etiqueta" x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}"
+                text-anchor="${e.anclaje}">${esc(e.texto)}</text>`).join('')}
+      </svg>
       </svg>
     </div>
 
