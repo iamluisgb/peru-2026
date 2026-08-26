@@ -6,7 +6,7 @@
 // Al tocar cualquier fichero de ASSETS hay que SUBIR CACHE_NAME, o los móviles ya instalados
 // se quedan con la versión vieja. tests/sw-precache.test.mjs vigila que la lista no se quede
 // corta: en bookreader ya se desincronizó una vez.
-const CACHE_NAME = 'peru-v23';
+const CACHE_NAME = 'peru-v24';
 
 const ASSETS = [
   './',
@@ -81,7 +81,9 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then(keys => Promise.all(
-      keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+      // La caché de fotos SOBREVIVE al despliegue: su contenido no caduca —una foto de
+      // Koricancha sigue siendo Koricancha— y rehacerla costaría volver a bajar megas.
+      keys.filter(k => k !== CACHE_NAME && k !== CACHE_FOTOS).map(k => caches.delete(k))
     ))
   );
   self.clients.claim();
@@ -90,6 +92,16 @@ self.addEventListener('activate', (event) => {
 // CÓDIGO (navegaciones, HTML/JS/CSS): network-first. Con stale-while-revalidate un despliegue
 // puede servir una MEZCLA de dos generaciones de módulos y dejar la app medio rota.
 // DATOS, FUENTES E ICONOS: cache-first — arranque instantáneo, y offline de verdad.
+// Las fotos NO se precachean —2,1 MB contra 438 KB de la app entera— pero SÍ se guardan al
+// verlas, en una caché aparte. Consecuencia que sale gratis: la ficha que se lee en el hotel
+// la noche antes deja su foto guardada para la mañana siguiente en el sitio. Es el único
+// camino por el que una foto puede existir en el Colca.
+const CACHE_FOTOS = 'peru-fotos';
+
+function esFoto(pathname) {
+  return pathname.includes('/img/');
+}
+
 function esInmutable(pathname) {
   return /\/(?:fonts|icons)\//.test(pathname) || /\.(?:woff2?|png|svg|json)$/.test(pathname);
 }
@@ -124,7 +136,8 @@ self.addEventListener('fetch', (event) => {
   const esCodigo = !esInmutable(p) &&
     (req.mode === 'navigate' || p.endsWith('/') || /\.(?:html|js|css)$/.test(p));
 
+  const nombreCache = esFoto(p) ? CACHE_FOTOS : CACHE_NAME;
   event.respondWith(
-    caches.open(CACHE_NAME).then(cache => esCodigo ? networkFirst(req, cache) : cacheFirst(req, cache))
+    caches.open(nombreCache).then(cache => esCodigo ? networkFirst(req, cache) : cacheFirst(req, cache))
   );
 });

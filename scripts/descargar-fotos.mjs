@@ -10,16 +10,30 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
-const ANCHO = 1200;      // suficiente para pantalla retina a ancho de columna
-const CALIDAD = 78;      // por encima no se nota y el fichero crece un 40 %
+// 1000 px y no 1200: en un móvil DPR 3 la imagen se escala un 20 %, que en una foto no se ve,
+// y 1200 cuesta un 36 % más de peso (UBICACION-FOTOS.md, sección 5).
+const ANCHO = 1000;
+const CALIDAD = 75;      // por encima no se nota y el fichero crece un 40 %
 const UA = 'peru-2026/1.0 (guia de viaje personal; https://github.com/iamluisgb/peru-2026)';
 const ESPERA = 1600;     // Wikimedia devuelve 429 si se le pide más rápido
+
+// Las fotos se pintan en una caja fija 3:2 con `cover`. Tres son panorámicas (uros 2,16 ·
+// yanque 2,14 · plaza-armas-cusco 2,09) y pierden ~30 % de ancho al recortar, así que llevan
+// punto de foco. Las demás no lo necesitan: la mediana de proporciones es 1,50 clavado.
+const FOCO = {
+  'uros': '50% 45%',
+  'yanque': '50% 55%',
+  'plaza-armas-cusco': '50% 60%',
+};
+
 
 const rehacer = process.argv.includes('--rehacer');
 const dormir = ms => new Promise(r => setTimeout(r, ms));
 mkdirSync('img/sitios', { recursive: true });
 
-const veredictos = JSON.parse(readFileSync('data/fotos/veredictos.json', 'utf8')).veredictos;
+const iv = process.argv.indexOf('--veredictos');
+const RUTA_VEREDICTOS = iv > -1 ? process.argv[iv + 1] : 'data/fotos/veredictos.json';
+const veredictos = JSON.parse(readFileSync(RUTA_VEREDICTOS, 'utf8')).veredictos;
 
 // Una por ficha: la primera que el revisor visual dio por buena Y útil. El orden de las
 // candidatas ya venía de mejor a peor del agente que las buscó.
@@ -61,6 +75,7 @@ function manifiesto(id, v, ruta) {
     autor: v.autor || null,
     licencia: v.licencia || null,
     origen: v.url_pagina || v.url_fichero || null,
+    foco: FOCO[id] || null,
   };
 }
 

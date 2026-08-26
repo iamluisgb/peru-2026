@@ -6,182 +6,208 @@
       "alt": "Un edificio monumental con fachada barroca, bandera peruana ondeando en la parte superior y un grupo de guardias uniformados en formación frente a la entrada principal, sobre una plaza empedrada.",
       "autor": "Poco a poco",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Palacio_de_Gobierno,_Lima,_Per%C3%BA,_2015-07-28,_DD_109.JPG"
+      "origen": "https://commons.wikimedia.org/wiki/File:Palacio_de_Gobierno,_Lima,_Per%C3%BA,_2015-07-28,_DD_109.JPG",
+      "foco": null
     },
     "catedral-lima": {
       "src": "./img/sitios/catedral-lima.webp",
       "alt": "Fachada principal de la Catedral de Lima con sus torres neoclásicas y el edificio renacentista, vista desde la plaza con carruaje en primer plano.",
       "autor": "Alely Juliana",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:La_Bas%C3%ADlica_Catedral_Metropolitana_de_Lima.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:La_Bas%C3%ADlica_Catedral_Metropolitana_de_Lima.jpg",
+      "foco": null
     },
     "huaca-pucllana": {
       "src": "./img/sitios/huaca-pucllana.webp",
       "alt": "Una pirámide de adobe con múltiples niveles escalonados, construida con ladrillos de barro colocados verticalmente y separados entre sí, bajo un cielo nublado.",
       "autor": "Poco a poco",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Huaca_Pucllana,_Lima,_Per%C3%BA,_2015-07-28,_DD_128.JPG"
+      "origen": "https://commons.wikimedia.org/wiki/File:Huaca_Pucllana,_Lima,_Per%C3%BA,_2015-07-28,_DD_128.JPG",
+      "foco": null
     },
     "parque-del-amor": {
       "src": "./img/sitios/parque-del-amor.webp",
       "alt": "Una escultura monumental de dos figuras abrazadas en tono naranja sobre una base de azulejos oscuros, con el mar y el cielo de fondo, y parte de un muro decorado con mosaicos visibles abajo.",
       "autor": "Pedro Felipe",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:2017_Lima_-_Escultura_El_beso_en_el_Parque_del_Amor.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:2017_Lima_-_Escultura_El_beso_en_el_Parque_del_Amor.jpg",
+      "foco": null
     },
     "santa-catalina": {
       "src": "./img/sitios/santa-catalina.webp",
       "alt": "Un patio con un fuente de piedra en el centro, rodeado por muros pintados de rojo intenso, con una puerta de madera y macetas con plantas.",
       "autor": "JosepMGracia",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:ARE_-_Courtyard_and_fountain_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:ARE_-_Courtyard_and_fountain_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg",
+      "foco": null
     },
     "yanahuara": {
       "src": "./img/sitios/yanahuara.webp",
       "alt": "Un mirador con arcos de sillar, columnas con inscripciones grabadas, una persona junto al pretil y al fondo se divisan edificios y montañas bajo cielo azul.",
       "autor": "JustEMV",
       "licencia": "CC BY-SA 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Mirador_of_Yanahuara,_Arequipa.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Mirador_of_Yanahuara,_Arequipa.jpg",
+      "foco": null
     },
     "plaza-armas-arequipa": {
       "src": "./img/sitios/plaza-armas-arequipa.webp",
       "alt": "Una calle arbolada con peatones, en el fondo se ve una iglesia blanca con torre central y el volcán Misti al lado.",
       "autor": "Draceane",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Arequipa,_Plaza_de_Armas,_2023_(10).jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Arequipa,_Plaza_de_Armas,_2023_(10).jpg",
+      "foco": null
     },
     "pampas-canahuas": {
       "src": "./img/sitios/pampas-canahuas.webp",
       "alt": "Un paisaje árido de altura con colinas rocosas, vegetación dispersa y un grupo de animales blancos pastando en una zona verdeada bajo un cielo azul despejado.",
       "autor": "Poco a poco",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Vicu%C3%B1as_(Vicugna_vicugna)_en_Reserva_Nacional_Salinas,_Arequipa,_Per%C3%BA,_2015-08-02,_DD_61.JPG"
+      "origen": "https://commons.wikimedia.org/wiki/File:Vicu%C3%B1as_(Vicugna_vicugna)_en_Reserva_Nacional_Salinas,_Arequipa,_Per%C3%BA,_2015-08-02,_DD_61.JPG",
+      "foco": null
     },
     "patapampa": {
       "src": "./img/sitios/patapampa.webp",
       "alt": "Un paisaje de puna árida con vegetación de ichu, el volcán Misti a la izquierda y la cadena montañosa de Hualca Hualca y Sabancaya a la derecha bajo un cielo azul.",
       "autor": "Max nr 323",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Salinas_and_Aguada_Blanca_Misti_Chachani.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Salinas_and_Aguada_Blanca_Misti_Chachani.jpg",
+      "foco": null
     },
     "cruz-del-condor": {
       "src": "./img/sitios/cruz-del-condor.webp",
       "alt": "Una fotografía en blanco y negro que muestra la imponente pared vertical del cañón a la izquierda y el borde del mirador con caminos y laderas cultivadas a la derecha.",
       "autor": "Sintegrity",
       "licencia": "CC BY 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Cruz_del_Condor_no_Colca_Canyon_-_Peru_(17963069742).jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Cruz_del_Condor_no_Colca_Canyon_-_Peru_(17963069742).jpg",
+      "foco": null
     },
     "maca": {
       "src": "./img/sitios/maca.webp",
       "alt": "Se observa la iglesia blanca de piedra con su campanario y cúpula, con una loma árida de fondo y un muro bajo con pilares decorativos en primer plano.",
       "autor": "Fæ",
       "licencia": "CC BY-SA 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:At_the_Church_of_Maca_in_the_upper_Rio_Colca_valley_(8443310825).jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:At_the_Church_of_Maca_in_the_upper_Rio_Colca_valley_(8443310825).jpg",
+      "foco": null
     },
     "yanque": {
       "src": "./img/sitios/yanque.webp",
       "alt": "Una iglesia blanca colonial con torre campanario domina un espacio pavimentado con montañas áridas de fondo.",
       "autor": "Poco a poco",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Iglesia_Inmaculada_Concepci%C3%B3n_de_Yanque,_Ca%C3%B1on_de_Colca,_Per%C3%BA,_2015-08-02,_DD_65.JPG"
+      "origen": "https://commons.wikimedia.org/wiki/File:Iglesia_Inmaculada_Concepci%C3%B3n_de_Yanque,_Ca%C3%B1on_de_Colca,_Per%C3%BA,_2015-08-02,_DD_65.JPG",
+      "foco": "50% 55%"
     },
     "uros": {
       "src": "./img/sitios/uros.webp",
       "alt": "Una isla flotante de totora con casas de paja, embarcaciones amarradas y montañas secas al fondo bajo un cielo despejado.",
       "autor": "Poco a poco",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Islas_flotantes_de_los_Uros,_Lago_Titicaca,_Per%C3%BA,_2015-08-01,_DD_25.JPG"
+      "origen": "https://commons.wikimedia.org/wiki/File:Islas_flotantes_de_los_Uros,_Lago_Titicaca,_Per%C3%BA,_2015-08-01,_DD_25.JPG",
+      "foco": "50% 45%"
     },
     "taquile": {
       "src": "./img/sitios/taquile.webp",
       "alt": "Muestra andenerías o terrazas de cultivo antiguas en una ladera empinada con vistas al lago azul y una masa terrestre al fondo.",
       "autor": "Unukorno",
       "licencia": "CC BY 3.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Peru_Isla_Taquile.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Peru_Isla_Taquile.jpg",
+      "foco": null
     },
     "pucara": {
       "src": "./img/sitios/pucara.webp",
       "alt": "Un patio con varias estelas de piedra, incluyendo una alta y otra con espirales, rodeadas de grava y con edificios de techo rojo al fondo bajo un cielo nublado.",
       "autor": "Marie Thér",
       "licencia": "CC BY-SA 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:P1040078_P%C3%A9rou%2C_Pukara%2C_Museo_L%C3%ADtico%2C_statues_de_la_civilisation_de_Pukara_(%C3%A9poque_pr%C3%A9inca)_%2810384088126%29.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:P1040078_P%C3%A9rou%2C_Pukara%2C_Museo_L%C3%ADtico%2C_statues_de_la_civilisation_de_Pukara_(%C3%A9poque_pr%C3%A9inca)_%2810384088126%29.jpg",
+      "foco": null
     },
     "la-raya": {
       "src": "./img/sitios/la-raya.webp",
       "alt": "Vendedores con tejidos coloridos dispuestos en el suelo frente a un paisaje de montañas áridas y una cumbre nevada a lo lejos.",
       "autor": "Christoph Strässler",
       "licencia": "CC BY-SA 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:La_Raya_Pass_%284335_m%29%2C_Peru.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:La_Raya_Pass_%284335_m%29%2C_Peru.jpg",
+      "foco": null
     },
     "andahuaylillas": {
       "src": "./img/sitios/andahuaylillas.webp",
       "alt": "Fachada de la iglesia con el arco central decorado con pinturas y cimientos de piedra inca visible en la base, rodeada de turistas.",
       "autor": "César Pérez",
       "licencia": "CC BY 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Saint_Peter_the_Apostle_of_Andahuaylillas.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Saint_Peter_the_Apostle_of_Andahuaylillas.jpg",
+      "foco": null
     },
     "koricancha": {
       "src": "./img/sitios/koricancha.webp",
       "alt": "Un muro de piedra inca con nichos trapezoidales y una línea clara donde termina la piedra inca y comienza la estructura colonial.",
       "autor": "Jorge Láscar",
       "licencia": "CC BY 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Lascar_One_of_the_original_walls_of_The_Temple_of_Coricancha_%28Cuzco%29_%284578192444%29.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Lascar_One_of_the_original_walls_of_The_Temple_of_Coricancha_%28Cuzco%29_%284578192444%29.jpg",
+      "foco": null
     },
     "plaza-armas-cusco": {
       "src": "./img/sitios/plaza-armas-cusco.webp",
       "alt": "Se observa el Portal de Panes de la Plaza de Armas, un edificio colonial con arcadas de piedra en la planta baja y balcones de madera, con una tienda Starbucks y turistas.",
       "autor": "Laslovarga",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_52.JPG"
+      "origen": "https://commons.wikimedia.org/wiki/File:Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_52.JPG",
+      "foco": "50% 60%"
     },
     "catedral-cusco": {
       "src": "./img/sitios/catedral-cusco.webp",
       "alt": "Fachada principal de la catedral construida con grandes sillares de piedra rojiza y rematada por un frontón con estatuas y campanarios.",
       "autor": "Laslovarga",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Catedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_57.JPG"
+      "origen": "https://commons.wikimedia.org/wiki/File:Catedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_57.JPG",
+      "foco": null
     },
     "chinchero": {
       "src": "./img/sitios/chinchero.webp",
       "alt": "La plaza empedrada de Chinchero con el muro de piedra inca visible a la izquierda y la base del templo blanco a la derecha, donde se exhiben textiles.",
       "autor": "Draceane",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Chinchero%2C_2023%2C_%2809%29.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Chinchero%2C_2023%2C_%2809%29.jpg",
+      "foco": null
     },
     "ollantaytambo": {
       "src": "./img/sitios/ollantaytambo.webp",
       "alt": "Un primer plano de un gran bloque de piedra tallado con forma de canal o U, ubicado en una pendiente junto a una cuerda de seguridad, con personas observándolo y estructuras incas al fondo.",
       "autor": "Laslovarga",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File/Ollanta%2C_Ollantaytambo%2C_Peru_-_Laslovarga_%2818%29.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File/Ollanta%2C_Ollantaytambo%2C_Peru_-_Laslovarga_%2818%29.jpg",
+      "foco": null
     },
     "tren-valle": {
       "src": "./img/sitios/tren-valle.webp",
       "alt": "Un tren azul recorre un estrecho corredor entre la base de una montaña rocosa y empinada y el lecho de un río a su izquierda.",
       "autor": "Kabelleger",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:PeruRail_ALCo_DL535B_Poroy_-_Ollantaytambo.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:PeruRail_ALCo_DL535B_Poroy_-_Ollantaytambo.jpg",
+      "foco": null
     },
     "machu-picchu": {
       "src": "./img/sitios/machu-picchu.webp",
       "alt": "Se aprecia una vista elevada sobre las ruinas de piedra con una estructura circular a la izquierda, edificios rectangulares en el centro y terrazas verdes a la derecha con el río al fondo.",
       "autor": "Nigel Rogers",
       "licencia": "CC BY 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File/Machu_Picchu_37_-_Temple_of_the_Sun.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File/Machu_Picchu_37_-_Temple_of_the_Sun.jpg",
+      "foco": null
     },
     "intihuatana": {
       "src": "./img/sitios/intihuatana.webp",
       "alt": "El bloque de piedra tallada del Intihuatana con sus formas escalonadas y una valla de protección, con montañas de fondo.",
       "autor": "Colegota",
       "licencia": "CC BY-SA 2.5 es",
-      "origen": "https://commons.wikimedia.org/wiki/File:Machu-picchu-c16.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Machu-picchu-c16.jpg",
+      "foco": null
     },
     "templo-del-sol": {
       "src": "./img/sitios/templo-del-sol.webp",
       "alt": "Se aprecia el muro semicircular de piedra pulida construido directamente sobre una gran roca natural que emerge del terreno.",
       "autor": "Gedankenstuecke",
       "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_Temple_of_the_Sun.jpg"
+      "origen": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_Temple_of_the_Sun.jpg",
+      "foco": null
     }
   }
 }

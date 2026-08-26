@@ -233,6 +233,19 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .preguntas { padding-left: var(--s-5); }
 .preguntas li { margin-bottom: var(--s-2); color: var(--text-soft); }
 
+/* Caja FIJA 3:2. La mediana de las 26 fotos es 1,50 clavado, así que casi ninguna sufre; las
+   tres panorámicas llevan `object-position` propio. Caja variable convertiría la ficha en un
+   objeto de altura impredecible. */
+.foto { margin: var(--s-5) 0 0; }
+.foto img {
+  display: block; width: 100%; aspect-ratio: 3 / 2;
+  object-fit: cover; border-radius: var(--r-md);
+  background: var(--surface-3);
+}
+/* La atribución en --text-soft y no en --text-faint: es una obligación de la licencia, y
+   --text-faint mide 2,61:1 (hallazgo 10 de la auditoría). */
+.foto figcaption { margin-top: var(--s-2); font-size: var(--fs-xs); color: var(--text-soft); }
+
 .fuentes { font-size: var(--fs-xs); color: var(--text-faint); }
 .fuentes li { margin-bottom: var(--s-3); word-break: break-word; }
 /* El enlace tiene que verse enlace: el color solo no basta a este tamaño. */

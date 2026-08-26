@@ -14,10 +14,11 @@ async function json(ruta) {
 
 export async function cargar() {
   if (cache) return cache;
-  const [itinerario, avisos, cultura, mapa, ...guias] = await Promise.all([
+  const [itinerario, avisos, cultura, fotos, mapa, ...guias] = await Promise.all([
     json('./data/itinerario.json'),
     json('./data/avisos.json'),
     json('./data/cultura.json'),
+    json('./data/fotos.json'),
     json('./data/mapa.json'),
     ...BLOQUES_GUIA.map(b => json(`./data/guia/${b}.json`)),
   ]);
@@ -25,6 +26,7 @@ export async function cargar() {
     itinerario,
     avisos: Object.fromEntries(avisos.avisos.map(a => [a.id, a])),
     cultura: cultura.recursos,
+    fotos: fotos.sitios,
     mapa: {
       ruta: Object.fromEntries(mapa.ruta.map(r => [r.id, r])),
       puntos: mapa.puntos,

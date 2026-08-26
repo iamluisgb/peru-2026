@@ -181,6 +181,7 @@ function verGuia(id) {
         ${p.fotos ? `<span class="chip">fotos: ${esc(p.fotos)}</span>` : ''}
       </div>
       ${(p.notas || []).length ? `<ul class="preguntas">${p.notas.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
+      ${htmlFoto(f)}
 
       ${haySofa ? `<details class="sofa">
         <summary>
@@ -208,6 +209,42 @@ function verGuia(id) {
         <ul class="fuentes">${f.fuentes.map(x => `<li>${enlazar(x)}</li>`).join('')}</ul>
       </details>` : ''}
     </article>`);
+
+  revelarFoto();
+}
+
+// La foto va al FINAL de la capa `de_pie`, justo antes de "Leer con calma", y no arriba:
+// medido, una foto encima del título empuja el segundo `mira` fuera del pliegue y parte el
+// primero. La ficha existe para contestar "¿qué miro?" de pie, y eso es lo que se protege
+// (UBICACION-FOTOS.md).
+//
+// Sin `loading="lazy"`: un `<figure hidden>` no tiene caja, así que la carga perezosa nunca
+// se dispara, `decode()` no resuelve y la foto no se revela JAMÁS. Punto muerto. Y no hace
+// falta: se pide UNA imagen por ficha abierta, que ya es lo perezoso que tiene que ser.
+//
+// Arranca OCULTA y sólo se revela cuando la imagen decodifica. Sin reservar el hueco por CSS:
+// si se reservara, el modo de fallo sin cobertura pasaría de "no hay foto" a "hay un agujero
+// gris de 219 px", que es peor que no tenerla. Y sin mensaje: nadie ha pedido esta foto, así
+// que el silencio es el fallo correcto.
+function htmlFoto(f) {
+  const foto = f.tipo === 'transversal' ? null : datos.fotos[f.id];
+  if (!foto) return '';
+  const pie = [foto.autor, foto.licencia].filter(Boolean).join(' · ');
+  return `
+    <figure class="foto" hidden>
+      <img src="${esc(foto.src)}" alt="${esc(foto.alt)}" decoding="async"
+           ${foto.foco ? `style="object-position:${esc(foto.foco)}"` : ''}>
+      ${pie ? `<figcaption>Foto: ${esc(pie)}</figcaption>` : ''}
+    </figure>`;
+}
+
+function revelarFoto() {
+  const fig = app.querySelector('.foto');
+  if (!fig) return;
+  const img = fig.querySelector('img');
+  const mostrar = () => { fig.hidden = false; };
+  if (img.complete && img.naturalWidth) return mostrar();
+  img.decode().then(mostrar).catch(() => { /* sin red: se queda oculta, y ya está */ });
 }
 
 // El índice se agrupa por día y no alfabéticamente: la pregunta real no es "¿dónde está

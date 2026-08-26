@@ -27,7 +27,7 @@ for (const f of ['lima', 'arequipa', 'colca', 'titicaca', 'trayectos', 'cusco', 
     if (x.tipo !== 'transversal') fichas[x.id] = x;
 
 const candidatas = [];
-for (const lote of ['lote-costa-sur', 'lote-andes']) {
+for (const lote of ['lote-costa-sur', 'lote-andes', 'lote-faltantes']) {
   const j = JSON.parse(readFileSync(`data/fotos/${lote}.json`, 'utf8'));
   for (const [id, lista] of Object.entries(j))
     (lista || []).forEach((c, i) => candidatas.push({ id, i, ...c }));
@@ -109,11 +109,20 @@ for (const [n, c] of trabajo.entries()) {
   }
 }
 
-writeFileSync('data/fotos/veredictos.json', JSON.stringify({
-  _nota: `Revisión visual con ${MODELO}. Cada foto se descargó, se redujo a 768 px y se miró.`,
+// Se FUSIONA con lo que ya había, no se reemplaza. Con `--solo` se reescribía el fichero
+// entero con dos o tres líneas y se perdían los veredictos de las otras 30 fichas: pasó de
+// verdad, con un agente corriendo `--solo san-blas` mientras otro proceso leía el fichero.
+const ANTES = 'data/fotos/veredictos.json';
+const previos = existsSync(ANTES) ? JSON.parse(readFileSync(ANTES, 'utf8')).veredictos || [] : [];
+const clavePropia = x => `${x.id}#${x.i}`;
+const nuevos = new Set(salida.map(clavePropia));
+const fusion = [...previos.filter(x => !nuevos.has(clavePropia(x))), ...salida];
+
+writeFileSync(ANTES, JSON.stringify({
+  _nota: `Revisión visual con ${MODELO}. Cada foto se descargó, se redujo a 512 px y se miró.`,
   fecha: new Date().toISOString().slice(0, 10),
-  veredictos: salida,
+  veredictos: fusion,
 }, null, 2) + '\n');
 
 const buenas = salida.filter(x => x.veredicto === 'SI');
-console.log(`\n${buenas.length} de ${salida.length} confirmadas como el sitio.`);
+console.log(`\n${buenas.length} de ${salida.length} confirmadas como el sitio (${fusion.length} veredictos en total).`);
