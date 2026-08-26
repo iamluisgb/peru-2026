@@ -184,3 +184,28 @@ test('todas las coordenadas del mapa están dentro del viewBox', () => {
   const todos = [...mapa.ruta, ...Object.values(mapa.puntos)];
   for (const c of todos) assert.ok(coordsDentro(c), `coordenada fuera del viewBox: ${JSON.stringify(c)}`);
 });
+
+// El mapa se dibuja con estas cifras: si una no es un número, el SVG sale con NaN y la
+// pantalla queda en blanco sin que falle nada más. Pasó exactamente eso.
+test('mapa.json tiene la geometría que la app espera', () => {
+  const mapa = leer('data/mapa.json');
+  assert.equal(typeof mapa.viewBox?.w, 'number', 'viewBox.w debe ser número');
+  assert.equal(typeof mapa.viewBox?.h, 'number', 'viewBox.h debe ser número');
+  for (const r of mapa.ruta)
+    assert.ok(Number.isFinite(r.x) && Number.isFinite(r.y), `ruta ${r.id}: x/y no numéricos`);
+  for (const [id, c] of Object.entries(mapa.puntos))
+    assert.ok(Number.isFinite(c.x) && Number.isFinite(c.y), `punto ${id}: x/y no numéricos`);
+});
+
+test('cada ficha de sitio tiene un punto en el mapa', () => {
+  const mapa = leer('data/mapa.json');
+  const sinPunto = fichas.filter(f => !esTransversal(f) && !mapa.puntos[f.id]).map(f => f.id);
+  assert.deepEqual(sinPunto, [], `sitios sin coordenadas: ${sinPunto.join(', ')}`);
+});
+
+test('la ruta del mapa cubre las paradas del itinerario', () => {
+  const mapa = leer('data/mapa.json');
+  const ids = new Set(mapa.ruta.map(r => r.id));
+  const faltan = itinerario.paradas.filter(p => !ids.has(p.id)).map(p => p.id);
+  assert.deepEqual(faltan, [], `paradas sin punto de ruta: ${faltan.join(', ')}`);
+});

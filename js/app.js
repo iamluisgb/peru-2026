@@ -287,7 +287,9 @@ function verMapa(arg) {
   const activo = diasConPuntos.includes(parseInt(arg, 10)) ? parseInt(arg, 10) : null;
 
   const { ruta, puntos, viewBox } = datos.mapa;
-  const { W, H } = viewBox;
+  // data/mapa.json trae `w`/`h` en minúscula. Desestructurar `{ W, H }` daba undefined, y de
+  // ahí salían un viewBox inválido y toda la geometría en NaN: el mapa no se dibujaba.
+  const { w: W, h: H } = viewBox;
 
   // Paradas en el orden del itinerario: la ruta se dibuja como se recorre, no alfabéticamente.
   const paradas = datos.itinerario.paradas
