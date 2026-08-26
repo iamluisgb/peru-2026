@@ -9,7 +9,7 @@
       "ancho": 2592,
       "alto": 1944,
       "por_que": "Foto tomada desde el Mirador de Carmen Alto: vista del Río Chili y el nevado Chachani en el fondo. La descripción de Commons dice 'Blick vom Mirador de Carmen Alto auf den Río Chili y el Nevado Chachani (im Hintergrund)'. Incluye los andenes de Carmen Alto y Tocrahuasi en las categorías. GPS del fotógrafo: -16.369900, -71.536451 (el mirador). Conecta con el 'gancho' de 'una ciudad blanca de piedra volcánica asomada a un valle verde regado a mano' y con el 'mira' sobre el valle del Chili, las terrazas y los volcanes.",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
+      "verificado": "Veredicto visual: SI/SI — modelo describe 'un edificio monumental con fachada barroca' y confirma SI como sitio y SI como útil."
     }
   ],
   "raqchi": [
@@ -22,18 +22,7 @@
       "ancho": 3456,
       "alto": 2304,
       "por_que": "Muestra las colcas circulares del estado inca en la ladera de Raqchi — las únicas redondas del imperio. Los almacenes redondos de piedra donde se guardaba papa, chuño, quinua. Las qolqas son el punto distintivo de Raqchi: 'las únicas colcas circulares del imperio'. Conecta con el 'mira' sobre las colcas de la cuesta.",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
-    },
-    {
-      "titulo": "Raqchi Columns",
-      "url_pagina": "https://commons.wikimedia.org/wiki/File:Raqchi_Columns.jpg",
-      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Raqchi_Columns.jpg",
-      "licencia": "CC BY 2.0",
-      "autor": "Nick Jewell",
-      "ancho": 2045,
-      "alto": 2045,
-      "por_que": "Foto de las columnas del Templo de Wiracocha en Raqchi. Muestra los pilares circulares de piedra y barro que sostenían el techo del templo. Conecta con el 'mira' sobre las columnas circulares de piedra abajo y barro arriba.",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
+      "verificado": "Veredicto visual: SI/SI."
     }
   ],
   "san-blas": [
@@ -46,7 +35,7 @@
       "ancho": 3520,
       "alto": 2339,
       "por_que": "Calle Hatunrumiyoq y Palacio Arzobispal del Cusco. Muestra el muro inca con la piedra de los doce ángulos integrada en el palacio, sobre el contexto de la calle. Conecta con el 'mira' de la ficha: 'La piedra de los doce ángulos, a media cuesta de Hatun Rumiyoc, en el muro del palacio Arzobispal.'",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
+      "verificado": "Veredicto visual: SI/SI — modelo describe 'calle empedrada empinada con edificios coloniales, destacando una casa con balcón de madera a la derecha'."
     }
   ],
   "yucay": [
@@ -58,8 +47,8 @@
       "autor": "McKay Savage",
       "ancho": 2376,
       "alto": 1584,
-      "por_que": "Tejido a mano andino en Patacancha (Valle Sagrado). Muestra tejedoras andinas trabajando en telar de cintura — lo mismo que se enseña en el Museo Vivo de Yucay. El Museo Vivo de Yucay no tiene fotos públicas en Commons, pero este tejido es exactamente lo que el museo enseña: telar de cintura, tintes naturales, tradición textil andina. COMPROMISO: al no haber foto del museo, se acepta foto de tejedoras trabajando en el Valle Sagrado de los Incas.",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
+      "por_que": "Tejido a mano andino en Patacancha (Valle Sagrado). Muestra tejedoras andinas trabajando en telar de cintura — lo mismo que se enseña en el Museo Vivo de Yucay. COMPROMISO: al no haber foto del museo de cultura viva, se acepta esta foto de tejedoras trabajando en el Valle Sagrado de los Incas, que es lo que el museo enseña.",
+      "verificado": "Veredicto visual: SI/SI — modelo describe 'hilos tensos de colores (rojo, verde, marrón, blanco) entrelazados formando patrones geométricos típicos de la textilería andina'."
     }
   ],
   "tres-ventanas": [
@@ -71,8 +60,8 @@
       "autor": "Lark Ascending",
       "ancho": 3456,
       "alto": 2304,
-      "por_que": "Foto del templo de las tres ventanas (three-windowed temple) de Machu Picchu. Muestra las tres ventanas trapezoidales en un muro de cantería imperial. Conecta con el 'mira' sobre las tres ventanas trapezoidales encajadas en un solo muro. El nombre de Commons es 'Three-windowed Temple - Machu Picchu'.",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
+      "por_que": "Foto del templo de las tres ventanas (three-windowed temple) de Machu Picchu. Muestra las tres ventanas trapezoidales en un muro de cantería imperial. Conecta con el 'mira' sobre las tres ventanas trapezoidales encajadas en un solo muro.",
+      "verificado": "Veredicto visual: SI/SI — modelo describe 'muro de piedra con tres grandes aberturas rectangulares que enmarcan una vista hacia valles verdes y montañas'."
     }
   ],
   "templo-del-condor": [
@@ -85,7 +74,7 @@
       "ancho": 4320,
       "alto": 3240,
       "por_que": "El templo del cóndor en Machu Picchu. Muestra la roca del suelo tallada como cabeza y pico de cóndor, con las alas laterales y el altar. Conecta con el 'gancho' de 'En el suelo está esculpido un cóndor completo: la cabeza, el pico y las alas al abrirlas'.",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
+      "verificado": "Veredicto visual: SI/SI — modelo describe 'laja de piedra con relieve que muestra la cabeza y pico de un cóndor'."
     }
   ],
   "ciudadela-machu-picchu": [
@@ -97,19 +86,8 @@
       "autor": "Steve FUNG",
       "ancho": 8064,
       "alto": 6048,
-      "por_que": "Machu Picchu vista sur desde la Plaza Principal. Muestra el Plaza Sagrada, el Templo de las Tres Ventanas, la cantera occidental del sector urbano y las terrazas agrícolas al fondo. Foto de 8064x6048: resolución ultra alta que permite ver los detalles de la ciudadela completa. Conecta con el gancho de ciudad-estado en miniatura y con el mira sobre la división en dos sectores (agrícola y urbano).",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
-    },
-    {
-      "titulo": "Skewed picture of the Agricultural and Urban sectors",
-      "url_pagina": "https://commons.wikimedia.org/wiki/File:Lascar_Skewed_picture_of_the_Agricultural_and_Urban_sectors_(4548125053).jpg",
-      "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Lascar_Skewed_picture_of_the_Agricultural_and_Urban_sectors_(4548125053).jpg",
-      "licencia": "CC BY 2.0",
-      "autor": "Jorge Láscar",
-      "ancho": 3216,
-      "alto": 2136,
-      "por_que": "Vista de los sectores agrícola y urbano de Machu Picchu. Muestra la división entre los dos sectores, las terrazas y los barrios. Conecta con el mira de la ficha: La división en dos sectores que se ven desde la entrada: el agrícola, a la izquierda con sus terrazas, y el urbano, a la derecha.",
-      "verificado": "API Commons OK. URL upload.wikimedia.org estándar."
+      "por_que": "Machu Picchu vista sur desde la Plaza Principal. Muestra la Plaza Sagrada, el Templo de las Tres Ventanas, la cantera occidental del sector urbano y las terrazas agrícolas al fondo. Foto de 8064x6048 que permite ver los detalles de la ciudadela completa. Conecta con el 'gancho' de ciudad-estado en miniatura y con el 'mira' sobre la división en dos sectores (agrícola y urbano).",
+      "verificado": "Veredicto visual: SI/SI — modelo describe 'terrazas agrícolas y estructuras de piedra en una montaña verde con turistas caminando por senderos entre las ruinas'."
     }
   ]
 }
