@@ -96,15 +96,14 @@ function htmlEnlaceFicha(f) {
 function verHoy() {
   const iso = hoyISO();
   const d = diaDe(datos.itinerario, iso);
-  const parada = d && paradaDe(datos.itinerario, d.parada);
 
+  // En viaje NO hay hero: repetía los cuatro datos de la tarjeta que va 60 px debajo y se
+  // comía un tercio del pliegue, con lo que "Qué vais a ver" caía fuera de pantalla. DESIGN.md
+  // ya lo avisaba: "Hoy no es un hero, es el día que toca". Lo único que el hero aportaba de
+  // verdad —cuántos días de doce llevas— cabe en una línea.
   if (d) {
     return pintar(`
-      <section class="hero">
-        <p class="kicker">Día ${d.n} de ${datos.itinerario.dias.length - 1}</p>
-        <h1>${esc(d.titulo)}</h1>
-        <p class="fecha">${esc(bonita(d.fecha))}${parada ? ` · ${parada.altitud_m} m` : ''}</p>
-      </section>
+      <p class="hoy-marca">Hoy · Día ${d.n} de ${datos.itinerario.dias.length - 1}</p>
       ${htmlDia(d, { esHoy: true })}`);
   }
 
@@ -145,11 +144,22 @@ function verGuia(id) {
   if (!id) return verIndiceGuia();
 
   const f = datos.fichas[id];
-  if (!f) return pintar('<p class="vacio">Esa ficha aún no está escrita.</p>');
+  // Un callejón sin salida no es un estado vacío, es una pantalla rota con buenos modales:
+  // aquí sólo se llega desde un enlace de un día, así que la salida es volver a la guía.
+  if (!f) return pintar(`<div class="vacio">
+    <p>Esa ficha aún no está escrita.</p>
+    <a class="vacio-salida" href="#/guia">${icono('guia', 16)} Ver el índice de la guía</a>
+  </div>`);
 
   const p = f.de_pie.practico || {};
   const sofa = f.de_sofa || {};
   const haySofa = sofa.contexto || sofa.dato || (sofa.conexion || []).length;
+  // Los dos plegados de la ficha tenían el mismo peso, y no esconden lo mismo: uno es la
+  // mejor prosa del proyecto y el otro una lista de URLs. El minutaje sale del texto y no de
+  // una cifra a ojo, porque decir "3 min" sobre la ficha más corta sería mentir. 150 palabras
+  // por minuto y no 250: esto es prosa densa y desconocida, leída a 3.400 m. Da de 1 a 3 min,
+  // que es el rango real de las 39 fichas.
+  const minutos = Math.max(1, Math.round(`${sofa.contexto || ''} ${sofa.dato || ''}`.trim().split(/\s+/).length / 150));
 
   pintar(`
     <a class="volver" href="#/guia">${icono('atras', 16)} Guía</a>
@@ -172,8 +182,12 @@ function verGuia(id) {
       </div>
       ${(p.notas || []).length ? `<ul class="preguntas">${p.notas.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
 
-      ${haySofa ? `<details>
-        <summary>Leer con calma</summary>
+      ${haySofa ? `<details class="sofa">
+        <summary>
+          ${icono('reloj', 18)}
+          <span class="sofa-titulo">Leer con calma</span>
+          <span class="sofa-min">${minutos} min</span>
+        </summary>
         <div class="de-sofa">
           ${sofa.contexto ? `<p>${esc(sofa.contexto)}</p>` : ''}
           ${sofa.dato ? `<p class="dato"><strong>El dato:</strong> ${esc(sofa.dato)}</p>` : ''}
@@ -207,7 +221,20 @@ function verIndiceGuia() {
     if (!porDia.has(f.dia)) porDia.set(f.dia, []);
     porDia.get(f.dia).push(f);
   }
+  // El día de hoy sube al principio: entre 33 fichas, el grupo que importa el 90 % del tiempo
+  // es el de hoy, y buscarlo con el pulgar es el buscador que CLAUDE.md descarta con razón.
+  // Anclarlo no añade UI: es el mismo dato que ya usa Hoy.
+  const hoy = datos.itinerario.dias.find(x => x.fecha === hoyISO());
   const dias = [...porDia.keys()].sort((a, b) => a - b);
+  const orden = hoy && porDia.has(hoy.n) ? [hoy.n, ...dias.filter(n => n !== hoy.n)] : dias;
+
+  const grupo = n => {
+    const d = datos.itinerario.dias.find(x => x.n === n);
+    const esHoy = Boolean(hoy) && n === hoy.n;
+    return `<div class="indice-grupo${esHoy ? ' indice-grupo--hoy' : ''}">${
+      esHoy ? 'Hoy · ' : ''}Día ${n} · ${d ? esc(d.titulo) : ''}</div>` +
+      porDia.get(n).map(htmlEnlaceFicha).join('');
+  };
 
   pintar(`
     <header class="cabecera">
@@ -216,11 +243,7 @@ function verIndiceGuia() {
       <p class="sub">${todas.length - transversales.length} sitios, agrupados por el día que tocan.</p>
     </header>
     <div class="indice">
-      ${dias.map(n => {
-        const d = datos.itinerario.dias.find(x => x.n === n);
-        return `<div class="indice-grupo">Día ${n} · ${d ? esc(d.titulo) : ''}</div>` +
-          porDia.get(n).map(htmlEnlaceFicha).join('');
-      }).join('')}
+      ${orden.map(grupo).join('')}
       ${transversales.length ? `<div class="indice-grupo">Para entender lo que ves</div>` +
         transversales.map(htmlEnlaceFicha).join('') : ''}
     </div>`);
@@ -229,6 +252,10 @@ function verIndiceGuia() {
 // El perfil se dibuja como un perfil —una línea de ascenso— y no como barras: lo que hay
 // que entender de un vistazo es la PENDIENTE, que es lo que castiga al cuerpo, no el valor
 // absoluto de cada parada. Las barras ordenaban por altura y escondían justo eso.
+// Pero la gráfica va la ÚLTIMA. Nadie entra aquí a las 2 de la mañana en Puno a mirar un
+// perfil de elevación: entra porque no puede dormir y le falta el aire. Con la gráfica y la
+// tabla delante, "cuándo hay que bajar" quedaba a 1.150 px de scroll — que es exactamente lo
+// que prohíbe el principio 3 de DESIGN.md.
 function verAltura() {
   const paradas = datos.itinerario.paradas;
   const W = 340, H = 150, PAD_X = 10, PAD_Y = 26, SUELO = H - 34;
@@ -248,6 +275,19 @@ function verAltura() {
     </header>
 
     <div class="tarjeta">
+      ${htmlAvisos([datos.avisos.soroche, datos.avisos['patapampa-4900'], datos.avisos['altura-empieza']].filter(Boolean))}
+    </div>
+
+    <p class="seccion-titulo">Parada a parada</p>
+    <div class="indice">
+      ${paradas.map(p => `<a href="#/dias">
+        <span class="nom">${esc(p.nombre)}</span>
+        <span class="chip chip--alt" data-nivel="${nivelAltitud(p.altitud_m)}">${p.altitud_m} m</span>
+      </a>`).join('')}
+    </div>
+
+    <p class="seccion-titulo">El ascenso, de un vistazo</p>
+    <div class="tarjeta">
       <svg class="perfil" viewBox="0 0 ${W} ${H}" role="img"
            aria-label="Perfil de altitud del viaje, de Lima a Machu Picchu">
         <path class="area" d="${area}"/>
@@ -261,19 +301,6 @@ function verAltura() {
             <text x="${px.toFixed(1)}" y="${SUELO + (impar ? 24 : 13)}" text-anchor="middle">${esc(p.corto || p.nombre)}</text>`;
         }).join('')}
       </svg>
-    </div>
-
-    <p class="seccion-titulo">Parada a parada</p>
-    <div class="indice">
-      ${paradas.map(p => `<a href="#/dias">
-        <span class="nom">${esc(p.nombre)}</span>
-        <span class="chip chip--alt" data-nivel="${nivelAltitud(p.altitud_m)}">${p.altitud_m} m</span>
-      </a>`).join('')}
-    </div>
-
-    <p class="seccion-titulo">Lo que hay que saber</p>
-    <div class="tarjeta">
-      ${htmlAvisos([datos.avisos.soroche, datos.avisos['patapampa-4900'], datos.avisos['altura-empieza']].filter(Boolean))}
     </div>`);
 }
 
@@ -494,6 +521,10 @@ function abrirHoja(id) {
   if (!f) return;
   const hoja = app.querySelector('.hoja');
   const p = f.de_pie.practico || {};
+  const sofa = f.de_sofa || {};
+  // La hoja YA trae aviso, gancho, mira y practico: "Ficha completa →" prometía la misma
+  // pantalla otra vez. Lo que de verdad falta aquí es la capa de sofá, y eso es lo que anuncia.
+  const haySofa = Boolean(sofa.contexto || sofa.dato || (sofa.conexion || []).length);
 
   hoja.innerHTML = `
     <button class="hoja-cerrar" type="button" aria-label="Cerrar">✕</button>
@@ -508,7 +539,7 @@ function abrirHoja(id) {
       ${typeof f.altitud_m === 'number' ? chipAltitud(f.altitud_m) : ''}
       ${p.incluido ? '<span class="chip chip--acento">incluido</span>' : ''}
     </div>
-    <a class="hoja-mas" href="#/guia/${esc(f.id)}">Ficha completa →</a>`;
+    <a class="hoja-mas" href="#/guia/${esc(f.id)}">${haySofa ? 'Leer con calma' : 'Ficha completa'} →</a>`;
 
   hoja.querySelector('.hoja-cerrar').addEventListener('click', () => hoja.close());
   // Clic en el fondo: el <dialog> recibe el clic cuando cae fuera de su contenido.
@@ -581,14 +612,15 @@ function montarBotonSatelite() {
 }
 
 
+// Es la única pantalla que se usa con adrenalina, así que manda el número y no el rótulo:
+// el teléfono en su propia línea y grande, el descriptor debajo. Y el 105 va el primero,
+// separado del resto: si alguien se desploma a 4.900 m en Patapampa se marca al 105, no a
+// una aseguradora de Madrid, que es una gestión y no una urgencia.
 function verEmergencias() {
-  const tel = (quien, detalle, numero) => `
-    <a class="tel" href="tel:${numero.replace(/\s/g, '')}">
-      <span>
-        <span class="quien">${esc(quien)}</span><br>
-        <span class="num">${esc(numero)} · ${esc(detalle)}</span>
-      </span>
-      <span class="accion" aria-hidden="true">${icono('sos', 18)}</span>
+  const tel = (quien, detalle, numero, { urgente = false } = {}) => `
+    <a class="tel${urgente ? ' tel--urgente' : ''}" href="tel:${numero.replace(/\s/g, '')}">
+      <span class="tel-num">${esc(numero)}</span>
+      <span class="tel-pie"><span class="tel-quien">${esc(quien)}</span> · ${esc(detalle)}</span>
     </a>`;
 
   pintar(`
@@ -598,10 +630,12 @@ function verEmergencias() {
       <p class="sub">Funciona sin cobertura. Los números están guardados en la app.</p>
     </header>
 
+    ${tel('Emergencias Perú', 'Policía y ambulancias, en todo el país', '105', { urgente: true })}
+
+    <p class="seccion-titulo">Gestiones, no urgencias</p>
     ${tel('Asistencia en viaje', 'Iris Global · seguro, 24 h', '+34 915 72 43 43')}
     ${tel('TUI incidencias', 'también WhatsApp, 24 h', '+34 919 930 612')}
     ${tel('Lima Tours', 'en destino · admite WhatsApp', '+51 997 516 250')}
-    ${tel('Emergencias Perú', 'policía y sanitarias', '105')}
 
     <p class="seccion-titulo">Mis datos</p>
     <div class="tarjeta">
@@ -626,6 +660,8 @@ function verMochila() {
   const limite = (checklist && checklist.limite_kg) || 5;
   const hecho = mochilaHechos();
   const porcentaje = items.length ? Math.round((hecho.size / items.length) * 100) : 0;
+  // Sólo va el aviso de "esta noche se prepara": el de los 5 kg repetía palabra por palabra
+  // el titular de arriba, y así la cifra salía tres veces antes de la primera casilla.
   pintar(`
     <header class="cabecera"><p class="eyebrow">Preparación</p><h1>Mochila de Machu Picchu</h1></header>
     <div class="tarjeta">
@@ -636,7 +672,7 @@ function verMochila() {
           en el hotel de Cusco y os espera al volver del Valle Sagrado.
         </div>
       </div>
-      ${htmlAvisos([aviso, datos.avisos['equipaje-5kg-preparar']].filter(Boolean), true)}
+      ${htmlAvisos([datos.avisos['equipaje-5kg-preparar']].filter(Boolean), true)}
     </div>
     <div class="tarjeta">
       <div class="mochila-estado">

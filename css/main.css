@@ -46,6 +46,14 @@ a { color: inherit; }
    Portada de HOY — es la pantalla que más se mira, y la única con peso gráfico
    ========================================================================== */
 
+/* En viaje no hay hero (repetía la tarjeta de debajo y se comía un tercio del pliegue):
+   queda esta línea, que es lo único que el hero decía y la tarjeta no. */
+.hoy-marca {
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent);
+  margin: var(--s-6) 0 var(--s-3);
+}
+
 .hero {
   position: relative; overflow: hidden;
   border-radius: var(--r-xl);
@@ -128,7 +136,9 @@ a { color: inherit; }
 .chip svg { opacity: 0.7; }
 .chip--acento { background: var(--accent-soft); color: var(--accent); }
 /* Un chip que además es enlace (las transversales al pie de una ficha). */
-a.chip { text-decoration: none; min-height: 32px; transition: background var(--dur-fast) var(--ease); }
+/* 44 px por padding y no por `min-height`: con min-height el texto flota arriba en un chip
+   de una línea. Es el enlace a otra ficha, y se pulsa con guantes. */
+a.chip { text-decoration: none; padding-top: var(--s-3); padding-bottom: var(--s-3); transition: background var(--dur-fast) var(--ease); }
 a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .chip--libre { background: transparent; color: var(--text-soft); border-color: var(--border); }
 .chip--alt { font-variant-numeric: tabular-nums; font-weight: 600; }
@@ -156,7 +166,11 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .aviso--serio { background: var(--aviso-serio-soft); }
 .aviso--serio h4, .aviso--serio .marca { color: var(--aviso-serio); }
 .aviso-enlace { margin: var(--s-2) 0 0 !important; }
-.aviso-enlace a { font-size: var(--fs-sm); font-weight: 600; text-decoration: none; }
+/* Medía 17 px de alto y es la puerta a la Mochila entera: se toca de pie y con guantes. */
+.aviso-enlace a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: var(--fs-sm); font-weight: 600; text-decoration: none;
+}
 .aviso--info .aviso-enlace a { color: var(--aviso-info); }
 .aviso--ojo .aviso-enlace a { color: var(--aviso-ojo); }
 .aviso--serio .aviso-enlace a { color: var(--aviso-serio); }
@@ -194,6 +208,22 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .ficha summary::-webkit-details-marker { display: none; }
 .ficha summary::before { content: '+'; font-size: var(--fs-lg); line-height: 1; }
 .ficha details[open] summary::before { content: '–'; }
+
+/* "Leer con calma" esconde tres minutos de prosa; "Fuentes", una lista de URLs. Con el mismo
+   `+` a 14 px eran el mismo objeto, así que la capa de sofá dependía de que alguien llegara
+   al fondo y apostara por ese `+`. Aquí es una fila con su peso y su minutaje; Fuentes se
+   queda discreta, que es lo que es. */
+.ficha .sofa { border-top: 1px solid var(--border); margin-top: var(--s-6); }
+.ficha .sofa summary {
+  gap: var(--s-3); padding: var(--s-4) 0; min-height: 56px;
+  font-size: var(--fs-lg); color: var(--text);
+}
+.ficha .sofa summary::before { content: none; }
+.ficha .sofa summary::after { content: '+'; font-size: var(--fs-lg); line-height: 1; color: var(--accent); }
+.ficha .sofa[open] summary::after { content: '–'; }
+.ficha .sofa summary > svg { color: var(--accent); flex: 0 0 auto; }
+.sofa-titulo { flex: 1; }
+.sofa-min { font-size: var(--fs-sm); font-weight: 500; color: var(--text-soft); font-variant-numeric: tabular-nums; }
 .de-sofa { font-family: var(--font-lectura); font-size: var(--fs-lg); line-height: 1.65; }
 .de-sofa p { color: var(--text-soft); margin: 0 0 var(--s-4); }
 .de-sofa .dato {
@@ -223,6 +253,9 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
   font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--text-soft);
 }
+/* El grupo de hoy va arriba del todo y se marca: entre 33 fichas es el que se busca el 90 %
+   de las veces. Fondo y color, nunca una barra lateral (DESIGN.md). */
+.indice-grupo--hoy { background: var(--accent-soft); color: var(--accent); }
 
 /* ==========================================================================
    Perfil de altitud — un perfil de verdad, no barras
@@ -240,8 +273,12 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
    Teléfonos de emergencia — targets grandes, sin pensar
    ========================================================================== */
 
+/* El número manda: es el único dato accionable de la tarjeta y antes iba en gris, a 16 px y
+   pegado con un `·` al descriptor. Nada de escudo: era el objeto más pesado de la pantalla,
+   repetido cuatro veces, y no distinguía nada (principio 1, cromo mínimo). El área de toque
+   sigue siendo el <a> entero. */
 .tel {
-  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  display: block;
   padding: var(--s-4) var(--s-5); min-height: 64px;
   background: var(--surface-2); border: 1px solid var(--border);
   border-radius: var(--r-lg); margin-bottom: var(--s-3);
@@ -249,12 +286,17 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
   transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
 .tel:hover { border-color: var(--accent); background: var(--surface-3); }
-.tel .quien { font-weight: 600; }
-.tel .num { font-size: var(--fs-sm); color: var(--text-soft); font-variant-numeric: tabular-nums; }
-.tel .accion {
-  display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px;
-  border-radius: 50%; background: var(--accent); color: var(--on-accent);
+.tel-num {
+  display: block; font-size: var(--fs-xl); font-weight: 600; line-height: 1.2;
+  letter-spacing: -0.01em; font-variant-numeric: tabular-nums; color: var(--text);
 }
+.tel-pie { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--text-soft); }
+.tel-quien { font-weight: 600; color: var(--text); }
+/* El 105 no es una gestión: se marca cuando alguien se ha desplomado. Va el primero y se ve
+   antes que nada, sin depender del color para decirlo. */
+.tel--urgente { background: var(--accent-soft); border-color: transparent; }
+.tel--urgente .tel-num { font-size: var(--fs-3xl); }
+.tel--urgente:hover { background: var(--accent-soft); border-color: var(--accent); }
 
 /* ==========================================================================
    Mochila de Machu Picchu — el checklist de los 5 kg
@@ -319,7 +361,15 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 }
 .volver:hover { color: var(--accent); }
 
-.vacio { text-align: center; color: var(--text-faint); padding: var(--s-8) var(--s-4); }
+.vacio { text-align: center; color: var(--text-soft); padding: var(--s-8) var(--s-4); }
+.vacio p { margin: 0 0 var(--s-5); }
+/* Un vacío sin salida sólo se abandona con el gesto de atrás del sistema. */
+.vacio-salida {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  min-height: 44px; padding: 0 var(--s-5);
+  border-radius: var(--r-pill); background: var(--accent-soft); color: var(--accent);
+  font-weight: 600; text-decoration: none;
+}
 
 /* ==========================================================================
    Mapa — SVG propio, coloreado por tokens para que el tema lo arrastre solo
@@ -485,7 +535,7 @@ body.ruta-mapa { padding-bottom: 0; overflow: hidden; }
   font-weight: 600; color: var(--accent); text-decoration: none;
 }
 
-
+/* ==========================================================================
    Desktop — la nav sube arriba y el contenido respira
    ========================================================================== */
 
