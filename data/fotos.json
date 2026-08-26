@@ -208,6 +208,54 @@
       "licencia": "CC BY-SA 4.0",
       "origen": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_Temple_of_the_Sun.jpg",
       "foco": null
+    },
+    "carmen-alto": {
+      "src": "./img/sitios/carmen-alto.webp",
+      "alt": "Un valle con campos verdes, un río serpenteando y montañas nevadas al fondo, con ramas de árbol en primer plano.",
+      "autor": "Raymond Ostertag",
+      "licencia": "CC BY-SA 3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Arequipa_2007_08.JPG",
+      "foco": null
+    },
+    "san-blas": {
+      "src": "./img/sitios/san-blas.webp",
+      "alt": "Una fachada blanca de iglesia con espadaña de tres cuerpos, puerta de arco de piedra y ventanas con rejas, bajo cielo claro, con coches y peatones en primer plano.",
+      "autor": "G s j",
+      "licencia": "CC BY-SA 4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Blas%2C_Cusco.jpg",
+      "foco": null
+    },
+    "yucay": {
+      "src": "./img/sitios/yucay.webp",
+      "alt": "Primer plano de hilos teñidos en rojo, verde, marrón y blanco entrelazados en un telar, con una herramienta de metal visible.",
+      "autor": "McKay Savage",
+      "licencia": "CC BY 2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Sacred_Valley_NGOs_052_-_Awamaki_weaving_tour_(11265106825).jpg",
+      "foco": null
+    },
+    "tres-ventanas": {
+      "src": "./img/sitios/tres-ventanas.webp",
+      "alt": "Se observa un muro de piedra con tres grandes aberturas rectangulares o trapezoidales, con el paisaje montañoso y ruinas al fondo.",
+      "autor": "Lark Ascending",
+      "licencia": "Dominio público",
+      "origen": "https://commons.wikimedia.org/wiki/File:Three-windowed_Temple_-_Machu_Picchu.jpg",
+      "foco": null
+    },
+    "templo-del-condor": {
+      "src": "./img/sitios/templo-del-condor.webp",
+      "alt": "Una laja de piedra con relieve que muestra la cabeza y pico de un cóndor, junto a una roca adyacente con forma de ala desplegada, rodeada por una cuerda de protección.",
+      "autor": "Pierre André Leclercq",
+      "licencia": "CC BY-SA 4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Temple_of_the_Condor%2C_Machu_Picchu_en_2011.jpg",
+      "foco": null
+    },
+    "ciudadela-machu-picchu": {
+      "src": "./img/sitios/ciudadela-machu-picchu.webp",
+      "alt": "Muros de piedra con ventanas rectangulares y estructuras escalonadas que sugieren edificaciones antiguas en una zona montañosa.",
+      "autor": "Colegota",
+      "licencia": "CC BY-SA 2.5 es",
+      "origen": "https://commons.wikimedia.org/wiki/File:Machu-picchu-c02.jpg",
+      "foco": null
     }
   }
 }

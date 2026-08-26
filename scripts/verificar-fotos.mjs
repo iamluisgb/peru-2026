@@ -28,7 +28,9 @@ for (const f of ['lima', 'arequipa', 'colca', 'titicaca', 'trayectos', 'cusco', 
 
 const candidatas = [];
 for (const lote of ['lote-costa-sur', 'lote-andes', 'lote-faltantes']) {
-  const j = JSON.parse(readFileSync(`data/fotos/${lote}.json`, 'utf8'));
+  const ruta = `data/fotos/${lote}.json`;
+  if (!existsSync(ruta)) continue;
+  const j = JSON.parse(readFileSync(ruta, 'utf8'));
   for (const [id, lista] of Object.entries(j))
     (lista || []).forEach((c, i) => candidatas.push({ id, i, ...c }));
 }
