@@ -91,6 +91,15 @@ que necesita red allí es una web que no existe justo cuando hace falta.
 - Cero imágenes de terceros. Peso, licencias, y 40 fotos de sitios arqueológicos son decenas de MB
   de precache. La identidad es color, tipografía y un mapa SVG propio.
 
+**La única excepción es la vista satélite** ([`js/ui/satelite.js`](js/ui/satelite.js)), y está
+acotada a propósito. Son fotos aéreas de Esri: sin red no pueden existir, así que ahí el trabajo
+no es que funcione offline sino que **falle bien** — avisa y devuelve al mapa base. MapLibre está
+vendorizado en `vendor/` y **no entra en `ASSETS`**: son 784 KB para una vista que sin cobertura
+no funcionaría igualmente. Se carga sólo al pulsar el botón. La atribución de Esri es obligatoria
+por sus condiciones y se pinta en pantalla.
+
+El mapa base sigue siendo el SVG: es el que se ve en el Colca, y el que tiene tema.
+
 ## Desarrollo
 
 ```

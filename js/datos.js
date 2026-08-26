@@ -30,6 +30,7 @@ export async function cargar() {
       puntos: mapa.puntos,
       viewBox: mapa.viewBox,
       contorno: mapa.contorno,
+      geo: mapa.geo,          // grados: lo que necesita la vista satélite
     },
     fichas: Object.fromEntries(guias.flatMap(g => g.fichas.map(f => [f.id, f]))),
   };

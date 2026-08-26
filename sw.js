@@ -6,7 +6,7 @@
 // Al tocar cualquier fichero de ASSETS hay que SUBIR CACHE_NAME, o los móviles ya instalados
 // se quedan con la versión vieja. tests/sw-precache.test.mjs vigila que la lista no se quede
 // corta: en bookreader ya se desincronizó una vez.
-const CACHE_NAME = 'peru-v14';
+const CACHE_NAME = 'peru-v15';
 
 const ASSETS = [
   './',
@@ -21,6 +21,7 @@ const ASSETS = [
   './js/ui/escape.js',
   './js/ui/icons.js',
   './js/ui/zoom.js',
+  './js/ui/satelite.js',
   './js/ui/fecha.js',
   './data/itinerario.json',
   './data/avisos.json',
@@ -50,6 +51,10 @@ const ASSETS = [
   './icons/maskable-512.png',
   './icons/apple-touch-icon.png'
 ];
+
+// vendor/ (MapLibre, 784 KB) NO entra en ASSETS a propósito: son 784 KB para una vista que
+// sin cobertura no puede funcionar de todos modos. Se pide sólo si el atleta pulsa Satélite,
+// y el navegador la cachea por HTTP como cualquier otro recurso.
 
 // Uno a uno, no addAll. addAll es ATÓMICO: un solo recurso que falle (un icono que aún no
 // existe, un 404 puntual) aborta el precache ENTERO y deja al viajero sin NADA offline.

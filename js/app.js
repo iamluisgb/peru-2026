@@ -4,6 +4,7 @@ import { esc, enlazar } from './ui/escape.js';
 import { hoyISO, bonita, diasHasta } from './ui/fecha.js';
 import { icono } from './ui/icons.js';
 import { activarZoom } from './ui/zoom.js';
+import { montarSatelite, haySatelite } from './ui/satelite.js';
 
 const app = document.getElementById('app');
 let datos = null;
@@ -421,7 +422,9 @@ function verMapa(arg) {
       <button type="button" data-zoom="mas" aria-label="Acercar">+</button>
       <button type="button" data-zoom="menos" aria-label="Alejar">−</button>
       <button type="button" data-zoom="reset" aria-label="Ver todo el recorrido">Todo</button>
+      <button type="button" data-sat aria-pressed="false">Satélite</button>
     </div>
+    <p class="mapa-nota" hidden></p>
 
     <p class="seccion-titulo">${activo === null ? 'Todos los sitios' : `Día ${activo} · qué toca`}</p>
     <div class="indice">${visibles.map(({ f }) => htmlEnlaceFicha(f)).join('')}</div>
@@ -431,8 +434,63 @@ function verMapa(arg) {
   const zoom = activarZoom(svg, { w: W, h: H });
   app.querySelector('.mapa-controles').addEventListener('click', (e) => {
     const b = e.target.closest('button');
-    if (!b) return;
+    if (!b || !b.dataset.zoom) return;
     ({ mas: zoom.acercar, menos: zoom.alejar, reset: zoom.reiniciar })[b.dataset.zoom]();
+  });
+
+  montarBotonSatelite({ visibles });
+}
+
+// El satélite es la única parte de la app que pide red. Se carga bajo demanda, nunca al
+// arrancar, y si falla se vuelve al mapa base — que funciona siempre — en vez de dejar un
+// hueco. Sin conexión el botón lo dice y no lo intenta.
+function montarBotonSatelite({ visibles }) {
+  const boton = app.querySelector('[data-sat]');
+  const nota = app.querySelector('.mapa-nota');
+  const tarjeta = app.querySelector('.mapa-svg').closest('.tarjeta');
+  let lienzo = null;
+
+  const avisar = (texto) => { nota.textContent = texto; nota.hidden = !texto; };
+
+  boton.addEventListener('click', async () => {
+    if (boton.getAttribute('aria-pressed') === 'true') {
+      lienzo.remove(); lienzo = null;
+      tarjeta.hidden = false;
+      boton.setAttribute('aria-pressed', 'false');
+      boton.textContent = 'Satélite';
+      avisar('');
+      return;
+    }
+
+    if (!haySatelite()) {
+      avisar('El satélite son fotos que se piden por internet y ahora no hay conexión. El mapa de al lado funciona sin ella.');
+      return;
+    }
+
+    boton.disabled = true;
+    boton.textContent = 'Cargando…';
+    try {
+      lienzo = document.createElement('div');
+      lienzo.className = 'sat-lienzo';
+      tarjeta.after(lienzo);
+      await montarSatelite(lienzo, {
+        geo: datos.mapa.geo,
+        ruta: datos.itinerario.paradas,
+        visibles,
+        alPulsar: (id) => { location.hash = `#/guia/${id}`; },
+      });
+      tarjeta.hidden = true;
+      boton.setAttribute('aria-pressed', 'true');
+      boton.textContent = 'Mapa';
+      avisar('');
+    } catch {
+      if (lienzo) { lienzo.remove(); lienzo = null; }
+      tarjeta.hidden = false;
+      avisar('No se pudo cargar el satélite. Sigues con el mapa de siempre.');
+    } finally {
+      boton.disabled = false;
+      if (boton.getAttribute('aria-pressed') !== 'true') boton.textContent = 'Satélite';
+    }
   });
 }
 

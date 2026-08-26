@@ -120,29 +120,44 @@ for (const f of ['lima', 'arequipa', 'colca', 'titicaca', 'trayectos', 'cusco', 
   }
 }
 
+// El satélite (MapLibre) trabaja en GRADOS, no en el sistema del SVG. Se emiten las dos
+// cosas desde la MISMA fuente para que las dos vistas no puedan discrepar.
+const geo = { paradas: {}, puntos: {} };
+for (const [id, [lat, lon]] of Object.entries(PARADAS)) geo.paradas[id] = [+lat.toFixed(4), +lon.toFixed(4)];
+
 const puntos = {};
 for (const [dia, ids] of Object.entries(fichasPorDia)) {
   const base = porId[paradaDeDia[dia]];
   if (!base) continue;
 
   if (Number(dia) === 7 && porId.puno && porId.cusco) {
+    const [laP, loP] = PARADAS.puno, [laC, loC] = PARADAS.cusco;
     ids.forEach((id, i) => {
       const t = (i + 1) / (ids.length + 1);
       puntos[id] = {
         x: +(porId.puno.x + (porId.cusco.x - porId.puno.x) * t).toFixed(1),
         y: +(porId.puno.y + (porId.cusco.y - porId.puno.y) * t).toFixed(1),
       };
+      geo.puntos[id] = [+(laP + (laC - laP) * t).toFixed(4), +(loP + (loC - loP) * t).toFixed(4)];
     });
     continue;
   }
 
   const radio = ids.length > 4 ? 11 : 8.5;
+  const [laB, loB] = PARADAS[paradaDeDia[dia]];
+  // En satélite el abanico es mucho más pequeño: allí sí se distingue una manzana, así que
+  // separarlos un grado sería mandarlos a otra provincia. 0,012° ≈ 1,3 km.
+  const radioGeo = 0.012;
   ids.forEach((id, i) => {
     const ang = (i / ids.length) * Math.PI * 2 - Math.PI / 2;
     puntos[id] = {
       x: +(base.x + Math.cos(ang) * radio).toFixed(1),
       y: +(base.y + Math.sin(ang) * radio * 0.85).toFixed(1),
     };
+    geo.puntos[id] = [
+      +(laB + Math.sin(ang) * radioGeo).toFixed(4),
+      +(loB + Math.cos(ang) * radioGeo).toFixed(4),
+    ];
   });
 }
 
@@ -153,6 +168,7 @@ writeFileSync('data/mapa.json', JSON.stringify({
   contorno: contornos,
   ruta: rutaPuntos,
   puntos,
+  geo,
 }, null, 2) + '\n');
 
 console.log(`contorno: ${contornos.length} anillos, ${contornos.join('').length} caracteres`);

@@ -349,6 +349,30 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
   cursor: pointer; transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 .mapa-controles button:hover { border-color: var(--accent); color: var(--accent); }
+.mapa-controles button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.mapa-controles button:disabled { opacity: 0.6; cursor: default; }
+
+.mapa-nota {
+  margin: var(--s-3) auto 0; max-width: 460px;
+  font-size: var(--fs-sm); color: var(--text-soft); text-align: center;
+}
+
+/* Lienzo del satélite. Alto fijo porque MapLibre necesita medir su contenedor: con altura
+   automática arrancaría a 0 px y no dibujaría nada. */
+.sat-lienzo {
+  height: 420px; max-width: 460px; margin: 0 auto;
+  border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border);
+}
+/* Marcador: es un <button> de verdad, así que se puede tabular y pulsar con teclado. */
+.sat-punto {
+  width: 16px; height: 16px; padding: 0; cursor: pointer;
+  border-radius: 50%; border: 2.5px solid #ff8a5c;
+  background: rgba(255, 255, 255, 0.9);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.sat-punto:hover, .sat-punto:focus-visible { transform: scale(1.35); background: #ff8a5c; }
+/* La atribución de Esri es obligatoria: se deja legible, no escondida. */
+.maplibregl-ctrl-attrib { font-size: 10px; }
 /* El mar es el fondo de la tarjeta; el país, la silueta real de Perú proyectada. */
 .mapa-mar { fill: var(--mapa-mar); }
 .mapa-pais { fill: var(--mapa-tierra); stroke: var(--mapa-costa); stroke-width: 0.6; }
