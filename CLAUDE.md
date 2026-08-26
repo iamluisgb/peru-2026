@@ -45,6 +45,12 @@ que abrir un `.html`, el modelo de datos está mal y se arregla el modelo, no el
 - `data/guia/<bloque>.json` — las fichas de guía, un fichero por bloque geográfico.
 - `data/cultura.json` — los 30 libros/películas/documentales/música, con sus tags.
 - `data/avisos.json` — reglas de aviso (cierres por día de semana, equipaje, altura).
+- `data/coordenadas.json` — la coordenada real de cada sitio, geocodificada contra
+  OpenStreetMap y **validada contra el trazado** ([`scripts/geocodificar.mjs`](scripts/geocodificar.mjs)).
+- `data/mapa.json` — **generado**, no se edita a mano
+  ([`scripts/generar-mapa.mjs`](scripts/generar-mapa.mjs)): contorno de Perú proyectado, y las
+  mismas coordenadas en píxeles del SVG y en grados, para que el mapa base y el satélite no
+  puedan discrepar.
 
 Los tres se validan contra su forma en `npm test`. Un JSON malformado o una ficha sin los campos
 obligatorios rompe la build, no la app en mitad del Titicaca.

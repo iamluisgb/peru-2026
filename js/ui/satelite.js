@@ -57,8 +57,9 @@ export async function montarSatelite(contenedor, { geo, ruta, visibles, alPulsar
     attributionControl: { compact: false },
   });
 
-  mapa.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-  mapa.addControl(new maplibregl.ScaleControl({ maxWidth: 90, unit: 'metric' }));
+  // Sin los controles de MapLibre: la app ya tiene los suyos, y los de la librería caían
+  // justo encima de la fila de filtros. Los botones propios mandan sobre las dos vistas.
+  mapa.addControl(new maplibregl.ScaleControl({ maxWidth: 90, unit: 'metric' }), 'bottom-left');
 
   mapa.on('load', () => {
     mapa.addSource('ruta', {
@@ -73,18 +74,41 @@ export async function montarSatelite(contenedor, { geo, ruta, visibles, alPulsar
   });
 
   // Los marcadores son DOM, no una capa: así heredan los estilos de la app y son pulsables
-  // con el teclado sin reinventar el foco.
-  for (const { id, f } of visibles) {
-    const c = geo.puntos[id];
-    if (!c) continue;
-    const el = document.createElement('button');
-    el.type = 'button';
-    el.className = 'sat-punto';
-    el.title = f.nombre;
-    el.setAttribute('aria-label', f.nombre);
-    el.addEventListener('click', () => alPulsar(id));
-    new maplibregl.Marker({ element: el }).setLngLat([c[1], c[0]]).addTo(mapa);
+  // con el teclado sin reinventar el foco. Se guardan para poder rehacerlos al filtrar.
+  let marcadores = [];
+
+  function pintarMarcadores(lista) {
+    for (const m of marcadores) m.remove();
+    marcadores = lista.map(({ id, f }) => {
+      const c = geo.puntos[id];
+      if (!c) return null;
+      const el = document.createElement('button');
+      el.type = 'button';
+      el.className = 'sat-punto';
+      el.title = f.nombre;
+      el.setAttribute('aria-label', f.nombre);
+      el.addEventListener('click', () => alPulsar(id));
+      return new maplibregl.Marker({ element: el }).setLngLat([c[1], c[0]]).addTo(mapa);
+    }).filter(Boolean);
   }
+
+  pintarMarcadores(visibles);
+
+  // Volar a los puntos del día. Con uno solo no hay caja que ajustar y `fitBounds` daría un
+  // zoom absurdo, así que se centra con un zoom fijo que enseñe el sitio y su entorno.
+  mapa.enfocar = (lista, dia) => {
+    pintarMarcadores(lista);
+    const cs = lista.map(({ id }) => geo.puntos[id]).filter(Boolean).map(([la, lo]) => [lo, la]);
+    if (!cs.length) return;
+    if (dia === null) {
+      mapa.fitBounds(coordsRuta.reduce((b, c) => b.extend(c),
+        new maplibregl.LngLatBounds(coordsRuta[0], coordsRuta[0])), { padding: 36, duration: 800 });
+      return;
+    }
+    if (cs.length === 1) { mapa.easeTo({ center: cs[0], zoom: 14, duration: 800 }); return; }
+    const caja = cs.reduce((b, c) => b.extend(c), new maplibregl.LngLatBounds(cs[0], cs[0]));
+    mapa.fitBounds(caja, { padding: 60, maxZoom: 15, duration: 800 });
+  };
 
   return mapa;
 }

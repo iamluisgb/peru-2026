@@ -102,63 +102,32 @@ const rutaPuntos = Object.entries(PARADAS).map(([id, [lat, lon]]) => {
   return { id, x: +x.toFixed(1), y: +y.toFixed(1) };
 });
 
-// Los sitios se colocan a partir de su parada, no a ojo. A escala de país, Koricancha y la
-// catedral del Cusco distan menos de un píxel: fingir su posición exacta sería precisión
-// falsa. Se abren en abanico alrededor de su parada para que se puedan pinchar.
-//
-// Excepción: los del día 7 son paradas de carretera entre Puno y Cusco, así que se reparten
-// A LO LARGO de ese tramo, que es donde están de verdad.
-const itinerario = JSON.parse(readFileSync('data/itinerario.json', 'utf8'));
-const paradaDeDia = Object.fromEntries(itinerario.dias.map(d => [d.n, d.parada]));
-const porId = Object.fromEntries(rutaPuntos.map(r => [r.id, r]));
+// Los sitios ya NO se derivan de su parada: salen de data/coordenadas.json, geocodificadas
+// contra OpenStreetMap y validadas contra el trazado (scripts/geocodificar.mjs). El abanico
+// alrededor de la parada valía para un esquema, pero en satélite era mentira: Koricancha
+// aparecía en un tejado cualquiera del Cusco.
+const fichasSitio = {};
+for (const f of ['lima', 'arequipa', 'colca', 'titicaca', 'trayectos', 'cusco', 'valle-sagrado', 'machu-picchu'])
+  for (const x of JSON.parse(readFileSync(`data/guia/${f}.json`, 'utf8')).fichas)
+    if (x.tipo !== 'transversal') fichasSitio[x.id] = x;
 
-const fichasPorDia = {};
-for (const f of ['lima', 'arequipa', 'colca', 'titicaca', 'trayectos', 'cusco', 'valle-sagrado', 'machu-picchu']) {
-  for (const x of JSON.parse(readFileSync(`data/guia/${f}.json`, 'utf8')).fichas) {
-    if (x.tipo === 'transversal') continue;
-    (fichasPorDia[x.dia] ||= []).push(x.id);
-  }
-}
-
-// El satélite (MapLibre) trabaja en GRADOS, no en el sistema del SVG. Se emiten las dos
-// cosas desde la MISMA fuente para que las dos vistas no puedan discrepar.
+const coords = JSON.parse(readFileSync('data/coordenadas.json', 'utf8')).sitios;
 const geo = { paradas: {}, puntos: {} };
-for (const [id, [lat, lon]] of Object.entries(PARADAS)) geo.paradas[id] = [+lat.toFixed(4), +lon.toFixed(4)];
+for (const [id, [lat, lon]] of Object.entries(PARADAS)) geo.paradas[id] = [+lat.toFixed(5), +lon.toFixed(5)];
 
 const puntos = {};
-for (const [dia, ids] of Object.entries(fichasPorDia)) {
-  const base = porId[paradaDeDia[dia]];
-  if (!base) continue;
-
-  if (Number(dia) === 7 && porId.puno && porId.cusco) {
-    const [laP, loP] = PARADAS.puno, [laC, loC] = PARADAS.cusco;
-    ids.forEach((id, i) => {
-      const t = (i + 1) / (ids.length + 1);
-      puntos[id] = {
-        x: +(porId.puno.x + (porId.cusco.x - porId.puno.x) * t).toFixed(1),
-        y: +(porId.puno.y + (porId.cusco.y - porId.puno.y) * t).toFixed(1),
-      };
-      geo.puntos[id] = [+(laP + (laC - laP) * t).toFixed(4), +(loP + (loC - loP) * t).toFixed(4)];
-    });
-    continue;
-  }
-
-  const radio = ids.length > 4 ? 11 : 8.5;
-  const [laB, loB] = PARADAS[paradaDeDia[dia]];
-  // En satélite el abanico es mucho más pequeño: allí sí se distingue una manzana, así que
-  // separarlos un grado sería mandarlos a otra provincia. 0,012° ≈ 1,3 km.
-  const radioGeo = 0.012;
-  ids.forEach((id, i) => {
-    const ang = (i / ids.length) * Math.PI * 2 - Math.PI / 2;
-    puntos[id] = {
-      x: +(base.x + Math.cos(ang) * radio).toFixed(1),
-      y: +(base.y + Math.sin(ang) * radio * 0.85).toFixed(1),
-    };
-    geo.puntos[id] = [
-      +(laB + Math.sin(ang) * radioGeo).toFixed(4),
-      +(loB + Math.cos(ang) * radioGeo).toFixed(4),
-    ];
-  });
+const sinCoordenada = [];
+for (const id of Object.keys(fichasSitio)) {
+  const c = coords[id];
+  if (!c) { sinCoordenada.push(id); continue; }
+  geo.puntos[id] = [c.lat, c.lon];
+  const [x, y] = proyectar(c.lon, c.lat);
+  puntos[id] = { x: +x.toFixed(1), y: +y.toFixed(1) };
+}
+if (sinCoordenada.length) {
+  console.error(`FALTAN COORDENADAS: ${sinCoordenada.join(', ')}`);
+  console.error('Ejecuta scripts/geocodificar.mjs antes que este.');
+  process.exit(1);
 }
 
 writeFileSync('data/mapa.json', JSON.stringify({

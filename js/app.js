@@ -342,11 +342,18 @@ function colocarEtiquetas(paradas, visibles, activo, W, H) {
   return salida;
 }
 
+// Estado vivo del mapa. Cambiar de día NO repinta la pantalla: si lo hiciera, se perderían
+// el zoom y la vista satélite que el atleta tuviera puestos, que es justo lo que estaba
+// mirando cuando decidió filtrar.
+let mapaVivo = null;
+
 function verMapa(arg) {
   const diasConPuntos = [...new Set(Object.values(datos.fichas)
     .filter(f => f.tipo !== 'transversal')
     .map(f => f.dia))].sort((a, b) => a - b);
-  const activo = diasConPuntos.includes(parseInt(arg, 10)) ? parseInt(arg, 10) : null;
+  const dia = diasConPuntos.includes(parseInt(arg, 10)) ? parseInt(arg, 10) : null;
+
+  if (mapaVivo) return mapaVivo.filtrar(dia);
 
   const { ruta, puntos, viewBox, contorno } = datos.mapa;
   const { w: W, h: H } = viewBox;
@@ -359,14 +366,10 @@ function verMapa(arg) {
   const todas = Object.entries(puntos)
     .map(([id, c]) => ({ id, c, f: datos.fichas[id] }))
     .filter(x => x.f && x.f.tipo !== 'transversal');
-  const visibles = activo === null ? todas : todas.filter(x => x.f.dia === activo);
-
-  const etiquetas = colocarEtiquetas(paradas, visibles, activo, W, H);
 
   const chips = [
-    `<button type="button" class="chip${activo === null ? ' chip--acento' : ''}" data-dia="">Todo</button>`,
-    ...diasConPuntos.map(d =>
-      `<button type="button" class="chip${activo === d ? ' chip--acento' : ''}" data-dia="${d}">Día ${d}</button>`),
+    `<button type="button" class="chip" data-dia="">Todo</button>`,
+    ...diasConPuntos.map(d => `<button type="button" class="chip" data-dia="${d}">Día ${d}</button>`),
   ].join('');
 
   pintar(`
@@ -376,23 +379,22 @@ function verMapa(arg) {
         <rect class="mapa-mar" x="0" y="0" width="${W}" height="${H}"/>
         ${contorno.map(d => `<path class="mapa-pais" d="${d}"/>`).join('')}
         <path class="mapa-ruta" d="${linea}"/>
-        ${visibles.map(({ id, c, f }) => `
-          <g class="mapa-ficha" data-ficha="${esc(id)}" role="button" tabindex="0" aria-label="${esc(f.nombre)}">
-            <circle cx="${c.x}" cy="${c.y}" r="${activo === null ? 2.8 : 4.2}"/>
-            <title>${esc(f.nombre)}</title>
-          </g>`).join('')}
+        <g class="mapa-sitios">
+          ${todas.map(({ id, c, f }) => `
+            <g class="mapa-ficha" data-ficha="${esc(id)}" data-dia="${f.dia}"
+               role="button" tabindex="0" aria-label="${esc(f.nombre)}">
+              <circle cx="${c.x}" cy="${c.y}" r="2.8"/>
+              <title>${esc(f.nombre)}</title>
+            </g>`).join('')}
+        </g>
         ${paradas.map(({ p, c }) => `
           <circle class="mapa-parada" cx="${c.x}" cy="${c.y}" r="${p.solo_paso ? 3 : 5.5}"/>`).join('')}
-        ${etiquetas.map(e => `
-          <text class="mapa-etiqueta" x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}"
-                text-anchor="${e.anclaje}">${esc(e.texto)}</text>`).join('')}
+        <g class="mapa-etiquetas"></g>
       </svg>
 
       <div class="sat-lienzo" hidden></div>
 
-      <div class="mapa-capa mapa-capa--arriba">
-        <div class="mapa-filtros">${chips}</div>
-      </div>
+      <div class="mapa-capa mapa-capa--arriba"><div class="mapa-filtros">${chips}</div></div>
 
       <div class="mapa-capa mapa-capa--abajo">
         <div class="mapa-leyenda">
@@ -416,22 +418,60 @@ function verMapa(arg) {
 
   const svg = app.querySelector('.mapa-svg');
   const zoom = activarZoom(svg, { w: W, h: H });
+  const capaEtiquetas = svg.querySelector('.mapa-etiquetas');
+  const satelite = montarBotonSatelite();
 
+  function visiblesDe(d) {
+    return d === null ? todas : todas.filter(x => x.f.dia === d);
+  }
+
+  function filtrar(d, { encuadrar = true } = {}) {
+    mapaVivo.dia = d;
+    // Ocultar por atributo y no rehaciendo el SVG: los nodos siguen siendo los mismos, así
+    // que el zoom y el foco no se pierden.
+    svg.querySelectorAll('.mapa-ficha').forEach(g => {
+      const suyo = d === null || Number(g.dataset.dia) === d;
+      g.toggleAttribute('hidden', !suyo);
+      g.querySelector('circle').setAttribute('r', d === null ? 2.8 : 4.2);
+    });
+
+    app.querySelectorAll('.mapa-filtros .chip').forEach(b => {
+      const activo = (b.dataset.dia === '' && d === null) || Number(b.dataset.dia) === d;
+      b.classList.toggle('chip--acento', activo);
+      b.setAttribute('aria-pressed', String(activo));
+    });
+
+    const visibles = visiblesDe(d);
+    capaEtiquetas.innerHTML = colocarEtiquetas(paradas, visibles, d, W, H).map(e =>
+      `<text class="mapa-etiqueta" x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}"
+             text-anchor="${e.anclaje}">${esc(e.texto)}</text>`).join('');
+
+    if (encuadrar) {
+      if (d === null) zoom.reiniciar();
+      else zoom.encuadrar(caja(visibles.map(v => v.c)));
+    }
+    satelite.encuadrar(visibles, d);
+  }
+
+  mapaVivo = { dia: null, filtrar, cerrar: () => { satelite.cerrar(); mapaVivo = null; } };
+  filtrar(dia, { encuadrar: dia !== null });
+
+  // Un solo juego de botones para las dos vistas: si el satélite está encendido, mandan sobre
+  // él; si no, sobre el SVG. Dos juegos de controles para lo mismo es un control de más.
   app.querySelector('.mapa-botones').addEventListener('click', (e) => {
     const b = e.target.closest('button');
-    if (b && b.dataset.zoom) ({ mas: zoom.acercar, menos: zoom.alejar, reset: zoom.reiniciar })[b.dataset.zoom]();
+    if (!b || !b.dataset.zoom) return;
+    if (satelite.encendido()) satelite.zoom(b.dataset.zoom, mapaVivo.dia);
+    else ({ mas: zoom.acercar, menos: zoom.alejar, reset: zoom.reiniciar })[b.dataset.zoom]();
   });
 
-  // Los filtros son botones y no enlaces: cambiar el hash volvería a pintar la pantalla, y
-  // con ella se perdería el zoom y la vista satélite que el atleta tuviera puestos.
+  // El hash cambia para que el día filtrado se pueda compartir y volver atrás funcione, pero
+  // quien repinta es `filtrar`, no la ruta.
   app.querySelector('.mapa-filtros').addEventListener('click', (e) => {
     const b = e.target.closest('button');
-    if (!b) return;
-    location.hash = b.dataset.dia ? `#/mapa/${b.dataset.dia}` : '#/mapa';
+    if (b) location.hash = b.dataset.dia ? `#/mapa/${b.dataset.dia}` : '#/mapa';
   });
 
-  // Pinchar un punto abre una hoja, no otra pantalla: en un mapa, navegar fuera te hace
-  // perder el sitio donde estabas mirando y obliga a volver y recolocarte.
   svg.addEventListener('click', (e) => {
     const g = e.target.closest('[data-ficha]');
     if (g) abrirHoja(g.dataset.ficha);
@@ -440,12 +480,15 @@ function verMapa(arg) {
     const g = e.target.closest('[data-ficha]');
     if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); abrirHoja(g.dataset.ficha); }
   });
-
-  montarBotonSatelite({ visibles });
 }
 
-// Ficha resumida en una hoja. Sólo la capa `de_pie`, que es lo que se mira de un vistazo; lo
-// largo tiene su pantalla y se llega con el enlace del pie.
+// Caja que contiene unos puntos, en unidades del SVG.
+function caja(cs) {
+  const xs = cs.map(c => c.x), ys = cs.map(c => c.y);
+  return { x1: Math.min(...xs), x2: Math.max(...xs), y1: Math.min(...ys), y2: Math.max(...ys) };
+}
+
+
 function abrirHoja(id) {
   const f = datos.fichas[id];
   if (!f) return;
@@ -473,25 +516,26 @@ function abrirHoja(id) {
   hoja.showModal();
 }
 
-function montarBotonSatelite({ visibles }) {
+function montarBotonSatelite() {
   const boton = app.querySelector('[data-sat]');
   const nota = app.querySelector('.mapa-nota');
   const svg = app.querySelector('.mapa-svg');
   const lienzo = app.querySelector('.sat-lienzo');
   let mapa = null;
+  let ultimo = { visibles: [], dia: null };
 
   const avisar = (texto) => { nota.textContent = texto; nota.hidden = !texto; };
 
+  function apagar() {
+    if (mapa) { mapa.remove(); mapa = null; }
+    lienzo.replaceChildren();
+    lienzo.hidden = true;
+    svg.hidden = false;
+    boton.setAttribute('aria-pressed', 'false');
+  }
+
   boton.addEventListener('click', async () => {
-    if (boton.getAttribute('aria-pressed') === 'true') {
-      if (mapa) { mapa.remove(); mapa = null; }
-      lienzo.replaceChildren();
-      lienzo.hidden = true;
-      svg.hidden = false;
-      boton.setAttribute('aria-pressed', 'false');
-      avisar('');
-      return;
-    }
+    if (boton.getAttribute('aria-pressed') === 'true') { apagar(); avisar(''); return; }
 
     if (!haySatelite()) {
       avisar('El satélite son fotos que se piden por internet y ahora no hay conexión. El mapa funciona sin ella.');
@@ -505,21 +549,37 @@ function montarBotonSatelite({ visibles }) {
       mapa = await montarSatelite(lienzo, {
         geo: datos.mapa.geo,
         ruta: datos.itinerario.paradas,
-        visibles,
+        visibles: ultimo.visibles,
         alPulsar: abrirHoja,
       });
       boton.setAttribute('aria-pressed', 'true');
       avisar('');
     } catch {
-      lienzo.replaceChildren();
-      lienzo.hidden = true;
-      svg.hidden = false;
+      apagar();
       avisar('No se pudo cargar el satélite. Sigues con el mapa de siempre.');
     } finally {
       boton.disabled = false;
     }
   });
+
+  return {
+    // Al filtrar por día, el satélite vuela a esos puntos igual que el mapa base. Si no está
+    // encendido, se guarda el filtro para cuando lo enciendan.
+    encuadrar(visibles, dia) {
+      ultimo = { visibles, dia };
+      if (mapa) mapa.enfocar(visibles, dia);
+    },
+    encendido: () => Boolean(mapa),
+    zoom(accion, dia) {
+      if (!mapa) return;
+      if (accion === 'mas') mapa.zoomIn();
+      else if (accion === 'menos') mapa.zoomOut();
+      else mapa.enfocar(ultimo.visibles, dia ?? null);
+    },
+    cerrar: apagar,
+  };
 }
+
 
 function verEmergencias() {
   const tel = (quien, detalle, numero) => `
@@ -621,6 +681,7 @@ async function ir() {
   const { nombre, arg } = ruta();
   marcarNav(nombre);
   document.body.classList.toggle('ruta-mapa', nombre === 'mapa');
+  if (nombre !== 'mapa' && mapaVivo) mapaVivo.cerrar();
   RUTAS[nombre](arg);
 }
 

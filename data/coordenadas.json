@@ -1,0 +1,236 @@
+{
+  "_nota": "GENERADO por scripts/geocodificar.mjs desde Nominatim (OpenStreetMap, ODbL). Cada punto validado a menos de 60 km de su parada.",
+  "sitios": {
+    "plaza-armas-lima": {
+      "lat": -12.04594,
+      "lon": -77.03057,
+      "km_a_ruta": 0.9,
+      "tramo": "lima→arequipa",
+      "fuente": "Plaza Mayor de Lima, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, Perú"
+    },
+    "catedral-lima": {
+      "lat": -12.04676,
+      "lon": -77.0297,
+      "km_a_ruta": 0.8,
+      "tramo": "lima→arequipa",
+      "fuente": "Catedral de Lima, 200, Jirón Carabaya, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú"
+    },
+    "huaca-pucllana": {
+      "lat": -12.11149,
+      "lon": -77.03395,
+      "km_a_ruta": 5,
+      "tramo": "lima→arequipa",
+      "fuente": "Huaca Pucllana, Calle Juana Alarcó de Dammert, América, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú"
+    },
+    "parque-del-amor": {
+      "lat": -12.12674,
+      "lon": -77.03651,
+      "km_a_ruta": 6.5,
+      "tramo": "lima→arequipa",
+      "fuente": "Parque Alberto Andrade Carmona, Miraflores, Lima, Lima Metropolitana, Lima, Perú"
+    },
+    "santa-catalina": {
+      "lat": -16.39519,
+      "lon": -71.53656,
+      "km_a_ruta": 0.2,
+      "tramo": "arequipa→colca",
+      "fuente": "Monasterio de Santa Catalina, 301, Santa Catalina, 7 Esquinas, Arequipa, 04001, Perú"
+    },
+    "yanahuara": {
+      "lat": -16.38747,
+      "lon": -71.54175,
+      "km_a_ruta": 0.3,
+      "tramo": "arequipa→colca",
+      "fuente": "Mirador de Yanahuara, Calle Miguel Grau, Magnopata, Yanahuara, Arequipa, 04100, Perú"
+    },
+    "carmen-alto": {
+      "lat": -16.36993,
+      "lon": -71.53663,
+      "km_a_ruta": 0.4,
+      "tramo": "arequipa→colca",
+      "fuente": "Mirador de Carmen Alto, Avenida la Ronda, Carmen Alto, Cayma, Arequipa, 04100, Perú"
+    },
+    "plaza-armas-arequipa": {
+      "lat": -16.39883,
+      "lon": -71.53697,
+      "km_a_ruta": 0.1,
+      "tramo": "arequipa→colca",
+      "fuente": "Plaza de Armas, 7 Esquinas, Arequipa, Perú"
+    },
+    "pampas-canahuas": {
+      "lat": -16.07305,
+      "lon": -71.47374,
+      "km_a_ruta": 9.7,
+      "tramo": "arequipa→colca",
+      "fuente": "Laguna de Pampa blanca, Vía Interoceánica Sur - Tramo 5, Cañahuas, El Abra, Yura, Arequipa, Perú"
+    },
+    "patapampa": {
+      "lat": -15.75245,
+      "lon": -71.58212,
+      "km_a_ruta": 1,
+      "tramo": "arequipa→colca",
+      "fuente": "Patapampa, Yanque, Caylloma, Arequipa, Perú"
+    },
+    "cruz-del-condor": {
+      "lat": -15.61115,
+      "lon": -71.90644,
+      "km_a_ruta": 32.8,
+      "tramo": "arequipa→colca",
+      "fuente": "Mirador Cruz del Condor, Carretera Longitudinal del Colca, San Miguel, Cabanaconde, Caylloma, Arequipa, 04124, Perú"
+    },
+    "maca": {
+      "lat": -15.64107,
+      "lon": -71.76851,
+      "km_a_ruta": 17.8,
+      "tramo": "colca→patapampa",
+      "fuente": "Maca, Caylloma, Arequipa, Perú"
+    },
+    "yanque": {
+      "lat": -15.80224,
+      "lon": -71.47157,
+      "km_a_ruta": 0.9,
+      "tramo": "patapampa→puno",
+      "fuente": "Yanque, Caylloma, Arequipa, 04140, Perú"
+    },
+    "uros": {
+      "lat": -15.81634,
+      "lon": -69.97191,
+      "km_a_ruta": 6,
+      "tramo": "patapampa→puno",
+      "fuente": "Islas Flotantes de los Uros, Avenida Sesquicentenario, Nueva Esperanza, Chulluni, Puno, 21000, Perú"
+    },
+    "taquile": {
+      "lat": -15.83526,
+      "lon": -70.01493,
+      "km_a_ruta": 0.9,
+      "tramo": "patapampa→puno",
+      "fuente": "Isla Taquile, Muelle de los Turistas, Villa Zuñiga, Laykakota, Puno, 21001, Perú"
+    },
+    "pucara": {
+      "lat": -15.06886,
+      "lon": -70.44967,
+      "km_a_ruta": 18.5,
+      "tramo": "puno→cusco",
+      "fuente": "Pucará, Lampa, Puno, Perú"
+    },
+    "la-raya": {
+      "lat": -14.48321,
+      "lon": -70.98886,
+      "km_a_ruta": 14.7,
+      "tramo": "puno→cusco",
+      "fuente": "Abra La Raya, Layo, Canas, Cusco, Perú"
+    },
+    "raqchi": {
+      "lat": -14.17479,
+      "lon": -71.36892,
+      "km_a_ruta": 4.7,
+      "tramo": "puno→cusco",
+      "fuente": "Raqch'i, Calle 4 de Julio, Uchupampa, Queromarca Urpaya, San Pedro, Canchis, Cusco, Perú"
+    },
+    "andahuaylillas": {
+      "lat": -13.65862,
+      "lon": -71.68171,
+      "km_a_ruta": 14.9,
+      "tramo": "puno→cusco",
+      "fuente": "Andahuaylillas, Quispicanchi, Cusco, Perú"
+    },
+    "koricancha": {
+      "lat": -13.52026,
+      "lon": -71.97514,
+      "km_a_ruta": 0.3,
+      "tramo": "cusco→ollantaytambo",
+      "fuente": "Qurikancha, Ahuacpinta, Cuzco, Distrito de Cusco, Cusco, 08000, Perú"
+    },
+    "plaza-armas-cusco": {
+      "lat": -13.51677,
+      "lon": -71.97878,
+      "km_a_ruta": 0.4,
+      "tramo": "cusco→ollantaytambo",
+      "fuente": "Plaza de Armas, Hauqaypata, San Cristóbal, Mollococha, Cuzco, Distrito de Cusco, Cusco, 08001, Perú"
+    },
+    "catedral-cusco": {
+      "lat": -13.51628,
+      "lon": -71.97787,
+      "km_a_ruta": 0.5,
+      "tramo": "cusco→ollantaytambo",
+      "fuente": "Catedral del Cusco, Calle Triunfo, San Blas, Cuzco, Distrito de Cusco, Cusco, 00800, Perú"
+    },
+    "san-blas": {
+      "lat": -13.5149,
+      "lon": -71.97431,
+      "km_a_ruta": 0.8,
+      "tramo": "cusco→ollantaytambo",
+      "fuente": "San Blas, Calle Plazoleta, San Blas, Mollococha, Cuzco, Distrito de Cusco, Cusco, 00800, Perú"
+    },
+    "chinchero": {
+      "lat": -13.40982,
+      "lon": -72.0439,
+      "km_a_ruta": 4.1,
+      "tramo": "cusco→ollantaytambo",
+      "fuente": "Chinchero, Urubamba, Cusco, Perú"
+    },
+    "yucay": {
+      "lat": -13.29189,
+      "lon": -72.07756,
+      "km_a_ruta": 11.1,
+      "tramo": "cusco→ollantaytambo",
+      "fuente": "Yucay, Urubamba, Cusco, Perú"
+    },
+    "ollantaytambo": {
+      "lat": -13.25865,
+      "lon": -72.2636,
+      "km_a_ruta": 0,
+      "tramo": "ollantaytambo→aguas-calientes",
+      "fuente": "Ollantaytambo, Urubamba, Cusco, 08675, Perú"
+    },
+    "tren-valle": {
+      "lat": -13.26329,
+      "lon": -72.26928,
+      "km_a_ruta": 0.7,
+      "tramo": "ollantaytambo→aguas-calientes",
+      "fuente": "Estación de autobús, Avenida Ferrocarril, San Isidro, Compone, Ollantaytambo, Urubamba, Cusco, 08676, Perú"
+    },
+    "machu-picchu": {
+      "lat": -13.16434,
+      "lon": -72.54501,
+      "km_a_ruta": 0.1,
+      "tramo": "aguas-calientes→machu-picchu",
+      "fuente": "Ciudadela de Machu Picchu, Circuit 1, San Miguel, Intihuatana, Machupicchu, Urubamba, Cusco, 08680, Perú"
+    },
+    "intihuatana": {
+      "lat": -13.16327,
+      "lon": -72.54556,
+      "aproximado": true,
+      "cerca": "machu-picchu",
+      "fuente": "Situado a mano dentro de la ciudadela: OSM no tiene estos recintos como puntos propios."
+    },
+    "ciudadela-machu-picchu": {
+      "lat": -13.1634,
+      "lon": -72.5454,
+      "aproximado": true,
+      "cerca": "machu-picchu",
+      "fuente": "Situado a mano dentro de la ciudadela: OSM no tiene estos recintos como puntos propios."
+    },
+    "templo-del-sol": {
+      "lat": -13.16365,
+      "lon": -72.54566,
+      "aproximado": true,
+      "cerca": "machu-picchu",
+      "fuente": "Situado a mano dentro de la ciudadela: OSM no tiene estos recintos como puntos propios."
+    },
+    "tres-ventanas": {
+      "lat": -13.1633,
+      "lon": -72.5454,
+      "aproximado": true,
+      "cerca": "machu-picchu",
+      "fuente": "Situado a mano dentro de la ciudadela: OSM no tiene estos recintos como puntos propios."
+    },
+    "templo-del-condor": {
+      "lat": -13.16389,
+      "lon": -72.54509,
+      "aproximado": true,
+      "cerca": "machu-picchu",
+      "fuente": "Situado a mano dentro de la ciudadela: OSM no tiene estos recintos como puntos propios."
+    }
+  }
+}

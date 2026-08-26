@@ -84,10 +84,23 @@ export function activarZoom(svg, { w, h }) {
   svg.addEventListener('pointerup', soltar);
   svg.addEventListener('pointercancel', soltar);
 
+  // Encuadrar una caja: lo que hace falta al filtrar por día. Con un solo punto no hay caja
+  // que ajustar, así que se usa un zoom fijo y se centra — si no, la escala salería infinita.
+  function encuadrar(caja, margen = 26) {
+    const anchoCaja = Math.max(caja.x2 - caja.x1, 1);
+    const altoCaja = Math.max(caja.y2 - caja.y1, 1);
+    const soloUno = anchoCaja <= 1 && altoCaja <= 1;
+    z = soloUno ? 4 : Math.min(MAX, Math.min(w / (anchoCaja + margen * 2), h / (altoCaja + margen * 2)));
+    cx = (caja.x1 + caja.x2) / 2;
+    cy = (caja.y1 + caja.y2) / 2;
+    aplicar();
+  }
+
   aplicar();
   return {
     acercar: () => haciaPunto(1.5, 0.5, 0.5),
     alejar: () => haciaPunto(1 / 1.5, 0.5, 0.5),
     reiniciar: () => { z = 1; cx = w / 2; cy = h / 2; aplicar(); },
+    encuadrar,
   };
 }

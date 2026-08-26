@@ -451,6 +451,8 @@ body.ruta-mapa { padding-bottom: 0; overflow: hidden; }
 .sat-punto:hover, .sat-punto:focus-visible { transform: scale(1.35); background: #ff8a5c; }
 /* La atribución de Esri es obligatoria por sus condiciones: legible, no escondida. */
 .maplibregl-ctrl-attrib { font-size: 10px; }
+/* La escala se sube por encima de la leyenda, que ocupa esa esquina. */
+.maplibregl-ctrl-bottom-left { margin-bottom: 96px; }
 
 /* ---- Hoja de detalle ----
    Un <dialog> y no un div: trae Esc, el foco atrapado y el fondo inerte sin escribir nada. */
