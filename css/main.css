@@ -346,7 +346,9 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .navbar a {
   flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 3px; min-height: 44px;
-  font-size: 10px; font-weight: 500; letter-spacing: 0.01em;
+  /* En rem como el resto: era el último px suelto de la escala tipográfica, y dejaba la
+     ÚNICA navegación de la app sin crecer cuando el sistema sube el tamaño de texto. */
+  font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.01em;
   color: var(--text-faint); text-decoration: none;
   transition: color var(--dur-fast) var(--ease);
 }
