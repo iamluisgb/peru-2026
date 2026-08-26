@@ -15,7 +15,7 @@
 
 const MIN = 1, MAX = 6;
 
-export function activarZoom(svg, { w, h }) {
+export function activarZoom(svg, { w, h, inicial = null }) {
   let z = 1, cx = w / 2, cy = h / 2;      // escala y centro, en unidades del viewBox
   let escala = 1;                          // píxeles de pantalla por unidad de usuario
 
@@ -127,7 +127,15 @@ export function activarZoom(svg, { w, h }) {
   return {
     acercar: () => haciaPunto(1.5, 0.5, 0.5),
     alejar: () => haciaPunto(1 / 1.5, 0.5, 0.5),
-    reiniciar: () => { z = 1; cx = w / 2; cy = h / 2; aplicar(); },
+    // "Ver todo" encuadra EL RECORRIDO, no el lienzo entero. Con el lienzo, en un móvil el
+    // país quedaba flotando en dos franjas de gris que ocupaban más que el propio mapa: se
+    // veía todo, sí, pero pequeño y perdido. Lo que hay que ver es por dónde se pasa.
+    reiniciar: () => {
+      // Margen generoso: los controles y la leyenda flotan sobre el mapa, y con poco margen
+      // las etiquetas del borde —Puno, la más al este— quedan debajo de los botones.
+      if (inicial) return encuadrar(inicial, 34);
+      z = 1; cx = w / 2; cy = h / 2; aplicar();
+    },
     encuadrar,
     escala: () => escala,
     destruir: () => window.removeEventListener('resize', alRedimensionar),

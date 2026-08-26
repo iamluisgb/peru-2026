@@ -468,7 +468,9 @@ function verMapa(arg) {
   `);
 
   const svg = app.querySelector('.mapa-svg');
-  const zoom = activarZoom(svg, { w: W, h: H });
+  // El encuadre por defecto es la caja de las nueve paradas, no el lienzo: ver Perú entero
+  // en un móvil deja el mapa pequeño y rodeado de vacío.
+  const zoom = activarZoom(svg, { w: W, h: H, inicial: caja(paradas.map(x => x.c)) });
   const capaEtiquetas = svg.querySelector('.mapa-etiquetas');
   const satelite = montarBotonSatelite();
 
@@ -514,7 +516,9 @@ function verMapa(arg) {
   }
 
   mapaVivo = { dia: null, filtrar, cerrar: () => { satelite.cerrar(); zoom.destruir(); mapaVivo = null; } };
-  filtrar(dia, { encuadrar: dia !== null });
+  // Se encuadra también al montar sin filtro: si no, el mapa arranca con el lienzo entero y
+  // el país queda flotando en dos franjas de gris más grandes que él.
+  filtrar(dia);
 
   // Un solo juego de botones para las dos vistas: si el satélite está encendido, mandan sobre
   // él; si no, sobre el SVG. Dos juegos de controles para lo mismo es un control de más.

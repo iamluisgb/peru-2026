@@ -11,7 +11,7 @@
 //   node scripts/generar-mapa.mjs <peru.geojson>
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const W = 340, H = 240, PAD = 0;
+const W = 340, H = 720, PAD = 0;
 
 // Las paradas, en grados. Precisión de ~1 km, que a escala de país es menos de un píxel.
 const PARADAS = {
@@ -42,11 +42,23 @@ anillos.sort((a, b) => b.length - a.length);
 // norte quedaba vacía y las nueve paradas apretadas en una esquina: el mapa gastaba su
 // espacio en enseñar Loreto, por donde no se pasa. El contorno sigue dibujándose entero y
 // se recorta al marco, así que no se pierde el "esto es Perú".
-const MARGEN = 1.35;   // grados alrededor de la ruta
-const lats = Object.values(PARADAS).map(([la]) => la);
+// Encuadre asimétrico, y a propósito. En longitud se ciñe al recorrido: al este no se pasa
+// y enseñar Loreto sería gastar la pantalla. En latitud se coge el país ENTERO, porque el
+// lienzo tiene que ser vertical: la app es de móvil, y un lienzo apaisado en una pantalla
+// vertical deja dos franjas de mar más altas que el propio mapa. Estirando el norte se
+// rellenan con Perú, que al menos dice dónde está uno.
+const MARGEN_LON = 1.35;
 const lons = Object.values(PARADAS).map(([, lo]) => lo);
-let minLon = Math.min(...lons) - MARGEN, maxLon = Math.max(...lons) + MARGEN;
-let minLat = Math.min(...lats) - MARGEN, maxLat = Math.max(...lats) + MARGEN;
+let minLon = Math.min(...lons) - MARGEN_LON, maxLon = Math.max(...lons) + MARGEN_LON;
+// La latitud NO se recorta al país ni al recorrido: se calcula la que hace falta para que el
+// lienzo tenga la proporción de un móvil, CENTRADA en la ruta. Recortando al país entero el
+// recorrido quedaba en el tercio de abajo y media pantalla era selva por la que no se pasa;
+// recortándolo a la ruta, el lienzo salía apaisado y sobraban franjas de mar.
+const lats = Object.values(PARADAS).map(([la]) => la);
+const centroLat = (Math.min(...lats) + Math.max(...lats)) / 2;
+const kxTmp = Math.cos(centroLat * Math.PI / 180);
+const altoNecesario = ((maxLon - minLon) * kxTmp) / (W / H);
+let minLat = centroLat - altoNecesario / 2, maxLat = centroLat + altoNecesario / 2;
 // Equirectangular con corrección por coseno de la latitud media: sin ella Perú sale
 // estirado a lo ancho, porque un grado de longitud aquí mide ~107 km y uno de latitud 111.
 const latMedia = ((minLat + maxLat) / 2) * Math.PI / 180;

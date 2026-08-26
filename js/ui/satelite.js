@@ -57,9 +57,10 @@ export async function montarSatelite(contenedor, { geo, ruta, visibles, alPulsar
       },
       layers: [
         { id: 'satelite', type: 'raster', source: 'satelite' },
-        // Sombreado suave SIEMPRE, también en plano: da idea del relieve andino sin inclinar
-        // la cámara, que es lo que se quiere al mirar el mapa de un vistazo.
-        { id: 'sombreado', type: 'hillshade', source: 'relieve',
+        // El sombreado arranca APAGADO. Estaba siempre encendido "para dar relieve", y eso
+        // hacía que abrir el satélite bajara ocho teselas de elevación aunque nadie hubiera
+        // pedido 3D: el doble de red por un matiz que casi no se ve en plano.
+        { id: 'sombreado', type: 'hillshade', source: 'relieve', layout: { visibility: 'none' },
           paint: { 'hillshade-exaggeration': 0.18, 'hillshade-shadow-color': '#1a2530' } },
       ],
     },
@@ -118,6 +119,7 @@ export async function montarSatelite(contenedor, { geo, ruta, visibles, alPulsar
   let en3D = false;
   mapa.tres_d = (activar) => {
     en3D = activar ?? !en3D;
+    mapa.setLayoutProperty('sombreado', 'visibility', en3D ? 'visible' : 'none');
     mapa.setTerrain(en3D ? { source: 'relieve', exaggeration: 1.5 } : null);
     mapa.easeTo({ pitch: en3D ? 62 : 0, bearing: en3D ? -18 : 0, duration: 900 });
     return en3D;
