@@ -2,13 +2,15 @@
   "_nota": "Reglas de aviso. `nivel`: info | ojo | serio. Ver DESIGN.md — tres niveles y sólo tres.",
   "avisos": [
     {
-      "id": "koricancha-domingo", "nivel": "serio",
+      "id": "koricancha-domingo",
+      "nivel": "serio",
       "titulo": "Koricancha cierra los domingos por la mañana",
       "texto": "Y vuestra visita es domingo 6 por la mañana. Confirmadlo con el guía la noche antes: puede que reordene el día.",
       "fuente": "TUI, notas del circuito — 'El templo Koricancha en Cusco cierra todas las festividades religiosas y el 24 de junio y los domingos por la mañana'"
     },
     {
-      "id": "equipaje-5kg", "nivel": "ojo",
+      "id": "equipaje-5kg",
+      "nivel": "ojo",
       "titulo": "5 kg de mano en el tren a Machu Picchu",
       "texto": "Es por persona y se cumple. El resto del equipaje queda custodiado en el hotel de Cusco y lo recuperáis al volver del Valle Sagrado.",
       "ruta": "#/mochila",
@@ -18,23 +20,60 @@
         "titulo": "Mochila de Machu Picchu",
         "limite_kg": 5,
         "items": [
-          { "id": "pasaporte", "texto": "Pasaporte original — lo exigen a la entrada de Machu Picchu" },
-          { "id": "soles", "texto": "Suelto en soles (0,5 $ del bus, propinas, refrescos)" },
-          { "id": "agua", "texto": "Botella de agua, mínimo 1 litro" },
-          { "id": "gorra-gafas", "texto": "Gorra y gafas de sol — el sol aquí quema" },
-          { "id": "crema", "texto": "Protector solar de factor alto" },
-          { "id": "lluvia", "texto": "Chubasquero o poncho — las lluvias son de tarde" },
-          { "id": "abrigo", "texto": "Capa de abrigo para la mañana en Machu Picchu" },
-          { "id": "calzado", "texto": "Calzado cómodo, que se camina bastante" },
-          { "id": "comer", "texto": "Algo ligero de comer entre la subida y la vuelta" },
-          { "id": "medicinas", "texto": "Medicinas personales" },
-          { "id": "movil-camara", "texto": "Móvil cargado — hace de cámara" },
-          { "id": "powerbank", "texto": "Power bank por si acaso" }
+          {
+            "id": "pasaporte",
+            "texto": "Pasaporte original — lo exigen a la entrada de Machu Picchu"
+          },
+          {
+            "id": "soles",
+            "texto": "Suelto en soles (0,5 $ del bus, propinas, refrescos)"
+          },
+          {
+            "id": "agua",
+            "texto": "Botella de agua, mínimo 1 litro"
+          },
+          {
+            "id": "gorra-gafas",
+            "texto": "Gorra y gafas de sol — el sol aquí quema"
+          },
+          {
+            "id": "crema",
+            "texto": "Protector solar de factor alto"
+          },
+          {
+            "id": "lluvia",
+            "texto": "Chubasquero o poncho — las lluvias son de tarde"
+          },
+          {
+            "id": "abrigo",
+            "texto": "Capa de abrigo para la mañana en Machu Picchu"
+          },
+          {
+            "id": "calzado",
+            "texto": "Calzado cómodo, que se camina bastante"
+          },
+          {
+            "id": "comer",
+            "texto": "Algo ligero de comer entre la subida y la vuelta"
+          },
+          {
+            "id": "medicinas",
+            "texto": "Medicinas personales"
+          },
+          {
+            "id": "movil-camara",
+            "texto": "Móvil cargado — hace de cámara"
+          },
+          {
+            "id": "powerbank",
+            "texto": "Power bank por si acaso"
+          }
         ]
       }
     },
     {
-      "id": "equipaje-5kg-preparar", "nivel": "ojo",
+      "id": "equipaje-5kg-preparar",
+      "nivel": "ojo",
       "titulo": "Esta noche se prepara la mochila de Machu Picchu",
       "texto": "Mañana salís hacia el Valle Sagrado y dormís en Aguas Calientes. Sólo van 5 kg al tren.",
       "ruta": "#/mochila",
@@ -44,98 +83,106 @@
       "fuente": "TUI, observaciones del presupuesto"
     },
     {
-      "id": "custodia-cusco", "nivel": "info",
+      "id": "custodia-cusco",
+      "nivel": "info",
       "titulo": "El equipaje grande se queda en Cusco",
       "texto": "Volvéis al mismo hotel (Agustos Cusco) el día 8. Todo lo que no quepa en los 5 kg os espera allí.",
       "fuente": "TUI, observaciones del presupuesto"
     },
     {
-      "id": "patapampa-4900", "nivel": "serio",
+      "id": "patapampa-4900",
+      "nivel": "serio",
       "titulo": "Hoy se cruza el punto más alto del viaje",
       "texto": "El mirador de Patapampa, camino del Colca, ronda los 4.900 m. Se para poco rato pero el cuerpo lo nota. Nada de esfuerzos, bebed agua y no comáis pesado antes.",
       "noche": "colca",
       "fuente": "TUI: 'el itinerario incluye zonas de 4.000 m' — altitud exacta pendiente de verificar"
     },
     {
-      "id": "soroche", "nivel": "serio",
+      "id": "soroche",
+      "nivel": "serio",
       "titulo": "Mal de altura",
       "texto": "Dolor de cabeza, náusea, insomnio y falta de aire son normales las primeras horas. Dejan de serlo si aparecen confusión, vómitos que no paran o falta de aire en reposo: eso es bajar, no aguantar.",
       "fuente": null
     },
     {
-      "id": "altura-empieza", "nivel": "ojo",
+      "id": "altura-empieza",
+      "nivel": "ojo",
       "titulo": "Empieza la altura",
       "texto": "Arequipa está a ~2.335 m y venís del nivel del mar. Primera noche sin alcohol y cena ligera; lo agradeceréis en el Colca.",
       "noche": "arequipa",
       "fuente": null
     },
     {
-      "id": "primer-dia-altura-no", "nivel": "info",
+      "id": "primer-dia-altura-no",
+      "nivel": "info",
       "titulo": "Lima está al nivel del mar",
       "texto": "Los dos primeros días no hay altura. La subida empieza el día 3.",
       "noche": "lima",
       "fuente": null
     },
     {
-      "id": "condor-madrugon", "nivel": "ojo",
+      "id": "condor-madrugon",
+      "nivel": "ojo",
       "titulo": "Salida a primera hora",
       "texto": "Los cóndores vuelan con las térmicas de la mañana. Si se llega tarde a la Cruz del Cóndor, no hay cóndores. Ropa de abrigo: a esa hora hace frío de verdad.",
       "fuente": null
     },
     {
-      "id": "tasa-bus-puno-cusco", "nivel": "info",
+      "id": "tasa-bus-puno-cusco",
+      "nivel": "info",
       "titulo": "0,5 $ por persona en el bus",
       "texto": "Tasa del bus turístico Puno–Cusco, pago directo en soles. Llevad suelto.",
       "fuente": "TUI, notas del circuito"
     },
     {
-      "id": "tuua-lima", "nivel": "serio",
+      "id": "tuua-lima",
+      "nivel": "serio",
       "titulo": "Guardad las dos tarjetas de embarque",
       "texto": "Con conexión en Lima de menos de 24 h hay que enseñar ambas tarjetas en el control. Si no, cobran la TUUA: 12 $ por persona.",
       "fuente": "TUI, notas del circuito"
     },
     {
-      "id": "pasaporte-mp", "nivel": "ojo",
+      "id": "pasaporte-mp",
+      "nivel": "ojo",
       "titulo": "Pasaporte encima",
       "texto": "En Machu Picchu se controla la entrada con el pasaporte original. No lo dejéis en el hotel de Aguas Calientes.",
       "fuente": null
     },
     {
-      "id": "aeropuerto-3h", "nivel": "info",
+      "id": "aeropuerto-3h",
+      "nivel": "info",
       "titulo": "3 horas antes en el aeropuerto",
       "texto": "Lo pide TUI para el vuelo internacional. El check-in online abre entre 48 y 4 h antes según compañía.",
       "fuente": "TUI, información de lectura obligatoria"
     },
     {
-      "id": "dia-de-bus", "nivel": "info",
+      "id": "dia-de-bus",
+      "nivel": "info",
       "titulo": "Día largo de carretera",
       "texto": "Buen momento para las fichas de trayecto: son las piezas largas de la guía y están pensadas para leerse aquí.",
       "fuente": null
     },
     {
-      "id": "sin-cobertura", "nivel": "info",
+      "id": "sin-cobertura",
+      "nivel": "info",
       "titulo": "Hoy probablemente no hay cobertura",
       "texto": "Esta app funciona entera sin red. Lo que no funciona sin red es el móvil de nadie más: avisad en casa antes de salir.",
       "fuente": null
     },
     {
-      "id": "sol-lago", "nivel": "ojo",
+      "id": "sol-lago",
+      "nivel": "ojo",
       "titulo": "El sol del Titicaca quema el doble",
       "texto": "3.800 m, sin sombra y con el reflejo del agua. Gorra, gafas y crema alta aunque esté nublado.",
       "noche": "puno",
       "fuente": null
     },
     {
-      "id": "noche-aguas-calientes", "nivel": "info",
+      "id": "noche-aguas-calientes",
+      "nivel": "info",
       "titulo": "Esta noche se duerme a 2.040 m",
       "texto": "Aguas Calientes está mucho más baja que Puno o Cusco. Es la noche de descanso del viaje: el cuerpo se recupera y mañana se sube a Machu Picchu con menos castigo.",
       "noche": "aguas-calientes",
-      "fuente": null
-    },
-    {
-      "id": "hotel-barajas", "nivel": "info",
-      "titulo": "Noche previa en Barajas",
-      "texto": "Hotel Barajas Plaza, Camarillas 5-7. El número de check-in y el PIN están en Mis datos.",
       "fuente": null
     }
   ]

@@ -5,8 +5,9 @@
     "corresponsal_destino": "Lima Tours",
     "inicio": "2026-08-30",
     "fin": "2026-09-10",
-    "viajeros": 2,
-    "nota": "Los localizadores, tickets y póliza NO viven aquí. Ver ADR-002."
+    "viajeros": null,
+    "nota": "Los localizadores, tickets y póliza NO viven aquí. Ver ADR-002.",
+    "_nota": "Los localizadores, tickets y poliza NO viven aqui (ADR-002). Tampoco los dias propios: la noche previa en Madrid, un vuelo de enlace o una extension son de cada viajero y no del circuito, asi que viven en localStorage para que la misma app sirva a todo el grupo."
   },
   "paradas": [
     {
@@ -219,19 +220,6 @@
     }
   ],
   "dias": [
-    {
-      "n": 0,
-      "fecha": "2026-08-29",
-      "titulo": "Noche en Barajas",
-      "parada": "madrid",
-      "resumen": "Noche previa junto al aeropuerto para no madrugar a las 5 desde casa.",
-      "actividades": [],
-      "comidas": [],
-      "libre": [],
-      "avisos": [
-        "hotel-barajas"
-      ]
-    },
     {
       "n": 1,
       "fecha": "2026-08-30",

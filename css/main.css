@@ -262,6 +262,47 @@ a.chip--acento:hover { background: var(--accent); color: var(--on-accent); }
 .vecino-nom { font-size: var(--fs-sm); font-weight: 500; color: var(--text); }
 .vecinos-pos { margin: var(--s-3) 0 0; text-align: center; font-size: var(--fs-xs); color: var(--text-faint); }
 
+/* Formulario de Mis datos. Sin botón de guardar: se guarda al escribir, y el aviso confirma
+   sin pedir nada. Un formulario que exige recordar pulsar "guardar" pierde datos. */
+.formulario label { display: block; margin-bottom: var(--s-4); }
+.formulario label > span {
+  display: block; margin-bottom: var(--s-2);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--text-soft);
+}
+.formulario input, .formulario textarea, .mi-dia input {
+  width: 100%; min-height: 48px; padding: var(--s-3) var(--s-4);
+  font-family: var(--font-ui); font-size: var(--fs-md); color: var(--text);
+  background: var(--surface-0); border: 1px solid var(--border); border-radius: var(--r-md);
+}
+.formulario textarea { resize: vertical; line-height: 1.5; }
+.formulario input:focus, .formulario textarea:focus, .mi-dia input:focus { border-color: var(--accent); outline: none; }
+.guardado { margin: 0; font-size: var(--fs-xs); color: var(--altitud-baja); font-weight: 600; }
+
+.mi-dia { display: grid; grid-template-columns: 9.5rem 1fr 44px; gap: var(--s-2); margin-bottom: var(--s-2); }
+.mi-dia button {
+  min-height: 48px; border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--surface-2); color: var(--text-faint); cursor: pointer; font-size: var(--fs-md);
+}
+.mi-dia button:hover { color: var(--aviso-serio); border-color: var(--aviso-serio); }
+.anadir {
+  min-height: 48px; width: 100%; margin-top: var(--s-2);
+  border: 1px dashed var(--border); border-radius: var(--r-md);
+  background: transparent; color: var(--accent);
+  font-family: var(--font-ui); font-size: var(--fs-sm); font-weight: 600; cursor: pointer;
+}
+.anadir:hover { border-color: var(--accent); }
+/* Un día propio se distingue de los del circuito sin gritar: número en hueco, no relleno. */
+.dia--propio .dia-num { background: transparent; border: 1.5px dashed var(--border); color: var(--text-faint); }
+
+.instalar h3 { margin-top: 0; }
+.instalar button {
+  min-height: 44px; padding: 0 var(--s-5); margin-top: var(--s-2);
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  background: var(--surface-2); color: var(--text-soft);
+  font-family: var(--font-ui); font-size: var(--fs-sm); font-weight: 600; cursor: pointer;
+}
+.instalar button:hover { border-color: var(--accent); color: var(--accent); }
+
 .fuentes { font-size: var(--fs-xs); color: var(--text-faint); }
 .fuentes li { margin-bottom: var(--s-3); word-break: break-word; }
 /* El enlace tiene que verse enlace: el color solo no basta a este tamaño. */

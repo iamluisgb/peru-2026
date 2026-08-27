@@ -5,11 +5,13 @@ import { hoyISO, bonita, diasHasta } from './ui/fecha.js';
 import { icono } from './ui/icons.js';
 import { activarZoom } from './ui/zoom.js';
 import { montarSatelite, haySatelite } from './ui/satelite.js';
+import { CAMPOS, misDatos, guardarDatos, misDias, guardarDias, comoDiaDelViaje } from './ui/mis-datos.js';
+import { leer as leerAlmacen, escribir as escribirAlmacen } from './almacen.js';
 
 const app = document.getElementById('app');
 let datos = null;
 
-const RUTAS = { hoy: verHoy, dias: verDias, guia: verGuia, altura: verAltura, emergencias: verEmergencias, mochila: verMochila, mapa: verMapa };
+const RUTAS = { hoy: verHoy, dias: verDias, guia: verGuia, altura: verAltura, emergencias: verEmergencias, mochila: verMochila, mapa: verMapa, datos: verMisDatos };
 
 const MOCHILA_CLAVE = 'peru_mochila_mp';
 
@@ -90,8 +92,8 @@ function htmlDia(d, { esHoy = false } = {}) {
   const libre = (d.libre || []).map(l => `<span class="chip chip--libre">${icono('libre', 13)}${esc(l)}</span>`).join('');
   const fichas = (d.actividades || []).filter(a => datos.fichas[a]);
   return `
-    <article class="tarjeta dia${esHoy ? ' dia--hoy' : ''}">
-      <div class="dia-num" aria-hidden="true">${d.n}</div>
+    <article class="tarjeta dia${esHoy ? ' dia--hoy' : ''}${d.propio ? ' dia--propio' : ''}">
+      <div class="dia-num" aria-hidden="true">${d.propio ? '·' : d.n}</div>
       <div>
         <p class="dia-fecha">${esc(bonita(d.fecha))}</p>
         <h2>${esc(d.titulo)}</h2>
@@ -114,6 +116,7 @@ function htmlEnlaceFicha(f) {
 function verHoy() {
   const iso = hoyISO();
   const d = diaDe(datos.itinerario, iso);
+  queueMicrotask(montarInstalar);
 
   // En viaje NO hay hero: repetía los cuatro datos de la tarjeta que va 60 px debajo y se
   // comía un tercio del pliegue, con lo que "Qué vais a ver" caía fuera de pantalla. DESIGN.md
@@ -122,7 +125,8 @@ function verHoy() {
   if (d) {
     return pintar(`
       <p class="hoy-marca">Hoy · Día ${d.n} de ${datos.itinerario.dias.length - 1}</p>
-      ${htmlDia(d, { esHoy: true })}`);
+      ${htmlDia(d, { esHoy: true })}
+      ${htmlInstalar()}`);
   }
 
   const faltan = diasHasta(datos.itinerario.viaje.inicio, iso);
@@ -147,6 +151,35 @@ function verHoy() {
     <div class="tarjeta"><p>Los 12 días siguen aquí. <a href="#/dias">Repasarlos →</a></p></div>`);
 }
 
+// Los días del circuito y los propios, en una sola lista ordenada por fecha. Se numeran al
+// vuelo para que "Día 3" siga significando el tercer día DE VIAJE aunque alguien haya añadido
+// una noche previa por su cuenta.
+function todosLosDias() {
+  const propios = misDias().map((d, i) => comoDiaDelViaje(d, -1 - i));
+  return [...datos.itinerario.dias, ...propios].sort((a, b) => a.fecha.localeCompare(b.fecha));
+}
+
+// Quien recibe el enlace lo abre en el navegador y se va. Sin instalarla no hay offline, que
+// es el 80 % del valor de esto. Se avisa UNA vez y se puede descartar para siempre: un aviso
+// que vuelve cada día deja de leerse al segundo.
+function htmlInstalar() {
+  const puesta = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if (puesta || leerAlmacen('instalar_visto', false)) return '';
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  return `
+    <div class="tarjeta instalar">
+      <h3>Instálala en el móvil</h3>
+      <p>Así funciona sin cobertura, que es donde hace falta: en el Colca, en el Titicaca y en
+         el tren. ${ios ? 'Compartir → Añadir a pantalla de inicio.' : 'Menú del navegador → Instalar aplicación / Añadir a pantalla de inicio.'}</p>
+      <button type="button" data-instalar-visto>Entendido</button>
+    </div>`;
+}
+
+function montarInstalar() {
+  const b = app.querySelector('[data-instalar-visto]');
+  if (b) b.addEventListener('click', () => { escribirAlmacen('instalar_visto', true); ir(); });
+}
+
 function verDias() {
   const iso = hoyISO();
   pintar(`
@@ -155,7 +188,7 @@ function verDias() {
       <h1>Los 12 días</h1>
       <p class="sub">Del 30 de agosto al 10 de septiembre de 2026</p>
     </header>
-    ${datos.itinerario.dias.map(d => htmlDia(d, { esHoy: d.fecha === iso })).join('')}`, { restaurar: true });
+    ${todosLosDias().map(d => htmlDia(d, { esHoy: d.fecha === iso })).join('')}`, { restaurar: true });
 }
 
 function verGuia(id) {
@@ -767,6 +800,83 @@ function montarBotonSatelite() {
 // el teléfono en su propia línea y grande, el descriptor debajo. Y el 105 va el primero,
 // separado del resto: si alguien se desploma a 4.900 m en Patapampa se marca al 105, no a
 // una aseguradora de Madrid, que es una gestión y no una urgencia.
+
+// Mis datos: lo de cada viajero. Se guarda al escribir, sin botón de guardar — en un móvil,
+// a 4.000 m, un formulario que exige recordar pulsar "guardar" es un formulario que pierde
+// datos. Y nunca sale del dispositivo, así que no hay nada que confirmar ni que enviar.
+function verMisDatos() {
+  const d = misDatos();
+  const dias = misDias();
+
+  pintar(`
+    <header class="cabecera">
+      <p class="eyebrow">${icono('sos', 14)} Sólo en este móvil</p>
+      <h1>Mis datos</h1>
+      <p class="sub">Nada de esto sale del teléfono: no hay servidor ni cuenta. Si compartes la
+         app con otro viajero, él verá los suyos y tú los tuyos.</p>
+    </header>
+
+    <form class="tarjeta formulario" autocomplete="off">
+      ${CAMPOS.map(c => `
+        <label>
+          <span>${esc(c.eti)}</span>
+          ${c.largo
+            ? `<textarea name="${c.id}" rows="2" placeholder="${esc(c.ph)}">${esc(d[c.id] || '')}</textarea>`
+            : `<input name="${c.id}" value="${esc(d[c.id] || '')}" placeholder="${esc(c.ph)}">`}
+        </label>`).join('')}
+      <p class="guardado" hidden>Guardado</p>
+    </form>
+
+    <p class="seccion-titulo">Mis días</p>
+    <div class="tarjeta">
+      <p>La noche previa, un vuelo de enlace, una extensión: días que son tuyos y no del
+         circuito. Aparecen entre los del viaje, ordenados por fecha.</p>
+      <div class="mis-dias">
+        ${dias.map((x, i) => `
+          <div class="mi-dia" data-i="${i}">
+            <input type="date" value="${esc(x.fecha)}" data-campo="fecha">
+            <input value="${esc(x.titulo)}" data-campo="titulo" placeholder="Noche en Barajas">
+            <button type="button" data-borrar aria-label="Quitar este día">✕</button>
+          </div>`).join('')}
+      </div>
+      <button type="button" class="anadir" data-anadir>+ Añadir un día</button>
+    </div>`);
+
+  const form = app.querySelector('.formulario');
+  const aviso = form.querySelector('.guardado');
+  let temporizador;
+  form.addEventListener('input', () => {
+    const datosNuevos = misDatos();
+    for (const c of CAMPOS) datosNuevos[c.id] = form.querySelector(`[name="${c.id}"]`).value.trim();
+    guardarDatos(datosNuevos);
+    aviso.hidden = false;
+    clearTimeout(temporizador);
+    temporizador = setTimeout(() => { aviso.hidden = true; }, 1500);
+  });
+
+  const lista = app.querySelector('.mis-dias');
+  const recoger = () => [...lista.querySelectorAll('.mi-dia')].map(f => ({
+    fecha: f.querySelector('[data-campo=fecha]').value,
+    titulo: f.querySelector('[data-campo=titulo]').value.trim(),
+  }));
+
+  lista.addEventListener('input', () => guardarDias(recoger()));
+  lista.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-borrar]')) return;
+    e.target.closest('.mi-dia').remove();
+    guardarDias(recoger());
+  });
+  app.querySelector('[data-anadir]').addEventListener('click', () => {
+    const f = document.createElement('div');
+    f.className = 'mi-dia';
+    f.innerHTML = `<input type="date" data-campo="fecha">
+      <input data-campo="titulo" placeholder="Noche en Barajas">
+      <button type="button" data-borrar aria-label="Quitar este día">✕</button>`;
+    lista.appendChild(f);
+    f.querySelector('[data-campo=fecha]').focus();
+  });
+}
+
 function verEmergencias() {
   const tel = (quien, detalle, numero, { urgente = false } = {}) => `
     <a class="tel${urgente ? ' tel--urgente' : ''}" href="tel:${numero.replace(/\s/g, '')}">
@@ -792,7 +902,7 @@ function verEmergencias() {
     <div class="tarjeta">
       <p>El localizador, los tickets y la póliza se introducen en el móvil y no salen de él:
          este repositorio es público y no los contiene.</p>
-      <p><em>Pendiente: el formulario (ver BACKLOG).</em></p>
+      <p><a class="hoja-mas" href="#/datos">Abrir Mis datos →</a></p>
     </div>`);
 }
 
@@ -867,7 +977,7 @@ function verMochila() {
 // Emergencias es la única pantalla que NO lee `datos`: los cuatro teléfonos están escritos
 // aquí arriba. Así que es la única que sigue funcionando si el itinerario no carga — que es
 // justo el caso que importa: la caché desalojada por iOS, en Puno y sin cobertura.
-const SIN_DATOS = new Set(['emergencias']);
+const SIN_DATOS = new Set(['datos', 'emergencias']);
 
 function verSinDatos() {
   pintar(`
