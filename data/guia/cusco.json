@@ -10,9 +10,7 @@
       "dia": 8,
       "altitud_m": 3400,
       "verificado": false,
-      "avisos": [
-        "koricancha-domingo"
-      ],
+      "avisos": ["koricancha-domingo"],
       "de_pie": {
         "gancho": "Estas paredes estuvieron forradas de planchas de oro, y de aquí salió buena parte del rescate de Atahualpa: se arrancaron, se fundieron y desaparecieron.",
         "mira": [
@@ -24,24 +22,36 @@
           "duracion": "~1 h",
           "incluido": true,
           "fotos": "sí, trípode no",
-          "notas": [
-            "Cierra domingos por la mañana — y vuestra visita es domingo por la mañana."
-          ]
+          "notas": ["Cierra domingos por la mañana — y vuestra visita es domingo por la mañana."]
         }
       },
       "de_sofa": {
         "contexto": "Era el templo principal del imperio y el punto del que partían los ceques, las líneas rituales que enlazaban las huacas repartidas por el valle; lo que sabemos de ellas viene de la relación que dejó el jesuita Bernabé Cobo en 1653. Los españoles construyeron encima el convento de Santo Domingo, y lo hicieron ahí precisamente por eso: levantar la iglesia sobre el templo era el argumento. El terremoto del 21 de mayo de 1950 dejó a Santo Domingo como el templo más dañado de la ciudad — se vinieron abajo los arcos de la torre y buena parte del crucero, y cayó el balcón que dominaba el Cusco. Los muros incas de debajo aguantaron. La reconstrucción arrancó en 1956 con la UNESCO detrás, y se optó por dejar a la vista la fábrica inca. Así que hoy se ve lo que se ve: el terremoto deshizo el gesto.",
         "dato": "El jardín de oro con mazorcas y animales a tamaño real que se cuenta de este recinto no lo ha visto nunca un arqueólogo. Viene entero de lo que escribieron los cronistas —Garcilaso sobre todo, décadas después y desde España—, no queda una sola pieza y no hay manera de comprobarlo. Es de las cosas que un guía cuenta como si fuera un inventario y es un relato.",
+        "como_se_sabe": "Casi todo lo que se cuenta aquí sobre los ceques —las líneas rituales que partían del templo— sale de un solo texto: la lista de 328 huacas que el jesuita Bernabé Cobo publicó en 1653, ciento veinte años después de la conquista. Y Cobo no la levantó: la copió de un informe que el licenciado Polo de Ondegardo escribió hacia 1559 siendo corregidor del Cusco, y que se ha perdido. Cobo dice tener el original firmado por el autor. O sea que la fuente básica del sistema es la copia de un documento desaparecido, hecha por alguien que no vio funcionar nada de aquello. Lo que ha hecho la arqueología es sacar esa lista del papel: entre 1990 y 1995 Brian Bauer dirigió un proyecto que recorrió el valle intentando poner cada huaca sobre el terreno —manantiales, peñas, cerros— y cruzando el listado con los archivos de tierras de los ayllus cusqueños. No todas aparecieron. Cuando alguien os diga aquí «de este punto salían cuarenta y dos líneas», eso es lo que hay detrás.",
+        "la_discusion": "Lo que discuten los especialistas no es si el sistema existió, sino qué era una línea. Tom Zuidema (1964, y en los setenta) y el astrónomo Anthony Aveni (1981) leyeron los ceques como rectas: visuales astronómicas tendidas hacia el horizonte, con las huacas haciendo de días de un calendario. Es la versión que hizo famoso el sistema y la que se dibuja en los libros. Enfrente están John Rowe (1979), Susan Niles (1987) y sobre todo Brian Bauer, que en 1992 publicó el recorrido de los ceques del Collasuyu y sostiene que las líneas no son rectas ni pueden serlo: la topografía del Cusco obliga a zigzaguear, y las huacas parecen elegidas por ser sagradas —un manantial, una peña con historia— y no por caer en una alineación. En esa lectura un ceque no es una línea de puntería sino un recorrido, y sobre todo un reparto de responsabilidades rituales entre ayllus. No está cerrado, y de las dos posturas la que os van a contar es la primera.",
         "conexion": [
           {
             "recurso": "Los últimos días de los Incas",
-            "donde": "capítulos del saqueo del Cusco"
+            "donde": "cap. 5, «Una sala llena de oro» — el rescate; y el cap. 1 para el saqueo del Cusco"
           },
           {
             "recurso": "Comentarios reales de los Incas",
-            "donde": "descripción del Cusco"
+            "donde": "Libro III, cap. XX (descripción del Templo del Sol) y cap. XXIV (el jardín de oro)"
           }
-        ]
+        ],
+        "fuentes": {
+          "como_se_sabe": [
+            "Amy B. Scott, «Sacred Politics: An Examination of Inca Huacas and their use for Political and Social Organization», TOTEM: The U.W.O. Journal of Anthropology, vol. 17 (2008-2009), pp. 23-32 — Cobo transcribió su relación de huacas de otra fuente documental y Polo de Ondegardo se considera el autor primario (citando a Bauer 1998:13-17 y Julien 2008:712); las 328 huacas del listado de Cobo (Bauer 1998:23). https://ojs.lib.uwo.ca/index.php/uwoja/article/download/8891/7085/16540",
+            "Bernabé Cobo, «Historia del Nuevo Mundo» (1653), relación de ceques y huacas del Cusco — la fuente que se copia. Ed. inglesa: R. Hamilton (trad.), University of Texas Press, 1983.",
+            "Brian S. Bauer, «The Sacred Landscape of the Inca: The Cusco Ceque System», University of Texas Press, Austin, 1998 — proyecto de campo dirigido entre 1990 y 1995, que combina prospección arqueológica y trabajo de archivo sobre las tierras de los ayllus para situar las huacas. Descripción del editor: https://utpress.utexas.edu/9780292729018/",
+            "R. Tom Zuidema, «The Ceque System of Cuzco. The Social Organization of the Capital of the Inca», E. J. Brill, Leiden, 1964."
+          ],
+          "la_discusion": [
+            "Amy B. Scott, «Sacred Politics…», TOTEM 17 (2008-2009), pp. 27-28 — expone las dos posturas por su nombre: el «Straight Line Argument» de Zuidema (1977) y Aveni (1981), que lee el sistema como cuenta calendárica con las huacas por días y puntos de fuga astronómicos en el horizonte; y el «Conceptual Line Argument» de Rowe (1979) y Niles (1987), según el cual las líneas no siguen un trazado recto y la topografía del Cusco obliga a que zigzagueen (Bauer 1992:187). https://ojs.lib.uwo.ca/index.php/uwoja/article/download/8891/7085/16540",
+            "Brian S. Bauer, «Ritual Pathways of the Inca: An Analysis of the Collasuyu Ceques in Cuzco», Latin American Antiquity 3(3), 1992, pp. 183-205 — el argumento de que las huacas se establecieron por su carácter sagrado y no por su posición geográfica."
+          ]
+        }
       },
       "preguntas": [
         "¿Qué eran los ceques y se puede seguir alguno hoy por la ciudad?",
@@ -57,11 +67,7 @@
         "Inca Garcilaso de la Vega, «Comentarios reales de los Incas» (1609) — descripción del jardín de oro; es la fuente del relato, no una comprobación de él.",
         "NOTA — cifras no publicadas: el número de planchas de oro arrancadas del templo varía según el cronista (Pedro Sancho habla de más de 500; a Cieza se le atribuyen 700), así que la ficha no da ninguna. Tampoco da el número de ceques y huacas, que oscila según el autor."
       ],
-      "relacionadas": [
-        "muro-inca",
-        "pachacutec",
-        "toponimos"
-      ]
+      "relacionadas": ["muro-inca", "pachacutec", "toponimos"]
     },
     {
       "id": "plaza-armas-cusco",
@@ -113,10 +119,7 @@
         "https://es.wikipedia.org/wiki/Catedral_del_Cusco — supresión del tercer cuerpo de las torres tras el terremoto de 1650 (Angles Vargas, 1983, p. 101).",
         "https://es.wikipedia.org/wiki/Iglesia_de_la_Compañía_de_Jesús_(Cusco) — el pleito del obispo Pedro de Ortega Sotomayor contra los planos de los jesuitas (1656)."
       ],
-      "relacionadas": [
-        "pachacutec",
-        "toponimos"
-      ]
+      "relacionadas": ["pachacutec", "toponimos"]
     },
     {
       "id": "catedral-cusco",
@@ -168,9 +171,7 @@
         "https://es.wikipedia.org/wiki/Señor_de_los_Temblores — restauración de 1985: lino, maguey y madera de balsa; corona original robada en los años ochenta.",
         "https://es.wikipedia.org/wiki/Marcos_Zapata_(pintor) — «La última cena», 1755, catedral del Cusco."
       ],
-      "relacionadas": [
-        "barroco-andino"
-      ]
+      "relacionadas": ["barroco-andino"]
     },
     {
       "id": "san-blas",
@@ -211,10 +212,7 @@
         "Víctor Angles Vargas, «Historia del Cusco (Cusco Colonial)» (1983), pp. 553-563 — T'oqokachi, parroquia de indios de Polo de Ondegardo, santuario a Illapa, estructura de adobe y espadaña, púlpito de Tuyro Túpac costeado por Mollinedo y Angulo. Vía https://es.wikipedia.org/wiki/Iglesia_de_San_Blas_(Cusco)",
         "Ministerio de Cultura del Perú, comunicado del 18 de febrero de 2025 — ataque a la piedra de los doce ángulos, «caída de fragmentos de piedra, en seis impactos visibles». Vía https://www.infobae.com/peru/2025/02/19/caida-de-fragmentos-de-piedra-en-seis-impactos-visibles-los-danos-que-sufrio-la-piedra-de-los-12-angulos-de-cusco-tras-atentado/"
       ],
-      "relacionadas": [
-        "muro-inca",
-        "barroco-andino"
-      ]
+      "relacionadas": ["muro-inca", "barroco-andino"]
     }
   ]
 }

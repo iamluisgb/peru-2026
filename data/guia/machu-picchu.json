@@ -22,16 +22,53 @@
           "duracion": "~3 h",
           "incluido": true,
           "fotos": "sí, trípode no",
-          "notas": ["Entrada por turnos y con horario fijado. El último bus de vuelta a Aguas Calientes sale por la tarde."]
+          "notas": [
+            "Entrada por turnos y con horario fijado. El último bus de vuelta a Aguas Calientes sale por la tarde."
+          ]
         }
       },
       "de_sofa": {
         "contexto": "Machu Picchu parece una ciudad perdida, pero hoy se cree que fue una hacienda real de Pachacútec, construida hacia 1450 y abandonada más o menos de golpe un siglo después. Lo extraordinario es que los españoles nunca la encontraron: no aparece en ninguna crónica de la conquista. Hiram Bingham la redescubrió en 1911, y desde entonces cada generación reescribe qué era. No es ruinas guerreras: es el testimonio mejor conservado de cómo vivía la élite inca en la montaña.",
         "dato": "Una ciudad de unos 200 edificios, con templos, barrios, almacenes y terrazas, y no existe una sola línea escrita contemporánea que la mencione. Todo lo que sabemos viene de piedra y de excavación.",
+        "como_se_sabe": "Ninguna crónica española menciona el sitio, así que todo lo que se afirma de él es reconstrucción, y conviene saber de qué. La atribución a Pachacútec la propuso John Rowe en 1990 encadenando tres pasos: que el pueblo que unos documentos del XVI llaman Picho es éste; que las tierras del valle entre Ollantaytambo y Chaullay constan como propiedad privada de Pachacútec; y que, por tanto, lo de arriba también. Rowe escribió «podemos suponer». La fecha venía igualmente de los textos —el reinado de Pachacútec, hacia 1438— hasta que en 2021 Richard Burger, Lucy Salazar, Jason Nesbitt, Eden Washburn y Lars Fehren-Schmitz publicaron en Antiquity dataciones por AMS de huesos y dientes de veintiséis enterrados en los cementerios que excavó Bingham: el sitio estaba ocupado desde c. 1420, dos décadas antes. La cronología ya no la fijan los cronistas: la fijan los huesos.",
+        "la_discusion": "Para qué se construyó esto. La respuesta de manual es «hacienda real de Pachacútec» (Rowe 1990; Burger y Salazar la desarrollan en el volumen de Yale de 2004): una finca privada del rey, con sus tierras y su palacio. Johan Reinhard (2007) sostiene que eso se queda corto y que el emplazamiento se eligió por su posición en un paisaje sagrado —en el centro de montañas-huaca, con el Urubamba rodeando el espolón—: un centro ceremonial antes que otra cosa. Giulio Magli (2010) va más lejos: repasa una por una las pruebas de la hacienda real, concluye que no hay ninguna concluyente, ni textual ni arqueológica, y propone un centro de peregrinación cuyo recorrido interior reproduce el mito de origen inca. Magli viene de la astronomía, no del andinismo, y el consenso sigue con Rowe. Pero su reproche conviene tenerlo delante: una suposición que su autor declaró como tal lleva treinta años citándose como prueba.",
+        "lo_que_ya_no_se_cree": "La «ciudad perdida de los incas»: Bingham creyó haber encontrado Vilcabamba, la capital rebelde de Manco Inca, y sobre eso montó su fama. No lo era. El 2 de julio de 1964 Gene Savoy llegó a Espíritu Pampa y enseñó que las cuatro ruinas que Bingham vio allí en 1911 eran la punta de una ciudad mucho mayor. Perdida tampoco estaba: tres familias vivían junto al sitio y lo cultivaban, y en un muro había escrito con carboncillo «Lizarraga 1902» — nueve años antes. Y las «vírgenes del sol»: Bingham dijo que aquí vivían sobre todo mujeres consagradas, apoyado en los huesos que estudió George Eaton en 1916 — más de cuatro mujeres por hombre. John Verano revisó esa misma colección en el Peabody de Yale (2003) y la proporción se quedó en tres mujeres por cada dos, con niños y ancianos entre los enterrados. El ADN de 2023 lo cerró: gente traída de todo el imperio y casi nadie emparentado. Servidumbre, no un convento.",
         "conexion": [
-          { "recurso": "Turn Right at Machu Picchu", "donde": "todo el recorrido a pie por la ciudadela" },
-          { "recurso": "Machu Picchu Decoded", "donde": "las nuevas teorías sobre qué era el sitio" }
-        ]
+          {
+            "recurso": "Los últimos días de los Incas",
+            "donde": "cap. 1 «El descubrimiento», cap. 16 «En busca de la ciudad perdida de los incas», cap. 17 «Vilcabamba redescubierta» y el epílogo"
+          },
+          {
+            "recurso": "Turn Right at Machu Picchu",
+            "donde": "todo el recorrido a pie por la ciudadela"
+          },
+          {
+            "recurso": "Machu Picchu Decoded",
+            "donde": "las nuevas teorías sobre qué era el sitio"
+          }
+        ],
+        "fuentes": {
+          "como_se_sabe": [
+            "John H. Rowe, «Machu Picchu a la luz de documentos del siglo XVI», Histórica XIV(1), 1990, pp. 139-154 — propone que el pueblo llamado Picho de los documentos es este sitio y que formaba parte de una hacienda particular de Pachacuti Inga Yupangui. https://revistas.pucp.edu.pe/index.php/historica/article/download/8813/9209/0",
+            "Giulio Magli, «At the Other End of the Sun’s Path: A New Interpretation of Machu Picchu», Nexus Network Journal 12(2), 2010, pp. 321-341, Apéndice 1 — desglosa la cadena de inferencias de Rowe (Machu Picchu se llamaba Picho → Picho era propiedad de Pachacútec → Pachacútec lo construyó como finca personal) y recoge el «podemos suponer» del original. Preprint: https://arxiv.org/abs/0904.4882",
+            "Luis Miguel Glave y María Isabel Remy, «Estructura agraria y vida rural en una región andina: Ollantaytambo entre los siglos XVI y XIX», CBC, Cusco, 1983 — el documento legal donde aparece el cacique de Picho, citado por Rowe.",
+            "R. L. Burger, L. C. Salazar, J. Nesbitt, E. Washburn y L. Fehren-Schmitz, «New AMS dates for Machu Picchu: results and implications», Antiquity 95(383), 2021, pp. 1265-1279, doi 10.15184/aqy.2021.99 — dataciones AMS sobre restos de 26 individuos de cuatro cementerios; ocupación c. 1420-1532, dos décadas antes de lo que indican las fuentes textuales que asocian el sitio con la subida al poder de Pachacútec en 1438. https://www.cambridge.org/core/journals/antiquity/article/abs/new-ams-dates-for-machu-picchu-results-and-implications/323804857B6EE4DD85B5B337F9E3C933 y https://anthropology.yale.edu/posts/2021-08-11-dr-richard-burgers-study-demonstrates-machu-picchu-older-than-believed",
+            "L. C. Salazar, R. L. Burger, L. Fehren-Schmitz et al., «Insights into the genetic histories and lifeways of Machu Picchu’s occupants», Science Advances 9(30), 2023 — ADN antiguo de 34 individuos. https://www.science.org/doi/10.1126/sciadv.adg3377"
+          ],
+          "la_discusion": [
+            "John H. Rowe, «Machu Picchu a la luz de documentos del siglo XVI», Histórica XIV(1), 1990, pp. 139-154 — la postura de la hacienda real.",
+            "Richard L. Burger y Lucy C. Salazar (eds.), «Machu Picchu: Unveiling the Mystery of the Incas», Yale University Press, New Haven, 2004 — el desarrollo arqueológico de esa lectura.",
+            "Johan Reinhard, «Machu Picchu: Exploring an Ancient Sacred Center», Cotsen Institute of Archaeology, UCLA, 2007 — el sitio en el centro de un paisaje sagrado de montañas y ríos, leído desde la geografía sagrada y la arqueoastronomía. https://escholarship.org/uc/item/3hr308gj",
+            "Giulio Magli, «At the Other End of the Sun’s Path…», Nexus Network Journal 12(2), 2010, pp. 321-341 — rechaza explícitamente la teoría de la hacienda real («no proof whatsoever, neither textual nor archaeological») y propone el centro de peregrinación. https://arxiv.org/abs/0904.4882"
+          ],
+          "lo_que_ya_no_se_cree": [
+            "Kim MacQuarrie, «Los últimos días de los incas», cap. 16 — Bingham sostiene, a partir de exámenes de huesos hechos por miembros de su expedición «que más tarde resultarían ser erróneos», que Machu Picchu estaba habitada fundamentalmente por «Vírgenes del Sol»; y la inscripción «Lizarraga, 1902» hallada en el muro de uno de los templos.",
+            "Kim MacQuarrie, «Los últimos días de los incas», cap. 17 y epílogo — Savoy llega a Espíritu Pampa el 2 de julio de 1964 y vuelve en tres expediciones (1964 y 1965) a limpiar y cartografiar lo que identifica como Vilcabamba; y las tres familias peruanas que vivían junto al pico y habían despejado parcialmente las ruinas antes de Bingham, con Melchor Arteaga arrendándoles las tierras. Sobre Lizárraga: Alfred Bingham, «Explorer», p. 13, citado ahí.",
+            "John W. Verano, «Human skeletal remains from Machu Picchu: a reexamination of the Yale Peabody Museum’s collections», en R. L. Burger y L. C. Salazar (eds.), «The 1912 Yale Peruvian Scientific Expedition Collections from Machu Picchu: Human and Animal Remains», Yale Peabody Museum, 2003, pp. 65-117 — reanálisis de la colección de George F. Eaton («The Collection of Osteological Material from Machu Picchu», 1916). Magli 2010 (Apéndice 1) lo resume: «the percentage of female bones was originally over-estimated; however, a 3:2 excess of female bones remains».",
+            "New World Encyclopedia, «Machu Picchu» — la proporción de «más de cuatro a uno» del estudio inicial del equipo de Bingham y su papel en la creencia de las Vírgenes del Sol, desmentida por Verano. https://www.newworldencyclopedia.org/entry/Machu_Picchu",
+            "L. C. Salazar, R. L. Burger et al., Science Advances 9(30), 2023 — los enterrados proceden de todo el imperio, cerca de un tercio con ascendencia amazónica significativa, y pocos comparten ADN entre sí: población de servicio (retainers), no élite. https://phys.org/news/2023-07-ancient-dna-reveals-diverse-community.html"
+          ]
+        }
       },
       "preguntas": [
         "¿Por qué cree que los españoles nunca dieron con ella?",
@@ -42,10 +79,7 @@
         "Mark Adams, Turn Right at Machu Picchu",
         "Machu Picchu Decoded (PBS/NOVA)"
       ],
-      "relacionadas": [
-        "muro-inca",
-        "pachacutec"
-      ]
+      "relacionadas": ["muro-inca", "pachacutec"]
     },
     {
       "id": "intihuatana",
@@ -57,7 +91,7 @@
       "de_pie": {
         "gancho": "Este es el reloj de sol de los incas, y su nombre significa 'donde se amarra el sol'.",
         "mira": [
-          "El bloque de granito con el 'cuerno' inclinado al sur: al mediodía del solsticio no proyecta sombra, y en los equinoccios la sombra apunta al vértice.",
+          "El bloque de granito con el «cuerno» que sale del pedestal, inclinado al sur: desde esta plataforma, el sol del solsticio de diciembre se pone sobre la cumbre más alta del Pumasillo, al oeste, y en los equinoccios sobre el extremo norte de esa misma sierra.",
           "El pedestal tallado en una sola pieza de roca; el pulido se hizo sin metal, solo con arena y piedra más dura.",
           "La montaña Huayna Picchu al fondo, hacia la que mira el vértice del cuerno."
         ],
@@ -71,19 +105,44 @@
       "de_sofa": {
         "contexto": "El intihuatana es el reloj de sol ceremonial de piedra. En el solsticio de junio, el 'cuerno' proyecta una sombra mínima al mediodía, y en el solsticio de diciembre la máxima. Para la concepción inca, en esos días el sol podía 'irse', y con este bloque se le 'amarraba' para que volviera y el año siguiera girando. Es el mejor ejemplo que se conserva de la astronomía aplicada a la política y a la religión inca.",
         "dato": "Los españoles destrozaron los intihuatanas de todo el virreinato para erradicar ese culto — el de Machu Picchu es uno de los pocos que sobrevive por no haber sido descubierto.",
+        "como_se_sabe": "La astronomía de Machu Picchu se mide, no se supone: se toman los azimuts de vanos, aristas y plataformas y se reconstruye por dónde salía el sol en el horizonte en el siglo XV. Con ese método, Mariusz Ziółkowski y Jacek Kościuk revisaron en 2022 las hipótesis publicadas sobre siete estructuras del sitio. El resultado es más matizado de lo que se cuenta: seis de ellas presentan orientaciones bien documentadas, casi todas hacia la salida del sol en el solsticio de junio, y el Intihuatana es una de las seis. Pero sólo dos cumplen los requisitos de un instrumento de observación preciso —la cueva de Intimachay y el mirador de Inkaraqay—, y el Intihuatana no está entre ellas. Giulio Magli (2010) lo dice más seco: pese a todo lo que se ha afirmado, aquí no hay documentada ninguna medición astronómica precisa. Estar orientado a algo y servir para medirlo no son la misma cosa.",
+        "la_discusion": "Qué es exactamente esta piedra. Una lectura, la de la arqueoastronomía, la trata como pieza de un conjunto pensado en relación con el sol: la plataforma está orientada y desde ella el poniente del solsticio de diciembre cae sobre la cumbre del Pumasillo. La otra, la de Johan Reinhard (2007), la lee como huaca: una roca-imagen, tallada para repetir el perfil del Huayna Picchu que tenéis enfrente, igual que otras rocas esculpidas del sitio replican las montañas de alrededor. En esa lectura no es un aparato sino un cerro en miniatura, y lo que se hacía aquí era ofrendar, no medir. Magli, que viene de la astronomía, acepta la de Reinhard para esta piedra concreta. Ninguna de las dos tiene prueba: no hay un solo texto que hable de este bloque, y la piedra no lleva instrucciones.",
+        "lo_que_ya_no_se_cree": "El «reloj de sol que no da sombra». La frase circula en guías impresas —el Rough Guide del Perú es la que suele estar detrás de la versión que llega a Wikipedia— y no aguanta la aritmética. Machu Picchu está a 13,2° de latitud sur: en el equinoccio el sol culmina a unos 13° del cenit, así que una vara vertical de un metro deja unos 23 cm de sombra; en el solsticio de junio no sube de 53° de altura y la sombra es larga. El mediodía sin sombra existe de verdad, pero cae en los pasos cenitales —finales de octubre y mediados de febrero—, y de esos no habla la frase. Segunda cosa: la silueta que vais a fotografiar no es la que talló nadie. El 8 de septiembre de 2000, rodando un anuncio de cerveza Cusqueña, una grúa cayó sobre la piedra y le arrancó unos 8 cm de la punta.",
         "conexion": [
-          { "recurso": "Machu Picchu Decoded", "donde": "el análisis astronómico del sitio" },
-          { "recurso": "Turn Right at Machu Picchu", "donde": "la visita al intihuatana" }
-        ]
+          {
+            "recurso": "Machu Picchu Decoded",
+            "donde": "el análisis astronómico del sitio"
+          },
+          {
+            "recurso": "Turn Right at Machu Picchu",
+            "donde": "la visita al intihuatana"
+          }
+        ],
+        "fuentes": {
+          "como_se_sabe": [
+            "Mariusz Ziółkowski y Jacek Kościuk, «Astronomical Observations at Machu Picchu: Facts, Hypothesis and Wishful Thinking», en M. Ziółkowski, N. Masini y J. M. Bastante (eds.), «Machu Picchu in Context», Springer, 2022, cap. 5, pp. 167-236 — evalúan las hipótesis sobre siete estructuras (Templo del Sol, Sala de los Morteros, Intimachay, Templo del Cóndor, Intihuatana, Mirador de Inkaraqay, Intihuatana del río y Llactapata); salvo la Sala de los Morteros, todas presentan alineaciones bien documentadas con preferencia por la salida del sol en el solsticio de junio, y sólo Intimachay y el Mirador de Inkaraqay cumplen los requisitos de un instrumento de observación precisa. https://link.springer.com/chapter/10.1007/978-3-030-92766-0_5",
+            "D. S. Dearborn, K. Schreiber y R. White, «Intimachay: A December Solstice Observatory at Machu Picchu, Peru», American Antiquity 52(2), 1987, pp. 346-352.",
+            "D. S. Dearborn y R. White, «Inca observatories: their relation to the calendar and ritual», en A. F. Aveni (ed.), «World Archaeoastronomy», Cambridge University Press, 1989, pp. 462-469 — el Torreón y el seguimiento del solsticio de junio.",
+            "Giulio Magli, «At the Other End of the Sun’s Path…», Nexus Network Journal 12(2), 2010, pp. 321-341: «in spite of several existing claims (regarding e.g. the astronomical function of the Intihuatana stone) to the best of the author’s knowledge no clear interest for precise astronomical measurements has ever been convincingly documented here». https://arxiv.org/abs/0904.4882"
+          ],
+          "la_discusion": [
+            "Johan Reinhard, «Machu Picchu: Exploring an Ancient Sacred Center», Cotsen Institute of Archaeology, UCLA, 2007 — las rocas esculpidas del sitio como réplicas de las montañas sagradas del entorno. https://escholarship.org/uc/item/3hr308gj",
+            "Giulio Magli, «At the Other End of the Sun’s Path…», Nexus Network Journal 12(2), 2010 — desde el Intihuatana, la cumbre más alta del Pumasillo corresponde aproximadamente al azimut del poniente en el solsticio de diciembre, y el sol de los equinoccios se pone en el extremo norte de esa sierra; y la propuesta (citando a Reinhard 2007) de que la pirámide del Intihuatana replica el cerro Huanacauri y la piedra misma la forma del Huayna Picchu. https://arxiv.org/abs/0904.4882",
+            "Mariusz Ziółkowski y Jacek Kościuk, «Astronomical Observations at Machu Picchu…», en «Machu Picchu in Context», Springer, 2022, pp. 167-236 — la evidencia de alineación, sin precisión instrumental."
+          ],
+          "lo_que_ya_no_se_cree": [
+            "Wikipedia (es), «Intihuatana de Machu Picchu» — reproduce la afirmación de que al mediodía de los equinoccios el sol está casi sobre el pilar y no proyecta sombra, atribuida a Dilwyn Jenkins, «Rough Guide to Peru» (2003), p. 175. Es una guía de viaje, no una medición publicada. https://es.wikipedia.org/wiki/Intihuatana_de_Machu_Picchu",
+            "Cálculo propio de posición solar para la latitud de Machu Picchu (13,16° S, según data/coordenadas.json) con la fórmula de declinación solar del NOAA: altura solar al mediodía de 76,8° en el equinoccio (sombra de 0,234 m por metro de vara vertical), 53,4° en el solsticio de junio y 79,7° en el de diciembre; pasos cenitales el 13 de febrero y el 28 de octubre de 2026. Es aritmética esférica, comprobable con cualquier efeméride.",
+            "Wikipedia (es), «Intihuatana de Machu Picchu», e Infobae/Adlatina sobre el caso — el 8 de septiembre de 2000, durante el rodaje de un anuncio de cerveza Cusqueña, una grúa cayó sobre el monumento y le rompió unos 8 cm de la punta; el INC llevó el caso a los tribunales y reclamó indemnización en 2005. http://www.adlatina.com/publicidad/jwt-y-su-cliente-cusque%C3%B1a-atraviesan-uno-de-sus-momentos-m%C3%A1s-dif%C3%ADciles",
+            "Giulio Magli, «At the Other End of the Sun’s Path…», Nexus Network Journal 12(2), 2010 — ninguna medición astronómica precisa documentada en el Intihuatana. https://arxiv.org/abs/0904.4882"
+          ]
+        }
       },
       "preguntas": [
         "¿Cómo calculaban el solsticio con tanta precisión sin dejar una sola palabra escrita?",
         "¿Qué significaba para ellos que se 'fuera' el sol?"
       ],
-      "fuentes": [
-        "Machu Picchu Decoded (PBS/NOVA)",
-        "Fedérico Kauffmann Doig, El Perú Antiguo"
-      ]
+      "fuentes": ["Machu Picchu Decoded (PBS/NOVA)", "Fedérico Kauffmann Doig, El Perú Antiguo"]
     },
     {
       "id": "templo-del-sol",
@@ -111,22 +170,22 @@
         "contexto": "Del Templo del Sol se sabe poco y se intuye mucho: es el único edificio de planta circular de la ciudadela, con la mejor cantería, y por eso se le considera el edificio religioso más importante. Está orientado al amanecer del solsticio de junio, el día más corto del año en el hemisferio sur. La roca viva por la que pasa el muro es deliberada: para el mundo andino, la montaña no es soporte, es la casa del apu, y el templo se construye en torno a ella, no sobre ella.",
         "dato": "La piedra del fondo se ilumina con el sol de solsticio a través de la ventana, pero solo durante unos minutos — y para verlo hay que estar en el sitio exacto, lo que exige que los constructores hubieran medido el ángulo a ojo, sin instrumentos.",
         "conexion": [
-          { "recurso": "Machu Picchu Decoded", "donde": "la orientación astronómica del templo" },
-          { "recurso": "Turn Right at Machu Picchu", "donde": "la visita al Templo del Sol" }
+          {
+            "recurso": "Machu Picchu Decoded",
+            "donde": "la orientación astronómica del templo"
+          },
+          {
+            "recurso": "Turn Right at Machu Picchu",
+            "donde": "la visita al Templo del Sol"
+          }
         ]
       },
       "preguntas": [
         "¿Qué pasaría aquí exactamente en el solsticio de junio?",
         "¿Por qué decidieron conservar la roca viva en lugar de allanarla?"
       ],
-      "fuentes": [
-        "Machu Picchu Decoded (PBS/NOVA)",
-        "Hiram Bingham, Lost City of the Incas"
-      ],
-      "relacionadas": [
-        "muro-inca",
-        "apu"
-      ]
+      "fuentes": ["Machu Picchu Decoded (PBS/NOVA)", "Hiram Bingham, Lost City of the Incas"],
+      "relacionadas": ["muro-inca", "apu"]
     },
     {
       "id": "tres-ventanas",
@@ -153,8 +212,14 @@
         "contexto": "El Templo de las Tres Ventanas está sobre una de las plataformas principales de la ciudadela, y su muro de tres ventanas es cantería del más alto nivel. Parte de la mitología andina cuenta el origen de los incas: los primeros hermanos Ayar salieron de las tres ventanas del cerro Tampu Tocco. Durante mucho tiempo se leyó este templo como el relato en piedra de ese mito de origen. La lectura astronómica es hoy más sólida: las ventanas se alinean con el amanecer del solsticio de junio, lo que lo emparenta con la red de marcadores del calendario del sitio.",
         "dato": "El punto iluminado por el sol del solsticio entra por la ventana y cae sobre una piedra marcada del suelo — una alineación que sobrevive a más de quinientos años.",
         "conexion": [
-          { "recurso": "Machu Picchu Decoded", "donde": "la teoría del mito de origen y la alineación" },
-          { "recurso": "Turn Right at Machu Picchu", "donde": "la visita a este sector" }
+          {
+            "recurso": "Machu Picchu Decoded",
+            "donde": "la teoría del mito de origen y la alineación"
+          },
+          {
+            "recurso": "Turn Right at Machu Picchu",
+            "donde": "la visita a este sector"
+          }
         ]
       },
       "preguntas": [
@@ -192,18 +257,21 @@
         "contexto": "El cóndor es el más grande de los tres animales sagrados andinos con la serpiente y el puma, y es además un apu: el nexo entre la Tierra y el cielo. Este templo le está dedicado de la forma más literal posible: la roca del suelo tallada como cabeza y pico, las rocas laterales como alas. Es un ejemplo rarísimo de escultura inca en el que la roca natural y la talla se funden. El altar trasero y el espacio cerrado sugieren que aquí se hacían ceremonias de ofrenda, quizá con sacrificios, reservadas a unos pocos.",
         "dato": "La cara del cóndor y sus alas solo se reconocen desde un punto concreto del patio — el inca colocó la escena para que se leyera desde donde se celebraba, no desde cualquier sitio.",
         "conexion": [
-          { "recurso": "Machu Picchu Decoded", "donde": "el Templo del Cóndor y los sacrificios" },
-          { "recurso": "Lost Kingdoms of South America", "donde": "la religión y los animales sagrados andinos" }
+          {
+            "recurso": "Machu Picchu Decoded",
+            "donde": "el Templo del Cóndor y los sacrificios"
+          },
+          {
+            "recurso": "Lost Kingdoms of South America",
+            "donde": "la religión y los animales sagrados andinos"
+          }
         ]
       },
       "preguntas": [
         "¿Por qué el cóndor, y no el puma o la serpiente, tiene templo propio?",
         "¿Qué evidencias hay de que aquí se hicieran ofrendas?"
       ],
-      "fuentes": [
-        "Machu Picchu Decoded (PBS/NOVA)",
-        "Fedérico Kauffmann Doig, El Perú Antiguo"
-      ]
+      "fuentes": ["Machu Picchu Decoded (PBS/NOVA)", "Fedérico Kauffmann Doig, El Perú Antiguo"]
     },
     {
       "id": "ciudadela-machu-picchu",
@@ -231,18 +299,21 @@
         "contexto": "Machu Picchu está pensada como una ciudad completa: un sector agrícola que alimentaba a la población y un sector urbano con templos, dependencias reales y un barrio _industrial_ de talleres. El sistema de agua es la clave de todo: un manantial de la montaña alimenta una red de canales y fuentes en cascada que sigue funcionando, un alarde de ingeniería hidráulica que permitió a la ciudad sostenerse aislada en la cima. Su abandono, un siglo después de construirse, sigue sin explicarse del todo.",
         "dato": "Las dieciséis fuentes en cascada canalizan el agua del manantial que sale a 2.440 m — el manantial nunca se ha secado desde que se construyó el canal.",
         "conexion": [
-          { "recurso": "Lost Kingdoms of South America", "donde": "el abandono y el misterio de la ciudadela" },
-          { "recurso": "Turn Right at Machu Picchu", "donde": "los barrios y el agua a lo largo del recorrido" }
+          {
+            "recurso": "Lost Kingdoms of South America",
+            "donde": "el abandono y el misterio de la ciudadela"
+          },
+          {
+            "recurso": "Turn Right at Machu Picchu",
+            "donde": "los barrios y el agua a lo largo del recorrido"
+          }
         ]
       },
       "preguntas": [
         "¿Por qué se abandonó una ciudad tan bien construida tan pronto?",
         "¿Cómo resolverían ustedes el agua en un sitio aislado a 2.400 m?"
       ],
-      "fuentes": [
-        "Machu Picchu Decoded (PBS/NOVA)",
-        "Hiram Bingham, Lost City of the Incas"
-      ]
+      "fuentes": ["Machu Picchu Decoded (PBS/NOVA)", "Hiram Bingham, Lost City of the Incas"]
     }
   ]
 }
