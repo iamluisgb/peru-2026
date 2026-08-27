@@ -1,0 +1,20 @@
+{
+  "raqchi": [
+    { "titulo": "Raqchi-colcas (Almacenes)", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Raqchi-colcas_%28Almacenes%29.jpg", "url_pagina": "https://commons.wikimedia.org/wiki/File:Raqchi-colcas_(Almacenes).jpg", "licencia": "CC BY-SA 4.0", "autor": "Pierre André Leclercq", "ancho": 4312, "alto": 3228 }
+  ],
+  "machu-picchu": [
+    { "titulo": "Machu Picchu, Overlook 1", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Machu_Picchu%2C_Overlook_1.jpg", "url_pagina": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Overlook_1.jpg", "licencia": "CC BY-SA 4.0", "autor": "Steve FUNG", "ancho": 8064, "alto": 6048 },
+    { "titulo": "Machu Picchu Panoramic View", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Machu_Picchu_Panoramic_View_3840_px.jpg", "url_pagina": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_Panoramic_View_3840_px.jpg", "licencia": "CC BY-SA 4.0", "autor": "Mcclausky", "ancho": 3840, "alto": 2160 }
+  ],
+  "chinchero": [
+    { "titulo": "Chinchero Archaeological site - wall", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/1/15/Chinchero_Archaeological_site_-_wall.png", "url_pagina": "https://commons.wikimedia.org/wiki/File:Chinchero_Archaeological_site_-_wall.png", "licencia": "CC BY-SA 4.0", "autor": "Wikimedia Commons", "ancho": 1716, "alto": 1147 },
+    { "titulo": "Chinchero archaeological site", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Chinchero_archaeological_site.jpg", "url_pagina": "https://commons.wikimedia.org/wiki/File:Chinchero_archaeological_site.jpg", "licencia": "CC BY-SA 4.0", "autor": "Wikimedia Commons", "ancho": 4000, "alto": 2667 }
+  ],
+  "patapampa": [
+    { "titulo": "Apacheta sector Patapampa Colca", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/3/36/APACHETA_SECTOR_PATAPAMPA_COLCA_2022.jpg", "url_pagina": "https://commons.wikimedia.org/wiki/File:APACHETA_SECTOR_PATAPAMPA_COLCA_2022.jpg", "licencia": "CC BY-SA 4.0", "autor": "Wikimedia Commons", "ancho": 3264, "alto": 2448 }
+  ],
+  "santa-catalina": [
+    { "titulo": "Arequipa, calle Santa Catalina, 2023", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/9/95/Arequipa%2C_calle_Santa_Catalina%2C_2023_%2801%29.jpg", "url_pagina": "https://commons.wikimedia.org/wiki/File:Arequipa,_calle_Santa_Catalina,_2023_(01).jpg", "licencia": "CC BY-SA 4.0", "autor": "Draceane", "ancho": 6960, "alto": 4640 },
+    { "titulo": "Arequipa-sta-catalina-c02", "url_fichero": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Arequipa-sta-catalina-c02.jpg", "url_pagina": "https://commons.wikimedia.org/wiki/File:Arequipa-sta-catalina-c02.jpg", "licencia": "CC BY-SA 4.0", "autor": "Wikimedia Commons", "ancho": 3596, "alto": 2376 }
+  ]
+}

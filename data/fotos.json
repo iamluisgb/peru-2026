@@ -33,14 +33,6 @@
       "origen": "https://commons.wikimedia.org/wiki/File:2017_Lima_-_Escultura_El_beso_en_el_Parque_del_Amor.jpg",
       "foco": null
     },
-    "santa-catalina": {
-      "src": "./img/sitios/santa-catalina.webp",
-      "alt": "Un patio con un fuente de piedra en el centro, rodeado por muros pintados de rojo intenso, con una puerta de madera y macetas con plantas.",
-      "autor": "JosepMGracia",
-      "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:ARE_-_Courtyard_and_fountain_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg",
-      "foco": null
-    },
     "yanahuara": {
       "src": "./img/sitios/yanahuara.webp",
       "alt": "Un mirador con arcos de sillar, columnas con inscripciones grabadas, una persona junto al pretil y al fondo se divisan edificios y montañas bajo cielo azul.",
@@ -63,14 +55,6 @@
       "autor": "Poco a poco",
       "licencia": "CC BY-SA 4.0",
       "origen": "https://commons.wikimedia.org/wiki/File:Vicu%C3%B1as_(Vicugna_vicugna)_en_Reserva_Nacional_Salinas,_Arequipa,_Per%C3%BA,_2015-08-02,_DD_61.JPG",
-      "foco": null
-    },
-    "patapampa": {
-      "src": "./img/sitios/patapampa.webp",
-      "alt": "Un paisaje de puna árida con vegetación de ichu, el volcán Misti a la izquierda y la cadena montañosa de Hualca Hualca y Sabancaya a la derecha bajo un cielo azul.",
-      "autor": "Max nr 323",
-      "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Salinas_and_Aguada_Blanca_Misti_Chachani.jpg",
       "foco": null
     },
     "cruz-del-condor": {
@@ -161,14 +145,6 @@
       "origen": "https://commons.wikimedia.org/wiki/File:Catedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_57.JPG",
       "foco": null
     },
-    "chinchero": {
-      "src": "./img/sitios/chinchero.webp",
-      "alt": "La plaza empedrada de Chinchero con el muro de piedra inca visible a la izquierda y la base del templo blanco a la derecha, donde se exhiben textiles.",
-      "autor": "Draceane",
-      "licencia": "CC BY-SA 4.0",
-      "origen": "https://commons.wikimedia.org/wiki/File:Chinchero%2C_2023%2C_%2809%29.jpg",
-      "foco": null
-    },
     "ollantaytambo": {
       "src": "./img/sitios/ollantaytambo.webp",
       "alt": "Un primer plano de un gran bloque de piedra tallado con forma de canal o U, ubicado en una pendiente junto a una cuerda de seguridad, con personas observándolo y estructuras incas al fondo.",
@@ -183,14 +159,6 @@
       "autor": "Kabelleger",
       "licencia": "CC BY-SA 4.0",
       "origen": "https://commons.wikimedia.org/wiki/File:PeruRail_ALCo_DL535B_Poroy_-_Ollantaytambo.jpg",
-      "foco": null
-    },
-    "machu-picchu": {
-      "src": "./img/sitios/machu-picchu.webp",
-      "alt": "Se aprecia una vista elevada sobre las ruinas de piedra con una estructura circular a la izquierda, edificios rectangulares en el centro y terrazas verdes a la derecha con el río al fondo.",
-      "autor": "Nigel Rogers",
-      "licencia": "CC BY 2.0",
-      "origen": "https://commons.wikimedia.org/wiki/File/Machu_Picchu_37_-_Temple_of_the_Sun.jpg",
       "foco": null
     },
     "intihuatana": {
@@ -255,6 +223,46 @@
       "autor": "Colegota",
       "licencia": "CC BY-SA 2.5 es",
       "origen": "https://commons.wikimedia.org/wiki/File:Machu-picchu-c02.jpg",
+      "foco": null
+    },
+    "raqchi": {
+      "src": "./img/sitios/raqchi.webp",
+      "alt": "Estructuras de piedra circular y semicircular a nivel del suelo, con muros rectangulares adyacentes y un camino de tierra.",
+      "autor": "Ingrid_YQ",
+      "licencia": "CC BY-SA 4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Qolqas_au_Temple_de_Wiracocha_de_Raqchi.jpg",
+      "foco": null
+    },
+    "machu-picchu": {
+      "src": "./img/sitios/machu-picchu.webp",
+      "alt": "Se observa la ciudadela de Machu Picchu con sus estructuras y terrazas, con el pico de Huayna Picchu dominando el fondo.",
+      "autor": "Steve FUNG",
+      "licencia": "CC BY-SA 4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Overlook_1.jpg",
+      "foco": null
+    },
+    "chinchero": {
+      "src": "./img/sitios/chinchero.webp",
+      "alt": "Un muro de piedra inca de grandes bloques irregulares que sirve de base para un edificio blanco de techo rojo al fondo, con un prado verde a la izquierda.",
+      "autor": "Wikimedia Commons",
+      "licencia": "CC BY-SA 4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Chinchero_Archaeological_site_-_wall.png",
+      "foco": null
+    },
+    "patapampa": {
+      "src": "./img/sitios/patapampa.webp",
+      "alt": "Un paisaje árido de alta montaña con vegetación baja, un volcán de cono cónico a la izquierda y una cadena montañosa nevada a la derecha bajo un cielo azul con nubes.",
+      "autor": "Max nr 323",
+      "licencia": "CC BY-SA 4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Salinas_and_Aguada_Blanca_Misti_Chachani.jpg",
+      "foco": null
+    },
+    "santa-catalina": {
+      "src": "./img/sitios/santa-catalina.webp",
+      "alt": "Un patio interior con muros de ladrillo rojo intenso y una fuente de piedra con agua en el centro.",
+      "autor": "JosepMGracia",
+      "licencia": "CC BY-SA 4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:ARE_-_Courtyard_and_fountain_in_Santa_Catalina_Monastery%2C_Arequipa%2C_Peru%2C_2013.jpg",
       "foco": null
     }
   }

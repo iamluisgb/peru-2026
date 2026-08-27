@@ -27,6 +27,20 @@ const FOCO = {
 };
 
 
+// Foto preferida cuando hay varias confirmadas. Sin esto se coge la primera que pasó la
+// revisión, que es la más antigua — y la segunda lectura (REVISION-FOTOS.md) encontró que en
+// estas tres la vieja es del sitio correcto pero NO enseña lo que el artículo manda mirar.
+// Es una elección explícita y auditable, no un orden accidental.
+const PREFERIDA = {
+  // El artículo pide la vista desde la Casa del Guardián, con los barrios y las terrazas.
+  'machu-picchu': 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Machu_Picchu%2C_Overlook_1.jpg',
+  // Pide el muro inca con hornacinas, no la plaza.
+  'chinchero': 'https://upload.wikimedia.org/wikipedia/commons/1/15/Chinchero_Archaeological_site_-_wall.png',
+  // raqchi no lleva preferencia: la candidata que encontró el agente (Qolqas au Temple de
+  // Wiracocha) sí pasa la revisión, y sus dos fallos anteriores eran 429 de Wikimedia, no
+  // fotos malas. Tres veces la dimos por perdida por un error de red.
+};
+
 const rehacer = process.argv.includes('--rehacer');
 const dormir = ms => new Promise(r => setTimeout(r, ms));
 mkdirSync('img/sitios', { recursive: true });
@@ -40,8 +54,12 @@ const veredictos = JSON.parse(readFileSync(RUTA_VEREDICTOS, 'utf8')).veredictos;
 const elegidas = new Map();
 for (const v of veredictos) {
   if (v.veredicto !== 'SI' || v.util !== 'SI') continue;
+  const url = v.url_fichero || v.url;
+  if (PREFERIDA[v.id]) { if (PREFERIDA[v.id] === url) elegidas.set(v.id, v); continue; }
   if (!elegidas.has(v.id)) elegidas.set(v.id, v);
 }
+for (const id of Object.keys(PREFERIDA))
+  if (!elegidas.has(id)) console.warn(`AVISO: la preferida de ${id} no pasó la revisión visual`);
 
 const salida = {};
 const fallos = [];

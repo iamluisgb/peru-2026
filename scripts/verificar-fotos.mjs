@@ -32,7 +32,7 @@ for (const f of ['lima', 'arequipa', 'colca', 'titicaca', 'trayectos', 'cusco', 
     if (x.tipo !== 'transversal') fichas[x.id] = x;
 
 const candidatas = [];
-for (const lote of ['lote-costa-sur', 'lote-andes', 'lote-faltantes']) {
+for (const lote of ['lote-costa-sur', 'lote-andes', 'lote-faltantes', 'lote-mejoras']) {
   const ruta = `data/fotos/${lote}.json`;
   if (!existsSync(ruta)) continue;
   const j = JSON.parse(readFileSync(ruta, 'utf8'));
@@ -121,9 +121,22 @@ for (const [n, c] of trabajo.entries()) {
 // verdad, con un agente corriendo `--solo san-blas` mientras otro proceso leía el fichero.
 const ANTES = 'data/fotos/veredictos.json';
 const previos = existsSync(ANTES) ? JSON.parse(readFileSync(ANTES, 'utf8')).veredictos || [] : [];
-const clavePropia = x => `${x.id}#${x.i}`;
-const nuevos = new Set(salida.map(clavePropia));
-const fusion = [...previos.filter(x => !nuevos.has(clavePropia(x))), ...salida];
+// La clave es la URL, no `${id}#${i}`: los índices se reinician en cada lote, así que
+// `raqchi #0` existe en dos ficheros distintos y un veredicto pisaba al otro. La URL es lo
+// único que identifica una candidata sin ambigüedad.
+const clavePropia = x => x.url_fichero || x.url || `${x.id}#${x.i}`;
+// Un veredicto NUEVO sólo sustituye al viejo si es concluyente. Una respuesta vacía o una
+// descarga fallida son fallos del momento —el modelo devuelve vacío de vez en cuando, y
+// Wikimedia corta con 429—, y dejar que degraden una revisión válida hizo perder la foto de
+// santa-catalina, que ya estaba confirmada.
+const concluyente = x => x.veredicto === 'SI' || x.veredicto === 'NO' || x.veredicto === 'DUDOSO';
+const porClave = new Map(previos.map(x => [clavePropia(x), x]));
+for (const x of salida) {
+  const antes = porClave.get(clavePropia(x));
+  if (!concluyente(x) && antes && concluyente(antes)) continue;
+  porClave.set(clavePropia(x), x);
+}
+const fusion = [...porClave.values()];
 
 // Con un modelo alternativo se escribe a un fichero aparte: mezclar veredictos de dos
 // revisores en el mismo sitio haría imposible saber quién dijo qué.
