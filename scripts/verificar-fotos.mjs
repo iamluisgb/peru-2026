@@ -13,7 +13,12 @@ import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-const MODELO = 'qwen3.6';               // el único de nan con visión real (probado)
+// Modelo revisor. Por defecto qwen3.6, que describe con más finura —distingue cantería inca
+// de un muro cualquiera—. `--modelo mimo-v2.5` sirve para una SEGUNDA lectura independiente:
+// mimo también ve, pero describe más grueso ("bloques grises de piedra o hormigón"), así que
+// vale como contraste, no como sustituto. Lo interesante son los desacuerdos.
+const im = process.argv.indexOf('--modelo');
+const MODELO = im > -1 ? process.argv[im + 1] : 'qwen3.6';
 const UA = 'peru-2026/1.0 (guia de viaje personal; https://github.com/iamluisgb/peru-2026)';
 const ESPERA = 1600;                     // ms entre descargas: Wikimedia corta a 429 sin esto
 
@@ -120,7 +125,12 @@ const clavePropia = x => `${x.id}#${x.i}`;
 const nuevos = new Set(salida.map(clavePropia));
 const fusion = [...previos.filter(x => !nuevos.has(clavePropia(x))), ...salida];
 
-writeFileSync(ANTES, JSON.stringify({
+// Con un modelo alternativo se escribe a un fichero aparte: mezclar veredictos de dos
+// revisores en el mismo sitio haría imposible saber quién dijo qué.
+const DESTINO = MODELO === 'qwen3.6' ? ANTES : `data/fotos/veredictos-${MODELO}.json`;
+
+writeFileSync(DESTINO, JSON.stringify({
+  modelo: MODELO,
   _nota: `Revisión visual con ${MODELO}. Cada foto se descargó, se redujo a 512 px y se miró.`,
   fecha: new Date().toISOString().slice(0, 10),
   veredictos: fusion,
